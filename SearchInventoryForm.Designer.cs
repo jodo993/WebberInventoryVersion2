@@ -53,21 +53,25 @@
             this.updateTag2TextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.removeTagLabel = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
             this.clearRemoveButton = new System.Windows.Forms.Button();
             this.removeTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.verifyRemoveGroupBox = new System.Windows.Forms.GroupBox();
             this.removeCheckLabel = new System.Windows.Forms.Label();
             this.yesRemoveButton = new System.Windows.Forms.Button();
             this.noRemoveButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.mainMenuButton = new System.Windows.Forms.Button();
+            this.showAllButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.searchGroupBox.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.removeGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.verifyRemoveGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +83,7 @@
             this.searchGroupBox.Controls.Add(this.searchTextBox);
             this.searchGroupBox.Location = new System.Drawing.Point(21, 38);
             this.searchGroupBox.Name = "searchGroupBox";
-            this.searchGroupBox.Size = new System.Drawing.Size(150, 100);
+            this.searchGroupBox.Size = new System.Drawing.Size(200, 100);
             this.searchGroupBox.TabIndex = 0;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Search";
@@ -88,9 +92,9 @@
             // 
             this.updateGroupBox.Controls.Add(this.groupBox2);
             this.updateGroupBox.Controls.Add(this.groupBox1);
-            this.updateGroupBox.Location = new System.Drawing.Point(186, 38);
+            this.updateGroupBox.Location = new System.Drawing.Point(249, 38);
             this.updateGroupBox.Name = "updateGroupBox";
-            this.updateGroupBox.Size = new System.Drawing.Size(439, 206);
+            this.updateGroupBox.Size = new System.Drawing.Size(516, 206);
             this.updateGroupBox.TabIndex = 1;
             this.updateGroupBox.TabStop = false;
             this.updateGroupBox.Text = "Update";
@@ -99,18 +103,19 @@
             // 
             this.removeGroupBox.Controls.Add(this.clearRemoveButton);
             this.removeGroupBox.Controls.Add(this.removeButton);
+            this.removeGroupBox.Controls.Add(this.verifyRemoveGroupBox);
             this.removeGroupBox.Controls.Add(this.removeTextBox);
-            this.removeGroupBox.Controls.Add(this.label8);
+            this.removeGroupBox.Controls.Add(this.removeTagLabel);
             this.removeGroupBox.Location = new System.Drawing.Point(21, 144);
             this.removeGroupBox.Name = "removeGroupBox";
-            this.removeGroupBox.Size = new System.Drawing.Size(150, 100);
+            this.removeGroupBox.Size = new System.Drawing.Size(200, 100);
             this.removeGroupBox.TabIndex = 1;
             this.removeGroupBox.TabStop = false;
             this.removeGroupBox.Text = "Remove";
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(26, 42);
+            this.searchTextBox.Location = new System.Drawing.Point(26, 57);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchTextBox.TabIndex = 2;
@@ -118,7 +123,7 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(26, 16);
+            this.label1.Location = new System.Drawing.Point(26, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 3;
@@ -127,7 +132,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(26, 68);
+            this.searchButton.Location = new System.Drawing.Point(132, 55);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(51, 22);
             this.searchButton.TabIndex = 4;
@@ -137,7 +142,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(75, 68);
+            this.clearButton.Location = new System.Drawing.Point(132, 31);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(51, 22);
             this.clearButton.TabIndex = 5;
@@ -165,7 +170,7 @@
             this.groupBox1.Controls.Add(this.updateTagTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(15, 31);
+            this.groupBox1.Location = new System.Drawing.Point(32, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(203, 157);
             this.groupBox1.TabIndex = 0;
@@ -182,7 +187,7 @@
             this.groupBox2.Controls.Add(this.updateStatusComboBox);
             this.groupBox2.Controls.Add(this.statusCheckLabel);
             this.groupBox2.Controls.Add(this.updateStatusButton);
-            this.groupBox2.Location = new System.Drawing.Point(225, 31);
+            this.groupBox2.Location = new System.Drawing.Point(260, 31);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 157);
             this.groupBox2.TabIndex = 1;
@@ -329,34 +334,11 @@
             // 
             this.updateStatusComboBox.FormattingEnabled = true;
             this.updateStatusComboBox.Items.AddRange(new object[] {
-            "Office",
-            "District",
-            "MPR",
-            "A1",
-            "A2",
-            "A3",
-            "A4",
-            "B1",
-            "B2",
-            "B3",
-            "B4",
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "E1",
-            "E2",
-            "E3",
-            "E4",
-            "F1",
-            "F2",
-            "F3",
-            "F4",
-            "Other"});
+            "Active",
+            "Inactive",
+            "Repair",
+            "Surplus",
+            "Unknown"});
             this.updateStatusComboBox.Location = new System.Drawing.Point(104, 38);
             this.updateStatusComboBox.Name = "updateStatusComboBox";
             this.updateStatusComboBox.Size = new System.Drawing.Size(90, 21);
@@ -374,9 +356,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(101, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "New Location";
+            this.label6.Text = "New Status";
             // 
             // label7
             // 
@@ -387,20 +369,20 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Tag Number";
             // 
-            // label8
+            // removeTagLabel
             // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Location = new System.Drawing.Point(26, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 23);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "WSD Tag Number";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.removeTagLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.removeTagLabel.Location = new System.Drawing.Point(26, 26);
+            this.removeTagLabel.Name = "removeTagLabel";
+            this.removeTagLabel.Size = new System.Drawing.Size(100, 23);
+            this.removeTagLabel.TabIndex = 6;
+            this.removeTagLabel.Text = "WSD Tag Number";
+            this.removeTagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // removeButton
             // 
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.Location = new System.Drawing.Point(26, 70);
+            this.removeButton.Location = new System.Drawing.Point(132, 51);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(51, 23);
             this.removeButton.TabIndex = 7;
@@ -411,7 +393,7 @@
             // clearRemoveButton
             // 
             this.clearRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearRemoveButton.Location = new System.Drawing.Point(75, 70);
+            this.clearRemoveButton.Location = new System.Drawing.Point(132, 26);
             this.clearRemoveButton.Name = "clearRemoveButton";
             this.clearRemoveButton.Size = new System.Drawing.Size(51, 23);
             this.clearRemoveButton.TabIndex = 8;
@@ -421,27 +403,27 @@
             // 
             // removeTextBox
             // 
-            this.removeTextBox.Location = new System.Drawing.Point(26, 44);
+            this.removeTextBox.Location = new System.Drawing.Point(26, 54);
             this.removeTextBox.Name = "removeTextBox";
             this.removeTextBox.Size = new System.Drawing.Size(100, 20);
             this.removeTextBox.TabIndex = 7;
             // 
-            // groupBox3
+            // verifyRemoveGroupBox
             // 
-            this.groupBox3.Controls.Add(this.noRemoveButton);
-            this.groupBox3.Controls.Add(this.removeCheckLabel);
-            this.groupBox3.Controls.Add(this.yesRemoveButton);
-            this.groupBox3.Location = new System.Drawing.Point(21, 250);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(150, 100);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Verification";
-            this.groupBox3.Visible = false;
+            this.verifyRemoveGroupBox.Controls.Add(this.noRemoveButton);
+            this.verifyRemoveGroupBox.Controls.Add(this.removeCheckLabel);
+            this.verifyRemoveGroupBox.Controls.Add(this.yesRemoveButton);
+            this.verifyRemoveGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.verifyRemoveGroupBox.Name = "verifyRemoveGroupBox";
+            this.verifyRemoveGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.verifyRemoveGroupBox.TabIndex = 2;
+            this.verifyRemoveGroupBox.TabStop = false;
+            this.verifyRemoveGroupBox.Text = "Verification";
+            this.verifyRemoveGroupBox.Visible = false;
             // 
             // removeCheckLabel
             // 
-            this.removeCheckLabel.Location = new System.Drawing.Point(6, 16);
+            this.removeCheckLabel.Location = new System.Drawing.Point(33, 16);
             this.removeCheckLabel.Name = "removeCheckLabel";
             this.removeCheckLabel.Size = new System.Drawing.Size(138, 45);
             this.removeCheckLabel.TabIndex = 0;
@@ -451,7 +433,7 @@
             // 
             // yesRemoveButton
             // 
-            this.yesRemoveButton.Location = new System.Drawing.Point(26, 64);
+            this.yesRemoveButton.Location = new System.Drawing.Point(36, 64);
             this.yesRemoveButton.Name = "yesRemoveButton";
             this.yesRemoveButton.Size = new System.Drawing.Size(51, 23);
             this.yesRemoveButton.TabIndex = 1;
@@ -462,7 +444,7 @@
             // 
             // noRemoveButton
             // 
-            this.noRemoveButton.Location = new System.Drawing.Point(75, 64);
+            this.noRemoveButton.Location = new System.Drawing.Point(107, 64);
             this.noRemoveButton.Name = "noRemoveButton";
             this.noRemoveButton.Size = new System.Drawing.Size(51, 23);
             this.noRemoveButton.TabIndex = 3;
@@ -476,19 +458,62 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(267, 314);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 250);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(744, 185);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(690, 441);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // mainMenuButton
+            // 
+            this.mainMenuButton.Location = new System.Drawing.Point(610, 441);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
+            this.mainMenuButton.TabIndex = 5;
+            this.mainMenuButton.Text = "Main Menu";
+            this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            // 
+            // showAllButton
+            // 
+            this.showAllButton.Location = new System.Drawing.Point(431, 441);
+            this.showAllButton.Name = "showAllButton";
+            this.showAllButton.Size = new System.Drawing.Size(95, 23);
+            this.showAllButton.TabIndex = 6;
+            this.showAllButton.Text = "Show All Data";
+            this.showAllButton.UseVisualStyleBackColor = true;
+            this.showAllButton.Click += new System.EventHandler(this.showAllButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(531, 441);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(74, 23);
+            this.refreshButton.TabIndex = 7;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // SearchInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 476);
+            this.ClientSize = new System.Drawing.Size(785, 476);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.showAllButton);
+            this.Controls.Add(this.mainMenuButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.updateGroupBox);
             this.Controls.Add(this.removeGroupBox);
             this.Controls.Add(this.searchGroupBox);
@@ -503,7 +528,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.verifyRemoveGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -539,11 +564,15 @@
         private System.Windows.Forms.Button clearRemoveButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.TextBox removeTextBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label removeTagLabel;
+        private System.Windows.Forms.GroupBox verifyRemoveGroupBox;
         private System.Windows.Forms.Button noRemoveButton;
         private System.Windows.Forms.Label removeCheckLabel;
         private System.Windows.Forms.Button yesRemoveButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button mainMenuButton;
+        private System.Windows.Forms.Button showAllButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }
