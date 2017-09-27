@@ -28,61 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.chromebookButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
+            this.chromebookButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 52);
+            this.label1.Location = new System.Drawing.Point(72, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please Select an Option";
             // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(74, 112);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(126, 23);
-            this.addButton.TabIndex = 1;
-            this.addButton.Text = "Add Inventory";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(74, 141);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(126, 35);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.Text = "Search/Update Inventory";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // chromebookButton
-            // 
-            this.chromebookButton.Location = new System.Drawing.Point(74, 83);
-            this.chromebookButton.Name = "chromebookButton";
-            this.chromebookButton.Size = new System.Drawing.Size(126, 23);
-            this.chromebookButton.TabIndex = 3;
-            this.chromebookButton.Text = "Manage Chromebook";
-            this.chromebookButton.UseVisualStyleBackColor = true;
-            this.chromebookButton.Click += new System.EventHandler(this.chromebookButton_Click);
-            // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(74, 182);
+            this.quitButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.quitIcon;
+            this.quitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.quitButton.Location = new System.Drawing.Point(40, 206);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(126, 23);
+            this.quitButton.Size = new System.Drawing.Size(185, 41);
             this.quitButton.TabIndex = 4;
             this.quitButton.Text = "Log Out and Quit";
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
+            // chromebookButton
+            // 
+            this.chromebookButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.chromebook1;
+            this.chromebookButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chromebookButton.Location = new System.Drawing.Point(40, 65);
+            this.chromebookButton.Name = "chromebookButton";
+            this.chromebookButton.Size = new System.Drawing.Size(185, 41);
+            this.chromebookButton.TabIndex = 3;
+            this.chromebookButton.Text = "Manage Chromebook";
+            this.chromebookButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chromebookButton.UseVisualStyleBackColor = true;
+            this.chromebookButton.Click += new System.EventHandler(this.chromebookButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.searchAndUpdateIcon;
+            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchButton.Location = new System.Drawing.Point(40, 159);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(185, 41);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "Search/Update Inventory";
+            this.searchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(40, 112);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(185, 41);
+            this.addButton.TabIndex = 1;
+            this.addButton.Text = "Add Inventory";
+            this.addButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // MainMenuForm
             // 
