@@ -14,7 +14,7 @@ namespace Webber_Inventory_Search_2017_2018
     public partial class AddInventoryForm : Form
     {
         // Open connection to database
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\josep\Documents\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
         public AddInventoryForm()
         {
             InitializeComponent();
@@ -75,6 +75,16 @@ namespace Webber_Inventory_Search_2017_2018
             addTypeTextBox.Text = "Accessories";
         }
 
+        private void otherButton_Click(object sender, EventArgs e)
+        {
+            addTypeTextBox.Text = "Other";
+        }
+
+        private void addWebberButton_Click(object sender, EventArgs e)
+        {
+            addTypeTextBox.Text = "Webber";
+        }
+
         private void addActiveButton_Click(object sender, EventArgs e)
         {
             addStatusTextBox.Text = "Active";
@@ -102,38 +112,71 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            // Check to see if any slots are blank
-            if (addTypeTextBox.Text != "" && addMakeTextBox.Text != "" && addModelTextBox.Text != "" && addTagTextBox.Text != "" && addLocationComboBox.Text != "" &&
-                addStatusTextBox.Text != "")
+            try
             {
-                // Check to see if type matches with one that is required
-                if(addTypeTextBox.Text == "Desktop" || addTypeTextBox.Text == "Laptop" || addTypeTextBox.Text == "Monitor" || addTypeTextBox.Text == "Printer" ||
-                addTypeTextBox.Text == "Smartboard" || addTypeTextBox.Text == "Projector" || addTypeTextBox.Text == "Tablet" || addTypeTextBox.Text == "Accessories")
+                // Check to see if any slots are blank
+                if (addTypeTextBox.Text != "" && addMakeTextBox.Text != "" && addModelTextBox.Text != "" && addTagTextBox.Text != "" && addLocationComboBox.Text != "" &&
+                    addStatusTextBox.Text != "")
                 {
-                    // Hide wrong label
-                    typeWrongLabel.Visible = false;
-
-                    if (addStatusTextBox.Text == "Active" || addStatusTextBox.Text == "Inactive" || addStatusTextBox.Text == "Repair" || addStatusTextBox.Text == "Surplus" ||
-                        addStatusTextBox.Text == "Unknown")
+                    // Check to see if type matches with one that is required
+                    if (addTypeTextBox.Text == "Desktop" || addTypeTextBox.Text == "Laptop" || addTypeTextBox.Text == "Monitor" || addTypeTextBox.Text == "Printer" ||
+                    addTypeTextBox.Text == "Smartboard" || addTypeTextBox.Text == "Projector" || addTypeTextBox.Text == "Tablet" || addTypeTextBox.Text == "Accessories" || 
+                    addTypeTextBox.Text == "Alternative" || addTypeTextBox.Text == "Webber")
                     {
-                        // Verify user choice
-                        addVerifyLabel.Visible = true;
-                        yesButton.Visible = true;
-                        noButton.Visible = true;
+                        // Hide wrong label
+                        typeWrongLabel.Visible = false;
+
+                        if (addStatusTextBox.Text == "Active" || addStatusTextBox.Text == "Inactive" || addStatusTextBox.Text == "Repair" || addStatusTextBox.Text == "Surplus" ||
+                            addStatusTextBox.Text == "Unknown")
+                        {
+                            if (verificationCheckBox.Checked)
+                            {
+                                // Write the information into the database
+                                connection.Open();
+                                SqlCommand command = connection.CreateCommand();
+                                command.CommandType = CommandType.Text;
+                                command.CommandText = "insert into InventoryTable values('" + addTypeTextBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusTextBox.Text + "', '" + DateTime.Now + "')";
+                                command.ExecuteNonQuery();
+                                connection.Close();
+
+                                MessageBox.Show("Item was successfully added!");
+
+                                // Clear some fields
+                                addMakeTextBox.Text = "";
+                                addModelTextBox.Text = "";
+                                addTagTextBox.Text = "";
+                            }
+                            else
+                            {
+                                // Verify user choice
+                                addVerifyLabel.Visible = true;
+                                yesButton.Visible = true;
+                                noButton.Visible = true;
+
+                                // Hide label and buttons and notify user add was successful
+                                addVerifyLabel.Visible = false;
+                                yesButton.Visible = false;
+                                noButton.Visible = false;
+                            }   
+                        }
+                        else
+                        {
+                            statusWrongLabel.Visible = true;
+                        }
                     }
                     else
                     {
-                        statusWrongLabel.Visible = true;
+                        typeWrongLabel.Visible = true;
                     }
                 }
                 else
                 {
-                    typeWrongLabel.Visible = true;
+                    MessageBox.Show("Please fill in slots first.");
                 }
-             }
-            else
+            }
+            catch (Exception)
             {
-                MessageBox.Show("Please fill in slots first.");
+                MessageBox.Show("Please check for duplicates or errors.");
             }
         }
 
@@ -157,10 +200,10 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void noButton_Click(object sender, EventArgs e)
         {
-            // Hide label and buttons and notify user add failed
-            addVerifyLabel.Visible = false;
-            yesButton.Visible = false;
-            noButton.Visible = false;
+            //// Hide label and buttons and notify user add failed
+            //addVerifyLabel.Visible = false;
+            //yesButton.Visible = false;
+            //noButton.Visible = false;
         }
 
         private void addClearButton_Click(object sender, EventArgs e)

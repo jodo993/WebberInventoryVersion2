@@ -86,7 +86,7 @@
             this.usernameTextBox.Location = new System.Drawing.Point(123, 91);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameTextBox.TabIndex = 4;
+            this.usernameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -94,14 +94,14 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 5;
+            this.passwordTextBox.TabIndex = 2;
             // 
             // signButton
             // 
             this.signButton.Location = new System.Drawing.Point(24, 152);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
-            this.signButton.TabIndex = 6;
+            this.signButton.TabIndex = 3;
             this.signButton.Text = "Sign In";
             this.signButton.UseVisualStyleBackColor = true;
             this.signButton.Click += new System.EventHandler(this.signButton_Click);
@@ -111,7 +111,7 @@
             this.clearButton.Location = new System.Drawing.Point(92, 152);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
-            this.clearButton.TabIndex = 7;
+            this.clearButton.TabIndex = 4;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -121,7 +121,7 @@
             this.exitButton.Location = new System.Drawing.Point(160, 152);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(62, 23);
-            this.exitButton.TabIndex = 8;
+            this.exitButton.TabIndex = 5;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);

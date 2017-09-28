@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.label1 = new System.Windows.Forms.Label();
             this.quitButton = new System.Windows.Forms.Button();
             this.chromebookButton = new System.Windows.Forms.Button();
@@ -39,11 +38,14 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 45);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(46, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(179, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please Select an Option";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // quitButton
             // 
@@ -54,6 +56,7 @@
             this.quitButton.Size = new System.Drawing.Size(185, 41);
             this.quitButton.TabIndex = 4;
             this.quitButton.Text = "Log Out and Quit";
+            this.quitButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
@@ -64,7 +67,7 @@
             this.chromebookButton.Location = new System.Drawing.Point(40, 65);
             this.chromebookButton.Name = "chromebookButton";
             this.chromebookButton.Size = new System.Drawing.Size(185, 41);
-            this.chromebookButton.TabIndex = 3;
+            this.chromebookButton.TabIndex = 1;
             this.chromebookButton.Text = "Manage Chromebook";
             this.chromebookButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chromebookButton.UseVisualStyleBackColor = true;
@@ -77,7 +80,7 @@
             this.searchButton.Location = new System.Drawing.Point(40, 159);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(185, 41);
-            this.searchButton.TabIndex = 2;
+            this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search/Update Inventory";
             this.searchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.searchButton.UseVisualStyleBackColor = true;
@@ -85,12 +88,12 @@
             // 
             // addButton
             // 
-            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.addicon;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addButton.Location = new System.Drawing.Point(40, 112);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(185, 41);
-            this.addButton.TabIndex = 1;
+            this.addButton.TabIndex = 2;
             this.addButton.Text = "Add Inventory";
             this.addButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.addButton.UseVisualStyleBackColor = true;
@@ -100,7 +103,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 271);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(267, 271);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.chromebookButton);
             this.Controls.Add(this.searchButton);

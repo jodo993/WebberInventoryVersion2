@@ -55,12 +55,12 @@
             this.removeGroupBox = new System.Windows.Forms.GroupBox();
             this.clearRemoveButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.removeTextBox = new System.Windows.Forms.TextBox();
+            this.removeTagLabel = new System.Windows.Forms.Label();
             this.verifyRemoveGroupBox = new System.Windows.Forms.GroupBox();
             this.noRemoveButton = new System.Windows.Forms.Button();
             this.removeCheckLabel = new System.Windows.Forms.Label();
             this.yesRemoveButton = new System.Windows.Forms.Button();
-            this.removeTextBox = new System.Windows.Forms.TextBox();
-            this.removeTagLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.exitButton = new System.Windows.Forms.Button();
             this.mainMenuButton = new System.Windows.Forms.Button();
@@ -69,6 +69,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.categorySearchComboBox = new System.Windows.Forms.ComboBox();
             this.findButton = new System.Windows.Forms.Button();
+            this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.searchGroupBox.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -393,6 +394,23 @@
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // removeTextBox
+            // 
+            this.removeTextBox.Location = new System.Drawing.Point(26, 54);
+            this.removeTextBox.Name = "removeTextBox";
+            this.removeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.removeTextBox.TabIndex = 7;
+            // 
+            // removeTagLabel
+            // 
+            this.removeTagLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.removeTagLabel.Location = new System.Drawing.Point(26, 26);
+            this.removeTagLabel.Name = "removeTagLabel";
+            this.removeTagLabel.Size = new System.Drawing.Size(100, 23);
+            this.removeTagLabel.TabIndex = 6;
+            this.removeTagLabel.Text = "WSD Tag Number";
+            this.removeTagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // verifyRemoveGroupBox
             // 
             this.verifyRemoveGroupBox.Controls.Add(this.noRemoveButton);
@@ -437,23 +455,6 @@
             this.yesRemoveButton.UseVisualStyleBackColor = true;
             this.yesRemoveButton.Visible = false;
             this.yesRemoveButton.Click += new System.EventHandler(this.yesRemoveButton_Click);
-            // 
-            // removeTextBox
-            // 
-            this.removeTextBox.Location = new System.Drawing.Point(26, 54);
-            this.removeTextBox.Name = "removeTextBox";
-            this.removeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.removeTextBox.TabIndex = 7;
-            // 
-            // removeTagLabel
-            // 
-            this.removeTagLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.removeTagLabel.Location = new System.Drawing.Point(26, 26);
-            this.removeTagLabel.Name = "removeTagLabel";
-            this.removeTagLabel.Size = new System.Drawing.Size(100, 23);
-            this.removeTagLabel.TabIndex = 6;
-            this.removeTagLabel.Text = "WSD Tag Number";
-            this.removeTagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
@@ -527,6 +528,8 @@
             "Projector",
             "Tablet",
             "Accessories",
+            "Webber",
+            "Other",
             "Active",
             "Inactive",
             "Repair",
@@ -559,7 +562,7 @@
             "F2",
             "F3",
             "F4",
-            "Other"});
+            "Alternative"});
             this.categorySearchComboBox.Location = new System.Drawing.Point(533, 265);
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(154, 21);
@@ -577,11 +580,23 @@
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
+            // verificationCheckBox
+            // 
+            this.verificationCheckBox.AutoSize = true;
+            this.verificationCheckBox.Location = new System.Drawing.Point(21, 269);
+            this.verificationCheckBox.Name = "verificationCheckBox";
+            this.verificationCheckBox.Size = new System.Drawing.Size(118, 17);
+            this.verificationCheckBox.TabIndex = 12;
+            this.verificationCheckBox.Text = "Turn off Verification";
+            this.verificationCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SearchInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(785, 517);
+            this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.categorySearchComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.findButton);
@@ -655,5 +670,6 @@
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox categorySearchComboBox;
+        private System.Windows.Forms.CheckBox verificationCheckBox;
     }
 }
