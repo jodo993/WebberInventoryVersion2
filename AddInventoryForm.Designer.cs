@@ -60,7 +60,7 @@
             this.addRepairButton = new System.Windows.Forms.Button();
             this.addSurplusButton = new System.Windows.Forms.Button();
             this.addUnknownButton = new System.Windows.Forms.Button();
-            this.otherButton = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
             this.noButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,8 +71,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.addWebberButton = new System.Windows.Forms.Button();
-            this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -378,15 +376,15 @@
             this.addUnknownButton.UseVisualStyleBackColor = true;
             this.addUnknownButton.Click += new System.EventHandler(this.addUnknownButton_Click);
             // 
-            // otherButton
+            // button18
             // 
-            this.otherButton.Location = new System.Drawing.Point(104, 174);
-            this.otherButton.Name = "otherButton";
-            this.otherButton.Size = new System.Drawing.Size(75, 23);
-            this.otherButton.TabIndex = 33;
-            this.otherButton.Text = "Other";
-            this.otherButton.UseVisualStyleBackColor = true;
-            this.otherButton.Click += new System.EventHandler(this.otherButton_Click);
+            this.button18.Location = new System.Drawing.Point(23, 174);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(156, 23);
+            this.button18.TabIndex = 33;
+            this.button18.Text = "button18";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Visible = false;
             // 
             // yesButton
             // 
@@ -463,7 +461,7 @@
             "F2",
             "F3",
             "F4",
-            "Alternative"});
+            "Other"});
             this.addLocationComboBox.Location = new System.Drawing.Point(80, 201);
             this.addLocationComboBox.Name = "addLocationComboBox";
             this.addLocationComboBox.Size = new System.Drawing.Size(100, 21);
@@ -493,13 +491,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.addWebberButton);
             this.groupBox2.Controls.Add(this.addSmartboardButton);
             this.groupBox2.Controls.Add(this.addDesktopButton);
             this.groupBox2.Controls.Add(this.addLaptopButton);
             this.groupBox2.Controls.Add(this.addMonitorButton);
             this.groupBox2.Controls.Add(this.addPrinterButton);
-            this.groupBox2.Controls.Add(this.otherButton);
+            this.groupBox2.Controls.Add(this.button18);
             this.groupBox2.Controls.Add(this.addProjectorButton);
             this.groupBox2.Controls.Add(this.addTabletButton);
             this.groupBox2.Controls.Add(this.addAccessoriesButton);
@@ -554,33 +551,12 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Here";
             // 
-            // addWebberButton
-            // 
-            this.addWebberButton.Location = new System.Drawing.Point(23, 174);
-            this.addWebberButton.Name = "addWebberButton";
-            this.addWebberButton.Size = new System.Drawing.Size(75, 23);
-            this.addWebberButton.TabIndex = 34;
-            this.addWebberButton.Text = "Webber";
-            this.addWebberButton.UseVisualStyleBackColor = true;
-            this.addWebberButton.Click += new System.EventHandler(this.addWebberButton_Click);
-            // 
-            // verificationCheckBox
-            // 
-            this.verificationCheckBox.AutoSize = true;
-            this.verificationCheckBox.Location = new System.Drawing.Point(461, 374);
-            this.verificationCheckBox.Name = "verificationCheckBox";
-            this.verificationCheckBox.Size = new System.Drawing.Size(118, 17);
-            this.verificationCheckBox.TabIndex = 43;
-            this.verificationCheckBox.Text = "Turn off Verification";
-            this.verificationCheckBox.UseVisualStyleBackColor = true;
-            // 
             // AddInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(591, 406);
-            this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -634,7 +610,7 @@
         private System.Windows.Forms.Button addRepairButton;
         private System.Windows.Forms.Button addSurplusButton;
         private System.Windows.Forms.Button addUnknownButton;
-        private System.Windows.Forms.Button otherButton;
+        private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button yesButton;
         private System.Windows.Forms.Button noButton;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -645,7 +621,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button addWebberButton;
-        private System.Windows.Forms.CheckBox verificationCheckBox;
     }
 }

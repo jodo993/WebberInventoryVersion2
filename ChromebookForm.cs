@@ -13,7 +13,7 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\josep\Documents\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
         public ChromebookForm()
         {
             InitializeComponent();

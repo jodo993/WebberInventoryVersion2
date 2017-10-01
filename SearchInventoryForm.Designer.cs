@@ -69,7 +69,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.categorySearchComboBox = new System.Windows.Forms.ComboBox();
             this.findButton = new System.Windows.Forms.Button();
-            this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.searchGroupBox.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -528,8 +527,6 @@
             "Projector",
             "Tablet",
             "Accessories",
-            "Webber",
-            "Other",
             "Active",
             "Inactive",
             "Repair",
@@ -562,7 +559,7 @@
             "F2",
             "F3",
             "F4",
-            "Alternative"});
+            "Other"});
             this.categorySearchComboBox.Location = new System.Drawing.Point(533, 265);
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(154, 21);
@@ -580,23 +577,12 @@
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
-            // verificationCheckBox
-            // 
-            this.verificationCheckBox.AutoSize = true;
-            this.verificationCheckBox.Location = new System.Drawing.Point(21, 269);
-            this.verificationCheckBox.Name = "verificationCheckBox";
-            this.verificationCheckBox.Size = new System.Drawing.Size(118, 17);
-            this.verificationCheckBox.TabIndex = 12;
-            this.verificationCheckBox.Text = "Turn off Verification";
-            this.verificationCheckBox.UseVisualStyleBackColor = true;
-            // 
             // SearchInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(785, 517);
-            this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.categorySearchComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.findButton);
@@ -670,6 +656,5 @@
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox categorySearchComboBox;
-        private System.Windows.Forms.CheckBox verificationCheckBox;
     }
 }
