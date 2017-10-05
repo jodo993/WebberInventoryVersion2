@@ -13,7 +13,7 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\josep\Documents\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
         public ChromebookForm()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Webber_Inventory_Search_2017_2018
                 int originalTag = int.Parse(originalAddTextBox.Text);
                 int loanTag = int.Parse(loanAddTextBox.Text);
                 String status = statusComboBox.Text;
-                String blank = "";
+                //String blank = "";
 
                 // Open connection to database
                 connection.Open();
@@ -92,40 +92,48 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void searchChromebookButton_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            if (IDradioButton.Checked)
+            try
             {
-                command.CommandText = "select * from ChromebookTable where \"Lunch ID\"='" + searchComboBox.Text + "'";
+                connection.Open();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                if (IDradioButton.Checked)
+                {
+                    command.CommandText = "select * from ChromebookTable where \"Lunch ID\"='" + searchComboBox.Text + "'";
+                }
+                else if (tagRadioButton.Checked)
+                {
+                    command.CommandText = "select * from ChromebookTable where \"Original Chromebook\"='" + searchComboBox.Text + "'";
+                }
+                else if (statusRadioButton.Checked)
+                {
+                    command.CommandText = "select * from ChromebookTable where Status='" + searchComboBox.Text + "'";
+                }
+                else if (billRadioButton.Checked)
+                {
+                    command.CommandText = "select * from ChromebookTable where Bill='" + searchComboBox.Text + "'";
+                }
+                else
+                {
+                    MessageBox.Show("Select a choice.");
+                    return;
+                }
+
+                command.ExecuteNonQuery();
+
+                // Data Table shows and hold data
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                dataAdapter.Fill(dataTable);
+                chromebookDataGridView.DataSource = dataTable;
+
+                connection.Close();
             }
-            else if (tagRadioButton.Checked)
+            catch (Exception)
             {
-                command.CommandText = "select * from ChromebookTable where \"Original Chromebook\"='" + searchComboBox.Text + "'";
-            }
-            else if (statusRadioButton.Checked)
-            {
-                command.CommandText = "select * from ChromebookTable where Status='" + searchComboBox.Text + "'";
-            }
-            else if (billRadioButton.Checked)
-            {
-                command.CommandText = "select * from ChromebookTable where bill > 0='" + searchComboBox.Text + "'";
-            }
-            else
-            {
-                MessageBox.Show("Select a choice.");
-                return;
+                MessageBox.Show("Error. Please log out and try again.");
             }
             
-            command.ExecuteNonQuery();
-
-            // Data Table shows and hold data
-            DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(dataTable);
-            chromebookDataGridView.DataSource = dataTable;
-
-            connection.Close();
         }
 
         private void showAllChromeButton_Click(object sender, EventArgs e)
