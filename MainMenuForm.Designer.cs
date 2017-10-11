@@ -111,6 +111,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
             this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Inventory Search Main Menu";
             this.ResumeLayout(false);
             this.PerformLayout();

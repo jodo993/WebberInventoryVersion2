@@ -69,9 +69,9 @@
             this.typeWrongLabel = new System.Windows.Forms.Label();
             this.statusWrongLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.addWebberButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.addWebberButton = new System.Windows.Forms.Button();
             this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -511,6 +511,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Type";
             // 
+            // addWebberButton
+            // 
+            this.addWebberButton.Location = new System.Drawing.Point(23, 174);
+            this.addWebberButton.Name = "addWebberButton";
+            this.addWebberButton.Size = new System.Drawing.Size(75, 23);
+            this.addWebberButton.TabIndex = 34;
+            this.addWebberButton.Text = "Webber";
+            this.addWebberButton.UseVisualStyleBackColor = true;
+            this.addWebberButton.Click += new System.EventHandler(this.addWebberButton_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.addActiveButton);
@@ -554,16 +564,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Here";
             // 
-            // addWebberButton
-            // 
-            this.addWebberButton.Location = new System.Drawing.Point(23, 174);
-            this.addWebberButton.Name = "addWebberButton";
-            this.addWebberButton.Size = new System.Drawing.Size(75, 23);
-            this.addWebberButton.TabIndex = 34;
-            this.addWebberButton.Text = "Webber";
-            this.addWebberButton.UseVisualStyleBackColor = true;
-            this.addWebberButton.Click += new System.EventHandler(this.addWebberButton_Click);
-            // 
             // verificationCheckBox
             // 
             this.verificationCheckBox.AutoSize = true;
@@ -587,6 +587,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "AddInventoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Inventory Adds";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

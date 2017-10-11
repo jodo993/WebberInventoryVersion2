@@ -610,6 +610,7 @@
             this.Controls.Add(this.removeGroupBox);
             this.Controls.Add(this.searchGroupBox);
             this.Name = "SearchInventoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchInventoryForm";
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();

@@ -13,7 +13,7 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\josep\Documents\ChromebookDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         public ChromebookForm()
         {
             InitializeComponent();
@@ -22,28 +22,30 @@ namespace Webber_Inventory_Search_2017_2018
         private void addButton_Click(object sender, EventArgs e)
         {
             // Verify to see if all fields are entered
-            if (studentNameTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && loanAddTextBox.Text != ""
-                && statusComboBox.Text != "")
+            if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
             {
                 String fullName = studentNameTextBox.Text;
+                int lunchID = int.Parse(studentEditTextBox.Text);
                 String teacherName = teacherNameTextBox.Text;
                 int originalTag = int.Parse(originalAddTextBox.Text);
-                int loanTag = int.Parse(loanAddTextBox.Text);
                 String status = statusComboBox.Text;
-                //String blank = "";
+                int loanTag = int.Parse(loanAddTextBox.Text);
+                String status2 = status2ComboBox.Text;
+                float billAmount = float.Parse(billAmountUpDown.Text);
+                String dateTime = dateTimePicker.Text;
 
                 // Open connection to database
                 connection.Open();
                 SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + "','" + teacherName + "','" + originalTag + "','" + loanTag + "','" + status + "','" + "" + "','" + "" + "')";
+                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + lunchID + "','" + teacherName + "','" + originalTag + "','" + status + "','" + loanTag + "','" + status2 + "','" + billAmount + "','" + dateTime + "')";
                 command.ExecuteNonQuery();
                 connection.Close();
 
                 MessageBox.Show("Chromebook was successfully added!");
             }
             else
-                MessageBox.Show("Fill out all fields.");
+                MessageBox.Show("Fill out all required fields.");
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -61,21 +63,37 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            //SqlCommand findCommand;
-            //SqlDataReader dataReader;
-            //// open database and change location of item
-            //connection.Open();
-            //String selectQuery = "select \"Original Chromebook\" from ChromebookTable where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
-            //findCommand = new SqlCommand(selectQuery, connection);
+            // Verify to see if all fields are entered
+            if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
+            {
+                //String fullName = studentNameTextBox.Text;
+                //int lunchID = int.Parse(studentEditTextBox.Text);
+                //String teacherName = teacherNameTextBox.Text;
+                //int originalTag = int.Parse(originalAddTextBox.Text);
+                //String status = statusComboBox.Text;
+                //int loanTag = int.Parse(loanAddTextBox.Text);
+                //String status2 = status2ComboBox.Text;
+                //float billAmount = float.Parse(billAmountUpDown.Text);
+                //String dateTime = dateTimePicker.Text;
 
-            //int originalWSDTag;
-            //int loanWSDTag;
+                // Open connection to database
+                connection.Open();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = "update ChromebookTable set \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
+                command.CommandText = "update ChromebookTable set \"Original Chromebook\"='" + int.Parse(originalAddTextBox.Text) + "' where \"Original Chromebook\"='" + int.Parse(originalAddTextBox.Text) + "'";
+                command.CommandText = "update ChromebookTable set Status='" + statusComboBox.Text + "' where Status='" + statusComboBox.Text + "'";
+                command.CommandText = "update ChromebookTable set \"Loan Chromebook\"='" + int.Parse(loanAddTextBox.Text) + "' where \"Loan Chromebook\"='" + int.Parse(loanAddTextBox.Text) + "'";
+                command.CommandText = "update ChromebookTable set Status2='" + status2ComboBox.Text + "' where Status2='" + status2ComboBox.Text + "'";
+                command.CommandText = "update ChromebookTable set Bill='" + float.Parse(billAmountUpDown.Text) + "' where Bill='" + float.Parse(billAmountUpDown.Text) + "'";
+                command.CommandText = "update ChromebookTable set Date='" + dateTimePicker.Text + "' where Date='" + dateTimePicker.Text + "'";
+                command.ExecuteNonQuery();
+                connection.Close();
 
-            //dataReader = findCommand.ExecuteReader();
-            //if(dataReader.Read())
-            //{
-            //    originalWSDTag = dataReader.GetInt32();
-            //}
+                MessageBox.Show("Chromebook was successfully updated.");
+            }
+            else
+                MessageBox.Show("Fill out all required fields.");
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -84,7 +102,7 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Open();
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from InventoryTable where Tag='" + deleteTextBox.Text + "'";
+            cmd.CommandText = "delete from ChromebookTable where Tag='" + deleteTextBox.Text + "'";
             cmd.ExecuteNonQuery();
             connection.Close();
 
@@ -154,6 +172,7 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        // Main menu
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();

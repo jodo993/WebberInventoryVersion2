@@ -21,7 +21,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Correct username and password needed to login
             String correctUsername = "Webber";
-            String correctPassword = "wolfpaw";
+            String correctPassword = "paw";
 
             // Username and password user entered
             String enteredUsername = usernameTextBox.Text;
