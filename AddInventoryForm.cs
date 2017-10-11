@@ -75,10 +75,10 @@ namespace Webber_Inventory_Search_2017_2018
             addTypeTextBox.Text = "Accessories";
         }
 
-        //private void otherButton_Click(object sender, EventArgs e)
-        //{
-        //    addTypeTextBox.Text = "Alternative";
-        //}
+        private void otherButton_Click(object sender, EventArgs e)
+        {
+            addTypeTextBox.Text = "Other";
+        }
 
         private void addWebberButton_Click(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace Webber_Inventory_Search_2017_2018
                     // Check to see if type matches with one that is required
                     if (addTypeTextBox.Text == "Desktop" || addTypeTextBox.Text == "Laptop" || addTypeTextBox.Text == "Monitor" || addTypeTextBox.Text == "Printer" ||
                     addTypeTextBox.Text == "Smartboard" || addTypeTextBox.Text == "Projector" || addTypeTextBox.Text == "Tablet" || addTypeTextBox.Text == "Accessories" || 
-                    addTypeTextBox.Text == "Webber")
+                    addTypeTextBox.Text == "Alternative" || addTypeTextBox.Text == "Webber")
                     {
                         // Hide wrong label
                         typeWrongLabel.Visible = false;

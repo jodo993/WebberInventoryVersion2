@@ -345,11 +345,11 @@ namespace Webber_Inventory_Search_2017_2018
                 command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
                 command.ExecuteNonQuery();
             }
-            //else if (categorySearchComboBox.Text == "Other")
-            //{
-            //    command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-            //    command.ExecuteNonQuery();
-            //}
+            else if (categorySearchComboBox.Text == "Other")
+            {
+                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
+                command.ExecuteNonQuery();
+            }
             else if (categorySearchComboBox.Text == "Webber")
             {
                 command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
@@ -393,17 +393,6 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
                 command.ExecuteNonQuery();
-            }
-            else if (categorySearchComboBox.Text == "K1")
-            {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
-            }
-            else if (categorySearchComboBox.Text == "K2")
-            {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
-
             }
             else if (categorySearchComboBox.Text == "A1")
             {
@@ -525,7 +514,7 @@ namespace Webber_Inventory_Search_2017_2018
                 command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
                 command.ExecuteNonQuery();
             }
-            else if (categorySearchComboBox.Text == "Other")
+            else if (categorySearchComboBox.Text == "Alternative")
             {
                 command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
                 command.ExecuteNonQuery();

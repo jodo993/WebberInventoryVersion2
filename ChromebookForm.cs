@@ -22,11 +22,10 @@ namespace Webber_Inventory_Search_2017_2018
         private void addButton_Click(object sender, EventArgs e)
         {
             // Verify to see if all fields are entered
-            if (studentNameTextBox.Text != "" && lunchIDTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && loanAddTextBox.Text != ""
+            if (studentNameTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && loanAddTextBox.Text != ""
                 && statusComboBox.Text != "")
             {
                 String fullName = studentNameTextBox.Text;
-                int lunchID = int.Parse(lunchIDTextBox.Text);
                 String teacherName = teacherNameTextBox.Text;
                 int originalTag = int.Parse(originalAddTextBox.Text);
                 int loanTag = int.Parse(loanAddTextBox.Text);
@@ -37,7 +36,7 @@ namespace Webber_Inventory_Search_2017_2018
                 connection.Open();
                 SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + lunchID + "','" + teacherName + "','" + originalTag + "','" + loanTag + "','" + status + "','" + "" + "','" + "" + "')";
+                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + "','" + teacherName + "','" + originalTag + "','" + loanTag + "','" + status + "','" + "" + "','" + "" + "')";
                 command.ExecuteNonQuery();
                 connection.Close();
 
@@ -51,11 +50,13 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Clear all add fields
             studentNameTextBox.Text = "";
-            lunchIDTextBox.Text = "";
+            studentEditTextBox.Text = "";
             teacherNameTextBox.Text = "";
             originalAddTextBox.Text = "";
-            loanAddTextBox.Text = "";
             statusComboBox.Text = "";
+            loanAddTextBox.Text = "";
+            status2ComboBox.Text = "";
+            billAmountUpDown.Value = 0;
         }
 
         private void editButton_Click(object sender, EventArgs e)
