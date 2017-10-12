@@ -24,15 +24,26 @@ namespace Webber_Inventory_Search_2017_2018
             // Verify to see if all fields are entered
             if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
             {
-                String fullName = studentNameTextBox.Text;
-                int lunchID = int.Parse(studentEditTextBox.Text);
-                String teacherName = teacherNameTextBox.Text;
-                int originalTag = int.Parse(originalAddTextBox.Text);
-                String status = statusComboBox.Text;
-                int loanTag = int.Parse(loanAddTextBox.Text);
-                String status2 = status2ComboBox.Text;
-                float billAmount = float.Parse(billAmountUpDown.Text);
-                String dateTime = dateTimePicker.Text;
+                String fullName = "";
+                int lunchID = 0;
+                String teacherName = "";
+                int originalTag = 0;
+                String status = "";
+                int loanTag = 0;
+                String status2 = "";
+                float billAmount = 0;
+                String dateTime = "";
+
+
+                fullName = studentNameTextBox.Text;
+                lunchID = int.Parse(studentEditTextBox.Text);
+                teacherName = teacherNameTextBox.Text;
+                originalTag = int.Parse(originalAddTextBox.Text);
+                status = statusComboBox.Text;
+                loanTag = int.Parse(loanAddTextBox.Text);
+                status2 = status2ComboBox.Text;
+                billAmount = float.Parse(billAmountUpDown.Text);
+                dateTime = dateTimePicker.Text;
 
                 // Open connection to database
                 connection.Open();
@@ -86,7 +97,8 @@ namespace Webber_Inventory_Search_2017_2018
                 command.CommandText = "update ChromebookTable set \"Loan Chromebook\"='" + int.Parse(loanAddTextBox.Text) + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
                 command.CommandText = "update ChromebookTable set Status2='" + status2ComboBox.Text + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
                 command.CommandText = "update ChromebookTable set Bill='" + float.Parse(billAmountUpDown.Text) + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
-                command.CommandText = "update ChromebookTable set Date='" + dateTimePicker.Text + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
+                command.CommandText = "update ChromebookTable set \"Bill Date\"='" + dateTimePicker.Text + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
+                command.CommandText = "update ChromebookTable set \"Last Updated\"'" + DateTime.Now  + "' where \"Lunch ID\"='" + int.Parse(studentEditTextBox.Text) + "'";
                 command.ExecuteNonQuery();
                 connection.Close();
 

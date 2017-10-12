@@ -45,8 +45,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     // Check to see if type matches with one that is required
                     if (addTypeComboBox.Text == "Desktop" || addTypeComboBox.Text == "Laptop" || addTypeComboBox.Text == "Monitor" || addTypeComboBox.Text == "Printer" ||
-                    addTypeComboBox.Text == "Smartboard" || addTypeComboBox.Text == "Projector" || addTypeComboBox.Text == "Tablet" || addTypeComboBox.Text == "Accessories" ||
-                    addTypeComboBox.Text == "Alternative" || addTypeComboBox.Text == "Webber")
+                    addTypeComboBox.Text == "Smartboard" || addTypeComboBox.Text == "Projector" || addTypeComboBox.Text == "Tablet" || addTypeComboBox.Text == "Accessories"
+                    || addTypeComboBox.Text == "Webber")
                     {
                         // Hide wrong label
                         typeWrongLabel.Visible = false;
