@@ -14,7 +14,7 @@ namespace Webber_Inventory_Search_2017_2018
     public partial class SearchInventoryForm : Form
     {
         // Open connection to database
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(10.60.64.50)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
         public SearchInventoryForm()
         {
             InitializeComponent();

@@ -38,18 +38,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.addTypeTextBox = new System.Windows.Forms.TextBox();
             this.addMakeTextBox = new System.Windows.Forms.TextBox();
             this.addModelTextBox = new System.Windows.Forms.TextBox();
             this.addTagTextBox = new System.Windows.Forms.TextBox();
-            this.addStatusTextBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.addClearButton = new System.Windows.Forms.Button();
             this.addMainMenuButton = new System.Windows.Forms.Button();
             this.addExitButton = new System.Windows.Forms.Button();
-            this.addDesktopButton = new System.Windows.Forms.Button();
-            this.addLaptopButton = new System.Windows.Forms.Button();
-            this.addMonitorButton = new System.Windows.Forms.Button();
             this.addPrinterButton = new System.Windows.Forms.Button();
             this.addSmartboardButton = new System.Windows.Forms.Button();
             this.addProjectorButton = new System.Windows.Forms.Button();
@@ -73,6 +68,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.verificationCheckBox = new System.Windows.Forms.CheckBox();
+            this.addTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.addStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.addMonitorButton = new System.Windows.Forms.Button();
+            this.addLaptopButton = new System.Windows.Forms.Button();
+            this.addDesktopButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,8 +82,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightGray;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(19, 22);
             this.label1.Name = "label1";
@@ -173,47 +173,33 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Select One";
             // 
-            // addTypeTextBox
-            // 
-            this.addTypeTextBox.Location = new System.Drawing.Point(80, 61);
-            this.addTypeTextBox.Name = "addTypeTextBox";
-            this.addTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addTypeTextBox.TabIndex = 10;
-            // 
             // addMakeTextBox
             // 
             this.addMakeTextBox.Location = new System.Drawing.Point(80, 96);
             this.addMakeTextBox.Name = "addMakeTextBox";
             this.addMakeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addMakeTextBox.TabIndex = 11;
+            this.addMakeTextBox.TabIndex = 2;
             // 
             // addModelTextBox
             // 
             this.addModelTextBox.Location = new System.Drawing.Point(80, 131);
             this.addModelTextBox.Name = "addModelTextBox";
             this.addModelTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addModelTextBox.TabIndex = 12;
+            this.addModelTextBox.TabIndex = 3;
             // 
             // addTagTextBox
             // 
             this.addTagTextBox.Location = new System.Drawing.Point(80, 166);
             this.addTagTextBox.Name = "addTagTextBox";
             this.addTagTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addTagTextBox.TabIndex = 13;
-            // 
-            // addStatusTextBox
-            // 
-            this.addStatusTextBox.Location = new System.Drawing.Point(80, 236);
-            this.addStatusTextBox.Name = "addStatusTextBox";
-            this.addStatusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addStatusTextBox.TabIndex = 15;
+            this.addTagTextBox.TabIndex = 4;
             // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(17, 280);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 16;
+            this.addButton.TabIndex = 7;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -223,7 +209,7 @@
             this.addClearButton.Location = new System.Drawing.Point(17, 310);
             this.addClearButton.Name = "addClearButton";
             this.addClearButton.Size = new System.Drawing.Size(75, 23);
-            this.addClearButton.TabIndex = 17;
+            this.addClearButton.TabIndex = 9;
             this.addClearButton.Text = "Clear";
             this.addClearButton.UseVisualStyleBackColor = true;
             this.addClearButton.Click += new System.EventHandler(this.addClearButton_Click);
@@ -233,7 +219,7 @@
             this.addMainMenuButton.Location = new System.Drawing.Point(105, 281);
             this.addMainMenuButton.Name = "addMainMenuButton";
             this.addMainMenuButton.Size = new System.Drawing.Size(75, 23);
-            this.addMainMenuButton.TabIndex = 18;
+            this.addMainMenuButton.TabIndex = 8;
             this.addMainMenuButton.Text = "Main Menu";
             this.addMainMenuButton.UseVisualStyleBackColor = true;
             this.addMainMenuButton.Click += new System.EventHandler(this.addMainMenuButton_Click);
@@ -243,40 +229,10 @@
             this.addExitButton.Location = new System.Drawing.Point(105, 310);
             this.addExitButton.Name = "addExitButton";
             this.addExitButton.Size = new System.Drawing.Size(75, 23);
-            this.addExitButton.TabIndex = 19;
+            this.addExitButton.TabIndex = 10;
             this.addExitButton.Text = "Exit";
             this.addExitButton.UseVisualStyleBackColor = true;
             this.addExitButton.Click += new System.EventHandler(this.addExitButton_Click);
-            // 
-            // addDesktopButton
-            // 
-            this.addDesktopButton.Location = new System.Drawing.Point(23, 58);
-            this.addDesktopButton.Name = "addDesktopButton";
-            this.addDesktopButton.Size = new System.Drawing.Size(75, 23);
-            this.addDesktopButton.TabIndex = 20;
-            this.addDesktopButton.Text = "Desktop";
-            this.addDesktopButton.UseVisualStyleBackColor = true;
-            this.addDesktopButton.Click += new System.EventHandler(this.addDesktopButton_Click);
-            // 
-            // addLaptopButton
-            // 
-            this.addLaptopButton.Location = new System.Drawing.Point(23, 87);
-            this.addLaptopButton.Name = "addLaptopButton";
-            this.addLaptopButton.Size = new System.Drawing.Size(75, 23);
-            this.addLaptopButton.TabIndex = 21;
-            this.addLaptopButton.Text = "Laptop";
-            this.addLaptopButton.UseVisualStyleBackColor = true;
-            this.addLaptopButton.Click += new System.EventHandler(this.addLaptopButton_Click);
-            // 
-            // addMonitorButton
-            // 
-            this.addMonitorButton.Location = new System.Drawing.Point(23, 116);
-            this.addMonitorButton.Name = "addMonitorButton";
-            this.addMonitorButton.Size = new System.Drawing.Size(75, 23);
-            this.addMonitorButton.TabIndex = 22;
-            this.addMonitorButton.Text = "Monitor";
-            this.addMonitorButton.UseVisualStyleBackColor = true;
-            this.addMonitorButton.Click += new System.EventHandler(this.addMonitorButton_Click);
             // 
             // addPrinterButton
             // 
@@ -293,7 +249,7 @@
             this.addSmartboardButton.Location = new System.Drawing.Point(104, 58);
             this.addSmartboardButton.Name = "addSmartboardButton";
             this.addSmartboardButton.Size = new System.Drawing.Size(75, 23);
-            this.addSmartboardButton.TabIndex = 24;
+            this.addSmartboardButton.TabIndex = 25;
             this.addSmartboardButton.Text = "Smartboard";
             this.addSmartboardButton.UseVisualStyleBackColor = true;
             this.addSmartboardButton.Click += new System.EventHandler(this.addSmartboardButton_Click);
@@ -303,7 +259,7 @@
             this.addProjectorButton.Location = new System.Drawing.Point(104, 87);
             this.addProjectorButton.Name = "addProjectorButton";
             this.addProjectorButton.Size = new System.Drawing.Size(75, 23);
-            this.addProjectorButton.TabIndex = 25;
+            this.addProjectorButton.TabIndex = 26;
             this.addProjectorButton.Text = "Projector";
             this.addProjectorButton.UseVisualStyleBackColor = true;
             this.addProjectorButton.Click += new System.EventHandler(this.addProjectorButton_Click);
@@ -313,7 +269,7 @@
             this.addTabletButton.Location = new System.Drawing.Point(104, 116);
             this.addTabletButton.Name = "addTabletButton";
             this.addTabletButton.Size = new System.Drawing.Size(75, 23);
-            this.addTabletButton.TabIndex = 26;
+            this.addTabletButton.TabIndex = 27;
             this.addTabletButton.Text = "Tablet";
             this.addTabletButton.UseVisualStyleBackColor = true;
             this.addTabletButton.Click += new System.EventHandler(this.addTabletButton_Click);
@@ -323,7 +279,7 @@
             this.addAccessoriesButton.Location = new System.Drawing.Point(104, 145);
             this.addAccessoriesButton.Name = "addAccessoriesButton";
             this.addAccessoriesButton.Size = new System.Drawing.Size(75, 23);
-            this.addAccessoriesButton.TabIndex = 27;
+            this.addAccessoriesButton.TabIndex = 28;
             this.addAccessoriesButton.Text = "Accessories";
             this.addAccessoriesButton.UseVisualStyleBackColor = true;
             this.addAccessoriesButton.Click += new System.EventHandler(this.addAccessoriesButton_Click);
@@ -333,7 +289,7 @@
             this.addActiveButton.Location = new System.Drawing.Point(29, 58);
             this.addActiveButton.Name = "addActiveButton";
             this.addActiveButton.Size = new System.Drawing.Size(75, 23);
-            this.addActiveButton.TabIndex = 28;
+            this.addActiveButton.TabIndex = 30;
             this.addActiveButton.Text = "Active";
             this.addActiveButton.UseVisualStyleBackColor = true;
             this.addActiveButton.Click += new System.EventHandler(this.addActiveButton_Click);
@@ -343,7 +299,7 @@
             this.addInactiveButton.Location = new System.Drawing.Point(29, 87);
             this.addInactiveButton.Name = "addInactiveButton";
             this.addInactiveButton.Size = new System.Drawing.Size(75, 23);
-            this.addInactiveButton.TabIndex = 29;
+            this.addInactiveButton.TabIndex = 31;
             this.addInactiveButton.Text = "Inactive";
             this.addInactiveButton.UseVisualStyleBackColor = true;
             this.addInactiveButton.Click += new System.EventHandler(this.addInactiveButton_Click);
@@ -353,7 +309,7 @@
             this.addRepairButton.Location = new System.Drawing.Point(29, 116);
             this.addRepairButton.Name = "addRepairButton";
             this.addRepairButton.Size = new System.Drawing.Size(75, 23);
-            this.addRepairButton.TabIndex = 30;
+            this.addRepairButton.TabIndex = 32;
             this.addRepairButton.Text = "Repair";
             this.addRepairButton.UseVisualStyleBackColor = true;
             this.addRepairButton.Click += new System.EventHandler(this.addRepairButton_Click);
@@ -363,7 +319,7 @@
             this.addSurplusButton.Location = new System.Drawing.Point(29, 145);
             this.addSurplusButton.Name = "addSurplusButton";
             this.addSurplusButton.Size = new System.Drawing.Size(75, 23);
-            this.addSurplusButton.TabIndex = 31;
+            this.addSurplusButton.TabIndex = 33;
             this.addSurplusButton.Text = "Surplus";
             this.addSurplusButton.UseVisualStyleBackColor = true;
             this.addSurplusButton.Click += new System.EventHandler(this.addSurplusButton_Click);
@@ -373,7 +329,7 @@
             this.addUnknownButton.Location = new System.Drawing.Point(29, 174);
             this.addUnknownButton.Name = "addUnknownButton";
             this.addUnknownButton.Size = new System.Drawing.Size(75, 23);
-            this.addUnknownButton.TabIndex = 32;
+            this.addUnknownButton.TabIndex = 34;
             this.addUnknownButton.Text = "Unknown";
             this.addUnknownButton.UseVisualStyleBackColor = true;
             this.addUnknownButton.Click += new System.EventHandler(this.addUnknownButton_Click);
@@ -383,7 +339,7 @@
             this.otherButton.Location = new System.Drawing.Point(104, 174);
             this.otherButton.Name = "otherButton";
             this.otherButton.Size = new System.Drawing.Size(75, 23);
-            this.otherButton.TabIndex = 33;
+            this.otherButton.TabIndex = 29;
             this.otherButton.Text = "Other";
             this.otherButton.UseVisualStyleBackColor = true;
             this.otherButton.Click += new System.EventHandler(this.otherButton_Click);
@@ -467,7 +423,7 @@
             this.addLocationComboBox.Location = new System.Drawing.Point(80, 201);
             this.addLocationComboBox.Name = "addLocationComboBox";
             this.addLocationComboBox.Size = new System.Drawing.Size(100, 21);
-            this.addLocationComboBox.TabIndex = 37;
+            this.addLocationComboBox.TabIndex = 5;
             // 
             // typeWrongLabel
             // 
@@ -475,9 +431,9 @@
             this.typeWrongLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeWrongLabel.Location = new System.Drawing.Point(78, 81);
             this.typeWrongLabel.Name = "typeWrongLabel";
-            this.typeWrongLabel.Size = new System.Drawing.Size(107, 12);
+            this.typeWrongLabel.Size = new System.Drawing.Size(97, 12);
             this.typeWrongLabel.TabIndex = 38;
-            this.typeWrongLabel.Text = "Choose from selection ->";
+            this.typeWrongLabel.Text = "Choose from selection";
             this.typeWrongLabel.Visible = false;
             // 
             // statusWrongLabel
@@ -486,9 +442,9 @@
             this.statusWrongLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusWrongLabel.Location = new System.Drawing.Point(77, 258);
             this.statusWrongLabel.Name = "statusWrongLabel";
-            this.statusWrongLabel.Size = new System.Drawing.Size(107, 12);
+            this.statusWrongLabel.Size = new System.Drawing.Size(97, 12);
             this.statusWrongLabel.TabIndex = 39;
-            this.statusWrongLabel.Text = "Choose from selection ->";
+            this.statusWrongLabel.Text = "Choose from selection";
             this.statusWrongLabel.Visible = false;
             // 
             // groupBox2
@@ -516,7 +472,7 @@
             this.addWebberButton.Location = new System.Drawing.Point(23, 174);
             this.addWebberButton.Name = "addWebberButton";
             this.addWebberButton.Size = new System.Drawing.Size(75, 23);
-            this.addWebberButton.TabIndex = 34;
+            this.addWebberButton.TabIndex = 24;
             this.addWebberButton.Text = "Webber";
             this.addWebberButton.UseVisualStyleBackColor = true;
             this.addWebberButton.Click += new System.EventHandler(this.addWebberButton_Click);
@@ -538,6 +494,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.addStatusComboBox);
+            this.groupBox4.Controls.Add(this.addTypeComboBox);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label4);
@@ -549,14 +507,12 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.addExitButton);
-            this.groupBox4.Controls.Add(this.addTypeTextBox);
             this.groupBox4.Controls.Add(this.addMainMenuButton);
             this.groupBox4.Controls.Add(this.addMakeTextBox);
             this.groupBox4.Controls.Add(this.addClearButton);
             this.groupBox4.Controls.Add(this.addModelTextBox);
             this.groupBox4.Controls.Add(this.addButton);
             this.groupBox4.Controls.Add(this.addTagTextBox);
-            this.groupBox4.Controls.Add(this.addStatusTextBox);
             this.groupBox4.Location = new System.Drawing.Point(19, 52);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(212, 350);
@@ -574,11 +530,73 @@
             this.verificationCheckBox.Text = "Turn off Verification";
             this.verificationCheckBox.UseVisualStyleBackColor = true;
             // 
+            // addTypeComboBox
+            // 
+            this.addTypeComboBox.FormattingEnabled = true;
+            this.addTypeComboBox.Items.AddRange(new object[] {
+            "Desktop",
+            "Laptop",
+            "Monitor",
+            "Printer",
+            "Smartboard",
+            "Projector",
+            "Tablet",
+            "Accessories",
+            "Webber"});
+            this.addTypeComboBox.Location = new System.Drawing.Point(80, 61);
+            this.addTypeComboBox.Name = "addTypeComboBox";
+            this.addTypeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.addTypeComboBox.TabIndex = 1;
+            // 
+            // addStatusComboBox
+            // 
+            this.addStatusComboBox.FormattingEnabled = true;
+            this.addStatusComboBox.Items.AddRange(new object[] {
+            "Active",
+            "Inactive",
+            "Repair",
+            "Surplus",
+            "Unknown"});
+            this.addStatusComboBox.Location = new System.Drawing.Point(80, 236);
+            this.addStatusComboBox.Name = "addStatusComboBox";
+            this.addStatusComboBox.Size = new System.Drawing.Size(100, 21);
+            this.addStatusComboBox.TabIndex = 6;
+            // 
+            // addMonitorButton
+            // 
+            this.addMonitorButton.Location = new System.Drawing.Point(23, 116);
+            this.addMonitorButton.Name = "addMonitorButton";
+            this.addMonitorButton.Size = new System.Drawing.Size(75, 23);
+            this.addMonitorButton.TabIndex = 22;
+            this.addMonitorButton.Text = "Monitor";
+            this.addMonitorButton.UseVisualStyleBackColor = true;
+            this.addMonitorButton.Click += new System.EventHandler(this.addMonitorButton_Click);
+            // 
+            // addLaptopButton
+            // 
+            this.addLaptopButton.Location = new System.Drawing.Point(23, 87);
+            this.addLaptopButton.Name = "addLaptopButton";
+            this.addLaptopButton.Size = new System.Drawing.Size(75, 23);
+            this.addLaptopButton.TabIndex = 21;
+            this.addLaptopButton.Text = "Laptop";
+            this.addLaptopButton.UseVisualStyleBackColor = true;
+            this.addLaptopButton.Click += new System.EventHandler(this.addLaptopButton_Click);
+            // 
+            // addDesktopButton
+            // 
+            this.addDesktopButton.Location = new System.Drawing.Point(23, 58);
+            this.addDesktopButton.Name = "addDesktopButton";
+            this.addDesktopButton.Size = new System.Drawing.Size(75, 23);
+            this.addDesktopButton.TabIndex = 20;
+            this.addDesktopButton.Text = "Desktop";
+            this.addDesktopButton.UseVisualStyleBackColor = true;
+            this.addDesktopButton.Click += new System.EventHandler(this.addDesktopButton_Click);
+            // 
             // AddInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(591, 406);
             this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.groupBox4);
@@ -613,18 +631,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox addTypeTextBox;
         private System.Windows.Forms.TextBox addMakeTextBox;
         private System.Windows.Forms.TextBox addModelTextBox;
         private System.Windows.Forms.TextBox addTagTextBox;
-        private System.Windows.Forms.TextBox addStatusTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addClearButton;
         private System.Windows.Forms.Button addMainMenuButton;
         private System.Windows.Forms.Button addExitButton;
-        private System.Windows.Forms.Button addDesktopButton;
-        private System.Windows.Forms.Button addLaptopButton;
-        private System.Windows.Forms.Button addMonitorButton;
         private System.Windows.Forms.Button addPrinterButton;
         private System.Windows.Forms.Button addSmartboardButton;
         private System.Windows.Forms.Button addProjectorButton;
@@ -648,5 +661,10 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button addWebberButton;
         private System.Windows.Forms.CheckBox verificationCheckBox;
+        private System.Windows.Forms.ComboBox addStatusComboBox;
+        private System.Windows.Forms.ComboBox addTypeComboBox;
+        private System.Windows.Forms.Button addDesktopButton;
+        private System.Windows.Forms.Button addLaptopButton;
+        private System.Windows.Forms.Button addMonitorButton;
     }
 }

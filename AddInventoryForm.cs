@@ -37,77 +37,77 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void addDesktopButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Desktop";
+            addTypeComboBox.Text = "Desktop";
         }
 
         private void addLaptopButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Laptop";
+            addTypeComboBox.Text = "Laptop";
         }
 
         private void addMonitorButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Monitor";
+            addTypeComboBox.Text = "Monitor";
         }
 
         private void addPrinterButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Printer";
+            addTypeComboBox.Text = "Printer";
         }
 
         private void addSmartboardButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Smartboard";
+            addTypeComboBox.Text = "Smartboard";
         }
 
         private void addProjectorButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Projector";
+            addTypeComboBox.Text = "Projector";
         }
 
         private void addTabletButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Tablet";
+            addTypeComboBox.Text = "Tablet";
         }
 
         private void addAccessoriesButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Accessories";
+            addTypeComboBox.Text = "Accessories";
         }
 
         private void otherButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Other";
+            addTypeComboBox.Text = "Other";
         }
 
         private void addWebberButton_Click(object sender, EventArgs e)
         {
-            addTypeTextBox.Text = "Webber";
+            addTypeComboBox.Text = "Webber";
         }
 
         private void addActiveButton_Click(object sender, EventArgs e)
         {
-            addStatusTextBox.Text = "Active";
+            addStatusComboBox.Text = "Active";
         }
 
         private void addInactiveButton_Click(object sender, EventArgs e)
         {
-            addStatusTextBox.Text = "Inactive";
+            addStatusComboBox.Text = "Inactive";
         }
 
         private void addRepairButton_Click(object sender, EventArgs e)
         {
-            addStatusTextBox.Text = "Repair";
+            addStatusComboBox.Text = "Repair";
         }
 
         private void addSurplusButton_Click(object sender, EventArgs e)
         {
-            addStatusTextBox.Text = "Surplus";
+            addStatusComboBox.Text = "Surplus";
         }
 
         private void addUnknownButton_Click(object sender, EventArgs e)
         {
-            addStatusTextBox.Text = "Unknown";
+            addStatusComboBox.Text = "Unknown";
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -115,19 +115,19 @@ namespace Webber_Inventory_Search_2017_2018
             try
             {
                 // Check to see if any slots are blank
-                if (addTypeTextBox.Text != "" && addMakeTextBox.Text != "" && addModelTextBox.Text != "" && addTagTextBox.Text != "" && addLocationComboBox.Text != "" &&
-                    addStatusTextBox.Text != "")
+                if (addTypeComboBox.Text != "" && addMakeTextBox.Text != "" && addModelTextBox.Text != "" && addTagTextBox.Text != "" && addLocationComboBox.Text != "" &&
+                    addStatusComboBox.Text != "")
                 {
                     // Check to see if type matches with one that is required
-                    if (addTypeTextBox.Text == "Desktop" || addTypeTextBox.Text == "Laptop" || addTypeTextBox.Text == "Monitor" || addTypeTextBox.Text == "Printer" ||
-                    addTypeTextBox.Text == "Smartboard" || addTypeTextBox.Text == "Projector" || addTypeTextBox.Text == "Tablet" || addTypeTextBox.Text == "Accessories" || 
-                    addTypeTextBox.Text == "Alternative" || addTypeTextBox.Text == "Webber")
+                    if (addTypeComboBox.Text == "Desktop" || addTypeComboBox.Text == "Laptop" || addTypeComboBox.Text == "Monitor" || addTypeComboBox.Text == "Printer" ||
+                    addTypeComboBox.Text == "Smartboard" || addTypeComboBox.Text == "Projector" || addTypeComboBox.Text == "Tablet" || addTypeComboBox.Text == "Accessories" ||
+                    addTypeComboBox.Text == "Alternative" || addTypeComboBox.Text == "Webber")
                     {
                         // Hide wrong label
                         typeWrongLabel.Visible = false;
 
-                        if (addStatusTextBox.Text == "Active" || addStatusTextBox.Text == "Inactive" || addStatusTextBox.Text == "Repair" || addStatusTextBox.Text == "Surplus" ||
-                            addStatusTextBox.Text == "Unknown")
+                        if (addStatusComboBox.Text == "Active" || addStatusComboBox.Text == "Inactive" || addStatusComboBox.Text == "Repair" || addStatusComboBox.Text == "Surplus" ||
+                            addStatusComboBox.Text == "Unknown")
                         {
                             if (verificationCheckBox.Checked)
                             {
@@ -135,7 +135,7 @@ namespace Webber_Inventory_Search_2017_2018
                                 connection.Open();
                                 SqlCommand command = connection.CreateCommand();
                                 command.CommandType = CommandType.Text;
-                                command.CommandText = "insert into InventoryTable values('" + addTypeTextBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusTextBox.Text + "', '" + DateTime.Now + "')";
+                                command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
                                 command.ExecuteNonQuery();
                                 connection.Close();
 
@@ -191,7 +191,7 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "insert into InventoryTable values('" + addTypeTextBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusTextBox.Text + "', '" + DateTime.Now + "')";
+            command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
             command.ExecuteNonQuery();
             connection.Close();
 
@@ -209,12 +209,12 @@ namespace Webber_Inventory_Search_2017_2018
         private void addClearButton_Click(object sender, EventArgs e)
         {
             // Clear all fields
-            addTypeTextBox.Text = "";
+            addTypeComboBox.Text = "";
             addMakeTextBox.Text = "";
             addModelTextBox.Text = "";
             addTagTextBox.Text = "";
             addLocationComboBox.Text = "";
-            addStatusTextBox.Text = "";
+            addStatusComboBox.Text = "";
 
             // Wrong input labels
             typeWrongLabel.Visible = false;

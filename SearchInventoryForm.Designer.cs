@@ -97,7 +97,7 @@
             this.clearButton.Location = new System.Drawing.Point(132, 31);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(51, 22);
-            this.clearButton.TabIndex = 5;
+            this.clearButton.TabIndex = 2;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -107,7 +107,7 @@
             this.searchButton.Location = new System.Drawing.Point(132, 55);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(51, 22);
-            this.searchButton.TabIndex = 4;
+            this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -127,7 +127,7 @@
             this.searchTextBox.Location = new System.Drawing.Point(26, 57);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 20);
-            this.searchTextBox.TabIndex = 2;
+            this.searchTextBox.TabIndex = 0;
             // 
             // updateGroupBox
             // 
@@ -162,7 +162,7 @@
             this.noStatusButton.Location = new System.Drawing.Point(105, 119);
             this.noStatusButton.Name = "noStatusButton";
             this.noStatusButton.Size = new System.Drawing.Size(75, 23);
-            this.noStatusButton.TabIndex = 14;
+            this.noStatusButton.TabIndex = 12;
             this.noStatusButton.Text = "No";
             this.noStatusButton.UseVisualStyleBackColor = true;
             this.noStatusButton.Visible = false;
@@ -182,14 +182,14 @@
             this.updateTag2TextBox.Location = new System.Drawing.Point(9, 38);
             this.updateTag2TextBox.Name = "updateTag2TextBox";
             this.updateTag2TextBox.Size = new System.Drawing.Size(87, 20);
-            this.updateTag2TextBox.TabIndex = 10;
+            this.updateTag2TextBox.TabIndex = 8;
             // 
             // yesStatusButton
             // 
             this.yesStatusButton.Location = new System.Drawing.Point(21, 119);
             this.yesStatusButton.Name = "yesStatusButton";
             this.yesStatusButton.Size = new System.Drawing.Size(75, 23);
-            this.yesStatusButton.TabIndex = 13;
+            this.yesStatusButton.TabIndex = 11;
             this.yesStatusButton.Text = "Yes";
             this.yesStatusButton.UseVisualStyleBackColor = true;
             this.yesStatusButton.Visible = false;
@@ -216,7 +216,7 @@
             this.updateStatusComboBox.Location = new System.Drawing.Point(104, 38);
             this.updateStatusComboBox.Name = "updateStatusComboBox";
             this.updateStatusComboBox.Size = new System.Drawing.Size(90, 21);
-            this.updateStatusComboBox.TabIndex = 11;
+            this.updateStatusComboBox.TabIndex = 9;
             // 
             // statusCheckLabel
             // 
@@ -233,7 +233,7 @@
             this.updateStatusButton.Location = new System.Drawing.Point(9, 64);
             this.updateStatusButton.Name = "updateStatusButton";
             this.updateStatusButton.Size = new System.Drawing.Size(185, 25);
-            this.updateStatusButton.TabIndex = 9;
+            this.updateStatusButton.TabIndex = 10;
             this.updateStatusButton.Text = "Update Status";
             this.updateStatusButton.UseVisualStyleBackColor = true;
             this.updateStatusButton.Click += new System.EventHandler(this.updateStatusButton_Click);
@@ -260,7 +260,7 @@
             this.noLocationButton.Location = new System.Drawing.Point(105, 119);
             this.noLocationButton.Name = "noLocationButton";
             this.noLocationButton.Size = new System.Drawing.Size(75, 23);
-            this.noLocationButton.TabIndex = 6;
+            this.noLocationButton.TabIndex = 7;
             this.noLocationButton.Text = "No";
             this.noLocationButton.UseVisualStyleBackColor = true;
             this.noLocationButton.Visible = false;
@@ -271,7 +271,7 @@
             this.yesLocationButton.Location = new System.Drawing.Point(21, 119);
             this.yesLocationButton.Name = "yesLocationButton";
             this.yesLocationButton.Size = new System.Drawing.Size(75, 23);
-            this.yesLocationButton.TabIndex = 5;
+            this.yesLocationButton.TabIndex = 6;
             this.yesLocationButton.Text = "Yes";
             this.yesLocationButton.UseVisualStyleBackColor = true;
             this.yesLocationButton.Visible = false;
@@ -292,7 +292,7 @@
             this.updateLocationButton.Location = new System.Drawing.Point(9, 64);
             this.updateLocationButton.Name = "updateLocationButton";
             this.updateLocationButton.Size = new System.Drawing.Size(185, 25);
-            this.updateLocationButton.TabIndex = 2;
+            this.updateLocationButton.TabIndex = 5;
             this.updateLocationButton.Text = "Update Location";
             this.updateLocationButton.UseVisualStyleBackColor = true;
             this.updateLocationButton.Click += new System.EventHandler(this.updateLocationButton_Click);
@@ -332,14 +332,14 @@
             this.updateLocationComboBox.Location = new System.Drawing.Point(104, 38);
             this.updateLocationComboBox.Name = "updateLocationComboBox";
             this.updateLocationComboBox.Size = new System.Drawing.Size(90, 21);
-            this.updateLocationComboBox.TabIndex = 3;
+            this.updateLocationComboBox.TabIndex = 4;
             // 
             // updateTagTextBox
             // 
             this.updateTagTextBox.Location = new System.Drawing.Point(9, 38);
             this.updateTagTextBox.Name = "updateTagTextBox";
             this.updateTagTextBox.Size = new System.Drawing.Size(87, 20);
-            this.updateTagTextBox.TabIndex = 2;
+            this.updateTagTextBox.TabIndex = 3;
             // 
             // label3
             // 
@@ -472,7 +472,7 @@
             this.exitButton.Location = new System.Drawing.Point(690, 483);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 4;
+            this.exitButton.TabIndex = 19;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -482,7 +482,7 @@
             this.mainMenuButton.Location = new System.Drawing.Point(610, 483);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
-            this.mainMenuButton.TabIndex = 5;
+            this.mainMenuButton.TabIndex = 18;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
@@ -492,7 +492,7 @@
             this.showAllButton.Location = new System.Drawing.Point(432, 483);
             this.showAllButton.Name = "showAllButton";
             this.showAllButton.Size = new System.Drawing.Size(95, 23);
-            this.showAllButton.TabIndex = 6;
+            this.showAllButton.TabIndex = 16;
             this.showAllButton.Text = "Show All Data";
             this.showAllButton.UseVisualStyleBackColor = true;
             this.showAllButton.Click += new System.EventHandler(this.showAllButton_Click);
@@ -502,7 +502,7 @@
             this.refreshButton.Location = new System.Drawing.Point(531, 483);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(74, 23);
-            this.refreshButton.TabIndex = 7;
+            this.refreshButton.TabIndex = 17;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
@@ -566,18 +566,19 @@
             this.categorySearchComboBox.Location = new System.Drawing.Point(533, 265);
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(154, 21);
-            this.categorySearchComboBox.TabIndex = 11;
+            this.categorySearchComboBox.TabIndex = 14;
             // 
             // findButton
             // 
+            this.findButton.BackColor = System.Drawing.SystemColors.Control;
             this.findButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.searchIcon16x16;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.findButton.Location = new System.Drawing.Point(690, 263);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(75, 23);
-            this.findButton.TabIndex = 8;
+            this.findButton.TabIndex = 15;
             this.findButton.Text = "Find";
-            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.UseVisualStyleBackColor = false;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // verificationCheckBox
@@ -586,7 +587,7 @@
             this.verificationCheckBox.Location = new System.Drawing.Point(21, 269);
             this.verificationCheckBox.Name = "verificationCheckBox";
             this.verificationCheckBox.Size = new System.Drawing.Size(118, 17);
-            this.verificationCheckBox.TabIndex = 12;
+            this.verificationCheckBox.TabIndex = 13;
             this.verificationCheckBox.Text = "Turn off Verification";
             this.verificationCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -594,7 +595,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(785, 517);
             this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.categorySearchComboBox);
@@ -611,7 +612,7 @@
             this.Controls.Add(this.searchGroupBox);
             this.Name = "SearchInventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchInventoryForm";
+            this.Text = "Search and Update ";
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
             this.updateGroupBox.ResumeLayout(false);
