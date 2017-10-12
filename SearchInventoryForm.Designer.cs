@@ -529,7 +529,6 @@
             "Tablet",
             "Accessories",
             "Webber",
-            "Other",
             "Active",
             "Inactive",
             "Repair",
@@ -562,7 +561,7 @@
             "F2",
             "F3",
             "F4",
-            "Alternative"});
+            "Other"});
             this.categorySearchComboBox.Location = new System.Drawing.Point(533, 265);
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(154, 21);
