@@ -13,7 +13,7 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\josep\Documents\ChromebookDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
         public ChromebookForm()
         {
             InitializeComponent();
@@ -40,16 +40,32 @@ namespace Webber_Inventory_Search_2017_2018
                 teacherName = teacherNameTextBox.Text;
                 originalTag = int.Parse(originalAddTextBox.Text);
                 status = statusComboBox.Text;
-                loanTag = int.Parse(loanAddTextBox.Text);
-                status2 = status2ComboBox.Text;
-                billAmount = float.Parse(billAmountUpDown.Text);
-                dateTime = dateTimePicker.Text;
+
+                if (loanAddTextBox.Text == "")
+                    loanTag = 0;
+                else
+                    loanTag = int.Parse(loanAddTextBox.Text);
+
+                if (status2ComboBox.Text == "")
+                    status2 = "";
+                else
+                    status2 = status2ComboBox.Text;
+
+                if (billAmountUpDown.Text == "")
+                    billAmount = 0;
+                else
+                    billAmount = float.Parse(billAmountUpDown.Text);
+
+                if (dateTimePicker.Text == "")
+                    dateTime = "";
+                else
+                    dateTime = dateTimePicker.Text;
 
                 // Open connection to database
                 connection.Open();
                 SqlCommand command = connection.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + lunchID + "','" + teacherName + "','" + originalTag + "','" + status + "','" + loanTag + "','" + status2 + "','" + billAmount + "','" + dateTime + "')";
+                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + lunchID + "','" + teacherName + "','" + originalTag + "','" + status + "','" + loanTag + "','" + status2 + "','" + billAmount + "','" + dateTime + "','" + DateTime.Now + "')";
                 command.ExecuteNonQuery();
                 connection.Close();
 
@@ -86,6 +102,42 @@ namespace Webber_Inventory_Search_2017_2018
                 //String status2 = status2ComboBox.Text;
                 //float billAmount = float.Parse(billAmountUpDown.Text);
                 //String dateTime = dateTimePicker.Text;
+
+                String fullName = "";
+                int lunchID = 0;
+                String teacherName = "";
+                int originalTag = 0;
+                String status = "";
+                int loanTag = 0;
+                String status2 = "";
+                float billAmount = 0;
+                String dateTime = "";
+
+                fullName = studentNameTextBox.Text;
+                lunchID = int.Parse(studentEditTextBox.Text);
+                teacherName = teacherNameTextBox.Text;
+                originalTag = int.Parse(originalAddTextBox.Text);
+                status = statusComboBox.Text;
+
+                if (loanAddTextBox.Text == "")
+                    loanTag = 0;
+                else
+                    loanTag = int.Parse(loanAddTextBox.Text);
+
+                if (status2ComboBox.Text == "")
+                    status2 = "";
+                else
+                    status2 = status2ComboBox.Text;
+
+                if (billAmountUpDown.Text == "")
+                    billAmount = 0;
+                else
+                    billAmount = float.Parse(billAmountUpDown.Text);
+
+                if (dateTimePicker.Text == "")
+                    dateTime = "";
+                else
+                    dateTime = dateTimePicker.Text;
 
                 // Open connection to database
                 connection.Open();

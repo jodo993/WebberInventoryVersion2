@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.billAmountUpDown = new System.Windows.Forms.NumericUpDown();
@@ -67,11 +72,6 @@
             this.tagRadioButton = new System.Windows.Forms.RadioButton();
             this.statusRadioButton = new System.Windows.Forms.RadioButton();
             this.billRadioButton = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billAmountUpDown)).BeginInit();
@@ -110,6 +110,61 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chromebook Update Section";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(231, 144);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(14, 16);
+            this.label17.TabIndex = 27;
+            this.label17.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(231, 90);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(14, 16);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(231, 117);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(14, 16);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(231, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 16);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(231, 36);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 16);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "*";
             // 
             // groupBox2
             // 
@@ -190,9 +245,10 @@
             this.status2ComboBox.Items.AddRange(new object[] {
             "Good",
             "Returned",
-            "Loan",
             "Out on Repair",
-            "Owe Money"});
+            "Owe Money",
+            "Surplus",
+            "None"});
             this.status2ComboBox.Location = new System.Drawing.Point(368, 142);
             this.status2ComboBox.Name = "status2ComboBox";
             this.status2ComboBox.Size = new System.Drawing.Size(100, 21);
@@ -226,7 +282,9 @@
             "Returned",
             "Loan",
             "Out on Repair",
-            "Owe Money"});
+            "Owe Money",
+            "Surplus",
+            "None"});
             this.statusComboBox.Location = new System.Drawing.Point(125, 143);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(100, 21);
@@ -482,61 +540,6 @@
             this.billRadioButton.TabStop = true;
             this.billRadioButton.Text = "Bill";
             this.billRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(231, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 16);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(231, 63);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 16);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(231, 117);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 16);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "*";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(231, 90);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(14, 16);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(231, 144);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(14, 16);
-            this.label17.TabIndex = 27;
-            this.label17.Text = "*";
             // 
             // ChromebookForm
             // 
