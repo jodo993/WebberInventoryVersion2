@@ -54,81 +54,34 @@ namespace Webber_Inventory_Search_2017_2018
                         if (addStatusComboBox.Text == "Active" || addStatusComboBox.Text == "Inactive" || addStatusComboBox.Text == "Repair" || addStatusComboBox.Text == "Surplus" ||
                             addStatusComboBox.Text == "Unknown")
                         {
-                            if (verificationCheckBox.Checked)
-                            {
-                                // Write the information into the database
-                                connection.Open();
-                                SqlCommand command = connection.CreateCommand();
-                                command.CommandType = CommandType.Text;
-                                command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
-                                command.ExecuteNonQuery();
-                                connection.Close();
+                            // Write the information into the database
+                            connection.Open();
+                            SqlCommand command = connection.CreateCommand();
+                            command.CommandType = CommandType.Text;
+                            command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
+                            command.ExecuteNonQuery();
+                            connection.Close();
 
-                                MessageBox.Show("Item was successfully added!");
+                            MessageBox.Show("Item was successfully added!");
 
-                                // Clear some fields
-                                addMakeTextBox.Text = "";
-                                addModelTextBox.Text = "";
-                                addTagTextBox.Text = "";
-                            }
-                            else
-                            {
-                                // Verify user choice
-                                addVerifyLabel.Visible = true;
-                                yesButton.Visible = true;
-                                noButton.Visible = true;
-
-                                // Hide label and buttons and notify user add was successful
-                                addVerifyLabel.Visible = false;
-                                yesButton.Visible = false;
-                                noButton.Visible = false;
-                            }   
+                            // Clear some fields
+                            addMakeTextBox.Text = "";
+                            addModelTextBox.Text = "";
+                            addTagTextBox.Text = "";
                         }
                         else
-                        {
                             statusWrongLabel.Visible = true;
-                        }
                     }
                     else
-                    {
                         typeWrongLabel.Visible = true;
-                    }
                 }
                 else
-                {
                     MessageBox.Show("Please fill in slots first.");
-                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Please check for duplicates or errors.");
             }
-        }
-
-        private void yesButton_Click(object sender, EventArgs e)
-        {
-            // Hide label and buttons and notify user add was successful
-            addVerifyLabel.Visible = false;
-            yesButton.Visible = false;
-            noButton.Visible = false;
-
-            // Write the information into the database
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
-            command.ExecuteNonQuery();
-            connection.Close();
-
-            MessageBox.Show("Item was successfully added!");
-        }
-
-        private void noButton_Click(object sender, EventArgs e)
-        {
-            //// Hide label and buttons and notify user add failed
-            //addVerifyLabel.Visible = false;
-            //yesButton.Visible = false;
-            //noButton.Visible = false;
         }
 
         private void addClearButton_Click(object sender, EventArgs e)
@@ -143,11 +96,6 @@ namespace Webber_Inventory_Search_2017_2018
 
             // Wrong input labels
             typeWrongLabel.Visible = false;
-
-            // Verification Labels
-            addVerifyLabel.Visible = false;
-            yesButton.Visible = false;
-            noButton.Visible = false;
         }
     }
 }

@@ -43,10 +43,6 @@
             this.addClearButton = new System.Windows.Forms.Button();
             this.addMainMenuButton = new System.Windows.Forms.Button();
             this.addExitButton = new System.Windows.Forms.Button();
-            this.yesButton = new System.Windows.Forms.Button();
-            this.noButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.addVerifyLabel = new System.Windows.Forms.Label();
             this.addLocationComboBox = new System.Windows.Forms.ComboBox();
             this.typeWrongLabel = new System.Windows.Forms.Label();
             this.statusWrongLabel = new System.Windows.Forms.Label();
@@ -54,7 +50,6 @@
             this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.addStatusComboBox = new System.Windows.Forms.ComboBox();
             this.addTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,50 +190,6 @@
             this.addExitButton.UseVisualStyleBackColor = true;
             this.addExitButton.Click += new System.EventHandler(this.addExitButton_Click);
             // 
-            // yesButton
-            // 
-            this.yesButton.Location = new System.Drawing.Point(6, 71);
-            this.yesButton.Name = "yesButton";
-            this.yesButton.Size = new System.Drawing.Size(69, 23);
-            this.yesButton.TabIndex = 34;
-            this.yesButton.Text = "Yes";
-            this.yesButton.UseVisualStyleBackColor = true;
-            this.yesButton.Visible = false;
-            this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
-            // 
-            // noButton
-            // 
-            this.noButton.Location = new System.Drawing.Point(81, 71);
-            this.noButton.Name = "noButton";
-            this.noButton.Size = new System.Drawing.Size(69, 23);
-            this.noButton.TabIndex = 35;
-            this.noButton.Text = "No";
-            this.noButton.UseVisualStyleBackColor = true;
-            this.noButton.Visible = false;
-            this.noButton.Click += new System.EventHandler(this.noButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.addVerifyLabel);
-            this.groupBox1.Controls.Add(this.yesButton);
-            this.groupBox1.Controls.Add(this.noButton);
-            this.groupBox1.Location = new System.Drawing.Point(187, 202);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(156, 100);
-            this.groupBox1.TabIndex = 36;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Verification Check";
-            // 
-            // addVerifyLabel
-            // 
-            this.addVerifyLabel.Location = new System.Drawing.Point(25, 25);
-            this.addVerifyLabel.Name = "addVerifyLabel";
-            this.addVerifyLabel.Size = new System.Drawing.Size(100, 32);
-            this.addVerifyLabel.TabIndex = 37;
-            this.addVerifyLabel.Text = "Are you sure you want to add?";
-            this.addVerifyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.addVerifyLabel.Visible = false;
-            // 
             // addLocationComboBox
             // 
             this.addLocationComboBox.FormattingEnabled = true;
@@ -304,7 +255,6 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.verificationCheckBox);
-            this.groupBox4.Controls.Add(this.groupBox1);
             this.groupBox4.Controls.Add(this.addStatusComboBox);
             this.groupBox4.Controls.Add(this.addTypeComboBox);
             this.groupBox4.Controls.Add(this.label2);
@@ -326,7 +276,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(19, 52);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(492, 308);
+            this.groupBox4.Size = new System.Drawing.Size(492, 218);
             this.groupBox4.TabIndex = 42;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Here";
@@ -378,13 +328,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(529, 379);
+            this.ClientSize = new System.Drawing.Size(529, 292);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label1);
             this.Name = "AddInventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Inventory Adds";
-            this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -409,10 +358,6 @@
         private System.Windows.Forms.Button addClearButton;
         private System.Windows.Forms.Button addMainMenuButton;
         private System.Windows.Forms.Button addExitButton;
-        private System.Windows.Forms.Button yesButton;
-        private System.Windows.Forms.Button noButton;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label addVerifyLabel;
         private System.Windows.Forms.ComboBox addLocationComboBox;
         private System.Windows.Forms.Label typeWrongLabel;
         private System.Windows.Forms.Label statusWrongLabel;

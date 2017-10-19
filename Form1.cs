@@ -20,7 +20,7 @@ namespace Webber_Inventory_Search_2017_2018
         private void signButton_Click(object sender, EventArgs e)
         {
             // Correct username and password needed to login
-            String correctUsername = "Webber";
+            String correctUsername = "web";
             String correctPassword = "paw";
 
             // Username and password user entered

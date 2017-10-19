@@ -601,7 +601,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(785, 517);
+            this.ClientSize = new System.Drawing.Size(787, 517);
             this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.categorySearchComboBox);
             this.Controls.Add(this.label4);
