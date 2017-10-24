@@ -72,6 +72,7 @@
             this.tagRadioButton = new System.Windows.Forms.RadioButton();
             this.statusRadioButton = new System.Windows.Forms.RadioButton();
             this.billRadioButton = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billAmountUpDown)).BeginInit();
@@ -541,12 +542,24 @@
             this.billRadioButton.Text = "Bill";
             this.billRadioButton.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(12, 8);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(655, 13);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "!IMPORTANT! Please check if student is already in the system. If yes, add an addi" +
+    "tional 0 at the end of their lunch ID. Repeat as needed.";
+            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(860, 489);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.billRadioButton);
             this.Controls.Add(this.statusRadioButton);
             this.Controls.Add(this.tagRadioButton);
@@ -622,5 +635,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label18;
     }
 }

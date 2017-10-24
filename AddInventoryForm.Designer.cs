@@ -47,7 +47,6 @@
             this.typeWrongLabel = new System.Windows.Forms.Label();
             this.statusWrongLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.verificationCheckBox = new System.Windows.Forms.CheckBox();
             this.addStatusComboBox = new System.Windows.Forms.ComboBox();
             this.addTypeComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
@@ -254,7 +253,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.verificationCheckBox);
             this.groupBox4.Controls.Add(this.addStatusComboBox);
             this.groupBox4.Controls.Add(this.addTypeComboBox);
             this.groupBox4.Controls.Add(this.label2);
@@ -280,16 +278,6 @@
             this.groupBox4.TabIndex = 42;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Here";
-            // 
-            // verificationCheckBox
-            // 
-            this.verificationCheckBox.AutoSize = true;
-            this.verificationCheckBox.Location = new System.Drawing.Point(356, 32);
-            this.verificationCheckBox.Name = "verificationCheckBox";
-            this.verificationCheckBox.Size = new System.Drawing.Size(118, 17);
-            this.verificationCheckBox.TabIndex = 43;
-            this.verificationCheckBox.Text = "Turn off Verification";
-            this.verificationCheckBox.UseVisualStyleBackColor = true;
             // 
             // addStatusComboBox
             // 
@@ -362,7 +350,6 @@
         private System.Windows.Forms.Label typeWrongLabel;
         private System.Windows.Forms.Label statusWrongLabel;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox verificationCheckBox;
         private System.Windows.Forms.ComboBox addStatusComboBox;
         private System.Windows.Forms.ComboBox addTypeComboBox;
     }

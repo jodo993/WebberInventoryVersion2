@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.troubleshootingButton = new System.Windows.Forms.Button();
+            this.suppliesButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.techAideButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.chromebookButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
@@ -46,6 +50,49 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Please Select an Option";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // troubleshootingButton
+            // 
+            this.troubleshootingButton.Location = new System.Drawing.Point(231, 65);
+            this.troubleshootingButton.Name = "troubleshootingButton";
+            this.troubleshootingButton.Size = new System.Drawing.Size(185, 41);
+            this.troubleshootingButton.TabIndex = 5;
+            this.troubleshootingButton.Text = "Troubleshooting";
+            this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.troubleshootingButton.UseVisualStyleBackColor = true;
+            this.troubleshootingButton.Click += new System.EventHandler(this.troubleshootingButton_Click);
+            // 
+            // suppliesButton
+            // 
+            this.suppliesButton.Location = new System.Drawing.Point(231, 112);
+            this.suppliesButton.Name = "suppliesButton";
+            this.suppliesButton.Size = new System.Drawing.Size(185, 41);
+            this.suppliesButton.TabIndex = 6;
+            this.suppliesButton.Text = "Supplies Info.";
+            this.suppliesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.suppliesButton.UseVisualStyleBackColor = true;
+            this.suppliesButton.Click += new System.EventHandler(this.suppliesButton_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(231, 206);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(185, 41);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // techAideButton
+            // 
+            this.techAideButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.techAideButton.Location = new System.Drawing.Point(231, 159);
+            this.techAideButton.Name = "techAideButton";
+            this.techAideButton.Size = new System.Drawing.Size(185, 41);
+            this.techAideButton.TabIndex = 7;
+            this.techAideButton.Text = "Technology Assistant";
+            this.techAideButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.techAideButton.UseVisualStyleBackColor = true;
+            this.techAideButton.Click += new System.EventHandler(this.techAideButton_Click);
             // 
             // quitButton
             // 
@@ -104,7 +151,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(267, 271);
+            this.ClientSize = new System.Drawing.Size(529, 271);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.techAideButton);
+            this.Controls.Add(this.suppliesButton);
+            this.Controls.Add(this.troubleshootingButton);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.chromebookButton);
             this.Controls.Add(this.searchButton);
@@ -125,5 +176,9 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button chromebookButton;
         private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.Button troubleshootingButton;
+        private System.Windows.Forms.Button suppliesButton;
+        private System.Windows.Forms.Button techAideButton;
+        private System.Windows.Forms.Button button3;
     }
 }

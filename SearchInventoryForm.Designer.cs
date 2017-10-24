@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchInventoryForm));
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
@@ -70,6 +71,11 @@
             this.categorySearchComboBox = new System.Windows.Forms.ComboBox();
             this.findButton = new System.Windows.Forms.Button();
             this.verificationCheckBox = new System.Windows.Forms.CheckBox();
+            this.printPreviewDialogSearch = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentSearch = new System.Drawing.Printing.PrintDocument();
+            this.printButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveButton = new System.Windows.Forms.Button();
             this.searchGroupBox.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -596,12 +602,49 @@
             this.verificationCheckBox.Text = "Turn off Verification";
             this.verificationCheckBox.UseVisualStyleBackColor = true;
             // 
+            // printPreviewDialogSearch
+            // 
+            this.printPreviewDialogSearch.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSearch.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSearch.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogSearch.Document = this.printDocumentSearch;
+            this.printPreviewDialogSearch.Enabled = true;
+            this.printPreviewDialogSearch.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogSearch.Icon")));
+            this.printPreviewDialogSearch.Name = "printPreviewDialogSearch";
+            this.printPreviewDialogSearch.Visible = false;
+            // 
+            // printDocumentSearch
+            // 
+            this.printDocumentSearch.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentSearch_PrintPage);
+            // 
+            // printButton
+            // 
+            this.printButton.Location = new System.Drawing.Point(351, 483);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(75, 23);
+            this.printButton.TabIndex = 20;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(270, 483);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 21;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // SearchInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(787, 517);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.verificationCheckBox);
             this.Controls.Add(this.categorySearchComboBox);
             this.Controls.Add(this.label4);
@@ -678,5 +721,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox categorySearchComboBox;
         private System.Windows.Forms.CheckBox verificationCheckBox;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSearch;
+        private System.Drawing.Printing.PrintDocument printDocumentSearch;
+        private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button saveButton;
     }
 }

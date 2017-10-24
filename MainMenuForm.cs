@@ -55,5 +55,31 @@ namespace Webber_Inventory_Search_2017_2018
             // Close program
             this.Close();
         }
+
+        private void techAideButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            // Opens the password form
+            TechAidePasswordForm techAide = new TechAidePasswordForm();
+            techAide.ShowDialog();
+
+            this.Close();
+        }
+
+        private void troubleshootingButton_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void suppliesButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            SuppliesInformationForm supplyForm = new SuppliesInformationForm();
+            supplyForm.ShowDialog();
+
+            this.Close();
+        }
     }
 }
