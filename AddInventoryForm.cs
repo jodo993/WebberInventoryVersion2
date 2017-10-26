@@ -17,7 +17,7 @@ namespace Webber_Inventory_Search_2017_2018
         //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
 
         // Use by this form only, global
-        OleDbConnection connection = new OleDbConnection();
+        private OleDbConnection connection = new OleDbConnection();
 
         public AddInventoryForm()
         {
@@ -70,6 +70,7 @@ namespace Webber_Inventory_Search_2017_2018
                             int tag = int.Parse(addTagTextBox.Text);
                             string location = addLocationComboBox.Text;
                             string status = addStatusComboBox.Text;
+                            string date = DateTime.Today.ToString();
 
                             OleDbCommand command = new OleDbCommand();
                             command.Connection = connection;
