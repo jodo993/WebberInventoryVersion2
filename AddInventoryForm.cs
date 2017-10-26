@@ -7,17 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class AddInventoryForm : Form
     {
         // Open connection to database
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+
+        // Use by this form only, global
+        OleDbConnection connection = new OleDbConnection();
+
         public AddInventoryForm()
         {
             InitializeComponent();
+
+            // Connect to database                                                       
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void addMainMenuButton_Click(object sender, EventArgs e)
@@ -56,13 +63,21 @@ namespace Webber_Inventory_Search_2017_2018
                         {
                             // Write the information into the database
                             connection.Open();
-                            SqlCommand command = connection.CreateCommand();
-                            command.CommandType = CommandType.Text;
-                            command.CommandText = "insert into InventoryTable values('" + addTypeComboBox.Text + "','" + addMakeTextBox.Text + "','" + addModelTextBox.Text + "','" + addTagTextBox.Text + "','" + addLocationComboBox.Text + "','" + addStatusComboBox.Text + "', '" + DateTime.Now + "')";
-                            command.ExecuteNonQuery();
-                            connection.Close();
 
+                            string type = addTypeComboBox.Text;
+                            string make = addMakeTextBox.Text;
+                            string model = addModelTextBox.Text;
+                            int tag = int.Parse(addTagTextBox.Text);
+                            string location = addLocationComboBox.Text;
+                            string status = addStatusComboBox.Text;
+
+                            OleDbCommand command = new OleDbCommand();
+                            command.Connection = connection;
+                            command.CommandText = "insert into MainInventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "','" + tag + "','" + location + "','" + status + "')";
+                            command.ExecuteNonQuery();
                             MessageBox.Show("Item was successfully added!");
+
+                            connection.Close();
 
                             // Clear some fields
                             addMakeTextBox.Text = "";
@@ -78,9 +93,9 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                     MessageBox.Show("Please fill in slots first.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please check for duplicates or errors.");
+                MessageBox.Show("Please check for duplicates or errors." + ex);
             }
         }
 

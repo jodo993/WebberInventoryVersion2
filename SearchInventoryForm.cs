@@ -7,34 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class SearchInventoryForm : Form
     {
-        // Open connection to database
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        // Use by this form only, global
+        private OleDbConnection connection = new OleDbConnection();
+
         public SearchInventoryForm()
         {
             InitializeComponent();
+
+            // Connect to database                                                       
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "select * from InventoryTable where tag='" + searchTextBox.Text + "'";
-            command.ExecuteNonQuery();
+            try
+            {
+                connection.Open();
 
-            // Data Table shows and hold data
-            DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            dataAdapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from MainInventory where tag= '" + searchTextBox.Text + "'";
+                command.CommandText = query;
 
-            connection.Close();
+                // Data Table shows and hold data
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to find, please try again.");
+            }
+            
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -48,21 +61,27 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 // Open database and change location of item
                 connection.Open();
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update InventoryTable set Location='" + updateLocationComboBox.Text + "' where Tag='" + updateTagTextBox.Text + "'";
-                cmd.ExecuteNonQuery();
+
+                string location = updateLocationComboBox.Text;
+                string tag = updateTagTextBox.Text;
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "update MainInventory set Location='" + location + "' where Tag='" + tag + "'"; // might need to get rid of one quote '
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
                 connection.Close();
 
                 // Update time location was updated
-                connection.Open();
-                SqlCommand cmd2 = connection.CreateCommand();
-                cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
-                cmd2.ExecuteNonQuery();
-                connection.Close();
+                //connection.Open();
+                //SqlCommand cmd2 = connection.CreateCommand();
+                //cmd2.CommandType = CommandType.Text;
+                //cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
+                //cmd2.ExecuteNonQuery();
+                //connection.Close();
 
-                MessageBox.Show("Location was updated for item tag #" + updateTagTextBox.Text + ".");
+                MessageBox.Show("Location was updated for item tag #" + tag + ".");
             }
             else
             {
@@ -768,7 +787,7 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
+            //
         }
     }
 }
