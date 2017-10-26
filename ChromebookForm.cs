@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
+        // Use by this form only, global
+        private OleDbConnection connection = new OleDbConnection();
+
         public ChromebookForm()
         {
             InitializeComponent();
+
+            // Connect to database                                                       
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -24,15 +29,15 @@ namespace Webber_Inventory_Search_2017_2018
             // Verify to see if all fields are entered
             if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
             {
-                String fullName = "";
+                string fullName = "";
                 int lunchID = 0;
-                String teacherName = "";
+                string teacherName = "";
                 int originalTag = 0;
-                String status = "";
+                string status = "";
                 int loanTag = 0;
-                String status2 = "";
+                string status2 = "";
                 float billAmount = 0;
-                String dateTime = "";
+                string billDate = "";
 
 
                 fullName = studentNameTextBox.Text;
@@ -51,21 +56,17 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                     status2 = status2ComboBox.Text;
 
-                if (billAmountUpDown.Text == "")
+                if (billAmountTextBox.Text == "")
                     billAmount = 0;
                 else
-                    billAmount = float.Parse(billAmountUpDown.Text);
-
-                if (dateTimePicker.Text == "")
-                    dateTime = "";
-                else
-                    dateTime = dateTimePicker.Text;
+                    billAmount = float.Parse(billAmountTextBox.Text);
 
                 // Open connection to database
                 connection.Open();
-                SqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = "insert into ChromebookTable values('" + fullName + "','" + lunchID + "','" + teacherName + "','" + originalTag + "','" + status + "','" + loanTag + "','" + status2 + "','" + billAmount + "','" + dateTime + "','" + DateTime.Now + "')";
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "')";
                 command.ExecuteNonQuery();
                 connection.Close();
 
@@ -85,7 +86,7 @@ namespace Webber_Inventory_Search_2017_2018
             statusComboBox.Text = "";
             loanAddTextBox.Text = "";
             status2ComboBox.Text = "";
-            billAmountUpDown.Value = 0;
+            billAmountTextBox.Text = "";
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -95,10 +96,13 @@ namespace Webber_Inventory_Search_2017_2018
                 // Verify to see if all fields are entered
                 if (studentEditTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
                 {
+                    int lunchID = int.Parse(studentEditTextBox.Text);
+                    int originalTag = int.Parse(originalAddTextBox.Text);
+                    string status = statusComboBox.Text;
                     int loanTag;
                     string status2;
                     float billAmount;
-                    string dateTime;
+                    string billDate;
 
                     if (loanAddTextBox.Text == "")
                         loanTag = 0;
@@ -110,52 +114,52 @@ namespace Webber_Inventory_Search_2017_2018
                     else
                         status2 = status2ComboBox.Text;
 
-                    if (billAmountUpDown.Text == "")
+                    if (billAmountTextBox.Text == "")
                         billAmount = 0;
                     else
-                        billAmount = float.Parse(billAmountUpDown.Text);
+                        billAmount = float.Parse(billAmountTextBox.Text);
 
-                    if (dateTimePicker.Text == "")
-                        dateTime = "";
+                    if (billDateTextBox.Text == "")
+                        billDate = "";
                     else
-                        dateTime = dateTimePicker.Text;
+                        billDate = billDateTextBox.Text;
 
-                    int lunchID = int.Parse(studentEditTextBox.Text);
-                    int originalTag = int.Parse(originalAddTextBox.Text);
-                    string status = statusComboBox.Text;
-
+                    label20.Text = "GOOD";
                     // Open connection to database
                     connection.Open();
 
-                    SqlCommand command2 = connection.CreateCommand();
-                    command2.CommandType = CommandType.Text;
-                    command2.CommandText = "update ChromebookTable set \"Original Chromebook\"='" + originalTag + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command3 = connection.CreateCommand();
-                    command3.CommandType = CommandType.Text;
-                    command3.CommandText = "update ChromebookTable set Status='" + status + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command4 = connection.CreateCommand();
-                    command4.CommandType = CommandType.Text;
-                    command4.CommandText = "update ChromebookTable set \"Loan Chromebook\"='" + loanTag + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command5 = connection.CreateCommand();
-                    command5.CommandType = CommandType.Text;
-                    command5.CommandText = "update ChromebookTable set Status2='" + status2 + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command6 = connection.CreateCommand();
-                    command6.CommandType = CommandType.Text;
-                    command6.CommandText = "update ChromebookTable set Bill='" + billAmount + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command7 = connection.CreateCommand();
-                    command7.CommandType = CommandType.Text;
-                    command7.CommandText = "update ChromebookTable set \"Bill Date\"='" + dateTime + "' where \"Lunch ID\"='" + lunchID + "'";
-                    SqlCommand command8 = connection.CreateCommand();
-                    command8.CommandType = CommandType.Text;
-                    command8.CommandText = "update ChromebookTable set \"Last Updated\"='" + DateTime.Now + "' where \"Lunch ID\"='" + lunchID + "'";
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "' where LunchID= " + lunchID + "";
 
-                    command2.ExecuteNonQuery();
-                    command3.ExecuteNonQuery();
-                    command4.ExecuteNonQuery();
-                    command5.ExecuteNonQuery();
-                    command6.ExecuteNonQuery();
-                    command7.ExecuteNonQuery();
-                    command8.ExecuteNonQuery();
+
+                    //OleDbCommand command2 = new OleDbCommand();
+                    //command2.Connection = connection;
+                    //command2.CommandText = "update Chromebook_Information set Status='" + status + "' where LunchID=" + lunchID + "";
+
+                    //OleDbCommand command3 = new OleDbCommand();
+                    //command3.Connection = connection;
+                    //command3.CommandText = "update Chromebook_Information set LoanTag=" + loanTag + " where LunchID=" + lunchID + "";
+
+                   // OleDbCommand command4 = new OleDbCommand();
+                    //command4.Connection = connection;
+                    //command4.CommandText = "update Chromebook_Information set Status2='" + status2 + "' where LunchID=" + lunchID + "";
+
+                    //OleDbCommand command5 = new OleDbCommand();
+                    //command5.Connection = connection;
+                    //command5.CommandText = "update Chromebook_Information set Bill=" + billAmount + " where LunchID=" + lunchID + "";
+
+                    //OleDbCommand command6 = new OleDbCommand();
+                    //command6.Connection = connection;
+                    //command6.CommandText = "update Chromebook_Information set BillDate='" + billDate + "' where LunchID=" + lunchID + "";
+
+                    command.ExecuteNonQuery();
+                   // command2.ExecuteNonQuery();
+                    //command3.ExecuteNonQuery();
+                    //command4.ExecuteNonQuery();
+                    //command5.ExecuteNonQuery();
+                    //command6.ExecuteNonQuery();
+                    
                     connection.Close();
 
                     MessageBox.Show("Chromebook was successfully updated.");
@@ -163,9 +167,9 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                     MessageBox.Show("Fill out all required fields.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required boxes.");
+                MessageBox.Show("Please fill out all required boxes." + ex);
             }
             
         }
@@ -174,10 +178,11 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Open database and delete all data for selected item
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from ChromebookTable where \"Lunch ID\"='" + int.Parse(deleteTextBox.Text) + "'";
-            cmd.ExecuteNonQuery();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "delete from Chromebook_Information where LunchID='" + int.Parse(deleteTextBox.Text) + "'";
+            command.ExecuteNonQuery();
             connection.Close();
 
             MessageBox.Show("All data was deleted for Chromebook #" + deleteTextBox.Text + ".");
@@ -188,24 +193,23 @@ namespace Webber_Inventory_Search_2017_2018
         {
             try
             {
-                connection.Open();
-                SqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
                 if (IDradioButton.Checked)
                 {
-                    command.CommandText = "select * from ChromebookTable where \"Lunch ID\"='" + searchComboBox.Text + "'";
+                    command.CommandText = "select * from Chromebook_Inventory where LunchID='" + searchComboBox.Text + "'";
                 }
                 else if (tagRadioButton.Checked)
                 {
-                    command.CommandText = "select * from ChromebookTable where \"Original Chromebook\"='" + searchComboBox.Text + "'";
+                    command.CommandText = "select * from Chromebook_Inventory where OriginalTag='" + searchComboBox.Text + "'";
                 }
                 else if (statusRadioButton.Checked)
                 {
-                    command.CommandText = "select * from ChromebookTable where Status='" + searchComboBox.Text + "'";
+                    command.CommandText = "select * from Chromebook_Inventory where Status='" + searchComboBox.Text + "'";
                 }
                 else if (billRadioButton.Checked)
                 {
-                    command.CommandText = "select * from ChromebookTable where Bill='" + searchComboBox.Text + "'";
+                    command.CommandText = "select * from Chromebook_Inventory where BillAmount='" + searchComboBox.Text + "'";
                 }
                 else
                 {
@@ -213,11 +217,9 @@ namespace Webber_Inventory_Search_2017_2018
                     return;
                 }
 
-                command.ExecuteNonQuery();
-
                 // Data Table shows and hold data
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
                 DataTable dataTable = new DataTable();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                 dataAdapter.Fill(dataTable);
                 chromebookDataGridView.DataSource = dataTable;
 
@@ -234,13 +236,14 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Get all fields in table and show
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from ChromebookTable";
-            cmd.ExecuteNonQuery();
 
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "select * from Chromebook_Information";
+
+            // Data Table shows and hold data
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             dataAdapter.Fill(dataTable);
             chromebookDataGridView.DataSource = dataTable;
 

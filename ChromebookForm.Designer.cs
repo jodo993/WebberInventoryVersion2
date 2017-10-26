@@ -36,8 +36,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.billAmountUpDown = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,9 +71,12 @@
             this.statusRadioButton = new System.Windows.Forms.RadioButton();
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
+            this.billAmountTextBox = new System.Windows.Forms.TextBox();
+            this.billDateTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billAmountUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chromebookDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -169,9 +170,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.billDateTextBox);
+            this.groupBox2.Controls.Add(this.billAmountTextBox);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.billAmountUpDown);
-            this.groupBox2.Controls.Add(this.dateTimePicker);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(256, 10);
             this.groupBox2.Name = "groupBox2";
@@ -188,26 +190,6 @@
             this.label12.Size = new System.Drawing.Size(59, 13);
             this.label12.TabIndex = 5;
             this.label12.Text = "Bill Amount";
-            // 
-            // billAmountUpDown
-            // 
-            this.billAmountUpDown.DecimalPlaces = 2;
-            this.billAmountUpDown.Location = new System.Drawing.Point(83, 25);
-            this.billAmountUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.billAmountUpDown.Name = "billAmountUpDown";
-            this.billAmountUpDown.Size = new System.Drawing.Size(100, 20);
-            this.billAmountUpDown.TabIndex = 7;
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(83, 52);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(181, 20);
-            this.dateTimePicker.TabIndex = 8;
             // 
             // label13
             // 
@@ -553,12 +535,45 @@
             this.label18.Text = "!IMPORTANT! Please check if student is already in the system. If yes, add an addi" +
     "tional 0 at the end of their lunch ID. Repeat as needed.";
             // 
+            // billAmountTextBox
+            // 
+            this.billAmountTextBox.Location = new System.Drawing.Point(83, 25);
+            this.billAmountTextBox.Name = "billAmountTextBox";
+            this.billAmountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.billAmountTextBox.TabIndex = 29;
+            // 
+            // billDateTextBox
+            // 
+            this.billDateTextBox.Location = new System.Drawing.Point(83, 52);
+            this.billDateTextBox.Name = "billDateTextBox";
+            this.billDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.billDateTextBox.TabIndex = 30;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(199, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 31;
+            this.label19.Text = "mm/dd/yy";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(470, 222);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "label20";
+            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(860, 489);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.billRadioButton);
             this.Controls.Add(this.statusRadioButton);
@@ -580,7 +595,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.billAmountUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chromebookDataGridView)).EndInit();
@@ -610,8 +624,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox studentEditTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown billAmountUpDown;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox deleteTextBox;
@@ -636,5 +648,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox billAmountTextBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox billDateTextBox;
+        private System.Windows.Forms.Label label20;
     }
 }
