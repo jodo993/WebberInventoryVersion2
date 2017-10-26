@@ -67,7 +67,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "update MainInventory set Location='" + location + "' where Tag='" + tag + "'"; // might need to get rid of one quote '
+                string query = "update MainInventory set Location='" + location + "' where Tag=" + tag + ""; // might need to get rid of one quote '
                 command.CommandText = query;
                 command.ExecuteNonQuery();
 
@@ -77,7 +77,7 @@ namespace Webber_Inventory_Search_2017_2018
                 //connection.Open();
                 //SqlCommand cmd2 = connection.CreateCommand();
                 //cmd2.CommandType = CommandType.Text;
-                //cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
+                //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
                 //cmd2.ExecuteNonQuery();
                 //connection.Close();
 
@@ -96,19 +96,24 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Open database and change location of item
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update InventoryTable set Location='" + updateLocationComboBox.Text + "' where Tag='" + updateTagTextBox.Text + "'";
-            cmd.ExecuteNonQuery();
+
+            int tag = int.Parse(updateTagTextBox.Text);
+            string location = updateLocationComboBox.Text;
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "update MainInventory set Location='" + location + "' where Tag=" + tag + "";
+            command.ExecuteNonQuery();
+
             connection.Close();
 
             // Update time location was updated
-            connection.Open();
-            SqlCommand cmd2 = connection.CreateCommand();
-            cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
-            cmd2.ExecuteNonQuery();
-            connection.Close();
+            //connection.Open();
+            //SqlCommand cmd2 = connection.CreateCommand();
+            //cmd2.CommandType = CommandType.Text;
+            //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
+            //cmd2.ExecuteNonQuery();
+            //connection.Close();
 
             MessageBox.Show("Location was updated for item tag #" + updateTagTextBox.Text + ".");
 
@@ -132,19 +137,24 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 // Update the status of the item
                 connection.Open();
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update InventoryTable set Status='" + updateStatusComboBox.Text + "' where Tag='" + updateTag2TextBox.Text + "'";
-                cmd.ExecuteNonQuery();
+
+                int tag2 = int.Parse(updateTag2TextBox.Text);
+                string status = updateStatusComboBox.Text;
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "update MainInventory set Status='" + status + "' where Tag=" + tag2 + "";
+                command.ExecuteNonQuery();
+
                 connection.Close();
 
                 // Update the time status was updated
-                connection.Open();
-                SqlCommand cmd2 = connection.CreateCommand();
-                cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
-                cmd2.ExecuteNonQuery();
-                connection.Close();
+                //connection.Open();
+                //SqlCommand cmd2 = connection.CreateCommand();
+                //cmd2.CommandType = CommandType.Text;
+                ///cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
+                //cmd2.ExecuteNonQuery();
+                //connection.Close();
 
                 MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
             }
@@ -161,19 +171,23 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Update the status of the item
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update InventoryTable set Status='" + updateStatusComboBox.Text + "' where Tag='" + updateTag2TextBox.Text + "'";
-            cmd.ExecuteNonQuery();
+
+            int tag2 = int.Parse(updateTag2TextBox.Text);
+            string status = updateStatusComboBox.Text;
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "update MainInventory set Status='" + status + "' where Tag=" + tag2 + "";
+            command.ExecuteNonQuery();
             connection.Close();
 
             // Update the time status was updated
-            connection.Open();
-            SqlCommand cmd2 = connection.CreateCommand();
-            cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "update InventoryTable set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
-            cmd2.ExecuteNonQuery();
-            connection.Close();
+            //connection.Open();
+            //SqlCommand cmd2 = connection.CreateCommand();
+            //cmd2.CommandType = CommandType.Text;
+            //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
+            //cmd2.ExecuteNonQuery();
+            //connection.Close();
 
             MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
 
@@ -197,10 +211,14 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 // Open database and delete all data for selected item
                 connection.Open();
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "delete from InventoryTable where Tag='" + removeTextBox.Text + "'";
-                cmd.ExecuteNonQuery();
+
+                int removeItem = int.Parse(removeTextBox.Text);
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "delete from MainInventory where Tag='" + removeItem + "'";
+                command.ExecuteNonQuery();
+
                 connection.Close();
 
                 MessageBox.Show("All data was deleted for item tag #" + removeTextBox.Text + ".");
@@ -231,10 +249,14 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Open database and delete all data for selected item
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from InventoryTable where Tag='" + removeTextBox.Text + "'";
-            cmd.ExecuteNonQuery();
+
+            int removeItem = int.Parse(removeTextBox.Text);
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "delete from MainInventory where Tag=" + removeItem + "";
+            command.ExecuteNonQuery();
+
             connection.Close();
 
             MessageBox.Show("All data was deleted for item tag #" + removeTextBox.Text + ".");
@@ -287,217 +309,177 @@ namespace Webber_Inventory_Search_2017_2018
         private void refreshButton_Click(object sender, EventArgs e)
         {
             connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
 
             if (categorySearchComboBox.Text == "Desktop")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Laptop")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Monitor")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Printer")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Smartboard")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Projector")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Tablet")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Accessories")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Webber")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Active")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Inactive")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Repair")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Surplus")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Unknown")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Office")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "District")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "MPR")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Other")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else
             {
@@ -507,8 +489,8 @@ namespace Webber_Inventory_Search_2017_2018
             }
 
             // Data Table shows and hold data
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
 
@@ -519,13 +501,14 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Get all fields in table and show
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from InventoryTable";
-            cmd.ExecuteNonQuery();
 
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            command.CommandText = "select * from MainInventory";
+
+            // Data Table shows and hold data
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
 
@@ -535,217 +518,177 @@ namespace Webber_Inventory_Search_2017_2018
         private void findButton_Click(object sender, EventArgs e)
         {
             connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
 
             if (categorySearchComboBox.Text == "Desktop")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Laptop")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Monitor")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Printer")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Smartboard")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Projector")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Tablet")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Accessories")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Webber")
             {
-                command.CommandText = "select * from InventoryTable where Type='" + categorySearchComboBox.Text + "'";
+                command.CommandText = "select * from MainInventory where Type='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Active")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Inactive")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Repair")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Surplus")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Unknown")
             {
-                command.CommandText = "select * from InventoryTable where Status='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Status='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Office")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "District")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "MPR")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "A4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "B4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "C4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "D4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "E4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F1")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F2")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F3")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "F4")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else if (categorySearchComboBox.Text == "Other")
             {
-                command.CommandText = "select * from InventoryTable where Location='" + categorySearchComboBox.Text + "'";
-                command.ExecuteNonQuery();
+                command.CommandText = "select * from MainInventory where Location='" + categorySearchComboBox.Text + "'";
             }
             else
             {
@@ -753,10 +696,10 @@ namespace Webber_Inventory_Search_2017_2018
                 connection.Close();
                 return;
             }
-                
+
             // Data Table shows and hold data
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
             DataTable dataTable = new DataTable();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
 
