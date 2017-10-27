@@ -19,31 +19,39 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void signButton_Click(object sender, EventArgs e)
         {
-            // Correct username and password needed to login
-            String correctUsername = "web";
-            String correctPassword = "paw";
+            this.Hide();
 
-            // Username and password user entered
-            String enteredUsername = usernameTextBox.Text;
-            String enteredPassword = passwordTextBox.Text;
+            // Display main menu form if correct information is entered
+            MainMenuForm newMainMenuForm = new MainMenuForm();
+            newMainMenuForm.ShowDialog();
 
-            if (correctUsername == enteredUsername && correctPassword == enteredPassword)
-            {
-                // Hide login form
-                this.Hide();
+            // Close login form after
+            this.Close();
+            //// Correct username and password needed to login
+            //String correctUsername = "web";
+            //String correctPassword = "paw";
 
-                // Display main menu form if correct information is entered
-                MainMenuForm newMainMenuForm = new MainMenuForm();
-                newMainMenuForm.ShowDialog();
+            //// Username and password user entered
+            //String enteredUsername = usernameTextBox.Text;
+            //String enteredPassword = passwordTextBox.Text;
 
-                // Close login form after
-                this.Close();
-            }
-            else
-            {
-                // Tell user login information is wrong
-                incorrectLoginLabel.Visible = true;
-            }
+            //if (correctUsername == enteredUsername && correctPassword == enteredPassword)
+            //{
+            //    // Hide login form
+            //    this.Hide();
+
+            //    // Display main menu form if correct information is entered
+            //    MainMenuForm newMainMenuForm = new MainMenuForm();
+            //    newMainMenuForm.ShowDialog();
+
+            //    // Close login form after
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    // Tell user login information is wrong
+            //    incorrectLoginLabel.Visible = true;
+            //}
         }
 
         private void clearButton_Click(object sender, EventArgs e)

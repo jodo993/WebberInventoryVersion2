@@ -582,7 +582,6 @@
             // findButton
             // 
             this.findButton.BackColor = System.Drawing.SystemColors.Control;
-            this.findButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.searchIcon16x16;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.findButton.Location = new System.Drawing.Point(690, 263);
             this.findButton.Name = "findButton";
@@ -658,6 +657,7 @@
             this.Controls.Add(this.updateGroupBox);
             this.Controls.Add(this.removeGroupBox);
             this.Controls.Add(this.searchGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SearchInventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search and Update ";

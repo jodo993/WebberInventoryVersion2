@@ -69,13 +69,20 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void troubleshootingButton_Click(object sender, EventArgs e)
         {
-            //
+            this.Hide();
+
+            // Open troubleshooting form
+            TroubleshootForm troubleshoot = new TroubleshootForm();
+            troubleshoot.ShowDialog();
+
+            this.Close();
         }
 
         private void suppliesButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
+            // Opens supplies form
             SuppliesInformationForm supplyForm = new SuppliesInformationForm();
             supplyForm.ShowDialog();
 

@@ -35,6 +35,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.billDateTextBox = new System.Windows.Forms.TextBox();
+            this.billAmountTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
@@ -71,9 +74,6 @@
             this.statusRadioButton = new System.Windows.Forms.RadioButton();
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
-            this.billAmountTextBox = new System.Windows.Forms.TextBox();
-            this.billDateTextBox = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -180,6 +180,29 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "For Edit";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(199, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 13);
+            this.label19.TabIndex = 31;
+            this.label19.Text = "mm/dd/yy";
+            // 
+            // billDateTextBox
+            // 
+            this.billDateTextBox.Location = new System.Drawing.Point(83, 52);
+            this.billDateTextBox.Name = "billDateTextBox";
+            this.billDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.billDateTextBox.TabIndex = 30;
+            // 
+            // billAmountTextBox
+            // 
+            this.billAmountTextBox.Location = new System.Drawing.Point(83, 25);
+            this.billAmountTextBox.Name = "billAmountTextBox";
+            this.billAmountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.billAmountTextBox.TabIndex = 29;
             // 
             // label12
             // 
@@ -534,29 +557,6 @@
             this.label18.Text = "!IMPORTANT! Please check if student is already in the system. If yes, add an addi" +
     "tional 0 at the end of their lunch ID. Repeat as needed.";
             // 
-            // billAmountTextBox
-            // 
-            this.billAmountTextBox.Location = new System.Drawing.Point(83, 25);
-            this.billAmountTextBox.Name = "billAmountTextBox";
-            this.billAmountTextBox.Size = new System.Drawing.Size(100, 20);
-            this.billAmountTextBox.TabIndex = 29;
-            // 
-            // billDateTextBox
-            // 
-            this.billDateTextBox.Location = new System.Drawing.Point(83, 52);
-            this.billDateTextBox.Name = "billDateTextBox";
-            this.billDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.billDateTextBox.TabIndex = 30;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(199, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 13);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "mm/dd/yy";
-            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,6 +577,7 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.chromebookDataGridView);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ChromebookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chromebook Page";

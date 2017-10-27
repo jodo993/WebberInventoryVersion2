@@ -30,9 +30,11 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
+                int search = int.Parse(searchTextBox.Text);
+
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "select * from MainInventory where tag= '" + searchTextBox.Text + "'";
+                string query = "select * from MainInventory where Tag=" + search + "";
                 command.CommandText = query;
 
                 // Data Table shows and hold data
