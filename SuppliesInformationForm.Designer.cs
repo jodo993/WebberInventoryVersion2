@@ -58,9 +58,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.brandComboBox = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameRTextBox = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -69,9 +68,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.nameRTextBox);
             this.groupBox1.Controls.Add(this.mainMenuButton);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.quitButton);
@@ -367,28 +365,20 @@
             this.brandComboBox.TabIndex = 3;
             this.brandComboBox.SelectedIndexChanged += new System.EventHandler(this.brandComboBox_SelectedIndexChanged);
             // 
-            // comboBox1
+            // nameRTextBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(39, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(329, 21);
-            this.comboBox1.TabIndex = 15;
+            this.nameRTextBox.Location = new System.Drawing.Point(39, 137);
+            this.nameRTextBox.Name = "nameRTextBox";
+            this.nameRTextBox.Size = new System.Drawing.Size(329, 20);
+            this.nameRTextBox.TabIndex = 15;
             // 
-            // comboBox2
+            // linkLabel1
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(39, 186);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(329, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(234, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 17;
+            this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.linkLabel1.Location = new System.Drawing.Point(39, 189);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(329, 23);
+            this.linkLabel1.TabIndex = 17;
             // 
             // SuppliesInformationForm
             // 
@@ -397,6 +387,7 @@
             this.ClientSize = new System.Drawing.Size(512, 343);
             this.Controls.Add(this.addTabControl);
             this.Name = "SuppliesInformationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supply Information";
             this.Load += new System.EventHandler(this.SuppliesInformationForm_Load);
             this.groupBox1.ResumeLayout(false);
@@ -414,8 +405,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.Button quitButton;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox brandComboBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -442,6 +431,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameRTextBox;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

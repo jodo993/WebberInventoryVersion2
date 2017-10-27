@@ -69,6 +69,7 @@
             this.button1.Text = "Tutorials";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // button3
             // 
@@ -85,6 +86,7 @@
             this.button3.Text = "Help Ticket";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             // 
             // techAideButton
             // 
@@ -101,6 +103,7 @@
             this.techAideButton.Text = "Technology\r\nAssistant";
             this.techAideButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.techAideButton.UseVisualStyleBackColor = false;
+            this.techAideButton.Visible = false;
             this.techAideButton.Click += new System.EventHandler(this.techAideButton_Click);
             // 
             // suppliesButton
@@ -136,6 +139,7 @@
             this.troubleshootingButton.Text = "Self\r\nTroubleshoot";
             this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.troubleshootingButton.UseVisualStyleBackColor = false;
+            this.troubleshootingButton.Visible = false;
             this.troubleshootingButton.Click += new System.EventHandler(this.troubleshootingButton_Click);
             // 
             // quitButton

@@ -94,20 +94,20 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(331, 144);
+            this.usernameTextBox.Location = new System.Drawing.Point(331, 152);
             this.usernameTextBox.Multiline = true;
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(120, 25);
+            this.usernameTextBox.Size = new System.Drawing.Size(120, 20);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(331, 195);
+            this.passwordTextBox.Location = new System.Drawing.Point(331, 200);
             this.passwordTextBox.Multiline = true;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
-            this.passwordTextBox.Size = new System.Drawing.Size(120, 25);
+            this.passwordTextBox.Size = new System.Drawing.Size(120, 20);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

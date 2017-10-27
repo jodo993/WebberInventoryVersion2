@@ -24,9 +24,38 @@ namespace Webber_Inventory_Search_2017_2018
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
+        private void SuppliesInformationForm_Load(object sender, EventArgs e)
+        {
+            // Check for which type is selected
+            try
+            {
+                connection.Open();
+
+                OleDbCommand commandType = new OleDbCommand();
+                commandType.Connection = connection;
+                string query = "select Type from Supply_Information";
+                commandType.CommandText = query;
+
+                OleDbDataReader readerType = commandType.ExecuteReader();
+                while (readerType.Read())
+                {
+                    typeComboBox.Items.Add(readerType["Type"].ToString());
+                }
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please go back and try again.dfadfas");
+            }
+        }
+
         private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            brandComboBox.Items.Clear();
+            modelComboBox.Items.Clear();
             string item = typeComboBox.Text;
+
             // Check for which brand is selected
             try
             {
@@ -53,6 +82,7 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void brandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            modelComboBox.Items.Clear();
             string item = brandComboBox.Text;
             // Check for which brand is selected
             try
@@ -80,7 +110,30 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void modelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string item = modelComboBox.Text;
+            // Check for which brand is selected
+            try
+            {
+                connection.Open();
 
+                OleDbCommand commandName = new OleDbCommand();
+                commandName.Connection = connection;
+                string query = "select * from Supply_Information where Model='" + item + "'";
+                commandName.CommandText = query;
+
+                OleDbDataReader readerName = commandName.ExecuteReader();
+                while (readerName.Read())
+                {
+                    nameRTextBox.Text = readerName["Supply"].ToString();
+                    linkLabel1.Text = readerName["Link"].ToString();
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please go back and try again." + ex);
+            }
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)
@@ -175,32 +228,6 @@ namespace Webber_Inventory_Search_2017_2018
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void SuppliesInformationForm_Load(object sender, EventArgs e)
-        {
-            // Check for which type is selected
-            try
-            {
-                connection.Open();
-
-                OleDbCommand commandType = new OleDbCommand();
-                commandType.Connection = connection;
-                string query = "select Type from Supply_Information";
-                commandType.CommandText = query;
-
-                OleDbDataReader readerType = commandType.ExecuteReader();
-                while (readerType.Read())
-                {
-                    typeComboBox.Items.Add(readerType["Type"].ToString());
-                }
-
-                connection.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please go back and try again.dfadfas");
-            }
         }
     }
 }
