@@ -74,7 +74,6 @@
             this.billAmountTextBox = new System.Windows.Forms.TextBox();
             this.billDateTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -406,11 +405,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(59, 28);
+            this.label15.Location = new System.Drawing.Point(47, 34);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 13);
+            this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 0;
-            this.label15.Text = "WSD Tag";
+            this.label15.Text = "Enter Lunch ID";
             // 
             // chromebookDataGridView
             // 
@@ -558,22 +557,12 @@
             this.label19.TabIndex = 31;
             this.label19.Text = "mm/dd/yy";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(470, 222);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "label20";
-            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(860, 489);
-            this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.billRadioButton);
             this.Controls.Add(this.statusRadioButton);
@@ -651,6 +640,5 @@
         private System.Windows.Forms.TextBox billAmountTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox billDateTextBox;
-        private System.Windows.Forms.Label label20;
     }
 }

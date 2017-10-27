@@ -39,7 +39,6 @@ namespace Webber_Inventory_Search_2017_2018
                 float billAmount = 0;
                 string billDate = "";
 
-
                 fullName = studentNameTextBox.Text;
                 lunchID = int.Parse(studentEditTextBox.Text);
                 teacherName = teacherNameTextBox.Text;
@@ -124,7 +123,6 @@ namespace Webber_Inventory_Search_2017_2018
                     else
                         billDate = billDateTextBox.Text;
 
-                    label20.Text = "GOOD";
                     // Open connection to database
                     connection.Open();
 
@@ -132,33 +130,7 @@ namespace Webber_Inventory_Search_2017_2018
                     command.Connection = connection;
                     command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "' where LunchID= " + lunchID + "";
 
-
-                    //OleDbCommand command2 = new OleDbCommand();
-                    //command2.Connection = connection;
-                    //command2.CommandText = "update Chromebook_Information set Status='" + status + "' where LunchID=" + lunchID + "";
-
-                    //OleDbCommand command3 = new OleDbCommand();
-                    //command3.Connection = connection;
-                    //command3.CommandText = "update Chromebook_Information set LoanTag=" + loanTag + " where LunchID=" + lunchID + "";
-
-                   // OleDbCommand command4 = new OleDbCommand();
-                    //command4.Connection = connection;
-                    //command4.CommandText = "update Chromebook_Information set Status2='" + status2 + "' where LunchID=" + lunchID + "";
-
-                    //OleDbCommand command5 = new OleDbCommand();
-                    //command5.Connection = connection;
-                    //command5.CommandText = "update Chromebook_Information set Bill=" + billAmount + " where LunchID=" + lunchID + "";
-
-                    //OleDbCommand command6 = new OleDbCommand();
-                    //command6.Connection = connection;
-                    //command6.CommandText = "update Chromebook_Information set BillDate='" + billDate + "' where LunchID=" + lunchID + "";
-
                     command.ExecuteNonQuery();
-                   // command2.ExecuteNonQuery();
-                    //command3.ExecuteNonQuery();
-                    //command4.ExecuteNonQuery();
-                    //command5.ExecuteNonQuery();
-                    //command6.ExecuteNonQuery();
                     
                     connection.Close();
 
@@ -179,9 +151,11 @@ namespace Webber_Inventory_Search_2017_2018
             // Open database and delete all data for selected item
             connection.Open();
 
+            int deleteItem = int.Parse(deleteTextBox.Text);
+
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "delete from Chromebook_Information where LunchID='" + int.Parse(deleteTextBox.Text) + "'";
+            command.CommandText = "delete from Chromebook_Information where LunchID=" + deleteItem + "";
             command.ExecuteNonQuery();
             connection.Close();
 
@@ -197,19 +171,23 @@ namespace Webber_Inventory_Search_2017_2018
                 command.Connection = connection;
                 if (IDradioButton.Checked)
                 {
-                    command.CommandText = "select * from Chromebook_Inventory where LunchID='" + searchComboBox.Text + "'";
+                    int lunchID = int.Parse(searchComboBox.Text);
+                    command.CommandText = "select * from Chromebook_Information where LunchID=" + lunchID + "";
                 }
                 else if (tagRadioButton.Checked)
                 {
-                    command.CommandText = "select * from Chromebook_Inventory where OriginalTag='" + searchComboBox.Text + "'";
+                    int originalTag = int.Parse(searchComboBox.Text);
+                    command.CommandText = "select * from Chromebook_Information where OriginalTag=" + originalTag + "";
                 }
                 else if (statusRadioButton.Checked)
                 {
-                    command.CommandText = "select * from Chromebook_Inventory where Status='" + searchComboBox.Text + "'";
+                    string status = searchComboBox.Text;
+                    command.CommandText = "select * from Chromebook_Information where Status='" + status + "'";
                 }
                 else if (billRadioButton.Checked)
                 {
-                    command.CommandText = "select * from Chromebook_Inventory where BillAmount='" + searchComboBox.Text + "'";
+                    int bill = int.Parse(searchComboBox.Text);
+                    command.CommandText = "select * from Chromebook_Information where BillAmount=" + bill + "";
                 }
                 else
                 {
@@ -225,9 +203,9 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error. Please log out and try again.");
+                MessageBox.Show("Error. Please log out and try again." + ex);
             }
             
         }
