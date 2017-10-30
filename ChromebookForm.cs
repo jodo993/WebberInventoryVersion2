@@ -21,7 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            // connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -70,6 +71,16 @@ namespace Webber_Inventory_Search_2017_2018
                 connection.Close();
 
                 MessageBox.Show("Chromebook was successfully added!");
+
+                studentNameTextBox.Text = "";
+                studentEditTextBox.Text = "";
+                teacherNameTextBox.Text = "";
+                originalAddTextBox.Text = "";
+                statusComboBox.Text = "";
+                loanAddTextBox.Text = "";
+                status2ComboBox.Text = "";
+                billAmountTextBox.Text = "";
+                billDateTextBox.Text = "";
             }
             else
                 MessageBox.Show("Fill out all required fields.");
@@ -155,7 +166,7 @@ namespace Webber_Inventory_Search_2017_2018
 
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "delete from Chromebook_Information where LunchID=" + deleteItem + "";
+            command.CommandText = "delete from Chromebook_Information where ID=" + deleteItem + "";
             command.ExecuteNonQuery();
             connection.Close();
 
@@ -242,6 +253,41 @@ namespace Webber_Inventory_Search_2017_2018
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void getInfoButton_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(idTextBox.Text);
+            // Check for which brand is selected
+            try
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Chromebook_Information where ID=" + id + "";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    studentNameTextBox.Text = reader["FullName"].ToString();
+                    studentEditTextBox.Text = reader["LunchID"].ToString();
+                    teacherNameTextBox.Text = reader["TeacherName"].ToString();
+                    originalAddTextBox.Text = reader["OriginalTag"].ToString();
+                    statusComboBox.Text = reader["Status"].ToString();
+                    loanAddTextBox.Text = reader["LoanTag"].ToString();
+                    status2ComboBox.Text = reader["LoanStatus"].ToString();
+                    billAmountTextBox.Text = reader["BillAmount"].ToString();
+                    billDateTextBox.Text = reader["BillDate"].ToString();
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please go back and try again." + ex);
+            }
         }
     }
 }

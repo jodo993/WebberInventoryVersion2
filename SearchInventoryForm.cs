@@ -21,7 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -84,6 +85,9 @@ namespace Webber_Inventory_Search_2017_2018
                 //connection.Close();
 
                 MessageBox.Show("Location was updated for item tag #" + tag + ".");
+
+                updateTagTextBox.Text = "";
+                updateLocationComboBox.Text = "";
             }
             else
             {
@@ -118,6 +122,9 @@ namespace Webber_Inventory_Search_2017_2018
             //connection.Close();
 
             MessageBox.Show("Location was updated for item tag #" + updateTagTextBox.Text + ".");
+
+            updateTagTextBox.Text = "";
+            updateLocationComboBox.Text = "";
 
             // Deactivates location verification questions
             locationCheckLabel.Visible = false;
@@ -159,6 +166,9 @@ namespace Webber_Inventory_Search_2017_2018
                 //connection.Close();
 
                 MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
+
+                updateTag2TextBox.Text = "";
+                updateStatusComboBox.Text = "";
             }
             else
             {
@@ -192,6 +202,9 @@ namespace Webber_Inventory_Search_2017_2018
             //connection.Close();
 
             MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
+
+            updateTag2TextBox.Text = "";
+            updateStatusComboBox.Text = "";
 
             // Deactivates status verification questions
             statusCheckLabel.Visible = false;

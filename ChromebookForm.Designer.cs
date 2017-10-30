@@ -74,6 +74,8 @@
             this.statusRadioButton = new System.Windows.Forms.RadioButton();
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
+            this.getInfoButton = new System.Windows.Forms.Button();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,6 +84,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.idTextBox);
+            this.groupBox1.Controls.Add(this.getInfoButton);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label11);
@@ -107,7 +112,7 @@
             this.groupBox1.Controls.Add(this.studentNameTextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(644, 191);
+            this.groupBox1.Size = new System.Drawing.Size(671, 191);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chromebook Update Section";
@@ -227,9 +232,9 @@
             this.editButton.BackColor = System.Drawing.SystemColors.ControlLight;
             this.editButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.editButton.FlatAppearance.BorderSize = 5;
-            this.editButton.Location = new System.Drawing.Point(555, 86);
+            this.editButton.Location = new System.Drawing.Point(603, 112);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(67, 28);
+            this.editButton.Size = new System.Drawing.Size(62, 28);
             this.editButton.TabIndex = 10;
             this.editButton.Text = "Update";
             this.editButton.UseVisualStyleBackColor = false;
@@ -261,9 +266,9 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(555, 122);
+            this.clearButton.Location = new System.Drawing.Point(603, 19);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(68, 28);
+            this.clearButton.Size = new System.Drawing.Size(62, 28);
             this.clearButton.TabIndex = 11;
             this.clearButton.Text = "Clear All";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -271,9 +276,9 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(554, 50);
+            this.addButton.Location = new System.Drawing.Point(540, 19);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(68, 28);
+            this.addButton.Size = new System.Drawing.Size(60, 28);
             this.addButton.TabIndex = 9;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -390,9 +395,9 @@
             this.groupBox3.Controls.Add(this.deleteButton);
             this.groupBox3.Controls.Add(this.deleteTextBox);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Location = new System.Drawing.Point(662, 24);
+            this.groupBox3.Location = new System.Drawing.Point(690, 24);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(185, 191);
+            this.groupBox3.Size = new System.Drawing.Size(157, 191);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Remove Chromebook";
@@ -401,7 +406,7 @@
             // 
             this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(25, 115);
+            this.label16.Location = new System.Drawing.Point(8, 112);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(140, 72);
             this.label16.TabIndex = 3;
@@ -410,7 +415,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(52, 78);
+            this.deleteButton.Location = new System.Drawing.Point(35, 75);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(74, 23);
             this.deleteButton.TabIndex = 13;
@@ -420,7 +425,7 @@
             // 
             // deleteTextBox
             // 
-            this.deleteTextBox.Location = new System.Drawing.Point(39, 50);
+            this.deleteTextBox.Location = new System.Drawing.Point(22, 47);
             this.deleteTextBox.Name = "deleteTextBox";
             this.deleteTextBox.Size = new System.Drawing.Size(100, 20);
             this.deleteTextBox.TabIndex = 12;
@@ -428,11 +433,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 34);
+            this.label15.Location = new System.Drawing.Point(48, 31);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 13);
+            this.label15.Size = new System.Drawing.Size(46, 13);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Enter Lunch ID";
+            this.label15.Text = "Enter ID";
             // 
             // chromebookDataGridView
             // 
@@ -549,13 +554,28 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(12, 8);
+            this.label18.Location = new System.Drawing.Point(552, 89);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(655, 13);
+            this.label18.Size = new System.Drawing.Size(21, 13);
             this.label18.TabIndex = 28;
-            this.label18.Text = "!IMPORTANT! Please check if student is already in the system. If yes, add an addi" +
-    "tional 0 at the end of their lunch ID. Repeat as needed.";
+            this.label18.Text = "ID:";
+            // 
+            // getInfoButton
+            // 
+            this.getInfoButton.Location = new System.Drawing.Point(540, 112);
+            this.getInfoButton.Name = "getInfoButton";
+            this.getInfoButton.Size = new System.Drawing.Size(62, 28);
+            this.getInfoButton.TabIndex = 29;
+            this.getInfoButton.Text = "Quick Fill";
+            this.getInfoButton.UseVisualStyleBackColor = true;
+            this.getInfoButton.Click += new System.EventHandler(this.getInfoButton_Click);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(579, 86);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(86, 20);
+            this.idTextBox.TabIndex = 30;
             // 
             // ChromebookForm
             // 
@@ -563,7 +583,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(860, 489);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.billRadioButton);
             this.Controls.Add(this.statusRadioButton);
             this.Controls.Add(this.tagRadioButton);
@@ -637,9 +656,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox billAmountTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox billDateTextBox;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Button getInfoButton;
+        private System.Windows.Forms.Label label18;
     }
 }
