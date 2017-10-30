@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             this.chromebookButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.mainMenuTimer = new System.Windows.Forms.Timer(this.components);
+            this.currentTimeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +81,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
             this.button3.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.helpTicketIcon;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button3.Location = new System.Drawing.Point(241, 159);
+            this.button3.Location = new System.Drawing.Point(632, 159);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(5);
             this.button3.Size = new System.Drawing.Size(180, 80);
@@ -210,13 +213,31 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // mainMenuTimer
+            // 
+            this.mainMenuTimer.Tick += new System.EventHandler(this.mainMenuTimer_Tick);
+            // 
+            // currentTimeLabel
+            // 
+            this.currentTimeLabel.BackColor = System.Drawing.Color.Teal;
+            this.currentTimeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentTimeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.currentTimeLabel.Location = new System.Drawing.Point(242, 159);
+            this.currentTimeLabel.Name = "currentTimeLabel";
+            this.currentTimeLabel.Size = new System.Drawing.Size(179, 79);
+            this.currentTimeLabel.TabIndex = 10;
+            this.currentTimeLabel.Text = "Time";
+            this.currentTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(659, 356);
+            this.ClientSize = new System.Drawing.Size(835, 479);
+            this.Controls.Add(this.currentTimeLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.techAideButton);
@@ -227,7 +248,8 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WTS Main Menu";
@@ -248,5 +270,7 @@
         private System.Windows.Forms.Button techAideButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer mainMenuTimer;
+        private System.Windows.Forms.Label currentTimeLabel;
     }
 }

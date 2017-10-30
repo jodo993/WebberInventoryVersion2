@@ -21,8 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void SuppliesInformationForm_Load(object sender, EventArgs e)
@@ -45,9 +45,9 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again.dfadfas");
+                MessageBox.Show("Please go back and try again." + ex);
             }
         }
 

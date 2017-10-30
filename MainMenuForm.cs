@@ -15,6 +15,9 @@ namespace Webber_Inventory_Search_2017_2018
         public MainMenuForm()
         {
             InitializeComponent();
+
+            // Show current time and start the timer
+            mainMenuTimer.Start();
         }
 
         private void chromebookButton_Click(object sender, EventArgs e)
@@ -87,6 +90,13 @@ namespace Webber_Inventory_Search_2017_2018
             supplyForm.ShowDialog();
 
             this.Close();
+        }
+
+        private void mainMenuTimer_Tick(object sender, EventArgs e)
+        {
+            // Get current time
+            DateTime currentTime = DateTime.Now;
+            currentTimeLabel.Text = currentTime.ToString();
         }
     }
 }
