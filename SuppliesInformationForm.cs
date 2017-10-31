@@ -37,12 +37,33 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
 
+                //OleDbDataReader readerType = commandType.ExecuteReader();
+                //while (readerType.Read())
+                //{
+                //    typeComboBox.Items.Add(readerType["Type"].ToString());
+                //}
+
+                string[] type = new string[100];
+                int i = 0;
+
                 OleDbDataReader readerType = commandType.ExecuteReader();
                 while (readerType.Read())
                 {
-                    typeComboBox.Items.Add(readerType["Type"].ToString());
+                    type[i] = readerType["Type"].ToString();
+                    i++;
                 }
 
+                // Checks for copy of same type and only display one
+                int arrayLength = i;
+                for (int a = 0; a < arrayLength; a++)
+                {
+                    typeComboBox.Items.Add(type[a]);
+                    for (int b = a + 1; b < arrayLength; b++)
+                    {
+                        if (type[b] == type[a])
+                            typeComboBox.Items.Remove(type[a]);
+                    }
+                }
                 connection.Close();
             }
             catch (Exception ex)

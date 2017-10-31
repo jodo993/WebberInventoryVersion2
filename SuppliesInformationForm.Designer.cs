@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.nameRTextBox = new System.Windows.Forms.TextBox();
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.quitButton = new System.Windows.Forms.Button();
+            this.brandComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.modelComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.addTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
-            this.brandTextBox = new System.Windows.Forms.TextBox();
-            this.modelTextBox = new System.Windows.Forms.TextBox();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.linkTextBox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
-            this.mainButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.modelComboBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.typeComboBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.brandComboBox = new System.Windows.Forms.ComboBox();
-            this.nameRTextBox = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.mainButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.linkTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.modelTextBox = new System.Windows.Forms.TextBox();
+            this.brandTextBox = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -91,6 +91,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fill out the boxes below to find supply information.";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.linkLabel1.Location = new System.Drawing.Point(39, 189);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(329, 23);
+            this.linkLabel1.TabIndex = 17;
+            // 
+            // nameRTextBox
+            // 
+            this.nameRTextBox.Location = new System.Drawing.Point(39, 137);
+            this.nameRTextBox.Name = "nameRTextBox";
+            this.nameRTextBox.Size = new System.Drawing.Size(329, 20);
+            this.nameRTextBox.TabIndex = 15;
+            // 
             // mainMenuButton
             // 
             this.mainMenuButton.Location = new System.Drawing.Point(241, 19);
@@ -120,6 +135,96 @@
             this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
+            // brandComboBox
+            // 
+            this.brandComboBox.FormattingEnabled = true;
+            this.brandComboBox.Location = new System.Drawing.Point(157, 84);
+            this.brandComboBox.Name = "brandComboBox";
+            this.brandComboBox.Size = new System.Drawing.Size(93, 21);
+            this.brandComboBox.TabIndex = 3;
+            this.brandComboBox.SelectedIndexChanged += new System.EventHandler(this.brandComboBox_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(36, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Item Information";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(68, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Type";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 170);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Reference Link To Item";
+            // 
+            // typeComboBox
+            // 
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(39, 84);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(93, 21);
+            this.typeComboBox.TabIndex = 1;
+            this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(184, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Brand";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(300, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Model";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(256, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = ">";
+            // 
+            // modelComboBox
+            // 
+            this.modelComboBox.FormattingEnabled = true;
+            this.modelComboBox.Location = new System.Drawing.Point(275, 84);
+            this.modelComboBox.Name = "modelComboBox";
+            this.modelComboBox.Size = new System.Drawing.Size(93, 21);
+            this.modelComboBox.TabIndex = 5;
+            this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(138, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = ">";
             // 
             // addTabControl
             // 
@@ -154,106 +259,15 @@
             this.tabPage1.Text = "Add Supply";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // exitButton
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(437, 263);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Find Supply";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Type";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(156, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Brand";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(268, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Model";
-            // 
-            // typeTextBox
-            // 
-            this.typeTextBox.Location = new System.Drawing.Point(47, 42);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeTextBox.TabIndex = 3;
-            // 
-            // brandTextBox
-            // 
-            this.brandTextBox.Location = new System.Drawing.Point(159, 42);
-            this.brandTextBox.Name = "brandTextBox";
-            this.brandTextBox.Size = new System.Drawing.Size(100, 20);
-            this.brandTextBox.TabIndex = 4;
-            // 
-            // modelTextBox
-            // 
-            this.modelTextBox.Location = new System.Drawing.Point(271, 42);
-            this.modelTextBox.Name = "modelTextBox";
-            this.modelTextBox.Size = new System.Drawing.Size(100, 20);
-            this.modelTextBox.TabIndex = 5;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(47, 103);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(212, 20);
-            this.nameTextBox.TabIndex = 6;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(44, 83);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(173, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Name of Supply/Replacement Item";
-            // 
-            // linkTextBox
-            // 
-            this.linkTextBox.Location = new System.Drawing.Point(47, 153);
-            this.linkTextBox.Name = "linkTextBox";
-            this.linkTextBox.Size = new System.Drawing.Size(212, 20);
-            this.linkTextBox.TabIndex = 8;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(44, 133);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 13);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Link To Reference";
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(296, 100);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 10;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.exitButton.Location = new System.Drawing.Point(296, 150);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 12;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // mainButton
             // 
@@ -265,126 +279,112 @@
             this.mainButton.UseVisualStyleBackColor = true;
             this.mainButton.Click += new System.EventHandler(this.mainButton_Click);
             // 
-            // exitButton
+            // addButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(296, 150);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 12;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.addButton.Location = new System.Drawing.Point(296, 100);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 10;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // label3
+            // label13
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(300, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Model";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(44, 133);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(96, 13);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Link To Reference";
             // 
-            // label4
+            // linkTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(138, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = ">";
+            this.linkTextBox.Location = new System.Drawing.Point(47, 153);
+            this.linkTextBox.Name = "linkTextBox";
+            this.linkTextBox.Size = new System.Drawing.Size(212, 20);
+            this.linkTextBox.TabIndex = 8;
             // 
-            // modelComboBox
+            // label12
             // 
-            this.modelComboBox.FormattingEnabled = true;
-            this.modelComboBox.Location = new System.Drawing.Point(275, 84);
-            this.modelComboBox.Name = "modelComboBox";
-            this.modelComboBox.Size = new System.Drawing.Size(93, 21);
-            this.modelComboBox.TabIndex = 5;
-            this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(44, 83);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(173, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Name of Supply/Replacement Item";
             // 
-            // label5
+            // nameTextBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(256, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = ">";
+            this.nameTextBox.Location = new System.Drawing.Point(47, 103);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(212, 20);
+            this.nameTextBox.TabIndex = 6;
             // 
-            // label2
+            // modelTextBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Brand";
+            this.modelTextBox.Location = new System.Drawing.Point(271, 42);
+            this.modelTextBox.Name = "modelTextBox";
+            this.modelTextBox.Size = new System.Drawing.Size(100, 20);
+            this.modelTextBox.TabIndex = 5;
             // 
-            // typeComboBox
+            // brandTextBox
             // 
-            this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(39, 84);
-            this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(93, 21);
-            this.typeComboBox.TabIndex = 1;
-            this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
+            this.brandTextBox.Location = new System.Drawing.Point(159, 42);
+            this.brandTextBox.Name = "brandTextBox";
+            this.brandTextBox.Size = new System.Drawing.Size(100, 20);
+            this.brandTextBox.TabIndex = 4;
             // 
-            // label6
+            // typeTextBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 170);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Reference Link To Item";
+            this.typeTextBox.Location = new System.Drawing.Point(47, 42);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.typeTextBox.TabIndex = 3;
             // 
-            // label1
+            // label11
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Type";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(268, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Model";
             // 
-            // label7
+            // label10
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 121);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Item Information";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(156, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Brand";
             // 
-            // brandComboBox
+            // label9
             // 
-            this.brandComboBox.FormattingEnabled = true;
-            this.brandComboBox.Location = new System.Drawing.Point(157, 84);
-            this.brandComboBox.Name = "brandComboBox";
-            this.brandComboBox.Size = new System.Drawing.Size(93, 21);
-            this.brandComboBox.TabIndex = 3;
-            this.brandComboBox.SelectedIndexChanged += new System.EventHandler(this.brandComboBox_SelectedIndexChanged);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Type";
             // 
-            // nameRTextBox
+            // tabPage2
             // 
-            this.nameRTextBox.Location = new System.Drawing.Point(39, 137);
-            this.nameRTextBox.Name = "nameRTextBox";
-            this.nameRTextBox.Size = new System.Drawing.Size(329, 20);
-            this.nameRTextBox.TabIndex = 15;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.linkLabel1.Location = new System.Drawing.Point(39, 189);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(329, 23);
-            this.linkLabel1.TabIndex = 17;
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(437, 263);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Find Supply";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // SuppliesInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 343);
+            this.ClientSize = new System.Drawing.Size(498, 343);
             this.Controls.Add(this.addTabControl);
             this.Name = "SuppliesInformationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
