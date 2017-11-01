@@ -21,8 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -67,10 +67,11 @@ namespace Webber_Inventory_Search_2017_2018
 
                 string location = updateLocationComboBox.Text;
                 string tag = updateTagTextBox.Text;
+                string date = DateTime.Now.ToString();
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "update MainInventory set Location='" + location + "' where Tag=" + tag + ""; // might need to get rid of one quote '
+                string query = "update MainInventory set Location='" + location + "',TimeUpdated='" + date + "' where Tag=" + tag + ""; // might need to get rid of one quote '
                 command.CommandText = query;
                 command.ExecuteNonQuery();
 
@@ -105,10 +106,11 @@ namespace Webber_Inventory_Search_2017_2018
 
             int tag = int.Parse(updateTagTextBox.Text);
             string location = updateLocationComboBox.Text;
+            string date = DateTime.Now.ToString();
 
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "update MainInventory set Location='" + location + "' where Tag=" + tag + "";
+            command.CommandText = "update MainInventory set Location='" + location + "',TimeUpdated='" + date + "' where Tag=" + tag + "";
             command.ExecuteNonQuery();
 
             connection.Close();
@@ -149,10 +151,11 @@ namespace Webber_Inventory_Search_2017_2018
 
                 int tag2 = int.Parse(updateTag2TextBox.Text);
                 string status = updateStatusComboBox.Text;
+                string date = DateTime.Now.ToString();
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "update MainInventory set Status='" + status + "' where Tag=" + tag2 + "";
+                command.CommandText = "update MainInventory set Status='" + status + "',TimeUpdated='" + date + "' where Tag=" + tag2 + "";
                 command.ExecuteNonQuery();
 
                 connection.Close();
@@ -186,10 +189,11 @@ namespace Webber_Inventory_Search_2017_2018
 
             int tag2 = int.Parse(updateTag2TextBox.Text);
             string status = updateStatusComboBox.Text;
+            string date = DateTime.Now.ToString();
 
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "update MainInventory set Status='" + status + "' where Tag=" + tag2 + "";
+            command.CommandText = "update MainInventory set Status='" + status + "',TimeUpdated='" + date + "' where Tag=" + tag2 + "";
             command.ExecuteNonQuery();
             connection.Close();
 
