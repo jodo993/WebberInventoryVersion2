@@ -21,8 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            // connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string status2 = "";
                 float billAmount = 0;
                 string billDate = "";
+                string notes = "";
 
                 fullName = studentNameTextBox.Text;
                 lunchID = int.Parse(studentEditTextBox.Text);
@@ -61,12 +62,22 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                     billAmount = float.Parse(billAmountTextBox.Text);
 
+                if (billDateTextBox.Text == "")
+                    billDate = "";
+                else
+                    billDate = billDateTextBox.Text;
+
+                if (textBox1.Text == "")
+                    notes = "";
+                else
+                    notes = textBox1.Text;
+
                 // Open connection to database
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "')";
+                command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "','" + notes + "')"; //,'" + note + "'
                 command.ExecuteNonQuery();
                 connection.Close();
 
@@ -113,6 +124,7 @@ namespace Webber_Inventory_Search_2017_2018
                     string status2;
                     float billAmount;
                     string billDate;
+                    string notes;
 
                     if (loanAddTextBox.Text == "")
                         loanTag = 0;
@@ -134,12 +146,18 @@ namespace Webber_Inventory_Search_2017_2018
                     else
                         billDate = billDateTextBox.Text;
 
+                    if (textBox1.Text == "")
+                        notes = "";
+                    else
+                        notes = textBox1.Text;
+
+                    string date = DateTime.Now.ToString();
                     // Open connection to database
                     connection.Open();
 
                     OleDbCommand command = new OleDbCommand();
                     command.Connection = connection;
-                    command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "' where LunchID= " + lunchID + "";
+                    command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "',Notes='" + notes + "',LastUpdated='" + date + "' where LunchID= " + lunchID + ""; //,Note='" + note + "'
 
                     command.ExecuteNonQuery();
                     
