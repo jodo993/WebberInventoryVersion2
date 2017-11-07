@@ -54,6 +54,7 @@ namespace Webber_Inventory_Search_2017_2018
                 }
 
                 // Checks for copy of same type and only display one
+                // Brute force algorithm, will slow as array gets bigger
                 int arrayLength = i;
                 for (int a = 0; a < arrayLength; a++)
                 {

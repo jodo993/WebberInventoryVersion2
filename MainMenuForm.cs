@@ -96,7 +96,29 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Get current time
             DateTime currentTime = DateTime.Now;
-            currentTimeLabel.Text = currentTime.ToString();
+            timeButton.Text = currentTime.ToString();
+        }
+
+        private void tutorialsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            // Opens tutorials form
+            TutorialForm tutorialForm = new TutorialForm();
+            tutorialForm.ShowDialog();
+
+            this.Close();
+        }
+
+        private void ticketButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            // Open ticket form
+            TicketForm ticketForm = new TicketForm();
+            ticketForm.ShowDialog();
+
+            this.Close();
         }
     }
 }

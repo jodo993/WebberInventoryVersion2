@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechAidePasswordForm));
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.goButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
@@ -68,7 +69,9 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.passwordTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TechAidePasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechAidePasswordForm";
             this.ResumeLayout(false);
             this.PerformLayout();
