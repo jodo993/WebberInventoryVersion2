@@ -25,6 +25,20 @@ namespace Webber_Inventory_Search_2017_2018
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
         }
 
+        // Clear all fields
+        private void clearAll()
+        {
+            studentNameTextBox.Text = "";
+            studentEditTextBox.Text = "";
+            teacherNameTextBox.Text = "";
+            originalAddTextBox.Text = "";
+            statusComboBox.Text = "";
+            loanAddTextBox.Text = "";
+            status2ComboBox.Text = "";
+            billAmountTextBox.Text = "";
+            billDateTextBox.Text = "";
+            textBox1.Text = "";
+        }
         private void addButton_Click(object sender, EventArgs e)
         {
             // Verify to see if all fields are entered
@@ -83,15 +97,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 MessageBox.Show("Chromebook was successfully added!");
 
-                studentNameTextBox.Text = "";
-                studentEditTextBox.Text = "";
-                teacherNameTextBox.Text = "";
-                originalAddTextBox.Text = "";
-                statusComboBox.Text = "";
-                loanAddTextBox.Text = "";
-                status2ComboBox.Text = "";
-                billAmountTextBox.Text = "";
-                billDateTextBox.Text = "";
+                clearAll();
             }
             else
                 MessageBox.Show("Fill out all required fields.");
@@ -100,14 +106,7 @@ namespace Webber_Inventory_Search_2017_2018
         private void clearButton_Click(object sender, EventArgs e)
         {
             // Clear all add fields
-            studentNameTextBox.Text = "";
-            studentEditTextBox.Text = "";
-            teacherNameTextBox.Text = "";
-            originalAddTextBox.Text = "";
-            statusComboBox.Text = "";
-            loanAddTextBox.Text = "";
-            status2ComboBox.Text = "";
-            billAmountTextBox.Text = "";
+            clearAll();
         }
 
         private void editButton_Click(object sender, EventArgs e)

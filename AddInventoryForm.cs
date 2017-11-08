@@ -87,10 +87,16 @@ namespace Webber_Inventory_Search_2017_2018
                             addTagTextBox.Text = "";
                         }
                         else
+                        {
                             statusWrongLabel.Visible = true;
+                            warning2Label.Visible = true;
+                        }       
                     }
                     else
+                    {
                         typeWrongLabel.Visible = true;
+                        warningLabel.Visible = true;
+                    }
                 }
                 else
                     MessageBox.Show("Please fill in slots first.");

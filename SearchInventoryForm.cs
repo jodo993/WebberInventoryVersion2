@@ -49,8 +49,8 @@ namespace Webber_Inventory_Search_2017_2018
             catch (Exception)
             {
                 MessageBox.Show("Unable to find, please try again.");
+                return;
             }
-            
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -77,16 +77,9 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
 
-                // Update time location was updated
-                //connection.Open();
-                //SqlCommand cmd2 = connection.CreateCommand();
-                //cmd2.CommandType = CommandType.Text;
-                //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
-                //cmd2.ExecuteNonQuery();
-                //connection.Close();
-
                 MessageBox.Show("Location was updated for item tag #" + tag + ".");
 
+                // Clear boxes
                 updateTagTextBox.Text = "";
                 updateLocationComboBox.Text = "";
             }
@@ -115,16 +108,9 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Close();
 
-            // Update time location was updated
-            //connection.Open();
-            //SqlCommand cmd2 = connection.CreateCommand();
-            //cmd2.CommandType = CommandType.Text;
-            //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTagTextBox.Text + "'";
-            //cmd2.ExecuteNonQuery();
-            //connection.Close();
-
             MessageBox.Show("Location was updated for item tag #" + updateTagTextBox.Text + ".");
 
+            // Clear boxes
             updateTagTextBox.Text = "";
             updateLocationComboBox.Text = "";
 
@@ -137,9 +123,9 @@ namespace Webber_Inventory_Search_2017_2018
         private void noLocationButton_Click(object sender, EventArgs e)
         {
             // Deactivates location verification questions
-            locationCheckLabel.Visible = true;
-            yesLocationButton.Visible = true;
-            noLocationButton.Visible = true;
+            locationCheckLabel.Visible = false;
+            yesLocationButton.Visible = false;
+            noLocationButton.Visible = false;
         }
 
         private void updateStatusButton_Click(object sender, EventArgs e)
@@ -160,16 +146,9 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
 
-                // Update the time status was updated
-                //connection.Open();
-                //SqlCommand cmd2 = connection.CreateCommand();
-                //cmd2.CommandType = CommandType.Text;
-                ///cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
-                //cmd2.ExecuteNonQuery();
-                //connection.Close();
-
                 MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
 
+                // Clear boxes
                 updateTag2TextBox.Text = "";
                 updateStatusComboBox.Text = "";
             }
@@ -197,14 +176,6 @@ namespace Webber_Inventory_Search_2017_2018
             command.ExecuteNonQuery();
             connection.Close();
 
-            // Update the time status was updated
-            //connection.Open();
-            //SqlCommand cmd2 = connection.CreateCommand();
-            //cmd2.CommandType = CommandType.Text;
-            //cmd2.CommandText = "update MainInventory set Time='" + DateTime.Now + "' where Tag='" + updateTag2TextBox.Text + "'";
-            //cmd2.ExecuteNonQuery();
-            //connection.Close();
-
             MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
 
             updateTag2TextBox.Text = "";
@@ -219,9 +190,9 @@ namespace Webber_Inventory_Search_2017_2018
         private void noStatusButton_Click(object sender, EventArgs e)
         {
             // Deactivates status verification questions
-            statusCheckLabel.Visible = true;
-            yesStatusButton.Visible = true;
-            noStatusButton.Visible = true;
+            statusCheckLabel.Visible = false;
+            yesStatusButton.Visible = false;
+            noStatusButton.Visible = false;
         }
 
         private void removeButton_Click(object sender, EventArgs e)

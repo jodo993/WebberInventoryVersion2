@@ -658,6 +658,7 @@
             this.Controls.Add(this.removeGroupBox);
             this.Controls.Add(this.searchGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SearchInventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search and Update ";

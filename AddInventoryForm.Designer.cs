@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddInventoryForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +50,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.addStatusComboBox = new System.Windows.Forms.ComboBox();
             this.addTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.warningLabel = new System.Windows.Forms.Label();
+            this.warning2Label = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -253,6 +256,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.warning2Label);
+            this.groupBox4.Controls.Add(this.warningLabel);
             this.groupBox4.Controls.Add(this.addStatusComboBox);
             this.groupBox4.Controls.Add(this.addTypeComboBox);
             this.groupBox4.Controls.Add(this.label2);
@@ -311,6 +316,28 @@
             this.addTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.addTypeComboBox.TabIndex = 1;
             // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningLabel.Location = new System.Drawing.Point(168, 64);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(10, 13);
+            this.warningLabel.TabIndex = 40;
+            this.warningLabel.Text = "!";
+            this.warningLabel.Visible = false;
+            // 
+            // warning2Label
+            // 
+            this.warning2Label.AutoSize = true;
+            this.warning2Label.ForeColor = System.Drawing.Color.Red;
+            this.warning2Label.Location = new System.Drawing.Point(351, 149);
+            this.warning2Label.Name = "warning2Label";
+            this.warning2Label.Size = new System.Drawing.Size(10, 13);
+            this.warning2Label.TabIndex = 41;
+            this.warning2Label.Text = "!";
+            this.warning2Label.Visible = false;
+            // 
             // AddInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +347,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddInventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Inventory Adds";
@@ -353,5 +381,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox addStatusComboBox;
         private System.Windows.Forms.ComboBox addTypeComboBox;
+        private System.Windows.Forms.Label warning2Label;
+        private System.Windows.Forms.Label warningLabel;
     }
 }

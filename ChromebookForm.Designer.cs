@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChromebookForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -44,9 +46,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.billDateTextBox = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.billAmountTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -86,7 +88,6 @@
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -134,6 +135,14 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chromebook Update Section";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(526, 116);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 69);
+            this.textBox1.TabIndex = 34;
             // 
             // label29
             // 
@@ -296,17 +305,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "For Edit";
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label27.Location = new System.Drawing.Point(185, 53);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(13, 15);
-            this.label27.TabIndex = 30;
-            this.label27.Text = "*";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -322,6 +320,17 @@
             this.billDateTextBox.Name = "billDateTextBox";
             this.billDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.billDateTextBox.TabIndex = 30;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label27.Location = new System.Drawing.Point(185, 53);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(13, 15);
+            this.label27.TabIndex = 30;
+            this.label27.Text = "*";
             // 
             // billAmountTextBox
             // 
@@ -703,14 +712,6 @@
             this.label21.TabIndex = 24;
             this.label21.Text = "* = Required to add";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(526, 116);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 69);
-            this.textBox1.TabIndex = 34;
-            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,6 +734,7 @@
             this.Controls.Add(this.chromebookDataGridView);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChromebookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chromebook Page";
