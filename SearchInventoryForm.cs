@@ -49,7 +49,6 @@ namespace Webber_Inventory_Search_2017_2018
             catch (Exception)
             {
                 MessageBox.Show("Unable to find, please try again.");
-                return;
             }
         }
 

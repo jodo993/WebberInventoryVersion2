@@ -41,66 +41,73 @@ namespace Webber_Inventory_Search_2017_2018
         }
         private void addButton_Click(object sender, EventArgs e)
         {
-            // Verify to see if all fields are entered
-            if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
+            try
             {
-                string fullName = "";
-                int lunchID = 0;
-                string teacherName = "";
-                int originalTag = 0;
-                string status = "";
-                int loanTag = 0;
-                string status2 = "";
-                float billAmount = 0;
-                string billDate = "";
-                string notes = "";
+                // Verify to see if all fields are entered
+                if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
+                {
+                    string fullName = "";
+                    int lunchID = 0;
+                    string teacherName = "";
+                    int originalTag = 0;
+                    string status = "";
+                    int loanTag = 0;
+                    string status2 = "";
+                    float billAmount = 0;
+                    string billDate = "";
+                    string notes = "";
 
-                fullName = studentNameTextBox.Text;
-                lunchID = int.Parse(studentEditTextBox.Text);
-                teacherName = teacherNameTextBox.Text;
-                originalTag = int.Parse(originalAddTextBox.Text);
-                status = statusComboBox.Text;
+                    fullName = studentNameTextBox.Text;
+                    lunchID = int.Parse(studentEditTextBox.Text);
+                    teacherName = teacherNameTextBox.Text;
+                    originalTag = int.Parse(originalAddTextBox.Text);
+                    status = statusComboBox.Text;
 
-                if (loanAddTextBox.Text == "")
-                    loanTag = 0;
+                    if (loanAddTextBox.Text == "")
+                        loanTag = 0;
+                    else
+                        loanTag = int.Parse(loanAddTextBox.Text);
+
+                    if (status2ComboBox.Text == "")
+                        status2 = "";
+                    else
+                        status2 = status2ComboBox.Text;
+
+                    if (billAmountTextBox.Text == "")
+                        billAmount = 0;
+                    else
+                        billAmount = float.Parse(billAmountTextBox.Text);
+
+                    if (billDateTextBox.Text == "")
+                        billDate = "";
+                    else
+                        billDate = billDateTextBox.Text;
+
+                    if (textBox1.Text == "")
+                        notes = "";
+                    else
+                        notes = textBox1.Text;
+
+                    // Open connection to database
+                    connection.Open();
+
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "','" + notes + "')"; //,'" + note + "'
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                    MessageBox.Show("Chromebook was successfully added!");
+
+                    clearAll();
+                }
                 else
-                    loanTag = int.Parse(loanAddTextBox.Text);
-
-                if (status2ComboBox.Text == "")
-                    status2 = "";
-                else
-                    status2 = status2ComboBox.Text;
-
-                if (billAmountTextBox.Text == "")
-                    billAmount = 0;
-                else
-                    billAmount = float.Parse(billAmountTextBox.Text);
-
-                if (billDateTextBox.Text == "")
-                    billDate = "";
-                else
-                    billDate = billDateTextBox.Text;
-
-                if (textBox1.Text == "")
-                    notes = "";
-                else
-                    notes = textBox1.Text;
-
-                // Open connection to database
-                connection.Open();
-
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "','" + notes + "')"; //,'" + note + "'
-                command.ExecuteNonQuery();
-                connection.Close();
-
-                MessageBox.Show("Chromebook was successfully added!");
-
-                clearAll();
+                    MessageBox.Show("Fill out all required fields."); 
             }
-            else
-                MessageBox.Show("Fill out all required fields.");
+            catch (Exception)
+            {
+                MessageBox.Show("Oops, something went wrong. Please exit and try again.");
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -171,24 +178,30 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 MessageBox.Show("Please fill out all required boxes." + ex);
             }
-            
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            // Open database and delete all data for selected item
-            connection.Open();
+            try
+            {
+                // Open database and delete all data for selected item
+                connection.Open();
 
-            int deleteItem = int.Parse(deleteTextBox.Text);
+                int deleteItem = int.Parse(deleteTextBox.Text);
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            command.CommandText = "delete from Chromebook_Information where ID=" + deleteItem + "";
-            command.ExecuteNonQuery();
-            connection.Close();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "delete from Chromebook_Information where ID=" + deleteItem + "";
+                command.ExecuteNonQuery();
+                connection.Close();
 
-            MessageBox.Show("All data was deleted for Chromebook #" + deleteTextBox.Text + ".");
-            deleteTextBox.Text = "";
+                MessageBox.Show("All data was deleted for Chromebook #" + deleteTextBox.Text + ".");
+                deleteTextBox.Text = "";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops, something went wrong. Please exit and try again.");
+            }
         }
 
         private void searchChromebookButton_Click(object sender, EventArgs e)
@@ -235,25 +248,32 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 MessageBox.Show("Error. Please log out and try again." + ex);
             }
-            
         }
 
         private void showAllChromeButton_Click(object sender, EventArgs e)
         {
-            // Get all fields in table and show
-            connection.Open();
+            try
+            {
+                // Get all fields in table and show
+                connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            command.CommandText = "select * from Chromebook_Information";
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "select * from Chromebook_Information";
 
-            // Data Table shows and hold data
-            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            chromebookDataGridView.DataSource = dataTable;
+                // Data Table shows and hold data
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                chromebookDataGridView.DataSource = dataTable;
 
-            connection.Close();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops, something went wrong. Please log out and try again.");
+            }
+            
         }
 
         // Main menu
@@ -297,6 +317,7 @@ namespace Webber_Inventory_Search_2017_2018
                     status2ComboBox.Text = reader["LoanStatus"].ToString();
                     billAmountTextBox.Text = reader["BillAmount"].ToString();
                     billDateTextBox.Text = reader["BillDate"].ToString();
+                    textBox1.Text = reader["Notes"].ToString();
                 }
 
                 connection.Close();

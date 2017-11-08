@@ -42,6 +42,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.mainMenuTimer = new System.Windows.Forms.Timer(this.components);
             this.timeButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -227,13 +228,23 @@
             this.timeButton.TabIndex = 11;
             this.timeButton.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(449, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "label2";
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(835, 432);
+            this.ClientSize = new System.Drawing.Size(661, 432);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.timeButton);
             this.Controls.Add(this.tutorialsButton);
             this.Controls.Add(this.ticketButton);
@@ -245,7 +256,7 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -269,5 +280,6 @@
         private System.Windows.Forms.Button tutorialsButton;
         private System.Windows.Forms.Timer mainMenuTimer;
         private System.Windows.Forms.Button timeButton;
+        private System.Windows.Forms.Label label2;
     }
 }

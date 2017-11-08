@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace Webber_Inventory_Search_2017_2018
 {
@@ -15,6 +16,7 @@ namespace Webber_Inventory_Search_2017_2018
     {
         // Use by this form only, global
         private OleDbConnection connection = new OleDbConnection();
+        string link = "";
 
         public SuppliesInformationForm()
         {
@@ -23,6 +25,7 @@ namespace Webber_Inventory_Search_2017_2018
             // Connect to database                                                       
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
+
         }
 
         private void SuppliesInformationForm_Load(object sender, EventArgs e)
@@ -152,6 +155,8 @@ namespace Webber_Inventory_Search_2017_2018
                 }
 
                 connection.Close();
+
+                link = linkLabel1.Text;
             }
             catch (Exception ex)
             {
@@ -234,7 +239,8 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Uh Oh. Something went wrong, please try again." + ex);
+                //MessageBox.Show("Uh Oh. Something went wrong, please try again." + ex);
+                MessageBox.Show("Uh Oh. Something went wrong, please try again.");
             }
         }
 
@@ -251,6 +257,12 @@ namespace Webber_Inventory_Search_2017_2018
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Open link in a new tab
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(link);
         }
     }
 }

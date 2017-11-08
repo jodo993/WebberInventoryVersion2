@@ -115,11 +115,11 @@
             // 
             this.signButton.BackColor = System.Drawing.Color.Transparent;
             this.signButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signButton.Location = new System.Drawing.Point(225, 243);
+            this.signButton.Location = new System.Drawing.Point(238, 243);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
             this.signButton.TabIndex = 3;
-            this.signButton.Text = "LOGIN";
+            this.signButton.Text = "Sign In";
             this.signButton.UseVisualStyleBackColor = false;
             this.signButton.Click += new System.EventHandler(this.signButton_Click);
             // 
@@ -127,7 +127,7 @@
             // 
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
             this.clearButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(307, 243);
+            this.clearButton.Location = new System.Drawing.Point(313, 243);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
             this.clearButton.TabIndex = 4;
@@ -139,7 +139,7 @@
             // 
             this.exitButton.BackColor = System.Drawing.Color.Transparent;
             this.exitButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(389, 243);
+            this.exitButton.Location = new System.Drawing.Point(388, 243);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(62, 23);
             this.exitButton.TabIndex = 5;
