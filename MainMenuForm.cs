@@ -96,7 +96,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Get current time
             DateTime currentTime = DateTime.Now;
-            timeButton.Text = currentTime.ToString();
+            timeLabel.Text = currentTime.ToString();
         }
 
         private void tutorialsButton_Click(object sender, EventArgs e)
