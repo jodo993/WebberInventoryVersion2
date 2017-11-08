@@ -472,7 +472,7 @@ namespace Webber_Inventory_Search_2017_2018
             }
             else
             {
-                MessageBox.Show("Select an option.");
+                MessageBox.Show("Select a category.");
                 connection.Close();
                 return;
             }
