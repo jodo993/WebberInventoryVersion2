@@ -38,20 +38,23 @@
             this.signButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(205, 59);
+            this.label1.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Pink;
+            this.label1.Location = new System.Drawing.Point(405, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 42);
+            this.label1.Size = new System.Drawing.Size(104, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Webber";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -60,11 +63,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(217, 132);
+            this.label2.Location = new System.Drawing.Point(421, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 25);
+            this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Username";
             // 
@@ -72,20 +75,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(222, 181);
+            this.label3.Location = new System.Drawing.Point(421, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 25);
+            this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
             // 
             // incorrectLoginLabel
             // 
             this.incorrectLoginLabel.BackColor = System.Drawing.Color.Transparent;
-            this.incorrectLoginLabel.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incorrectLoginLabel.Font = new System.Drawing.Font("Bell MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incorrectLoginLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.incorrectLoginLabel.Location = new System.Drawing.Point(235, 272);
+            this.incorrectLoginLabel.Location = new System.Drawing.Point(384, 301);
             this.incorrectLoginLabel.Name = "incorrectLoginLabel";
             this.incorrectLoginLabel.Size = new System.Drawing.Size(204, 43);
             this.incorrectLoginLabel.TabIndex = 3;
@@ -97,7 +100,7 @@
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(319, 138);
+            this.usernameTextBox.Location = new System.Drawing.Point(424, 162);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(120, 21);
             this.usernameTextBox.TabIndex = 1;
@@ -107,7 +110,7 @@
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(319, 181);
+            this.passwordTextBox.Location = new System.Drawing.Point(424, 221);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(120, 21);
@@ -117,9 +120,9 @@
             // signButton
             // 
             this.signButton.BackColor = System.Drawing.Color.Transparent;
-            this.signButton.Font = new System.Drawing.Font("Papyrus", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signButton.ForeColor = System.Drawing.Color.Black;
-            this.signButton.Location = new System.Drawing.Point(227, 226);
+            this.signButton.Location = new System.Drawing.Point(424, 257);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
             this.signButton.TabIndex = 3;
@@ -130,9 +133,9 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
-            this.clearButton.Font = new System.Drawing.Font("Papyrus", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.Black;
-            this.clearButton.Location = new System.Drawing.Point(302, 226);
+            this.clearButton.Location = new System.Drawing.Point(482, 257);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
             this.clearButton.TabIndex = 4;
@@ -143,9 +146,9 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Transparent;
-            this.exitButton.Font = new System.Drawing.Font("Papyrus", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
-            this.exitButton.Location = new System.Drawing.Point(377, 226);
+            this.exitButton.Location = new System.Drawing.Point(576, 365);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(62, 23);
             this.exitButton.TabIndex = 5;
@@ -153,50 +156,59 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Maroon;
+            this.label4.Location = new System.Drawing.Point(493, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 42);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Elementary";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.quotelogin1;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(135, 104);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(140, 70);
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.wolf_vector_howling_moon_2;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(325, 400);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.wsdIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(139, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(348, 55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Papyrus", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label4.Location = new System.Drawing.Point(328, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 42);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Elementary";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Papyrus", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(252, 337);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 11);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "@ 2017 Webber Login Page. All Rights Reserved";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.chalkboardBackground;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(650, 400);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.exitButton);
@@ -214,6 +226,8 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Technology Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,7 +247,8 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 
