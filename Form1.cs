@@ -19,11 +19,12 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void signButton_Click(object sender, EventArgs e)
         {
+            signButton.ForeColor = signButton.Parent.BackColor;
             try
             {
                 // Correct username and password needed to login
                 String correctUsername = "web";
-                String correctPassword = "paw";
+                String correctPassword = "ber";
 
                 // Username and password user entered
                 String enteredUsername = usernameTextBox.Text;
