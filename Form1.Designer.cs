@@ -65,7 +65,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(421, 141);
+            this.label2.Location = new System.Drawing.Point(437, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(421, 200);
+            this.label3.Location = new System.Drawing.Point(437, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 2;
@@ -88,7 +88,7 @@
             this.incorrectLoginLabel.BackColor = System.Drawing.Color.Transparent;
             this.incorrectLoginLabel.Font = new System.Drawing.Font("Bell MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incorrectLoginLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.incorrectLoginLabel.Location = new System.Drawing.Point(384, 301);
+            this.incorrectLoginLabel.Location = new System.Drawing.Point(394, 294);
             this.incorrectLoginLabel.Name = "incorrectLoginLabel";
             this.incorrectLoginLabel.Size = new System.Drawing.Size(204, 43);
             this.incorrectLoginLabel.TabIndex = 3;
@@ -99,21 +99,21 @@
             // usernameTextBox
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(424, 162);
+            this.usernameTextBox.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(440, 156);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(120, 21);
+            this.usernameTextBox.Size = new System.Drawing.Size(104, 18);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTextBox.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(424, 221);
+            this.passwordTextBox.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Location = new System.Drawing.Point(440, 215);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
-            this.passwordTextBox.Size = new System.Drawing.Size(120, 21);
+            this.passwordTextBox.Size = new System.Drawing.Size(104, 18);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -122,7 +122,7 @@
             this.signButton.BackColor = System.Drawing.Color.Transparent;
             this.signButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signButton.ForeColor = System.Drawing.Color.Black;
-            this.signButton.Location = new System.Drawing.Point(424, 257);
+            this.signButton.Location = new System.Drawing.Point(428, 250);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
             this.signButton.TabIndex = 3;
@@ -135,7 +135,7 @@
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
             this.clearButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.Black;
-            this.clearButton.Location = new System.Drawing.Point(482, 257);
+            this.clearButton.Location = new System.Drawing.Point(496, 250);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
             this.clearButton.TabIndex = 4;
