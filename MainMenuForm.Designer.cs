@@ -90,7 +90,6 @@
             this.tutorialsButton.TabIndex = 9;
             this.tutorialsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tutorialsButton.UseVisualStyleBackColor = false;
-            this.tutorialsButton.Visible = false;
             this.tutorialsButton.Click += new System.EventHandler(this.tutorialsButton_Click);
             // 
             // ticketButton
@@ -152,7 +151,6 @@
             this.troubleshootingButton.TabIndex = 5;
             this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.troubleshootingButton.UseVisualStyleBackColor = false;
-            this.troubleshootingButton.Visible = false;
             this.troubleshootingButton.Click += new System.EventHandler(this.troubleshootingButton_Click);
             // 
             // quitButton
@@ -164,7 +162,7 @@
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(63, 26);
             this.quitButton.TabIndex = 4;
-            this.quitButton.Text = "Quit";
+            this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = false;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
@@ -295,7 +293,6 @@
             this.label7.Size = new System.Drawing.Size(142, 21);
             this.label7.TabIndex = 18;
             this.label7.Text = "Self Troubleshoot";
-            this.label7.Visible = false;
             // 
             // label8
             // 
@@ -308,7 +305,6 @@
             this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 19;
             this.label8.Text = "Tutorials";
-            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -393,7 +389,6 @@
             this.label15.TabIndex = 26;
             this.label15.Text = "Look up possible solutions for technical issues.";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Visible = false;
             // 
             // label16
             // 
@@ -406,14 +401,13 @@
             this.label16.TabIndex = 27;
             this.label16.Text = "Learn or refresh on commonly used programs.";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label16.Visible = false;
             // 
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Papyrus", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(450, 384);
+            this.label17.Location = new System.Drawing.Point(450, 374);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(170, 39);
             this.label17.TabIndex = 28;
