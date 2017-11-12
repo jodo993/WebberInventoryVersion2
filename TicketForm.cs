@@ -124,7 +124,37 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void checkButton_Click(object sender, EventArgs e)
         {
+            string ticketNumber = ticketNumberTextBox.Text;
+            connection.Open();
 
+            // Which table to search for data
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Help_Ticket";
+            command.CommandText = query;
+
+            string[] idCheck = new string[1000];
+            int i = 0;
+            bool found = false;
+
+            // Read the data
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                idCheck[i] = reader["ID"].ToString();
+                if (idCheck[i] == ticketNumber)
+                {
+                    string status = reader["Status"].ToString();
+                    found = true;
+                    statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ".";
+                }
+                i++;
+            }
+
+            if (found == false)
+                MessageBox.Show("Ticket number was not found.");
+
+            connection.Close();
         }
     }
 }

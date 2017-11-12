@@ -58,7 +58,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(144, 227);
+            this.submitButton.Location = new System.Drawing.Point(144, 235);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 0;
@@ -146,8 +146,9 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.Location = new System.Drawing.Point(119, 189);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.descriptionTextBox.Size = new System.Drawing.Size(100, 40);
             this.descriptionTextBox.TabIndex = 10;
             // 
             // importanceComboBox
@@ -196,7 +197,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(64, 227);
+            this.clearButton.Location = new System.Drawing.Point(64, 235);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 14;
