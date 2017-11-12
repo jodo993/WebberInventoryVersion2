@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace Webber_Inventory_Search_2017_2018
 {
@@ -56,8 +57,25 @@ namespace Webber_Inventory_Search_2017_2018
                                         command.CommandText = "insert into Help_Ticket (Staff,Room,Importance,Category,TimePreferred,Description,Status) values('" + staff + "','" + room + "','" + importance + "','" + category + "','" + time + "','" + description + "','" + status + "')";
                                         command.ExecuteNonQuery();
 
+                                        // Create array
+                                        string[] idList = new string[1000];
+                                        int i = 0;
+
+                                        // Which table to search for data
+                                        string query = "select * from Help_Ticket";
+                                        command.CommandText = query;
+
+                                        // Read the data
+                                        OleDbDataReader reader = command.ExecuteReader();
+                                        while (reader.Read())
+                                        {
+                                            idList[i] = reader["ID"].ToString();
+                                            i++;
+                                        }
+
                                         connection.Close();
-                                        MessageBox.Show("Ticket was successfully submitted. Ticket number is ");
+
+                                        MessageBox.Show("Ticket was successfully submitted. Ticket number is #" + i + ". Ticket number will allow you to check on the ticket current status.");
                                     }
                                     else
                                         MessageBox.Show("Please enter a brief description of the problem.");
@@ -70,7 +88,7 @@ namespace Webber_Inventory_Search_2017_2018
                     else
                         MessageBox.Show("Please enter the location of the problem.");
                 else
-                    MessageBox.Show("Please enter a valid name.");
+                    MessageBox.Show("Please enter a valid name.");       
             }
             catch (Exception ex)
             {
