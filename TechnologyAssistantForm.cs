@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class TechnologyAssistantForm : Form
     {
+
+        // Use by this form only, global
+        private OleDbConnection connection = new OleDbConnection();
+
         public TechnologyAssistantForm()
         {
             InitializeComponent();
+
+            // Connect to database                                                       
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
         // Categories and their issues
@@ -69,6 +78,29 @@ namespace Webber_Inventory_Search_2017_2018
             programComboBox.Items.Add("Renaissance");
             programComboBox.Items.Add("Notes");
             programComboBox.Items.Add("Chromebook");
+
+            // Populate the list box of open tickets
+            connection.Open();
+
+            OleDbCommand commandID = new OleDbCommand();
+            commandID.Connection = connection;
+            string query = "select * from Help_Ticket";
+            commandID.CommandText = query;
+
+            string[] statusCheck = new string[1000];
+            int i = 0;
+
+            // Add only open tickets to listbox
+            OleDbDataReader reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                statusCheck[i] = reader["Status"].ToString();
+                if (statusCheck[i] == "Open")
+                    openTicketListBox.Items.Add(reader["ID"].ToString());
+                i++;
+            }
+
+            connection.Close();
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,6 +240,35 @@ namespace Webber_Inventory_Search_2017_2018
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void openTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+    
+            connection.Open();
+
+            OleDbCommand commandID = new OleDbCommand();
+            commandID.Connection = connection;
+            string query = "select * from Help_Ticket where ID=" + openTicketListBox.SelectedItem + "";
+            commandID.CommandText = query;
+
+            OleDbDataReader reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                idLabel.Text = reader["ID"].ToString();
+                dateCreatedLabel.Text = reader["DateCreated"].ToString();
+                staffLabel.Text = reader["Staff"].ToString();
+                roomLabel.Text = reader["Room"].ToString();
+                importanceLabel.Text = reader["Importance"].ToString();
+                categoryLabel.Text = reader["Category"].ToString();
+                timePreferredLabel.Text = reader["TimePreferred"].ToString();
+                descriptionLabel.Text = reader["Description"].ToString();
+                statusComboBox.Text = reader["Status"].ToString();
+                dateClosedLabel.Text = reader["DateClosed"].ToString();
+                fixDateComboBox.Text = reader["PlannedFixDate"].ToString();
+            }
+
+            connection.Close();
         }
     }
 }
