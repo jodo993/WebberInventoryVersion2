@@ -270,5 +270,28 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Close();
         }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            string date = DateTime.Now.ToString();
+            OleDbCommand commandID = new OleDbCommand();
+            commandID.Connection = connection;
+            string query;
+            if (statusComboBox.Text == "Closed")
+            {
+                query = "update Help_Ticket set Status='" + statusComboBox.Text + "',DateClosed='" + date + "',PlannedFixDate='" + fixDateComboBox.Text + "' where ID=" + openTicketListBox.SelectedItem + "";
+            }
+            else
+            {
+                query = "update Help_Ticket set Status='" + statusComboBox.Text + "',PlannedFixDate='" + fixDateComboBox.Text + "' where ID=" + openTicketListBox.SelectedItem + "";
+            }
+            commandID.CommandText = query;
+            commandID.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Updated.");
+        }
     }
 }
