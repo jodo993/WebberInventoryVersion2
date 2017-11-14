@@ -448,5 +448,29 @@ namespace Webber_Inventory_Search_2017_2018
             googleListBox.Items.Remove(googleListBox.SelectedItem);
             stepByStepLabel.Text = "";
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            string checkTime = maskedTextBox1.Text;
+            if (checkBox1.Checked)
+                if (checkTime == "24:24")
+                {
+                    wordDeleteButton.Visible = true;
+                    excelDeleteButton.Visible = true;
+                    powerpointDeleteButton.Visible = true;
+                    outlookDeleteButton.Visible = true;
+                    googleDeleteButton.Visible = true;
+                }
+
+            if (checkBox1.Checked == false)
+            {
+                wordDeleteButton.Visible = false;
+                excelDeleteButton.Visible = false;
+                powerpointDeleteButton.Visible = false;
+                outlookDeleteButton.Visible = false;
+                googleDeleteButton.Visible = false;
+                maskedTextBox1.Text = "";
+            }
+        }
     }
 }

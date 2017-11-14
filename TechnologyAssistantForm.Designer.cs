@@ -40,6 +40,7 @@
             this.openTicketListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.fixDateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.dateClosedLabel = new System.Windows.Forms.Label();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.fixDateComboBox = new System.Windows.Forms.ComboBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -67,11 +67,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.fixDateTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // programComboBox
@@ -167,6 +170,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.fixDateTextBox);
             this.groupBox1.Controls.Add(this.updateButton);
             this.groupBox1.Controls.Add(this.dateClosedLabel);
             this.groupBox1.Controls.Add(this.statusComboBox);
@@ -174,7 +178,6 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.fixDateComboBox);
             this.groupBox1.Controls.Add(this.descriptionLabel);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label16);
@@ -196,6 +199,15 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Ticket Data";
+            // 
+            // fixDateTextBox
+            // 
+            this.fixDateTextBox.Location = new System.Drawing.Point(273, 164);
+            this.fixDateTextBox.Mask = "00/00/0000 90:00";
+            this.fixDateTextBox.Name = "fixDateTextBox";
+            this.fixDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fixDateTextBox.TabIndex = 18;
+            this.fixDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // updateButton
             // 
@@ -263,23 +275,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Staff:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // fixDateComboBox
-            // 
-            this.fixDateComboBox.FormattingEnabled = true;
-            this.fixDateComboBox.Items.AddRange(new object[] {
-            "Today",
-            "Tomorrow",
-            "Next Monday",
-            "Next Tuesday",
-            "Next Wednesday",
-            "Next Thursday",
-            "Next Friday",
-            "Completed"});
-            this.fixDateComboBox.Location = new System.Drawing.Point(273, 164);
-            this.fixDateComboBox.Name = "fixDateComboBox";
-            this.fixDateComboBox.Size = new System.Drawing.Size(101, 21);
-            this.fixDateComboBox.TabIndex = 18;
             // 
             // descriptionLabel
             // 
@@ -419,6 +414,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(19, 50);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -427,7 +423,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.fixDateTextBox);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.openTicketListBox);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -465,14 +460,37 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
             // 
-            // fixDateTextBox
+            // tabPage3
             // 
-            this.fixDateTextBox.Location = new System.Drawing.Point(316, 273);
-            this.fixDateTextBox.Mask = "00/00/0000 90:00";
-            this.fixDateTextBox.Name = "fixDateTextBox";
-            this.fixDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.fixDateTextBox.TabIndex = 18;
-            this.fixDateTextBox.ValidatingType = typeof(System.DateTime);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(618, 302);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Admin Changes in Program";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label17.Location = new System.Drawing.Point(15, 26);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 110);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "To delete entries, type 24:24 on bottom right textbox next to main menu and check" +
+    " the box. Uncheck to hide delete button.";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(40, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Tutorial";
             // 
             // TechnologyAssistantForm
             // 
@@ -489,11 +507,14 @@
             this.Text = "Technology Assistant";
             this.Load += new System.EventHandler(this.TechnologyAssistantForm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,7 +539,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox fixDateComboBox;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label16;
@@ -539,5 +559,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox fixDateTextBox;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
     }
 }

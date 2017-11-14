@@ -242,6 +242,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // List box 
         private void openTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
     
@@ -265,7 +266,7 @@ namespace Webber_Inventory_Search_2017_2018
                 descriptionLabel.Text = reader["Description"].ToString();
                 statusComboBox.Text = reader["Status"].ToString();
                 dateClosedLabel.Text = reader["DateClosed"].ToString();
-                fixDateComboBox.Text = reader["PlannedFixDate"].ToString();
+                fixDateTextBox.Text = reader["PlannedFixDate"].ToString();
             }
 
             connection.Close();
