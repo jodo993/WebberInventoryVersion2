@@ -109,6 +109,8 @@ namespace Webber_Inventory_Search_2017_2018
         }
 
         // Show the instruction that corresponds to the selected topic
+
+        // WORD TAB
         private void wordListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             connection.Open();
@@ -148,10 +150,303 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
 
+                wordListBox.Items.Add(topic);
+
                 // Clear boxes
                 wordTopicTextBox.Text = "";
                 wordInstructionTextBox.Text = "";
             }
+        }
+
+        // EXCEL TAB
+        private void excelListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Tutorial_Excel where Topic='" + excelListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                stepByStepLabel.Text = reader["Instructions"].ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void excelAddButton_Click(object sender, EventArgs e)
+        {
+            string topic = excelTopicTextBox.Text;
+            string instructions = excelInstructionTextBox.Text;
+
+            if (topic == "" && instructions == "")
+                MessageBox.Show("Please enter a topic and instructions.");
+            else
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Tutorial_Excel (Topic,Instructions) values('" + topic + "','" + instructions + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Tutorial Part was successfully added.");
+
+                connection.Close();
+
+                excelListBox.Items.Add(topic);
+
+                // Clear boxes
+                excelTopicTextBox.Text = "";
+                excelInstructionTextBox.Text = "";
+            }
+        }
+
+        // POWERPOINT TAB
+        private void powerpointListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Tutorial_Powerpoint where Topic='" + powerpointListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                stepByStepLabel.Text = reader["Instructions"].ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void powerpointAddButton_Click(object sender, EventArgs e)
+        {
+            string topic = powerpointTopicTextBox.Text;
+            string instructions = powerpointInstructionTextBox.Text;
+
+            if (topic == "" && instructions == "")
+                MessageBox.Show("Please enter a topic and instructions.");
+            else
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Tutorial_Powerpoint (Topic,Instructions) values('" + topic + "','" + instructions + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Tutorial Part was successfully added.");
+
+                connection.Close();
+
+                powerpointListBox.Items.Add(topic);
+
+                // Clear boxes
+                powerpointTopicTextBox.Text = "";
+                powerpointInstructionTextBox.Text = "";
+            }
+        }
+
+        // OUTLOOK TAB
+        private void outlookListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Tutorial_Outlook where Topic='" + outlookListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                stepByStepLabel.Text = reader["Instructions"].ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void outlookAddButton_Click(object sender, EventArgs e)
+        {
+            string topic = outlookTopicTextBox.Text;
+            string instructions = outlookInstructionTextBox.Text;
+
+            if (topic == "" && instructions == "")
+                MessageBox.Show("Please enter a topic and instructions.");
+            else
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Tutorial_Outlook (Topic,Instructions) values('" + topic + "','" + instructions + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Tutorial part was successfully added.");
+
+                connection.Close();
+
+                outlookListBox.Items.Add(topic);
+
+                // Clear boxes
+                outlookTopicTextBox.Text = "";
+                outlookInstructionTextBox.Text = "";
+            }
+        }
+
+        // GOOGLE TAB
+        private void googleListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Tutorial_Google where Topic='" + googleListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                stepByStepLabel.Text = reader["Instructions"].ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void googleAddButton_Click(object sender, EventArgs e)
+        {
+            string topic = googleTopicTextBox.Text;
+            string instructions = googleInstructionTextBox.Text;
+
+            if (topic == "" && instructions == "")
+                MessageBox.Show("Please enter a topic and instructions.");
+            else
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Tutorial_Google (Topic,Instructions) values('" + topic + "','" + instructions + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Tutorial part was successfully added.");
+
+                connection.Close();
+
+                googleListBox.Items.Add(topic);
+
+                // Clear boxes
+                googleTopicTextBox.Text = "";
+                googleInstructionTextBox.Text = "";
+            }
+        }
+
+        // DELETE ENTRIES
+        private void wordDeleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "delete from Tutorial_Word where Topic='" + wordListBox.SelectedItem + "'";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("This topic and its instruction was deleted.");
+
+                connection.Close();
+
+                wordListBox.Items.Remove(wordListBox.SelectedItem);
+                stepByStepLabel.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("NO" + ex);
+            }
+            
+        }
+
+        private void excelDeleteButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Tutorial_Excel where Topic='" + excelListBox.SelectedItem + "'";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("This topic and its instruction was deleted.");
+
+            connection.Close();
+
+            excelListBox.Items.Remove(excelListBox.SelectedItem);
+            stepByStepLabel.Text = "";
+        }
+
+        private void powerpointDeleteButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Tutorial_Powerpoint where Topic='" + powerpointListBox.SelectedItem + "'";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("This topic and its instruction was deleted.");
+
+            connection.Close();
+
+            powerpointListBox.Items.Remove(powerpointListBox.SelectedItem);
+            stepByStepLabel.Text = "";
+        }
+
+        private void outlookDeleteButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Tutorial_Outlook where Topic='" + outlookListBox.SelectedItem + "'";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("This topic and its instruction was deleted.");
+
+            connection.Close();
+
+            outlookListBox.Items.Remove(outlookListBox.SelectedItem);
+            stepByStepLabel.Text = "";
+        }
+
+        private void googleDeleteButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Tutorial_Google where Topic='" + googleListBox.SelectedItem + "'";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("This topic and its instruction was deleted.");
+
+            connection.Close();
+
+            googleListBox.Items.Remove(googleListBox.SelectedItem);
+            stepByStepLabel.Text = "";
         }
     }
 }

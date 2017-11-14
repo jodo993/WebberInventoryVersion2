@@ -80,6 +80,16 @@
             this.powerpointAddButton = new System.Windows.Forms.Button();
             this.outlookAddButton = new System.Windows.Forms.Button();
             this.googleAddButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.googleDeleteButton = new System.Windows.Forms.Button();
+            this.wordDeleteButton = new System.Windows.Forms.Button();
+            this.excelDeleteButton = new System.Windows.Forms.Button();
+            this.powerpointDeleteButton = new System.Windows.Forms.Button();
+            this.outlookDeleteButton = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -91,6 +101,11 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuButton
@@ -123,6 +138,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.outlookDeleteButton);
+            this.tabPage5.Controls.Add(this.pictureBox4);
             this.tabPage5.Controls.Add(this.outlookAddButton);
             this.tabPage5.Controls.Add(this.groupBox4);
             this.tabPage5.Controls.Add(this.outlookListBox);
@@ -137,6 +154,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.powerpointDeleteButton);
+            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.powerpointAddButton);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.powerpointListBox);
@@ -151,6 +170,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.excelDeleteButton);
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.excelAddButton);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.excelListBox);
@@ -165,6 +186,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.wordDeleteButton);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.wordAddButton);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.wordListBox);
@@ -193,6 +216,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.googleDeleteButton);
+            this.tabPage4.Controls.Add(this.pictureBox5);
             this.tabPage4.Controls.Add(this.googleAddButton);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.googleListBox);
@@ -210,7 +235,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(334, 310);
+            this.tabPage6.Size = new System.Drawing.Size(366, 310);
             this.tabPage6.TabIndex = 6;
             this.tabPage6.Text = "Misc.";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -314,6 +339,7 @@
             this.excelListBox.Name = "excelListBox";
             this.excelListBox.Size = new System.Drawing.Size(351, 108);
             this.excelListBox.TabIndex = 2;
+            this.excelListBox.SelectedIndexChanged += new System.EventHandler(this.excelListBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -349,6 +375,7 @@
             this.powerpointListBox.Name = "powerpointListBox";
             this.powerpointListBox.Size = new System.Drawing.Size(351, 108);
             this.powerpointListBox.TabIndex = 3;
+            this.powerpointListBox.SelectedIndexChanged += new System.EventHandler(this.powerpointListBox_SelectedIndexChanged);
             // 
             // outlookListBox
             // 
@@ -357,6 +384,7 @@
             this.outlookListBox.Name = "outlookListBox";
             this.outlookListBox.Size = new System.Drawing.Size(351, 108);
             this.outlookListBox.TabIndex = 3;
+            this.outlookListBox.SelectedIndexChanged += new System.EventHandler(this.outlookListBox_SelectedIndexChanged);
             // 
             // googleListBox
             // 
@@ -365,6 +393,7 @@
             this.googleListBox.Name = "googleListBox";
             this.googleListBox.Size = new System.Drawing.Size(351, 108);
             this.googleListBox.TabIndex = 3;
+            this.googleListBox.SelectedIndexChanged += new System.EventHandler(this.googleListBox_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -558,6 +587,7 @@
             this.excelAddButton.TabIndex = 4;
             this.excelAddButton.Text = "Add";
             this.excelAddButton.UseVisualStyleBackColor = true;
+            this.excelAddButton.Click += new System.EventHandler(this.excelAddButton_Click);
             // 
             // powerpointAddButton
             // 
@@ -567,6 +597,7 @@
             this.powerpointAddButton.TabIndex = 5;
             this.powerpointAddButton.Text = "Add";
             this.powerpointAddButton.UseVisualStyleBackColor = true;
+            this.powerpointAddButton.Click += new System.EventHandler(this.powerpointAddButton_Click);
             // 
             // outlookAddButton
             // 
@@ -576,6 +607,7 @@
             this.outlookAddButton.TabIndex = 5;
             this.outlookAddButton.Text = "Add";
             this.outlookAddButton.UseVisualStyleBackColor = true;
+            this.outlookAddButton.Click += new System.EventHandler(this.outlookAddButton_Click);
             // 
             // googleAddButton
             // 
@@ -585,6 +617,107 @@
             this.googleAddButton.TabIndex = 5;
             this.googleAddButton.Text = "Add";
             this.googleAddButton.UseVisualStyleBackColor = true;
+            this.googleAddButton.Click += new System.EventHandler(this.googleAddButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftWord;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftExcel;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftPowerpoint;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftOutlook;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.TabIndex = 6;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.googleIcon;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            // 
+            // googleDeleteButton
+            // 
+            this.googleDeleteButton.Location = new System.Drawing.Point(254, 3);
+            this.googleDeleteButton.Name = "googleDeleteButton";
+            this.googleDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.googleDeleteButton.TabIndex = 7;
+            this.googleDeleteButton.Text = "Delete";
+            this.googleDeleteButton.UseVisualStyleBackColor = true;
+            this.googleDeleteButton.Click += new System.EventHandler(this.googleDeleteButton_Click);
+            // 
+            // wordDeleteButton
+            // 
+            this.wordDeleteButton.Location = new System.Drawing.Point(254, 5);
+            this.wordDeleteButton.Name = "wordDeleteButton";
+            this.wordDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.wordDeleteButton.TabIndex = 8;
+            this.wordDeleteButton.Text = "Delete";
+            this.wordDeleteButton.UseVisualStyleBackColor = true;
+            this.wordDeleteButton.Click += new System.EventHandler(this.wordDeleteButton_Click);
+            // 
+            // excelDeleteButton
+            // 
+            this.excelDeleteButton.Location = new System.Drawing.Point(254, 3);
+            this.excelDeleteButton.Name = "excelDeleteButton";
+            this.excelDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.excelDeleteButton.TabIndex = 9;
+            this.excelDeleteButton.Text = "Delete";
+            this.excelDeleteButton.UseVisualStyleBackColor = true;
+            this.excelDeleteButton.Click += new System.EventHandler(this.excelDeleteButton_Click);
+            // 
+            // powerpointDeleteButton
+            // 
+            this.powerpointDeleteButton.Location = new System.Drawing.Point(254, 5);
+            this.powerpointDeleteButton.Name = "powerpointDeleteButton";
+            this.powerpointDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.powerpointDeleteButton.TabIndex = 9;
+            this.powerpointDeleteButton.Text = "Delete";
+            this.powerpointDeleteButton.UseVisualStyleBackColor = true;
+            this.powerpointDeleteButton.Click += new System.EventHandler(this.powerpointDeleteButton_Click);
+            // 
+            // outlookDeleteButton
+            // 
+            this.outlookDeleteButton.Location = new System.Drawing.Point(254, 3);
+            this.outlookDeleteButton.Name = "outlookDeleteButton";
+            this.outlookDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.outlookDeleteButton.TabIndex = 9;
+            this.outlookDeleteButton.Text = "Delete";
+            this.outlookDeleteButton.UseVisualStyleBackColor = true;
+            this.outlookDeleteButton.Click += new System.EventHandler(this.outlookDeleteButton_Click);
             // 
             // TutorialForm
             // 
@@ -596,9 +729,11 @@
             this.Controls.Add(this.stepByStepLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.mainMenuButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TutorialForm";
-            this.Text = "TutorialForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tutorial";
             this.Load += new System.EventHandler(this.TutorialForm_Load);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -621,6 +756,11 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,5 +819,15 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox googleListBox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button wordDeleteButton;
+        private System.Windows.Forms.Button googleDeleteButton;
+        private System.Windows.Forms.Button outlookDeleteButton;
+        private System.Windows.Forms.Button powerpointDeleteButton;
+        private System.Windows.Forms.Button excelDeleteButton;
     }
 }
