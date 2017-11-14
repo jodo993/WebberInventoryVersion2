@@ -273,6 +273,8 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            string status = statusComboBox.Text;
+            string fixDate = fixDateTextBox.Text;
             connection.Open();
 
             string date = DateTime.Now.ToString();
@@ -281,11 +283,11 @@ namespace Webber_Inventory_Search_2017_2018
             string query;
             if (statusComboBox.Text == "Closed")
             {
-                query = "update Help_Ticket set Status='" + statusComboBox.Text + "',DateClosed='" + date + "',PlannedFixDate='" + fixDateComboBox.Text + "' where ID=" + openTicketListBox.SelectedItem + "";
+                query = "update Help_Ticket set Status='" + status + "',DateClosed='" + date + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
             }
             else
             {
-                query = "update Help_Ticket set Status='" + statusComboBox.Text + "',PlannedFixDate='" + fixDateComboBox.Text + "' where ID=" + openTicketListBox.SelectedItem + "";
+                query = "update Help_Ticket set Status='" + status + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
             }
             commandID.CommandText = query;
             commandID.ExecuteNonQuery();

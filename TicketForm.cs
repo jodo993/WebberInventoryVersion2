@@ -145,8 +145,12 @@ namespace Webber_Inventory_Search_2017_2018
                 if (idCheck[i] == ticketNumber)
                 {
                     string status = reader["Status"].ToString();
+                    string plannedFix = reader["PlannedFixDate"].ToString();
                     found = true;
-                    statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ".";
+                    if (plannedFix != "")
+                        statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is " + plannedFix + ".";
+                    else
+                        statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is not yet known.";
                 }
                 i++;
             }

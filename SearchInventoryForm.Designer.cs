@@ -33,12 +33,10 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.updateGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.noStatusButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.updateTag2TextBox = new System.Windows.Forms.TextBox();
             this.yesStatusButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.updateStatusComboBox = new System.Windows.Forms.ComboBox();
@@ -50,13 +48,11 @@
             this.locationCheckLabel = new System.Windows.Forms.Label();
             this.updateLocationButton = new System.Windows.Forms.Button();
             this.updateLocationComboBox = new System.Windows.Forms.ComboBox();
-            this.updateTagTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.removeGroupBox = new System.Windows.Forms.GroupBox();
             this.clearRemoveButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
-            this.removeTextBox = new System.Windows.Forms.TextBox();
             this.removeTagLabel = new System.Windows.Forms.Label();
             this.verifyRemoveGroupBox = new System.Windows.Forms.GroupBox();
             this.noRemoveButton = new System.Windows.Forms.Button();
@@ -76,6 +72,10 @@
             this.printButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.saveButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.updateTag2TextBox = new System.Windows.Forms.MaskedTextBox();
+            this.updateTagTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.removeTextBox = new System.Windows.Forms.MaskedTextBox();
             this.searchGroupBox.SuspendLayout();
             this.updateGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,10 +87,10 @@
             // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Controls.Add(this.searchTextBox);
             this.searchGroupBox.Controls.Add(this.clearButton);
             this.searchGroupBox.Controls.Add(this.searchButton);
             this.searchGroupBox.Controls.Add(this.label1);
-            this.searchGroupBox.Controls.Add(this.searchTextBox);
             this.searchGroupBox.Location = new System.Drawing.Point(21, 38);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Size = new System.Drawing.Size(200, 100);
@@ -128,13 +128,6 @@
             this.label1.Text = "WSD Tag Number";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Location = new System.Drawing.Point(26, 57);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(100, 20);
-            this.searchTextBox.TabIndex = 0;
-            // 
             // updateGroupBox
             // 
             this.updateGroupBox.Controls.Add(this.groupBox2);
@@ -148,9 +141,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.updateTag2TextBox);
             this.groupBox2.Controls.Add(this.noStatusButton);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.updateTag2TextBox);
             this.groupBox2.Controls.Add(this.yesStatusButton);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.updateStatusComboBox);
@@ -182,13 +175,6 @@
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 7;
             this.label7.Text = "Tag Number";
-            // 
-            // updateTag2TextBox
-            // 
-            this.updateTag2TextBox.Location = new System.Drawing.Point(9, 38);
-            this.updateTag2TextBox.Name = "updateTag2TextBox";
-            this.updateTag2TextBox.Size = new System.Drawing.Size(87, 20);
-            this.updateTag2TextBox.TabIndex = 8;
             // 
             // yesStatusButton
             // 
@@ -246,12 +232,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updateTagTextBox);
             this.groupBox1.Controls.Add(this.noLocationButton);
             this.groupBox1.Controls.Add(this.yesLocationButton);
             this.groupBox1.Controls.Add(this.locationCheckLabel);
             this.groupBox1.Controls.Add(this.updateLocationButton);
             this.groupBox1.Controls.Add(this.updateLocationComboBox);
-            this.groupBox1.Controls.Add(this.updateTagTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(32, 31);
@@ -343,13 +329,6 @@
             this.updateLocationComboBox.Size = new System.Drawing.Size(90, 21);
             this.updateLocationComboBox.TabIndex = 4;
             // 
-            // updateTagTextBox
-            // 
-            this.updateTagTextBox.Location = new System.Drawing.Point(9, 38);
-            this.updateTagTextBox.Name = "updateTagTextBox";
-            this.updateTagTextBox.Size = new System.Drawing.Size(87, 20);
-            this.updateTagTextBox.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -370,9 +349,9 @@
             // 
             // removeGroupBox
             // 
+            this.removeGroupBox.Controls.Add(this.removeTextBox);
             this.removeGroupBox.Controls.Add(this.clearRemoveButton);
             this.removeGroupBox.Controls.Add(this.removeButton);
-            this.removeGroupBox.Controls.Add(this.removeTextBox);
             this.removeGroupBox.Controls.Add(this.removeTagLabel);
             this.removeGroupBox.Location = new System.Drawing.Point(21, 144);
             this.removeGroupBox.Name = "removeGroupBox";
@@ -402,13 +381,6 @@
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // removeTextBox
-            // 
-            this.removeTextBox.Location = new System.Drawing.Point(26, 54);
-            this.removeTextBox.Name = "removeTextBox";
-            this.removeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.removeTextBox.TabIndex = 7;
             // 
             // removeTagLabel
             // 
@@ -446,7 +418,7 @@
             // 
             // removeCheckLabel
             // 
-            this.removeCheckLabel.Location = new System.Drawing.Point(33, 16);
+            this.removeCheckLabel.Location = new System.Drawing.Point(23, 14);
             this.removeCheckLabel.Name = "removeCheckLabel";
             this.removeCheckLabel.Size = new System.Drawing.Size(138, 45);
             this.removeCheckLabel.TabIndex = 0;
@@ -456,7 +428,7 @@
             // 
             // yesRemoveButton
             // 
-            this.yesRemoveButton.Location = new System.Drawing.Point(36, 64);
+            this.yesRemoveButton.Location = new System.Drawing.Point(26, 64);
             this.yesRemoveButton.Name = "yesRemoveButton";
             this.yesRemoveButton.Size = new System.Drawing.Size(51, 23);
             this.yesRemoveButton.TabIndex = 1;
@@ -636,6 +608,38 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(26, 57);
+            this.searchTextBox.Mask = "999999000";
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchTextBox.TabIndex = 22;
+            // 
+            // updateTag2TextBox
+            // 
+            this.updateTag2TextBox.Location = new System.Drawing.Point(9, 38);
+            this.updateTag2TextBox.Mask = "999999000";
+            this.updateTag2TextBox.Name = "updateTag2TextBox";
+            this.updateTag2TextBox.Size = new System.Drawing.Size(87, 20);
+            this.updateTag2TextBox.TabIndex = 22;
+            // 
+            // updateTagTextBox
+            // 
+            this.updateTagTextBox.Location = new System.Drawing.Point(9, 38);
+            this.updateTagTextBox.Mask = "999999000";
+            this.updateTagTextBox.Name = "updateTagTextBox";
+            this.updateTagTextBox.Size = new System.Drawing.Size(87, 20);
+            this.updateTagTextBox.TabIndex = 23;
+            // 
+            // removeTextBox
+            // 
+            this.removeTextBox.Location = new System.Drawing.Point(26, 54);
+            this.removeTextBox.Mask = "999999000";
+            this.removeTextBox.Name = "removeTextBox";
+            this.removeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.removeTextBox.TabIndex = 22;
+            // 
             // SearchInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -684,19 +688,16 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.GroupBox updateGroupBox;
         private System.Windows.Forms.GroupBox removeGroupBox;
         private System.Windows.Forms.Button updateLocationButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox updateLocationComboBox;
-        private System.Windows.Forms.TextBox updateTagTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button noStatusButton;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox updateTag2TextBox;
         private System.Windows.Forms.Button yesStatusButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox updateStatusComboBox;
@@ -707,7 +708,6 @@
         private System.Windows.Forms.Label locationCheckLabel;
         private System.Windows.Forms.Button clearRemoveButton;
         private System.Windows.Forms.Button removeButton;
-        private System.Windows.Forms.TextBox removeTextBox;
         private System.Windows.Forms.Label removeTagLabel;
         private System.Windows.Forms.GroupBox verifyRemoveGroupBox;
         private System.Windows.Forms.Button noRemoveButton;
@@ -727,5 +727,9 @@
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.MaskedTextBox searchTextBox;
+        private System.Windows.Forms.MaskedTextBox updateTag2TextBox;
+        private System.Windows.Forms.MaskedTextBox updateTagTextBox;
+        private System.Windows.Forms.MaskedTextBox removeTextBox;
     }
 }

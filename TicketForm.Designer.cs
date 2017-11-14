@@ -48,10 +48,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.checkButton = new System.Windows.Forms.Button();
-            this.ticketNumberTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.ticketNumberTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +207,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(114, 227);
+            this.exitButton.Location = new System.Drawing.Point(114, 235);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 15;
@@ -240,7 +240,7 @@
             // 
             // mainMenuButton
             // 
-            this.mainMenuButton.Location = new System.Drawing.Point(33, 227);
+            this.mainMenuButton.Location = new System.Drawing.Point(33, 235);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
             this.mainMenuButton.TabIndex = 17;
@@ -250,7 +250,7 @@
             // 
             // checkButton
             // 
-            this.checkButton.Location = new System.Drawing.Point(81, 58);
+            this.checkButton.Location = new System.Drawing.Point(82, 58);
             this.checkButton.Name = "checkButton";
             this.checkButton.Size = new System.Drawing.Size(53, 23);
             this.checkButton.TabIndex = 18;
@@ -258,22 +258,15 @@
             this.checkButton.UseVisualStyleBackColor = true;
             this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
-            // ticketNumberTextBox
-            // 
-            this.ticketNumberTextBox.Location = new System.Drawing.Point(52, 32);
-            this.ticketNumberTextBox.Name = "ticketNumberTextBox";
-            this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ticketNumberTextBox.TabIndex = 19;
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.ticketNumberTextBox);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.mainMenuButton);
             this.groupBox2.Controls.Add(this.statusLabel);
             this.groupBox2.Controls.Add(this.exitButton);
             this.groupBox2.Controls.Add(this.checkButton);
-            this.groupBox2.Controls.Add(this.ticketNumberTextBox);
             this.groupBox2.Location = new System.Drawing.Point(275, 49);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(220, 264);
@@ -284,7 +277,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(49, 16);
+            this.label9.Location = new System.Drawing.Point(56, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 13);
             this.label9.TabIndex = 22;
@@ -295,8 +288,18 @@
             this.statusLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.statusLabel.Location = new System.Drawing.Point(33, 91);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(156, 118);
+            this.statusLabel.Size = new System.Drawing.Size(156, 138);
             this.statusLabel.TabIndex = 20;
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ticketNumberTextBox
+            // 
+            this.ticketNumberTextBox.Location = new System.Drawing.Point(59, 32);
+            this.ticketNumberTextBox.Mask = "9990";
+            this.ticketNumberTextBox.Name = "ticketNumberTextBox";
+            this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ticketNumberTextBox.TabIndex = 21;
+            this.ticketNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TicketForm
             // 
@@ -341,9 +344,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.Button checkButton;
-        private System.Windows.Forms.TextBox ticketNumberTextBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox ticketNumberTextBox;
     }
 }

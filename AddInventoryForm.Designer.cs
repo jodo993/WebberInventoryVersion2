@@ -39,7 +39,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.addMakeTextBox = new System.Windows.Forms.TextBox();
             this.addModelTextBox = new System.Windows.Forms.TextBox();
-            this.addTagTextBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.addClearButton = new System.Windows.Forms.Button();
             this.addMainMenuButton = new System.Windows.Forms.Button();
@@ -48,10 +47,11 @@
             this.typeWrongLabel = new System.Windows.Forms.Label();
             this.statusWrongLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.warning2Label = new System.Windows.Forms.Label();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.addStatusComboBox = new System.Windows.Forms.ComboBox();
             this.addTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.warningLabel = new System.Windows.Forms.Label();
-            this.warning2Label = new System.Windows.Forms.Label();
+            this.addTagTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,13 +144,6 @@
             this.addModelTextBox.Name = "addModelTextBox";
             this.addModelTextBox.Size = new System.Drawing.Size(100, 20);
             this.addModelTextBox.TabIndex = 3;
-            // 
-            // addTagTextBox
-            // 
-            this.addTagTextBox.Location = new System.Drawing.Point(245, 61);
-            this.addTagTextBox.Name = "addTagTextBox";
-            this.addTagTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addTagTextBox.TabIndex = 4;
             // 
             // addButton
             // 
@@ -256,6 +249,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.addTagTextBox);
             this.groupBox4.Controls.Add(this.warning2Label);
             this.groupBox4.Controls.Add(this.warningLabel);
             this.groupBox4.Controls.Add(this.addStatusComboBox);
@@ -273,7 +267,6 @@
             this.groupBox4.Controls.Add(this.statusWrongLabel);
             this.groupBox4.Controls.Add(this.typeWrongLabel);
             this.groupBox4.Controls.Add(this.addMakeTextBox);
-            this.groupBox4.Controls.Add(this.addTagTextBox);
             this.groupBox4.Controls.Add(this.addModelTextBox);
             this.groupBox4.Controls.Add(this.addLocationComboBox);
             this.groupBox4.Controls.Add(this.label7);
@@ -283,6 +276,28 @@
             this.groupBox4.TabIndex = 42;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Here";
+            // 
+            // warning2Label
+            // 
+            this.warning2Label.AutoSize = true;
+            this.warning2Label.ForeColor = System.Drawing.Color.Red;
+            this.warning2Label.Location = new System.Drawing.Point(351, 149);
+            this.warning2Label.Name = "warning2Label";
+            this.warning2Label.Size = new System.Drawing.Size(10, 13);
+            this.warning2Label.TabIndex = 41;
+            this.warning2Label.Text = "!";
+            this.warning2Label.Visible = false;
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningLabel.Location = new System.Drawing.Point(168, 64);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(10, 13);
+            this.warningLabel.TabIndex = 40;
+            this.warningLabel.Text = "!";
+            this.warningLabel.Visible = false;
             // 
             // addStatusComboBox
             // 
@@ -316,27 +331,13 @@
             this.addTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.addTypeComboBox.TabIndex = 1;
             // 
-            // warningLabel
+            // addTagTextBox
             // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.ForeColor = System.Drawing.Color.Red;
-            this.warningLabel.Location = new System.Drawing.Point(168, 64);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(10, 13);
-            this.warningLabel.TabIndex = 40;
-            this.warningLabel.Text = "!";
-            this.warningLabel.Visible = false;
-            // 
-            // warning2Label
-            // 
-            this.warning2Label.AutoSize = true;
-            this.warning2Label.ForeColor = System.Drawing.Color.Red;
-            this.warning2Label.Location = new System.Drawing.Point(351, 149);
-            this.warning2Label.Name = "warning2Label";
-            this.warning2Label.Size = new System.Drawing.Size(10, 13);
-            this.warning2Label.TabIndex = 41;
-            this.warning2Label.Text = "!";
-            this.warning2Label.Visible = false;
+            this.addTagTextBox.Location = new System.Drawing.Point(245, 61);
+            this.addTagTextBox.Mask = "999999000";
+            this.addTagTextBox.Name = "addTagTextBox";
+            this.addTagTextBox.Size = new System.Drawing.Size(100, 20);
+            this.addTagTextBox.TabIndex = 42;
             // 
             // AddInventoryForm
             // 
@@ -370,7 +371,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox addMakeTextBox;
         private System.Windows.Forms.TextBox addModelTextBox;
-        private System.Windows.Forms.TextBox addTagTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button addClearButton;
         private System.Windows.Forms.Button addMainMenuButton;
@@ -383,5 +383,6 @@
         private System.Windows.Forms.ComboBox addTypeComboBox;
         private System.Windows.Forms.Label warning2Label;
         private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.MaskedTextBox addTagTextBox;
     }
 }

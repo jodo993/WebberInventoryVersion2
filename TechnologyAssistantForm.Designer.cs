@@ -40,33 +40,34 @@
             this.openTicketListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.dateClosedLabel = new System.Windows.Forms.Label();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.fixDateComboBox = new System.Windows.Forms.ComboBox();
+            this.descriptionLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.timePreferredLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.staffLabel = new System.Windows.Forms.Label();
+            this.importanceLabel = new System.Windows.Forms.Label();
+            this.dateCreatedLabel = new System.Windows.Forms.Label();
+            this.roomLabel = new System.Windows.Forms.Label();
+            this.idLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.fixDateComboBox = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.dateCreatedLabel = new System.Windows.Forms.Label();
-            this.staffLabel = new System.Windows.Forms.Label();
-            this.roomLabel = new System.Windows.Forms.Label();
-            this.importanceLabel = new System.Windows.Forms.Label();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.timePreferredLabel = new System.Windows.Forms.Label();
-            this.descriptionLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
-            this.dateClosedLabel = new System.Windows.Forms.Label();
-            this.updateButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.fixDateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -76,7 +77,7 @@
             // programComboBox
             // 
             this.programComboBox.FormattingEnabled = true;
-            this.programComboBox.Location = new System.Drawing.Point(18, 31);
+            this.programComboBox.Location = new System.Drawing.Point(170, 26);
             this.programComboBox.Name = "programComboBox";
             this.programComboBox.Size = new System.Drawing.Size(106, 21);
             this.programComboBox.TabIndex = 5;
@@ -85,7 +86,7 @@
             // issueComboBox
             // 
             this.issueComboBox.FormattingEnabled = true;
-            this.issueComboBox.Location = new System.Drawing.Point(130, 31);
+            this.issueComboBox.Location = new System.Drawing.Point(282, 26);
             this.issueComboBox.Name = "issueComboBox";
             this.issueComboBox.Size = new System.Drawing.Size(173, 21);
             this.issueComboBox.TabIndex = 6;
@@ -94,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 59);
+            this.label1.Location = new System.Drawing.Point(170, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 7;
@@ -123,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 15);
+            this.label2.Location = new System.Drawing.Point(167, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 10;
@@ -132,7 +133,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 15);
+            this.label3.Location = new System.Drawing.Point(279, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 11;
@@ -141,7 +142,7 @@
             // instructionLabel
             // 
             this.instructionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.instructionLabel.Location = new System.Drawing.Point(18, 72);
+            this.instructionLabel.Location = new System.Drawing.Point(170, 67);
             this.instructionLabel.Name = "instructionLabel";
             this.instructionLabel.Size = new System.Drawing.Size(285, 218);
             this.instructionLabel.TabIndex = 12;
@@ -196,6 +197,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Ticket Data";
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(299, 193);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 32;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // dateClosedLabel
+            // 
+            this.dateClosedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dateClosedLabel.Location = new System.Drawing.Point(274, 135);
+            this.dateClosedLabel.Name = "dateClosedLabel";
+            this.dateClosedLabel.Size = new System.Drawing.Size(100, 20);
+            this.dateClosedLabel.TabIndex = 31;
+            this.dateClosedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
+            "Open",
+            "In Progress",
+            "Closed"});
+            this.statusComboBox.Location = new System.Drawing.Point(274, 106);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(100, 21);
+            this.statusComboBox.TabIndex = 30;
+            // 
             // label7
             // 
             this.label7.Location = new System.Drawing.Point(40, 23);
@@ -204,24 +236,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "ID:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(32, 79);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 20);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Staff:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(3, 135);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 20);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Importance:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -232,6 +246,49 @@
             this.label10.Text = "Date Created:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(190, 162);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 34);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Planned Fix Date:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(32, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Staff:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // fixDateComboBox
+            // 
+            this.fixDateComboBox.FormattingEnabled = true;
+            this.fixDateComboBox.Items.AddRange(new object[] {
+            "Today",
+            "Tomorrow",
+            "Next Monday",
+            "Next Tuesday",
+            "Next Wednesday",
+            "Next Thursday",
+            "Next Friday",
+            "Completed"});
+            this.fixDateComboBox.Location = new System.Drawing.Point(273, 164);
+            this.fixDateComboBox.Name = "fixDateComboBox";
+            this.fixDateComboBox.Size = new System.Drawing.Size(101, 21);
+            this.fixDateComboBox.TabIndex = 18;
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.descriptionLabel.Location = new System.Drawing.Point(273, 23);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(150, 76);
+            this.descriptionLabel.TabIndex = 29;
+            // 
             // label11
             // 
             this.label11.Location = new System.Drawing.Point(19, 107);
@@ -240,6 +297,87 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Room:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.Location = new System.Drawing.Point(190, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 20);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "Date Closed:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // timePreferredLabel
+            // 
+            this.timePreferredLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timePreferredLabel.Location = new System.Drawing.Point(84, 194);
+            this.timePreferredLabel.Name = "timePreferredLabel";
+            this.timePreferredLabel.Size = new System.Drawing.Size(100, 20);
+            this.timePreferredLabel.TabIndex = 28;
+            this.timePreferredLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(3, 135);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 20);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Importance:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.categoryLabel.Location = new System.Drawing.Point(84, 163);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(100, 20);
+            this.categoryLabel.TabIndex = 27;
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // staffLabel
+            // 
+            this.staffLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.staffLabel.Location = new System.Drawing.Point(84, 79);
+            this.staffLabel.Name = "staffLabel";
+            this.staffLabel.Size = new System.Drawing.Size(100, 20);
+            this.staffLabel.TabIndex = 23;
+            this.staffLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // importanceLabel
+            // 
+            this.importanceLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.importanceLabel.Location = new System.Drawing.Point(84, 135);
+            this.importanceLabel.Name = "importanceLabel";
+            this.importanceLabel.Size = new System.Drawing.Size(100, 20);
+            this.importanceLabel.TabIndex = 25;
+            this.importanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dateCreatedLabel
+            // 
+            this.dateCreatedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dateCreatedLabel.Location = new System.Drawing.Point(84, 51);
+            this.dateCreatedLabel.Name = "dateCreatedLabel";
+            this.dateCreatedLabel.Size = new System.Drawing.Size(100, 20);
+            this.dateCreatedLabel.TabIndex = 22;
+            this.dateCreatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roomLabel
+            // 
+            this.roomLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roomLabel.Location = new System.Drawing.Point(84, 107);
+            this.roomLabel.Name = "roomLabel";
+            this.roomLabel.Size = new System.Drawing.Size(100, 20);
+            this.roomLabel.TabIndex = 24;
+            this.roomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // idLabel
+            // 
+            this.idLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idLabel.Location = new System.Drawing.Point(84, 23);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(100, 20);
+            this.idLabel.TabIndex = 21;
+            this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -268,22 +406,6 @@
             this.label14.Text = "Description:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // fixDateComboBox
-            // 
-            this.fixDateComboBox.FormattingEnabled = true;
-            this.fixDateComboBox.Items.AddRange(new object[] {
-            "Today",
-            "Tomorrow",
-            "Next Monday",
-            "Next Tuesday",
-            "Next Wednesday",
-            "Next Thursday",
-            "Next Friday"});
-            this.fixDateComboBox.Location = new System.Drawing.Point(273, 164);
-            this.fixDateComboBox.Name = "fixDateComboBox";
-            this.fixDateComboBox.Size = new System.Drawing.Size(101, 21);
-            this.fixDateComboBox.TabIndex = 18;
-            // 
             // label15
             // 
             this.label15.Location = new System.Drawing.Point(223, 107);
@@ -292,86 +414,6 @@
             this.label15.TabIndex = 19;
             this.label15.Text = "Status:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label16
-            // 
-            this.label16.Location = new System.Drawing.Point(190, 135);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 20);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "Date Closed:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // idLabel
-            // 
-            this.idLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idLabel.Location = new System.Drawing.Point(84, 23);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(100, 20);
-            this.idLabel.TabIndex = 21;
-            this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dateCreatedLabel
-            // 
-            this.dateCreatedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dateCreatedLabel.Location = new System.Drawing.Point(84, 51);
-            this.dateCreatedLabel.Name = "dateCreatedLabel";
-            this.dateCreatedLabel.Size = new System.Drawing.Size(100, 20);
-            this.dateCreatedLabel.TabIndex = 22;
-            this.dateCreatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // staffLabel
-            // 
-            this.staffLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.staffLabel.Location = new System.Drawing.Point(84, 79);
-            this.staffLabel.Name = "staffLabel";
-            this.staffLabel.Size = new System.Drawing.Size(100, 20);
-            this.staffLabel.TabIndex = 23;
-            this.staffLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // roomLabel
-            // 
-            this.roomLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roomLabel.Location = new System.Drawing.Point(84, 107);
-            this.roomLabel.Name = "roomLabel";
-            this.roomLabel.Size = new System.Drawing.Size(100, 20);
-            this.roomLabel.TabIndex = 24;
-            this.roomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // importanceLabel
-            // 
-            this.importanceLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.importanceLabel.Location = new System.Drawing.Point(84, 135);
-            this.importanceLabel.Name = "importanceLabel";
-            this.importanceLabel.Size = new System.Drawing.Size(100, 20);
-            this.importanceLabel.TabIndex = 25;
-            this.importanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.categoryLabel.Location = new System.Drawing.Point(84, 163);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(100, 20);
-            this.categoryLabel.TabIndex = 27;
-            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // timePreferredLabel
-            // 
-            this.timePreferredLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.timePreferredLabel.Location = new System.Drawing.Point(84, 194);
-            this.timePreferredLabel.Name = "timePreferredLabel";
-            this.timePreferredLabel.Size = new System.Drawing.Size(100, 20);
-            this.timePreferredLabel.TabIndex = 28;
-            this.timePreferredLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.descriptionLabel.Location = new System.Drawing.Point(273, 23);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(150, 76);
-            this.descriptionLabel.TabIndex = 29;
             // 
             // tabControl1
             // 
@@ -385,6 +427,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.fixDateTextBox);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.openTicketListBox);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -412,46 +455,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tech Notes";
             // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(190, 162);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 34);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Planned Fix Date:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Items.AddRange(new object[] {
-            "Open",
-            "In Progress",
-            "Closed"});
-            this.statusComboBox.Location = new System.Drawing.Point(274, 106);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(100, 21);
-            this.statusComboBox.TabIndex = 30;
-            // 
-            // dateClosedLabel
-            // 
-            this.dateClosedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dateClosedLabel.Location = new System.Drawing.Point(274, 135);
-            this.dateClosedLabel.Name = "dateClosedLabel";
-            this.dateClosedLabel.Size = new System.Drawing.Size(100, 20);
-            this.dateClosedLabel.TabIndex = 31;
-            this.dateClosedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(299, 193);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
-            this.updateButton.TabIndex = 32;
-            this.updateButton.Text = "Update";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -461,6 +464,15 @@
             this.label4.Size = new System.Drawing.Size(247, 25);
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
+            // 
+            // fixDateTextBox
+            // 
+            this.fixDateTextBox.Location = new System.Drawing.Point(316, 273);
+            this.fixDateTextBox.Mask = "00/00/0000 90:00";
+            this.fixDateTextBox.Name = "fixDateTextBox";
+            this.fixDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fixDateTextBox.TabIndex = 18;
+            this.fixDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // TechnologyAssistantForm
             // 
@@ -526,5 +538,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox fixDateTextBox;
     }
 }

@@ -37,17 +37,15 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             this.getInfoButton = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.billDateTextBox = new System.Windows.Forms.TextBox();
+            this.billDateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.billAmountTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -60,8 +58,6 @@
             this.addButton = new System.Windows.Forms.Button();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.loanAddTextBox = new System.Windows.Forms.TextBox();
-            this.originalAddTextBox = new System.Windows.Forms.TextBox();
             this.teacherNameTextBox = new System.Windows.Forms.TextBox();
             this.studentEditTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,7 +69,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.deleteTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.chromebookDataGridView = new System.Windows.Forms.DataGridView();
             this.exitButton = new System.Windows.Forms.Button();
@@ -88,6 +83,10 @@
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.loanAddTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.deleteTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.originalAddTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +95,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.idTextBox);
+            this.groupBox1.Controls.Add(this.originalAddTextBox);
+            this.groupBox1.Controls.Add(this.loanAddTextBox);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label28);
@@ -103,11 +105,10 @@
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(this.getInfoButton);
-            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -119,8 +120,6 @@
             this.groupBox1.Controls.Add(this.addButton);
             this.groupBox1.Controls.Add(this.statusComboBox);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.loanAddTextBox);
-            this.groupBox1.Controls.Add(this.originalAddTextBox);
             this.groupBox1.Controls.Add(this.teacherNameTextBox);
             this.groupBox1.Controls.Add(this.studentEditTextBox);
             this.groupBox1.Controls.Add(this.label6);
@@ -208,31 +207,15 @@
             this.label26.TabIndex = 29;
             this.label26.Text = "*";
             // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(579, 47);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(86, 20);
-            this.idTextBox.TabIndex = 30;
-            // 
             // getInfoButton
             // 
-            this.getInfoButton.Location = new System.Drawing.Point(542, 73);
+            this.getInfoButton.Location = new System.Drawing.Point(540, 73);
             this.getInfoButton.Name = "getInfoButton";
             this.getInfoButton.Size = new System.Drawing.Size(62, 24);
             this.getInfoButton.TabIndex = 29;
             this.getInfoButton.Text = "Quick Fill";
             this.getInfoButton.UseVisualStyleBackColor = true;
             this.getInfoButton.Click += new System.EventHandler(this.getInfoButton_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(539, 50);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 28;
-            this.label18.Text = "ID:";
             // 
             // label17
             // 
@@ -255,6 +238,15 @@
             this.label14.Size = new System.Drawing.Size(14, 16);
             this.label14.TabIndex = 26;
             this.label14.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(539, 50);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 28;
+            this.label18.Text = "ID:";
             // 
             // label11
             // 
@@ -291,7 +283,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.billDateTextBox);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.billAmountTextBox);
@@ -300,26 +291,19 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(256, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 80);
+            this.groupBox2.Size = new System.Drawing.Size(202, 80);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "For Edit";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(204, 55);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 13);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "mm/dd/yy";
-            // 
             // billDateTextBox
             // 
-            this.billDateTextBox.Location = new System.Drawing.Point(83, 52);
+            this.billDateTextBox.Location = new System.Drawing.Point(83, 51);
+            this.billDateTextBox.Mask = "00/00/0000";
             this.billDateTextBox.Name = "billDateTextBox";
             this.billDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.billDateTextBox.TabIndex = 30;
+            this.billDateTextBox.TabIndex = 25;
+            this.billDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // label27
             // 
@@ -450,20 +434,6 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Status";
             // 
-            // loanAddTextBox
-            // 
-            this.loanAddTextBox.Location = new System.Drawing.Point(358, 116);
-            this.loanAddTextBox.Name = "loanAddTextBox";
-            this.loanAddTextBox.Size = new System.Drawing.Size(100, 20);
-            this.loanAddTextBox.TabIndex = 5;
-            // 
-            // originalAddTextBox
-            // 
-            this.originalAddTextBox.Location = new System.Drawing.Point(125, 116);
-            this.originalAddTextBox.Name = "originalAddTextBox";
-            this.originalAddTextBox.Size = new System.Drawing.Size(100, 20);
-            this.originalAddTextBox.TabIndex = 3;
-            // 
             // teacherNameTextBox
             // 
             this.teacherNameTextBox.Location = new System.Drawing.Point(125, 89);
@@ -532,9 +502,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.deleteTextBox);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.deleteButton);
-            this.groupBox3.Controls.Add(this.deleteTextBox);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Location = new System.Drawing.Point(690, 39);
             this.groupBox3.Name = "groupBox3";
@@ -563,13 +533,6 @@
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // deleteTextBox
-            // 
-            this.deleteTextBox.Location = new System.Drawing.Point(22, 47);
-            this.deleteTextBox.Name = "deleteTextBox";
-            this.deleteTextBox.Size = new System.Drawing.Size(100, 20);
-            this.deleteTextBox.TabIndex = 12;
             // 
             // label15
             // 
@@ -712,6 +675,38 @@
             this.label21.TabIndex = 24;
             this.label21.Text = "* = Required to add";
             // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(565, 47);
+            this.idTextBox.Mask = "999999000";
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 25;
+            // 
+            // loanAddTextBox
+            // 
+            this.loanAddTextBox.Location = new System.Drawing.Point(358, 114);
+            this.loanAddTextBox.Mask = "999999000";
+            this.loanAddTextBox.Name = "loanAddTextBox";
+            this.loanAddTextBox.Size = new System.Drawing.Size(100, 20);
+            this.loanAddTextBox.TabIndex = 26;
+            // 
+            // deleteTextBox
+            // 
+            this.deleteTextBox.Location = new System.Drawing.Point(23, 47);
+            this.deleteTextBox.Mask = "999999000";
+            this.deleteTextBox.Name = "deleteTextBox";
+            this.deleteTextBox.Size = new System.Drawing.Size(100, 20);
+            this.deleteTextBox.TabIndex = 27;
+            // 
+            // originalAddTextBox
+            // 
+            this.originalAddTextBox.Location = new System.Drawing.Point(125, 116);
+            this.originalAddTextBox.Mask = "999999000";
+            this.originalAddTextBox.Name = "originalAddTextBox";
+            this.originalAddTextBox.Size = new System.Drawing.Size(100, 20);
+            this.originalAddTextBox.TabIndex = 28;
+            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -763,8 +758,6 @@
         private System.Windows.Forms.TextBox studentNameTextBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox loanAddTextBox;
-        private System.Windows.Forms.TextBox originalAddTextBox;
         private System.Windows.Forms.TextBox teacherNameTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -773,7 +766,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox deleteTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label label16;
@@ -795,9 +787,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox billAmountTextBox;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox billDateTextBox;
-        private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Button getInfoButton;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
@@ -811,5 +800,10 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox billDateTextBox;
+        private System.Windows.Forms.MaskedTextBox idTextBox;
+        private System.Windows.Forms.MaskedTextBox originalAddTextBox;
+        private System.Windows.Forms.MaskedTextBox loanAddTextBox;
+        private System.Windows.Forms.MaskedTextBox deleteTextBox;
     }
 }
