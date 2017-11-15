@@ -66,8 +66,11 @@ namespace Webber_Inventory_Search_2017_2018
             this.Hide();
 
             // Opens the password form
-            TechAidePasswordForm techAide = new TechAidePasswordForm();
-            techAide.ShowDialog();
+            //TechAidePasswordForm techAide = new TechAidePasswordForm();
+            //techAide.ShowDialog();
+
+            TechnologyAssistantForm techAssist = new TechnologyAssistantForm();
+            techAssist.ShowDialog();
 
             this.Close();
         }

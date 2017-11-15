@@ -351,9 +351,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(44, 165);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 13);
+            this.label13.Size = new System.Drawing.Size(212, 13);
             this.label13.TabIndex = 9;
-            this.label13.Text = "Link To Reference";
+            this.label13.Text = "Link To Reference (start with https or www)";
             // 
             // label12
             // 

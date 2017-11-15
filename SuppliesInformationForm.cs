@@ -39,7 +39,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
 
-                string[] type = new string[100];
+                string[] type = new string[1000];
                 int i = 0;
 
                 OleDbDataReader readerType = commandType.ExecuteReader();
@@ -85,7 +85,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Type='" + item + "'";
                 commandBrand.CommandText = query;
 
-                string[] brand = new string[100];
+                string[] brand = new string[1000];
                 int i = 0;
 
                 OleDbDataReader readerBrand = commandBrand.ExecuteReader();
@@ -129,11 +129,34 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Brand='" + item + "'";
                 commandModel.CommandText = query;
 
-                OleDbDataReader readerModel = commandModel.ExecuteReader();
-                while (readerModel.Read())
+                string[] model = new string[1000];
+                int i = 0;
+
+                OleDbDataReader readermodel = commandModel.ExecuteReader();
+                while (readermodel.Read())
                 {
-                    modelComboBox.Items.Add(readerModel["Model"].ToString());
+                    model[i] = readermodel["Model"].ToString();
+                    i++;
                 }
+
+                // Checks for copy of same type and only display one
+                // Brute force algorithm, will slow as array gets bigger
+                int arrayLength = i;
+                for (int a = 0; a < arrayLength; a++)
+                {
+                    modelComboBox.Items.Add(model[a]);
+                    for (int b = a + 1; b < arrayLength; b++)
+                    {
+                        if (model[b] == model[a])
+                            modelComboBox.Items.Remove(model[a]);
+                    }
+                }
+
+                //OleDbDataReader readerModel = commandModel.ExecuteReader();
+                //while (readerModel.Read())
+                //{
+                //    modelComboBox.Items.Add(readerModel["Model"].ToString());
+                //}
 
                 connection.Close();
             }

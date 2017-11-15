@@ -66,10 +66,23 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.suppliesListBox = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.deleteSupplyButton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.lable17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.brandLabel = new System.Windows.Forms.Label();
+            this.modelLabel = new System.Windows.Forms.Label();
+            this.catLabel = new System.Windows.Forms.Label();
+            this.supplyLabel = new System.Windows.Forms.Label();
+            this.linkLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -450,6 +463,31 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tech Notes";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.linkLabel);
+            this.tabPage3.Controls.Add(this.supplyLabel);
+            this.tabPage3.Controls.Add(this.catLabel);
+            this.tabPage3.Controls.Add(this.modelLabel);
+            this.tabPage3.Controls.Add(this.brandLabel);
+            this.tabPage3.Controls.Add(this.typeLabel);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.lable17);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.deleteSupplyButton);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.suppliesListBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(618, 302);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Supply Deletion";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -460,37 +498,142 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
             // 
-            // tabPage3
+            // suppliesListBox
             // 
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(618, 302);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Admin Changes in Program";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.suppliesListBox.FormattingEnabled = true;
+            this.suppliesListBox.Location = new System.Drawing.Point(23, 36);
+            this.suppliesListBox.Name = "suppliesListBox";
+            this.suppliesListBox.Size = new System.Drawing.Size(53, 212);
+            this.suppliesListBox.TabIndex = 0;
+            this.suppliesListBox.SelectedIndexChanged += new System.EventHandler(this.suppliesListBox_SelectedIndexChanged);
             // 
             // label17
             // 
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Location = new System.Drawing.Point(15, 26);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(167, 12);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 110);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "To delete entries, type 24:24 on bottom right textbox next to main menu and check" +
-    " the box. Uncheck to hide delete button.";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label17.Size = new System.Drawing.Size(102, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Supplies Information";
+            // 
+            // deleteSupplyButton
+            // 
+            this.deleteSupplyButton.Location = new System.Drawing.Point(526, 261);
+            this.deleteSupplyButton.Name = "deleteSupplyButton";
+            this.deleteSupplyButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteSupplyButton.TabIndex = 2;
+            this.deleteSupplyButton.Text = "Delete";
+            this.deleteSupplyButton.UseVisualStyleBackColor = true;
+            this.deleteSupplyButton.Click += new System.EventHandler(this.deleteSupplyButton_Click);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(40, 13);
+            this.label18.Location = new System.Drawing.Point(110, 84);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Tutorial";
+            this.label18.Size = new System.Drawing.Size(38, 13);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Brand:";
+            // 
+            // lable17
+            // 
+            this.lable17.AutoSize = true;
+            this.lable17.Location = new System.Drawing.Point(109, 121);
+            this.lable17.Name = "lable17";
+            this.lable17.Size = new System.Drawing.Size(39, 13);
+            this.lable17.TabIndex = 4;
+            this.lable17.Text = "Model:";
+            this.lable17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(114, 47);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Type:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(96, 158);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 13);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Category:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(106, 195);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(42, 13);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Supply:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(118, 232);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(30, 13);
+            this.label22.TabIndex = 8;
+            this.label22.Text = "Link:";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.typeLabel.Location = new System.Drawing.Point(154, 43);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(447, 20);
+            this.typeLabel.TabIndex = 9;
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // brandLabel
+            // 
+            this.brandLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.brandLabel.Location = new System.Drawing.Point(154, 80);
+            this.brandLabel.Name = "brandLabel";
+            this.brandLabel.Size = new System.Drawing.Size(447, 20);
+            this.brandLabel.TabIndex = 10;
+            this.brandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // modelLabel
+            // 
+            this.modelLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.modelLabel.Location = new System.Drawing.Point(154, 117);
+            this.modelLabel.Name = "modelLabel";
+            this.modelLabel.Size = new System.Drawing.Size(447, 20);
+            this.modelLabel.TabIndex = 11;
+            this.modelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // catLabel
+            // 
+            this.catLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.catLabel.Location = new System.Drawing.Point(154, 154);
+            this.catLabel.Name = "catLabel";
+            this.catLabel.Size = new System.Drawing.Size(447, 20);
+            this.catLabel.TabIndex = 12;
+            this.catLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // supplyLabel
+            // 
+            this.supplyLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.supplyLabel.Location = new System.Drawing.Point(154, 191);
+            this.supplyLabel.Name = "supplyLabel";
+            this.supplyLabel.Size = new System.Drawing.Size(447, 20);
+            this.supplyLabel.TabIndex = 13;
+            this.supplyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // linkLabel
+            // 
+            this.linkLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.linkLabel.Location = new System.Drawing.Point(154, 228);
+            this.linkLabel.Name = "linkLabel";
+            this.linkLabel.Size = new System.Drawing.Size(447, 20);
+            this.linkLabel.TabIndex = 14;
+            this.linkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TechnologyAssistantForm
             // 
@@ -560,7 +703,20 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox fixDateTextBox;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button deleteSupplyButton;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ListBox suppliesListBox;
+        private System.Windows.Forms.Label lable17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label linkLabel;
+        private System.Windows.Forms.Label supplyLabel;
+        private System.Windows.Forms.Label catLabel;
+        private System.Windows.Forms.Label modelLabel;
+        private System.Windows.Forms.Label brandLabel;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }

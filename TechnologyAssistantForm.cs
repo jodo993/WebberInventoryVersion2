@@ -100,6 +100,17 @@ namespace Webber_Inventory_Search_2017_2018
                 i++;
             }
 
+            OleDbCommand commandSupplies = new OleDbCommand();
+            commandSupplies.Connection = connection;
+            string querySupply = "select * from Supply_Information";
+            commandSupplies.CommandText = querySupply;
+
+            OleDbDataReader supplyReader = commandSupplies.ExecuteReader();
+            while (supplyReader.Read())
+            {
+                suppliesListBox.Items.Add(supplyReader["ID"].ToString());
+            }
+
             connection.Close();
         }
 
@@ -295,6 +306,45 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Close();
             MessageBox.Show("Updated.");
+        }
+
+        private void deleteSupplyButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+
+            MessageBox.Show("Supply information deleted.");
+            suppliesListBox.Items.Remove(suppliesListBox.SelectedItem);
+        }
+
+        private void suppliesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                typeLabel.Text = reader["Type"].ToString();
+                brandLabel.Text = reader["Brand"].ToString();
+                modelLabel.Text = reader["Model"].ToString();
+                catLabel.Text = reader["Category"].ToString();
+                supplyLabel.Text = reader["Supply"].ToString();
+                linkLabel.Text = reader["Link"].ToString();
+            }
+
+            connection.Close();
         }
     }
 }
