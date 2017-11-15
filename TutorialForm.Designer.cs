@@ -90,8 +90,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -727,25 +725,6 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Step by Step Guide";
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(544, 367);
-            this.maskedTextBox1.Mask = "00:00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(33, 20);
-            this.maskedTextBox1.TabIndex = 6;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(583, 370);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // userLabel
             // 
             this.userLabel.Location = new System.Drawing.Point(732, 9);
@@ -759,8 +738,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 397);
             this.Controls.Add(this.userLabel);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tab1);
             this.Controls.Add(this.stepByStepLabel);
@@ -866,8 +843,6 @@
         private System.Windows.Forms.Button outlookDeleteButton;
         private System.Windows.Forms.Button powerpointDeleteButton;
         private System.Windows.Forms.Button excelDeleteButton;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label userLabel;
     }
 }

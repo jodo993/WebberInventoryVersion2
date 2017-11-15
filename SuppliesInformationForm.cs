@@ -23,8 +23,8 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
             userLabel.Text = user;
             // Connect to database                                                       
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
         private void SuppliesInformationForm_Load(object sender, EventArgs e)
@@ -117,6 +117,7 @@ namespace Webber_Inventory_Search_2017_2018
         private void brandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             modelComboBox.Items.Clear();
+            catComboBox.Items.Clear();
             string item = brandComboBox.Text;
             // Check for which brand is selected
             try
@@ -144,7 +145,35 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void modelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            catComboBox.Items.Clear();
             string item = modelComboBox.Text;
+            // Check for which brand is selected
+            try
+            {
+                connection.Open();
+
+                OleDbCommand commandCat = new OleDbCommand();
+                commandCat.Connection = connection;
+                string query = "select * from Supply_Information where Model='" + item + "'";
+                commandCat.CommandText = query;
+
+                OleDbDataReader readerCat = commandCat.ExecuteReader();
+                while (readerCat.Read())
+                {
+                    catComboBox.Items.Add(readerCat["Category"].ToString());
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please go back and try again." + ex);
+            }
+        }
+
+        private void catComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = catComboBox.Text;
             // Check for which brand is selected
             try
             {
@@ -152,7 +181,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand commandName = new OleDbCommand();
                 commandName.Connection = connection;
-                string query = "select * from Supply_Information where Model='" + item + "'";
+                string query = "select * from Supply_Information where Category='" + item + "'";
                 commandName.CommandText = query;
 
                 OleDbDataReader readerName = commandName.ExecuteReader();
@@ -205,6 +234,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string type = "";
                 string brand = "";
                 string model = "";
+                string cat = "";
                 string name = "";
                 string link = "";
 
@@ -214,44 +244,58 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                     type = typeTextBox.Text;
 
-                if (typeTextBox.Text == "")
+                if (brandTextBox.Text == "")
                     brand = "";
                 else
                     brand = brandTextBox.Text;
 
-                if (typeTextBox.Text == "")
+                if (modelTextBox.Text == "")
                     model = "";
                 else
                     model = modelTextBox.Text;
 
-                if (typeTextBox.Text == "")
+                if (catTextBox.Text == "")
+                    cat = "";
+                else
+                    cat = catTextBox.Text;
+
+                if (nameTextBox.Text == "")
                     name = "";
                 else
                     name = nameTextBox.Text;
 
-                if (typeTextBox.Text == "")
+                if (linkTextBox.Text == "")
                     link = "";
                 else
                     link = linkTextBox.Text;
 
-                connection.Open();
+                bool linkCheck = false;
+                if (link.StartsWith("www.") || link.StartsWith("https://"))
+                    linkCheck = true;
+                if (linkCheck)
+                {
+                    connection.Open();
 
-                OleDbCommand commandAdd = new OleDbCommand();
-                commandAdd.Connection = connection;
-                string query = "insert into Supply_Information (Type,Brand,Model,Supply,Link) values('" + type + "','" + brand + "','" + model + "','" + name + "','" + link + "')";
-                commandAdd.CommandText = query;
-                commandAdd.ExecuteNonQuery();
+                    OleDbCommand commandAdd = new OleDbCommand();
+                    commandAdd.Connection = connection;
+                    string query = "insert into Supply_Information (Type,Brand,Model,Category,Supply,Link) values('" + type + "','" + brand + "','" + model + "','" + cat + "','" + name + "','" + link + "')";
+                    commandAdd.CommandText = query;
+                    commandAdd.ExecuteNonQuery();
 
-                MessageBox.Show("Information was successfully added.");
+                    MessageBox.Show("Information was successfully added.");
 
-                connection.Close();
+                    connection.Close();
 
-                // Clear text boxes after successful add
-                typeTextBox.Text = "";
-                brandTextBox.Text = "";
-                modelTextBox.Text = "";
-                nameTextBox.Text = "";
-                linkTextBox.Text = "";
+                    // Clear text boxes after successful add
+                    typeTextBox.Text = "";
+                    brandTextBox.Text = "";
+                    modelTextBox.Text = "";
+                    catTextBox.Text = "";
+                    nameTextBox.Text = "";
+                    linkTextBox.Text = "";
+                }
+                else
+                    MessageBox.Show("Please include https:// or www. in your link.");
             }
             catch (Exception ex)
             {
@@ -264,8 +308,16 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            MainMenuForm mainMenu = new MainMenuForm();
-            mainMenu.ShowDialog();
+            if (userLabel.Text == "T")
+            {
+                MainMenuForm2 mainMenu2 = new MainMenuForm2();
+                mainMenu2.ShowDialog();
+            }
+            else
+            {
+                MainMenuForm mainMenu = new MainMenuForm();
+                mainMenu.ShowDialog();
+            }
 
             this.Close();
         }
@@ -278,7 +330,15 @@ namespace Webber_Inventory_Search_2017_2018
         // Open link in a new tab
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(link);
+            try
+            {
+                Process.Start(link);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("hi" + ex);
+            }
+            
         }
     }
 }
