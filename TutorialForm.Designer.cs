@@ -92,6 +92,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.userLabel = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -745,11 +746,19 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // userLabel
+            // 
+            this.userLabel.Location = new System.Drawing.Point(732, 9);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(25, 25);
+            this.userLabel.TabIndex = 22;
+            // 
             // TutorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 397);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label6);
@@ -859,5 +868,6 @@
         private System.Windows.Forms.Button excelDeleteButton;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label userLabel;
     }
 }

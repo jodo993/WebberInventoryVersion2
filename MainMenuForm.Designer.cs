@@ -156,7 +156,7 @@
             // quitButton
             // 
             this.quitButton.BackColor = System.Drawing.Color.Transparent;
-            this.quitButton.Font = new System.Drawing.Font("Papyrus", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.ForeColor = System.Drawing.Color.Black;
             this.quitButton.Location = new System.Drawing.Point(618, 2);
             this.quitButton.Name = "quitButton";

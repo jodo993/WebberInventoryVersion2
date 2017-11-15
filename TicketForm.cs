@@ -17,10 +17,10 @@ namespace Webber_Inventory_Search_2017_2018
         // Use by this form only, global
         private OleDbConnection connection = new OleDbConnection();
 
-        public TicketForm()
+        public TicketForm(string user)
         {
             InitializeComponent();
-
+            userLabel.Text = user;
             // Connect to database                                                       
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
@@ -115,10 +115,17 @@ namespace Webber_Inventory_Search_2017_2018
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-            MainMenuForm mainMenu = new MainMenuForm();
-            mainMenu.ShowDialog();
-
+            if (userLabel.Text == "T")
+            {
+                MainMenuForm2 mainMenu2 = new MainMenuForm2();
+                mainMenu2.ShowDialog();
+            }
+            else
+            {
+                MainMenuForm mainMenu = new MainMenuForm();
+                mainMenu.ShowDialog();
+            }
+                
             this.Close();
         }
 

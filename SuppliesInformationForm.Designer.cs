@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.addTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.mainButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.userLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -104,6 +106,7 @@
             // nameRTextBox
             // 
             this.nameRTextBox.Location = new System.Drawing.Point(39, 137);
+            this.nameRTextBox.Multiline = true;
             this.nameRTextBox.Name = "nameRTextBox";
             this.nameRTextBox.Size = new System.Drawing.Size(329, 20);
             this.nameRTextBox.TabIndex = 15;
@@ -122,7 +125,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(16, 33);
+            this.label8.Location = new System.Drawing.Point(6, 29);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(160, 13);
             this.label8.TabIndex = 12;
@@ -240,6 +243,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.exitButton);
             this.tabPage1.Controls.Add(this.mainButton);
             this.tabPage1.Controls.Add(this.addButton);
@@ -260,6 +264,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Supply";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(44, 194);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(215, 44);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "* For printers, please combine brand and model into brand. Model is used for colo" +
+    "r of toner/ink.";
             // 
             // exitButton
             // 
@@ -382,12 +395,21 @@
             this.tabPage2.Text = "Find Supply";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // userLabel
+            // 
+            this.userLabel.Location = new System.Drawing.Point(445, 9);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(25, 25);
+            this.userLabel.TabIndex = 22;
+            // 
             // SuppliesInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 343);
+            this.ClientSize = new System.Drawing.Size(499, 343);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.addTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SuppliesInformationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -436,5 +458,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox nameRTextBox;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label userLabel;
     }
 }

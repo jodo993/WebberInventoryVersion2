@@ -20,6 +20,8 @@ namespace Webber_Inventory_Search_2017_2018
             mainMenuTimer.Start();
         }
 
+        string user = "A";
+
         private void chromebookButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -86,7 +88,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Hide();
 
             // Opens supplies form
-            SuppliesInformationForm supplyForm = new SuppliesInformationForm();
+            SuppliesInformationForm supplyForm = new SuppliesInformationForm(user);
             supplyForm.ShowDialog();
 
             this.Close();
@@ -104,7 +106,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Hide();
 
             // Opens tutorials form
-            TutorialForm tutorialForm = new TutorialForm();
+            TutorialForm tutorialForm = new TutorialForm(user);
             tutorialForm.ShowDialog();
 
             this.Close();
@@ -113,9 +115,8 @@ namespace Webber_Inventory_Search_2017_2018
         private void ticketButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             // Open ticket form
-            TicketForm ticketForm = new TicketForm();
+            TicketForm ticketForm = new TicketForm(user);
             ticketForm.ShowDialog();
 
             this.Close();

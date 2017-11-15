@@ -49,9 +49,10 @@
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.checkButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ticketNumberTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.ticketNumberTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.userLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -274,6 +275,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Check Ticket Status";
             // 
+            // ticketNumberTextBox
+            // 
+            this.ticketNumberTextBox.Location = new System.Drawing.Point(59, 32);
+            this.ticketNumberTextBox.Mask = "9990";
+            this.ticketNumberTextBox.Name = "ticketNumberTextBox";
+            this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ticketNumberTextBox.TabIndex = 21;
+            this.ticketNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -292,20 +302,19 @@
             this.statusLabel.TabIndex = 20;
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ticketNumberTextBox
+            // userLabel
             // 
-            this.ticketNumberTextBox.Location = new System.Drawing.Point(59, 32);
-            this.ticketNumberTextBox.Mask = "9990";
-            this.ticketNumberTextBox.Name = "ticketNumberTextBox";
-            this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ticketNumberTextBox.TabIndex = 21;
-            this.ticketNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.userLabel.Location = new System.Drawing.Point(470, 9);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(25, 25);
+            this.userLabel.TabIndex = 21;
             // 
             // TicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 345);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
@@ -348,5 +357,6 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox ticketNumberTextBox;
+        private System.Windows.Forms.Label userLabel;
     }
 }

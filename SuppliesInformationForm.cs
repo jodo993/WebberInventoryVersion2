@@ -18,14 +18,13 @@ namespace Webber_Inventory_Search_2017_2018
         private OleDbConnection connection = new OleDbConnection();
         string link = "";
 
-        public SuppliesInformationForm()
+        public SuppliesInformationForm(string user)
         {
             InitializeComponent();
-
+            userLabel.Text = user;
             // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\WebberMainDatabase.accdb;Persist Security Info=False;";
-
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
         private void SuppliesInformationForm_Load(object sender, EventArgs e)
@@ -39,12 +38,6 @@ namespace Webber_Inventory_Search_2017_2018
                 commandType.Connection = connection;
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
-
-                //OleDbDataReader readerType = commandType.ExecuteReader();
-                //while (readerType.Read())
-                //{
-                //    typeComboBox.Items.Add(readerType["Type"].ToString());
-                //}
 
                 string[] type = new string[100];
                 int i = 0;
@@ -92,10 +85,25 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Type='" + item + "'";
                 commandBrand.CommandText = query;
 
+                string[] brand = new string[100];
+                int i = 0;
+
                 OleDbDataReader readerBrand = commandBrand.ExecuteReader();
                 while (readerBrand.Read())
                 {
-                    brandComboBox.Items.Add(readerBrand["Brand"].ToString());
+                    brand[i] = readerBrand["Brand"].ToString();
+                    i++;
+                }
+
+                int arrayLength = i;
+                for (int a = 0; a < arrayLength; a++)
+                {
+                    brandComboBox.Items.Add(brand[a]);
+                    for (int b = a + 1; b < arrayLength; b++)
+                    {
+                        if (brand[b] == brand[a])
+                            brandComboBox.Items.Remove(brand[a]);
+                    }
                 }
                 
                 connection.Close();
@@ -168,8 +176,16 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            MainMenuForm mainMenu = new MainMenuForm();
-            mainMenu.ShowDialog();
+            if (userLabel.Text == "T")
+            {
+                MainMenuForm2 mainMenu2 = new MainMenuForm2();
+                mainMenu2.ShowDialog();
+            }
+            else
+            {
+                MainMenuForm mainMenu = new MainMenuForm();
+                mainMenu.ShowDialog();
+            }
 
             this.Close();
         }
