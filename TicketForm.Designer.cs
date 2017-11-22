@@ -53,6 +53,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -262,6 +263,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.ticketNumberTextBox);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.mainMenuButton);
@@ -278,7 +280,7 @@
             // ticketNumberTextBox
             // 
             this.ticketNumberTextBox.Location = new System.Drawing.Point(59, 32);
-            this.ticketNumberTextBox.Mask = "9990";
+            this.ticketNumberTextBox.Mask = "000";
             this.ticketNumberTextBox.Name = "ticketNumberTextBox";
             this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.ticketNumberTextBox.TabIndex = 21;
@@ -308,6 +310,15 @@
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(25, 25);
             this.userLabel.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(23, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "label8";
             // 
             // TicketForm
             // 
@@ -358,5 +369,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox ticketNumberTextBox;
         private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label label8;
     }
 }

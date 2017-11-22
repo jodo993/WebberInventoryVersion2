@@ -132,6 +132,8 @@ namespace Webber_Inventory_Search_2017_2018
         private void checkButton_Click(object sender, EventArgs e)
         {
             string ticketNumber = ticketNumberTextBox.Text;
+            ticketNumber = ticketNumber.Trim();
+
             connection.Open();
 
             // Which table to search for data
