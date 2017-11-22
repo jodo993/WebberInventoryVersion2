@@ -346,5 +346,27 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Close();
         }
+
+        // Update fields
+        private void updateSupplyButton_Click(object sender, EventArgs e)
+        {
+            string type = typeLabel.Text;
+            string brand = brandLabel.Text;
+            string model = modelLabel.Text;
+            string category = catLabel.Text;
+            string supply = supplyLabel.Text;
+            string link = linkLabel.Text;
+
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "update Supply_Information set Type='" + type + "',Brand='" + brand + "',Model='" + model + "',Category='" + category + "',Supply='" + supply + "',Link='" + link + "' where ID=" + suppliesListBox.SelectedItem + "";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Item updated.");
+        }
     }
 }
