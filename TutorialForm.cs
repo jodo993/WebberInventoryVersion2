@@ -68,18 +68,23 @@ namespace Webber_Inventory_Search_2017_2018
             OleDbCommand commandGoogle = new OleDbCommand();
             commandGoogle.Connection = connection;
 
+            OleDbCommand commandMisc = new OleDbCommand();
+            commandMisc.Connection = connection;
+
             // What does command do
             string wordQuery = "select Topic from Tutorial_Word";
             string excelQuery = "select Topic from Tutorial_Excel";
             string powerpointQuery = "select Topic from Tutorial_Powerpoint";
             string outlookQuery = "select Topic from Tutorial_Outlook";
             string googleQuery = "select Topic from Tutorial_Google";
+            string miscQuery = "select Topic from Tutorial_Misc";
 
             commandWord.CommandText = wordQuery;
             commandExcel.CommandText = excelQuery;
             commandPP.CommandText = powerpointQuery;
             commandOutlook.CommandText = outlookQuery;
             commandGoogle.CommandText = googleQuery;
+            commandMisc.CommandText = miscQuery;
 
             // Read the topic column of each table and put them in corresponding list boxes
             OleDbDataReader readerWord = commandWord.ExecuteReader();
@@ -87,6 +92,7 @@ namespace Webber_Inventory_Search_2017_2018
             OleDbDataReader readerPP = commandPP.ExecuteReader();
             OleDbDataReader readerOutlook = commandOutlook.ExecuteReader();
             OleDbDataReader readerGoogle = commandGoogle.ExecuteReader();
+            OleDbDataReader readerMisc = commandMisc.ExecuteReader();
 
             while (readerWord.Read())
             {
@@ -113,6 +119,11 @@ namespace Webber_Inventory_Search_2017_2018
                 googleListBox.Items.Add(readerGoogle["Topic"].ToString());
             }
 
+            while (readerMisc.Read())
+            {
+                miscListBox.Items.Add(readerMisc["Topic"].ToString());
+            }
+
             connection.Close();
 
             if (userLabel.Text == "A")
@@ -122,6 +133,7 @@ namespace Webber_Inventory_Search_2017_2018
                 powerpointDeleteButton.Visible = true;
                 outlookDeleteButton.Visible = true;
                 googleDeleteButton.Visible = true;
+                miscDeleteButton.Visible = true;
             }     
         }
 
@@ -464,6 +476,84 @@ namespace Webber_Inventory_Search_2017_2018
 
             googleListBox.Items.Remove(googleListBox.SelectedItem);
             stepByStepLabel.Text = "";
+        }
+
+        private void searchWordButton_Click(object sender, EventArgs e)
+        {
+            string word = wordSearchTextBox.Text;
+            word = word.ToLower();
+
+            wordListBox.SelectedItems.Clear();
+            for (int i = 0; i < wordListBox.Items.Count; i++)
+            {
+                if (wordListBox.Items[i].ToString().ToLower().Contains(word))
+                    wordListBox.SetSelected(i, true);
+            }
+        }
+
+        // MISC TAB
+        private void miscAddButton_Click(object sender, EventArgs e)
+        {
+            string topic = miscTopicTextBox.Text;
+            string instructions = miscInstructionTextBox.Text;
+
+            if (topic == "" && instructions == "")
+                MessageBox.Show("Please enter a topic and instructions.");
+            else
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Tutorial_Misc (Topic,Instructions) values('" + topic + "','" + instructions + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Tutorial was successfully added.");
+                miscListBox.Items.Add(topic);
+
+                // Clear boxes
+                miscTopicTextBox.Text = "";
+                miscInstructionTextBox.Text = "";
+            }
+        }
+
+        private void miscDeleteButton_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "delete from Tutorial_Misc where Topic='" + miscListBox.SelectedItem + "'";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("Topic and instruction deleted.");
+
+            connection.Close();
+
+            miscListBox.Items.Remove(miscListBox.SelectedItem);
+            stepByStepLabel.Text = "";
+        }
+
+        private void miscListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Tutorial_Misc where Topic='" + miscListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                stepByStepLabel.Text = reader["Instructions"].ToString();
+            }
+
+            connection.Close();
         }
     }
 }

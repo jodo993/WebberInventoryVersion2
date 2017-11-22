@@ -34,38 +34,40 @@
             this.stepByStepLabel = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.outlookDeleteButton = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.outlookAddButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.outlookInstructionTextBox = new System.Windows.Forms.TextBox();
             this.outlookTopicTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.outlookListBox = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.powerpointDeleteButton = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.powerpointAddButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.powerpointInstructionTextBox = new System.Windows.Forms.TextBox();
             this.powerpointTopicTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.powerpointListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.excelDeleteButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.excelAddButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.excelInstructionTextBox = new System.Windows.Forms.TextBox();
             this.excelTopicTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.excelListBox = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.searchWordButton = new System.Windows.Forms.Button();
+            this.wordSearchTextBox = new System.Windows.Forms.TextBox();
             this.wordDeleteButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.wordAddButton = new System.Windows.Forms.Button();
@@ -79,34 +81,47 @@
             this.tab1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.googleDeleteButton = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.googleAddButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.googleInstructionTextBox = new System.Windows.Forms.TextBox();
             this.googleTopicTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.googleListBox = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.miscDeleteButton = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.miscAddButton = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.miscInstructionTextBox = new System.Windows.Forms.TextBox();
+            this.miscTopicTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.miscListBox = new System.Windows.Forms.ListBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tab1.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuButton
@@ -132,7 +147,7 @@
             // stepByStepLabel
             // 
             this.stepByStepLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.stepByStepLabel.Location = new System.Drawing.Point(392, 48);
+            this.stepByStepLabel.Location = new System.Drawing.Point(390, 48);
             this.stepByStepLabel.Name = "stepByStepLabel";
             this.stepByStepLabel.Size = new System.Drawing.Size(365, 314);
             this.stepByStepLabel.TabIndex = 3;
@@ -140,9 +155,9 @@
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.outlookDeleteButton);
-            this.tabPage5.Controls.Add(this.pictureBox4);
             this.tabPage5.Controls.Add(this.outlookAddButton);
             this.tabPage5.Controls.Add(this.groupBox4);
+            this.tabPage5.Controls.Add(this.pictureBox4);
             this.tabPage5.Controls.Add(this.outlookListBox);
             this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -163,16 +178,6 @@
             this.outlookDeleteButton.UseVisualStyleBackColor = true;
             this.outlookDeleteButton.Visible = false;
             this.outlookDeleteButton.Click += new System.EventHandler(this.outlookDeleteButton_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftOutlook;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(335, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
             // 
             // outlookAddButton
             // 
@@ -230,6 +235,16 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Topic:";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftOutlook;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.TabIndex = 6;
+            this.pictureBox4.TabStop = false;
+            // 
             // outlookListBox
             // 
             this.outlookListBox.FormattingEnabled = true;
@@ -251,9 +266,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.powerpointDeleteButton);
-            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.powerpointAddButton);
             this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.powerpointListBox);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -274,16 +289,6 @@
             this.powerpointDeleteButton.UseVisualStyleBackColor = true;
             this.powerpointDeleteButton.Visible = false;
             this.powerpointDeleteButton.Click += new System.EventHandler(this.powerpointDeleteButton_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftPowerpoint;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(335, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
             // 
             // powerpointAddButton
             // 
@@ -341,6 +346,16 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Topic:";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftPowerpoint;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
             // powerpointListBox
             // 
             this.powerpointListBox.FormattingEnabled = true;
@@ -362,9 +377,9 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.excelDeleteButton);
-            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.excelAddButton);
             this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.excelListBox);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -385,16 +400,6 @@
             this.excelDeleteButton.UseVisualStyleBackColor = true;
             this.excelDeleteButton.Visible = false;
             this.excelDeleteButton.Click += new System.EventHandler(this.excelDeleteButton_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftExcel;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(335, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // excelAddButton
             // 
@@ -452,6 +457,16 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Topic:";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftExcel;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // excelListBox
             // 
             this.excelListBox.FormattingEnabled = true;
@@ -472,6 +487,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.searchWordButton);
+            this.tabPage1.Controls.Add(this.wordSearchTextBox);
             this.tabPage1.Controls.Add(this.wordDeleteButton);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.wordAddButton);
@@ -485,6 +502,23 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Word";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // searchWordButton
+            // 
+            this.searchWordButton.Location = new System.Drawing.Point(179, 2);
+            this.searchWordButton.Name = "searchWordButton";
+            this.searchWordButton.Size = new System.Drawing.Size(75, 23);
+            this.searchWordButton.TabIndex = 10;
+            this.searchWordButton.Text = "Search";
+            this.searchWordButton.UseVisualStyleBackColor = true;
+            this.searchWordButton.Click += new System.EventHandler(this.searchWordButton_Click);
+            // 
+            // wordSearchTextBox
+            // 
+            this.wordSearchTextBox.Location = new System.Drawing.Point(77, 4);
+            this.wordSearchTextBox.Name = "wordSearchTextBox";
+            this.wordSearchTextBox.Size = new System.Drawing.Size(100, 20);
+            this.wordSearchTextBox.TabIndex = 9;
             // 
             // wordDeleteButton
             // 
@@ -598,9 +632,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.googleDeleteButton);
-            this.tabPage4.Controls.Add(this.pictureBox5);
             this.tabPage4.Controls.Add(this.googleAddButton);
             this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Controls.Add(this.pictureBox5);
             this.tabPage4.Controls.Add(this.googleListBox);
             this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -621,16 +655,6 @@
             this.googleDeleteButton.UseVisualStyleBackColor = true;
             this.googleDeleteButton.Visible = false;
             this.googleDeleteButton.Click += new System.EventHandler(this.googleDeleteButton_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.googleIcon;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(335, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox5.TabIndex = 6;
-            this.pictureBox5.TabStop = false;
             // 
             // googleAddButton
             // 
@@ -688,6 +712,16 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Topic:";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.googleIcon;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            // 
             // googleListBox
             // 
             this.googleListBox.FormattingEnabled = true;
@@ -708,6 +742,12 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.miscDeleteButton);
+            this.tabPage6.Controls.Add(this.pictureBox6);
+            this.tabPage6.Controls.Add(this.miscAddButton);
+            this.tabPage6.Controls.Add(this.groupBox6);
+            this.tabPage6.Controls.Add(this.miscListBox);
+            this.tabPage6.Controls.Add(this.label19);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -715,6 +755,101 @@
             this.tabPage6.TabIndex = 6;
             this.tabPage6.Text = "Misc.";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // miscDeleteButton
+            // 
+            this.miscDeleteButton.Location = new System.Drawing.Point(254, 3);
+            this.miscDeleteButton.Name = "miscDeleteButton";
+            this.miscDeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.miscDeleteButton.TabIndex = 13;
+            this.miscDeleteButton.Text = "Delete";
+            this.miscDeleteButton.UseVisualStyleBackColor = true;
+            this.miscDeleteButton.Visible = false;
+            this.miscDeleteButton.Click += new System.EventHandler(this.miscDeleteButton_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.miscIcon;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(335, 4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox6.TabIndex = 12;
+            this.pictureBox6.TabStop = false;
+            // 
+            // miscAddButton
+            // 
+            this.miscAddButton.Location = new System.Drawing.Point(285, 285);
+            this.miscAddButton.Name = "miscAddButton";
+            this.miscAddButton.Size = new System.Drawing.Size(75, 23);
+            this.miscAddButton.TabIndex = 11;
+            this.miscAddButton.Text = "Add";
+            this.miscAddButton.UseVisualStyleBackColor = true;
+            this.miscAddButton.Click += new System.EventHandler(this.miscAddButton_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label17);
+            this.groupBox6.Controls.Add(this.miscInstructionTextBox);
+            this.groupBox6.Controls.Add(this.miscTopicTextBox);
+            this.groupBox6.Controls.Add(this.label18);
+            this.groupBox6.Location = new System.Drawing.Point(9, 137);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(351, 149);
+            this.groupBox6.TabIndex = 10;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Add New";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(10, 55);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Instructions:";
+            // 
+            // miscInstructionTextBox
+            // 
+            this.miscInstructionTextBox.Location = new System.Drawing.Point(9, 71);
+            this.miscInstructionTextBox.Multiline = true;
+            this.miscInstructionTextBox.Name = "miscInstructionTextBox";
+            this.miscInstructionTextBox.Size = new System.Drawing.Size(336, 72);
+            this.miscInstructionTextBox.TabIndex = 2;
+            // 
+            // miscTopicTextBox
+            // 
+            this.miscTopicTextBox.Location = new System.Drawing.Point(9, 32);
+            this.miscTopicTextBox.Name = "miscTopicTextBox";
+            this.miscTopicTextBox.Size = new System.Drawing.Size(336, 20);
+            this.miscTopicTextBox.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Topic:";
+            // 
+            // miscListBox
+            // 
+            this.miscListBox.FormattingEnabled = true;
+            this.miscListBox.Location = new System.Drawing.Point(9, 29);
+            this.miscListBox.Name = "miscListBox";
+            this.miscListBox.Size = new System.Drawing.Size(351, 108);
+            this.miscListBox.TabIndex = 9;
+            this.miscListBox.SelectedIndexChanged += new System.EventHandler(this.miscListBox_SelectedIndexChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 13);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "How To:";
             // 
             // label6
             // 
@@ -751,19 +886,19 @@
             this.Load += new System.EventHandler(this.TutorialForm_Load);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -772,9 +907,14 @@
             this.tab1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -844,5 +984,17 @@
         private System.Windows.Forms.Button powerpointDeleteButton;
         private System.Windows.Forms.Button excelDeleteButton;
         private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Button searchWordButton;
+        private System.Windows.Forms.TextBox wordSearchTextBox;
+        private System.Windows.Forms.Button miscDeleteButton;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button miscAddButton;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox miscInstructionTextBox;
+        private System.Windows.Forms.TextBox miscTopicTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ListBox miscListBox;
+        private System.Windows.Forms.Label label19;
     }
 }
