@@ -83,23 +83,25 @@
             this.deleteSupplyButton = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.suppliesListBox = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.problemIDLabel = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.currentSolutionListBox = new System.Windows.Forms.ListBox();
+            this.deleteTroubleButton = new System.Windows.Forms.Button();
+            this.editTroubleButton = new System.Windows.Forms.Button();
+            this.solutionTextBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.problemTextBox = new System.Windows.Forms.TextBox();
+            this.addTroubleButton = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // programComboBox
@@ -637,6 +639,131 @@
             this.suppliesListBox.TabIndex = 0;
             this.suppliesListBox.SelectedIndexChanged += new System.EventHandler(this.suppliesListBox_SelectedIndexChanged);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label26);
+            this.tabPage4.Controls.Add(this.problemIDLabel);
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.currentSolutionListBox);
+            this.tabPage4.Controls.Add(this.deleteTroubleButton);
+            this.tabPage4.Controls.Add(this.editTroubleButton);
+            this.tabPage4.Controls.Add(this.solutionTextBox);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.problemTextBox);
+            this.tabPage4.Controls.Add(this.addTroubleButton);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(618, 302);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Troubleshoot Controls";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(365, 23);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(20, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "ID";
+            // 
+            // problemIDLabel
+            // 
+            this.problemIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.problemIDLabel.Location = new System.Drawing.Point(349, 36);
+            this.problemIDLabel.Name = "problemIDLabel";
+            this.problemIDLabel.Size = new System.Drawing.Size(50, 23);
+            this.problemIDLabel.TabIndex = 9;
+            this.problemIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(6, 13);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(125, 16);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "Current Solutions";
+            // 
+            // currentSolutionListBox
+            // 
+            this.currentSolutionListBox.FormattingEnabled = true;
+            this.currentSolutionListBox.Location = new System.Drawing.Point(6, 32);
+            this.currentSolutionListBox.Name = "currentSolutionListBox";
+            this.currentSolutionListBox.Size = new System.Drawing.Size(180, 264);
+            this.currentSolutionListBox.TabIndex = 7;
+            this.currentSolutionListBox.SelectedIndexChanged += new System.EventHandler(this.currentSolutionListBox_SelectedIndexChanged);
+            // 
+            // deleteTroubleButton
+            // 
+            this.deleteTroubleButton.Location = new System.Drawing.Point(438, 258);
+            this.deleteTroubleButton.Name = "deleteTroubleButton";
+            this.deleteTroubleButton.Size = new System.Drawing.Size(142, 23);
+            this.deleteTroubleButton.TabIndex = 6;
+            this.deleteTroubleButton.Text = "Delete Problem + Solution";
+            this.deleteTroubleButton.UseVisualStyleBackColor = true;
+            this.deleteTroubleButton.Click += new System.EventHandler(this.deleteTroubleButton_Click);
+            // 
+            // editTroubleButton
+            // 
+            this.editTroubleButton.Location = new System.Drawing.Point(438, 227);
+            this.editTroubleButton.Name = "editTroubleButton";
+            this.editTroubleButton.Size = new System.Drawing.Size(142, 23);
+            this.editTroubleButton.TabIndex = 5;
+            this.editTroubleButton.Text = "Edit Problem + Solution";
+            this.editTroubleButton.UseVisualStyleBackColor = true;
+            this.editTroubleButton.Click += new System.EventHandler(this.editTroubleButton_Click);
+            // 
+            // solutionTextBox
+            // 
+            this.solutionTextBox.Location = new System.Drawing.Point(203, 142);
+            this.solutionTextBox.Multiline = true;
+            this.solutionTextBox.Name = "solutionTextBox";
+            this.solutionTextBox.Size = new System.Drawing.Size(196, 154);
+            this.solutionTextBox.TabIndex = 4;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(200, 43);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(66, 16);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Problem";
+            // 
+            // problemTextBox
+            // 
+            this.problemTextBox.Location = new System.Drawing.Point(203, 62);
+            this.problemTextBox.Multiline = true;
+            this.problemTextBox.Name = "problemTextBox";
+            this.problemTextBox.Size = new System.Drawing.Size(196, 60);
+            this.problemTextBox.TabIndex = 3;
+            // 
+            // addTroubleButton
+            // 
+            this.addTroubleButton.Location = new System.Drawing.Point(438, 196);
+            this.addTroubleButton.Name = "addTroubleButton";
+            this.addTroubleButton.Size = new System.Drawing.Size(142, 23);
+            this.addTroubleButton.TabIndex = 0;
+            this.addTroubleButton.Text = "Add Problem + Solution";
+            this.addTroubleButton.UseVisualStyleBackColor = true;
+            this.addTroubleButton.Click += new System.EventHandler(this.addTroubleButton_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(202, 123);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(64, 16);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Solution";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -646,76 +773,6 @@
             this.label4.Size = new System.Drawing.Size(247, 25);
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.splitContainer1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(618, 302);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Troubleshoot Controls";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(39, 264);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add Problem + Solution";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(80, 15);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 13);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Problem";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(80, 138);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 13);
-            this.label24.TabIndex = 2;
-            this.label24.Text = "Solution";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(18, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 104);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(18, 154);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 104);
-            this.textBox2.TabIndex = 4;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Location = new System.Drawing.Point(6, 6);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.label23);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.label24);
-            this.splitContainer1.Size = new System.Drawing.Size(606, 290);
-            this.splitContainer1.SplitterDistance = 202;
-            this.splitContainer1.TabIndex = 5;
             // 
             // TechnologyAssistantForm
             // 
@@ -741,10 +798,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,11 +861,16 @@
         private System.Windows.Forms.TextBox modelLabel;
         private System.Windows.Forms.TextBox brandLabel;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label problemIDLabel;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ListBox currentSolutionListBox;
+        private System.Windows.Forms.Button deleteTroubleButton;
+        private System.Windows.Forms.Button editTroubleButton;
+        private System.Windows.Forms.TextBox solutionTextBox;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox problemTextBox;
+        private System.Windows.Forms.Button addTroubleButton;
         private System.Windows.Forms.Label label24;
     }
 }

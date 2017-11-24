@@ -42,22 +42,29 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            connection.Open();
-
-            string search = problemTextBox.Text;
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Troubleshoot_Data where Issue like=" + search + "";
-            command.CommandText = query;
-
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                solutionListBox.Text = reader["Issue"].ToString();
-            }
+                connection.Open();
 
-            connection.Close();
+                string search = problemTextBox.Text;
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Troubleshoot_Data where Issue like '%" + search + "'";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    solutionListBox.Text = reader["Issue"].ToString();
+                }
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("this"  + ex);
+            }
         }
 
         private void showAllButton_Click(object sender, EventArgs e)

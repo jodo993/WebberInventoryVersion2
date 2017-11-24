@@ -111,6 +111,18 @@ namespace Webber_Inventory_Search_2017_2018
                 suppliesListBox.Items.Add(supplyReader["ID"].ToString());
             }
 
+            // Troubleshoot Populate Data
+            OleDbCommand commandTroubleshoot = new OleDbCommand();
+            commandTroubleshoot.Connection = connection;
+            string queryTroubleshoot = "select * from Troubleshoot_Data";
+            commandTroubleshoot.CommandText = queryTroubleshoot;
+
+            OleDbDataReader troubleshootReader = commandTroubleshoot.ExecuteReader();
+            while (troubleshootReader.Read())
+            {
+                currentSolutionListBox.Items.Add(troubleshootReader["Issue"].ToString());
+            }
+
             connection.Close();
         }
 
@@ -256,7 +268,6 @@ namespace Webber_Inventory_Search_2017_2018
         // List box 
         private void openTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-    
             connection.Open();
 
             OleDbCommand commandID = new OleDbCommand();
@@ -367,6 +378,110 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Close();
             MessageBox.Show("Item updated.");
+        }
+
+        private void addTroubleButton_Click(object sender, EventArgs e)
+        {
+            string issue = problemTextBox.Text;
+            string solution = solutionTextBox.Text;
+
+            if (issue != "" && solution != "")
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "insert into Troubleshoot_Data (Issue,Resolution) values('" + issue + "','" + solution + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Problem and solution was added successfully.");
+                currentSolutionListBox.Items.Add(issue);
+                problemTextBox.Text = "";
+                solutionTextBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Please input both problem and solution.");
+            }
+        }
+
+        private void editTroubleButton_Click(object sender, EventArgs e)
+        {
+            if (problemIDLabel.Text == "")
+            {
+                MessageBox.Show("There is nothing to update.");
+            }
+            else
+            {
+                int id = int.Parse(problemIDLabel.Text);
+                string issue = problemTextBox.Text;
+                string solution = solutionTextBox.Text;
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "update Troubleshoot_Data set Issue='" + issue + "',Resolution='" + solution + "' where ID=" + id + "";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Problem and solution was updated successfully.");
+                problemIDLabel.Text = "";
+                problemTextBox.Text = "";
+                solutionTextBox.Text = "";
+            }
+        }
+
+        private void deleteTroubleButton_Click(object sender, EventArgs e)
+        {
+            if (problemIDLabel.Text == "")
+            {
+                MessageBox.Show("There is nothing to delete.");
+            }
+            else
+            {
+                int id = int.Parse(problemIDLabel.Text);
+
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "delete from Troubleshoot_Data where ID =" + id + "";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Problem and solution was deleted successfully.");
+                problemIDLabel.Text = "";
+                problemTextBox.Text = "";
+                solutionTextBox.Text = "";
+            }
+        }
+
+        private void currentSolutionListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Troubleshoot_Data where Issue='" + currentSolutionListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                problemIDLabel.Text = reader["ID"].ToString();
+                problemTextBox.Text = reader["Issue"].ToString();
+                solutionTextBox.Text = reader["Resolution"].ToString();
+            }
+
+            connection.Close();
         }
     }
 }
