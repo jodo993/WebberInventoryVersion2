@@ -67,8 +67,15 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.linkLabel = new System.Windows.Forms.TextBox();
+            this.updateSupplyButton = new System.Windows.Forms.Button();
+            this.supplyLabel = new System.Windows.Forms.TextBox();
+            this.typeLabel = new System.Windows.Forms.TextBox();
+            this.catLabel = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.modelLabel = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.brandLabel = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lable17 = new System.Windows.Forms.Label();
@@ -77,18 +84,22 @@
             this.label17 = new System.Windows.Forms.Label();
             this.suppliesListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.updateSupplyButton = new System.Windows.Forms.Button();
-            this.typeLabel = new System.Windows.Forms.TextBox();
-            this.brandLabel = new System.Windows.Forms.TextBox();
-            this.modelLabel = new System.Windows.Forms.TextBox();
-            this.catLabel = new System.Windows.Forms.TextBox();
-            this.supplyLabel = new System.Windows.Forms.TextBox();
-            this.linkLabel = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // programComboBox
@@ -429,6 +440,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(19, 50);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -490,6 +502,44 @@
             this.tabPage3.Text = "Supply Correction";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // linkLabel
+            // 
+            this.linkLabel.Location = new System.Drawing.Point(154, 229);
+            this.linkLabel.Name = "linkLabel";
+            this.linkLabel.Size = new System.Drawing.Size(447, 20);
+            this.linkLabel.TabIndex = 37;
+            // 
+            // updateSupplyButton
+            // 
+            this.updateSupplyButton.Location = new System.Drawing.Point(445, 261);
+            this.updateSupplyButton.Name = "updateSupplyButton";
+            this.updateSupplyButton.Size = new System.Drawing.Size(75, 23);
+            this.updateSupplyButton.TabIndex = 15;
+            this.updateSupplyButton.Text = "Update Fields";
+            this.updateSupplyButton.UseVisualStyleBackColor = true;
+            this.updateSupplyButton.Click += new System.EventHandler(this.updateSupplyButton_Click);
+            // 
+            // supplyLabel
+            // 
+            this.supplyLabel.Location = new System.Drawing.Point(154, 192);
+            this.supplyLabel.Name = "supplyLabel";
+            this.supplyLabel.Size = new System.Drawing.Size(447, 20);
+            this.supplyLabel.TabIndex = 36;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Location = new System.Drawing.Point(154, 44);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(447, 20);
+            this.typeLabel.TabIndex = 16;
+            // 
+            // catLabel
+            // 
+            this.catLabel.Location = new System.Drawing.Point(154, 155);
+            this.catLabel.Name = "catLabel";
+            this.catLabel.Size = new System.Drawing.Size(447, 20);
+            this.catLabel.TabIndex = 35;
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -499,6 +549,13 @@
             this.label22.TabIndex = 8;
             this.label22.Text = "Link:";
             // 
+            // modelLabel
+            // 
+            this.modelLabel.Location = new System.Drawing.Point(154, 118);
+            this.modelLabel.Name = "modelLabel";
+            this.modelLabel.Size = new System.Drawing.Size(447, 20);
+            this.modelLabel.TabIndex = 34;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -507,6 +564,13 @@
             this.label21.Size = new System.Drawing.Size(42, 13);
             this.label21.TabIndex = 7;
             this.label21.Text = "Supply:";
+            // 
+            // brandLabel
+            // 
+            this.brandLabel.Location = new System.Drawing.Point(154, 81);
+            this.brandLabel.Name = "brandLabel";
+            this.brandLabel.Size = new System.Drawing.Size(447, 20);
+            this.brandLabel.TabIndex = 33;
             // 
             // label20
             // 
@@ -583,57 +647,75 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
             // 
-            // updateSupplyButton
+            // tabPage4
             // 
-            this.updateSupplyButton.Location = new System.Drawing.Point(445, 261);
-            this.updateSupplyButton.Name = "updateSupplyButton";
-            this.updateSupplyButton.Size = new System.Drawing.Size(75, 23);
-            this.updateSupplyButton.TabIndex = 15;
-            this.updateSupplyButton.Text = "Update Fields";
-            this.updateSupplyButton.UseVisualStyleBackColor = true;
-            this.updateSupplyButton.Click += new System.EventHandler(this.updateSupplyButton_Click);
+            this.tabPage4.Controls.Add(this.splitContainer1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(618, 302);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Troubleshoot Controls";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // typeLabel
+            // button1
             // 
-            this.typeLabel.Location = new System.Drawing.Point(154, 44);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(447, 20);
-            this.typeLabel.TabIndex = 16;
+            this.button1.Location = new System.Drawing.Point(39, 264);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Add Problem + Solution";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // brandLabel
+            // label23
             // 
-            this.brandLabel.Location = new System.Drawing.Point(154, 81);
-            this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(447, 20);
-            this.brandLabel.TabIndex = 33;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(80, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Problem";
             // 
-            // modelLabel
+            // label24
             // 
-            this.modelLabel.Location = new System.Drawing.Point(154, 118);
-            this.modelLabel.Name = "modelLabel";
-            this.modelLabel.Size = new System.Drawing.Size(447, 20);
-            this.modelLabel.TabIndex = 34;
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(80, 138);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Solution";
             // 
-            // catLabel
+            // textBox1
             // 
-            this.catLabel.Location = new System.Drawing.Point(154, 155);
-            this.catLabel.Name = "catLabel";
-            this.catLabel.Size = new System.Drawing.Size(447, 20);
-            this.catLabel.TabIndex = 35;
+            this.textBox1.Location = new System.Drawing.Point(18, 31);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 104);
+            this.textBox1.TabIndex = 3;
             // 
-            // supplyLabel
+            // textBox2
             // 
-            this.supplyLabel.Location = new System.Drawing.Point(154, 192);
-            this.supplyLabel.Name = "supplyLabel";
-            this.supplyLabel.Size = new System.Drawing.Size(447, 20);
-            this.supplyLabel.TabIndex = 36;
+            this.textBox2.Location = new System.Drawing.Point(18, 154);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(166, 104);
+            this.textBox2.TabIndex = 4;
             // 
-            // linkLabel
+            // splitContainer1
             // 
-            this.linkLabel.Location = new System.Drawing.Point(154, 229);
-            this.linkLabel.Name = "linkLabel";
-            this.linkLabel.Size = new System.Drawing.Size(447, 20);
-            this.linkLabel.TabIndex = 37;
+            this.splitContainer1.Location = new System.Drawing.Point(6, 6);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.label23);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label24);
+            this.splitContainer1.Size = new System.Drawing.Size(606, 290);
+            this.splitContainer1.SplitterDistance = 202;
+            this.splitContainer1.TabIndex = 5;
             // 
             // TechnologyAssistantForm
             // 
@@ -658,6 +740,11 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,5 +806,12 @@
         private System.Windows.Forms.TextBox catLabel;
         private System.Windows.Forms.TextBox modelLabel;
         private System.Windows.Forms.TextBox brandLabel;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label24;
     }
 }
