@@ -50,15 +50,20 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "select * from Troubleshoot_Data where Issue like '%" + search + "'";
+                string query = "select * from Troubleshoot_Data"; // where Issue='" + search + "'";
                 command.CommandText = query;
+
+                // Create list
+                List<string> issueList = new List<string>();
 
                 OleDbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    solutionListBox.Text = reader["Issue"].ToString();
+                    issueList.Add(reader["Issue"].ToString());
                 }
 
+                // make array and put them all in
+                // scan thru array to see if if Contains()
                 connection.Close();
             }
             catch(Exception ex)
