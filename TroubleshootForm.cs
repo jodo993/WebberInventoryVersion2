@@ -46,7 +46,7 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                string search = problemTextBox.Text;
+                string search = problemTextBox.Text.ToUpper();
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
@@ -59,9 +59,16 @@ namespace Webber_Inventory_Search_2017_2018
                 OleDbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    issueList.Add(reader["Issue"].ToString());
+                    issueList.Add(reader["Issue"].ToString().ToUpper());
                 }
 
+                for (int i = 0; i < issueList.Count; i++)
+                {
+                    if (issueList[i].Contains(search) || issueList[i].StartsWith(search) || issueList[i].EndsWith(search))
+                    {
+                        solutionListBox.Items.Add(issueList[i]);
+                    }
+                }
                 // make array and put them all in
                 // scan thru array to see if if Contains()
                 connection.Close();
