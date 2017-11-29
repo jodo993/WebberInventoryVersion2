@@ -42,6 +42,12 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            if (problemTextBox.Text == "")
+            {
+                MessageBox.Show("Must enter something.");
+            }
+
+            solutionListBox.Items.Clear();
             try
             {
                 connection.Open();
@@ -69,8 +75,7 @@ namespace Webber_Inventory_Search_2017_2018
                         solutionListBox.Items.Add(issueList[i]);
                     }
                 }
-                // make array and put them all in
-                // scan thru array to see if if Contains()
+                
                 connection.Close();
             }
             catch(Exception ex)
@@ -81,16 +86,41 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void showAllButton_Click(object sender, EventArgs e)
         {
-            //connection.Open();
+            // Clear all previous items
+            solutionListBox.Items.Clear();
 
-            //int search = int.Parse(searchTextBox.Text);
+            // Show all issues in list box
+            connection.Open();
 
-            //OleDbCommand command = new OleDbCommand();
-            //command.Connection = connection;
-            //string query = "select * from Main_Inventory where Tag=" + search + "";
-            //command.CommandText = query;
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Troubleshoot_Data"; 
+            command.CommandText = query;
 
-            //connection.Close();
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                solutionListBox.Items.Add(reader["Issue"].ToString());
+            }
+
+            connection.Close();
+        }
+
+        private void solutionListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
+            command.CommandText = query;
+
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                solutionLabel.Text = reader["Resolution"].ToString();
+            }
+            connection.Close();
         }
     }
 }

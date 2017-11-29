@@ -92,6 +92,7 @@
             this.solutionListBox.Name = "solutionListBox";
             this.solutionListBox.Size = new System.Drawing.Size(204, 251);
             this.solutionListBox.TabIndex = 9;
+            this.solutionListBox.SelectedIndexChanged += new System.EventHandler(this.solutionListBox_SelectedIndexChanged);
             // 
             // solutionLabel
             // 
