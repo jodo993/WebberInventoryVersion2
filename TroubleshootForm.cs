@@ -44,43 +44,102 @@ namespace Webber_Inventory_Search_2017_2018
         {
             if (problemTextBox.Text == "")
             {
-                MessageBox.Show("Must enter something.");
+                MessageBox.Show("Must enter an issue.");
             }
-
-            solutionListBox.Items.Clear();
-            try
+            else
             {
-                connection.Open();
-
+                solutionListBox.Items.Clear();
                 string search = problemTextBox.Text.ToUpper();
-
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "select * from Troubleshoot_Data"; // where Issue='" + search + "'";
-                command.CommandText = query;
-
-                // Create list
-                List<string> issueList = new List<string>();
-
-                OleDbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    issueList.Add(reader["Issue"].ToString().ToUpper());
-                }
-
-                for (int i = 0; i < issueList.Count; i++)
-                {
-                    if (issueList[i].Contains(search) || issueList[i].StartsWith(search) || issueList[i].EndsWith(search))
-                    {
-                        solutionListBox.Items.Add(issueList[i]);
-                    }
-                }
                 
-                connection.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("this"  + ex);
+                try
+                {
+                    connection.Open();
+
+                    //OleDbCommand command = new OleDbCommand();
+                    //command.Connection = connection;
+                    //string query = "select * from Troubleshoot_Data"; // where Issue='" + search + "'";
+                    //command.CommandText = query;
+
+                    //// Create list
+                    //List<string> issueList = new List<string>();
+
+                    //OleDbDataReader reader = command.ExecuteReader();
+                    //while (reader.Read())
+                    //{
+                    //    issueList.Add(reader["Issue"].ToString().ToUpper());
+                    //}
+
+                    //for (int i = 0; i < issueList.Count; i++)
+                    //{
+                    //    if (issueList[i].Contains(search) || issueList[i].StartsWith(search) || issueList[i].EndsWith(search))
+                    //    {
+                    //        solutionListBox.Items.Add(issueList[i]);
+                    //    }
+                    //}
+
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    string query = "select * from Troubleshoot_Data";
+                    command.CommandText = query;
+
+                    // Create list
+                    List<string> searchList = new List<string>();
+                    List<string> issueList = new List<string>();
+                    
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        double numberOfWordInSearch = 0.0;
+                        double numberOfWordInIssue = 0.0;
+                        double totalNumberOfWords = 0.0;
+                        double wordMatches = 0.0;
+                        double percentMatched = 0.0;
+
+                        string issue = (reader["Issue"].ToString().ToUpper());      
+
+                        foreach (string word in search.Split())
+                        {
+                            searchList.Add(word);
+                            numberOfWordInSearch++;
+                        }
+
+                        foreach (string word in issue.Split())
+                        {
+                            issueList.Add(word);
+                            numberOfWordInIssue++;
+                        }
+
+                        totalNumberOfWords = numberOfWordInSearch + numberOfWordInIssue;
+
+                        for (int i = 0; i < numberOfWordInSearch; i++)
+                        {
+                            if (issueList.Contains(searchList[i]))
+                            {
+                                wordMatches++;
+                            }
+                            else
+                                wordMatches = wordMatches + 0;
+                        }
+                        wordMatches = wordMatches * 2;
+                        percentMatched = Math.Round(((wordMatches / totalNumberOfWords) * 100), 2);
+                        if ( percentMatched > 33.32)
+                        {
+                            solutionListBox.Items.Add(issue);
+                        }
+
+                        label3.Text = numberOfWordInSearch.ToString();
+                        label4.Text = numberOfWordInIssue.ToString();
+                        label5.Text = totalNumberOfWords.ToString();
+                        label6.Text = wordMatches.ToString();
+                        label7.Text = percentMatched.ToString();
+                    }
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("this" + ex);
+                }
             }
         }
 
