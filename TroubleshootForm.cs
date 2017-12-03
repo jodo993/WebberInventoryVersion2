@@ -82,35 +82,50 @@ namespace Webber_Inventory_Search_2017_2018
                     string query = "select * from Troubleshoot_Data";
                     command.CommandText = query;
 
-                    // Create list
+                    // Keeps track of word categories
+                    double numberOfWordInSearch = 0.0;
+                    double numberOfWordInIssue = 0.0;
+                    double totalNumberOfWords = 0.0;
+                    double wordMatches = 0.0;
+                    double percentMatched = 0.0;
+
+                    // Create list for user search string
                     List<string> searchList = new List<string>();
+
+                    // Split the words in user search string
+                    foreach (string word in search.Split())
+                    {
+                        searchList.Add(word);
+                        numberOfWordInSearch++;
+                    }
+
+                    // Create list for database issue string
                     List<string> issueList = new List<string>();
-                    
+
                     OleDbDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        double numberOfWordInSearch = 0.0;
-                        double numberOfWordInIssue = 0.0;
-                        double totalNumberOfWords = 0.0;
-                        double wordMatches = 0.0;
-                        double percentMatched = 0.0;
-
+                        // Reset variables and issue list
+                        numberOfWordInIssue = 0.0;
+                        totalNumberOfWords = 0.0;
+                        wordMatches = 0.0;
+                        percentMatched = 0.0;
+                        issueList.Clear();
+                        
+                        // Get issue string from database
                         string issue = (reader["Issue"].ToString().ToUpper());      
 
-                        foreach (string word in search.Split())
-                        {
-                            searchList.Add(word);
-                            numberOfWordInSearch++;
-                        }
-
+                        // Split the words in issue string and count how many total
                         foreach (string word in issue.Split())
                         {
                             issueList.Add(word);
                             numberOfWordInIssue++;
                         }
 
+                        // Get total number of words
                         totalNumberOfWords = numberOfWordInSearch + numberOfWordInIssue;
 
+                        // Find matches that appear in the issue string
                         for (int i = 0; i < numberOfWordInSearch; i++)
                         {
                             if (issueList.Contains(searchList[i]))
@@ -120,6 +135,8 @@ namespace Webber_Inventory_Search_2017_2018
                             else
                                 wordMatches = wordMatches + 0;
                         }
+
+                        // Get total number of word matches, find percent of the match
                         wordMatches = wordMatches * 2;
                         percentMatched = Math.Round(((wordMatches / totalNumberOfWords) * 100), 2);
                         if ( percentMatched > 33.32)
