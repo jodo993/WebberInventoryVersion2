@@ -19,27 +19,39 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void signButton_Click(object sender, EventArgs e)
         {
-            signButton.ForeColor = signButton.Parent.BackColor;
             try
             {
-                // Correct username and password needed to login
-                String correctUsername = "web";
-                String correctPassword = "ber";
-
                 // Username and password user entered
-                String enteredUsername = usernameTextBox.Text;
-                String enteredPassword = passwordTextBox.Text;
+                string enteredUsername = usernameTextBox.Text;
+                string enteredPassword = passwordTextBox.Text;
 
-                if (correctUsername == enteredUsername && correctPassword == enteredPassword)
+                // Correct username and password for TEACHERS
+                string teacherUsername = "teach";
+                string teacherPassword = "web";
+
+                // Correct username and password for ADMINS
+                string adminUsername = "admin";
+                string adminPassword = "webber";
+
+                if (enteredUsername == teacherUsername && enteredPassword == teacherPassword)
                 {
                     // Hide login form
                     this.Hide();
 
                     // Display main menu form if correct information is entered
+                    MainMenuForm2 newMainMenuForm2 = new MainMenuForm2();
+                    newMainMenuForm2.ShowDialog();
+
+                    // Close login form after
+                    this.Close();
+                }
+                else if (enteredUsername == adminUsername && enteredPassword == adminPassword)
+                {
+                    this.Hide();
+
                     MainMenuForm newMainMenuForm = new MainMenuForm();
                     newMainMenuForm.ShowDialog();
 
-                    // Close login form after
                     this.Close();
                 }
                 else
