@@ -55,28 +55,6 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    //OleDbCommand command = new OleDbCommand();
-                    //command.Connection = connection;
-                    //string query = "select * from Troubleshoot_Data"; // where Issue='" + search + "'";
-                    //command.CommandText = query;
-
-                    //// Create list
-                    //List<string> issueList = new List<string>();
-
-                    //OleDbDataReader reader = command.ExecuteReader();
-                    //while (reader.Read())
-                    //{
-                    //    issueList.Add(reader["Issue"].ToString().ToUpper());
-                    //}
-
-                    //for (int i = 0; i < issueList.Count; i++)
-                    //{
-                    //    if (issueList[i].Contains(search) || issueList[i].StartsWith(search) || issueList[i].EndsWith(search))
-                    //    {
-                    //        solutionListBox.Items.Add(issueList[i]);
-                    //    }
-                    //}
-
                     OleDbCommand command = new OleDbCommand();
                     command.Connection = connection;
                     string query = "select * from Troubleshoot_Data";
@@ -143,14 +121,7 @@ namespace Webber_Inventory_Search_2017_2018
                         {
                             solutionListBox.Items.Add(issue);
                         }
-
-                        label3.Text = numberOfWordInSearch.ToString();
-                        label4.Text = numberOfWordInIssue.ToString();
-                        label5.Text = totalNumberOfWords.ToString();
-                        label6.Text = wordMatches.ToString();
-                        label7.Text = percentMatched.ToString();
                     }
-
                     connection.Close();
                 }
                 catch (Exception ex)

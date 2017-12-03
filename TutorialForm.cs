@@ -478,19 +478,6 @@ namespace Webber_Inventory_Search_2017_2018
             stepByStepLabel.Text = "";
         }
 
-        private void searchWordButton_Click(object sender, EventArgs e)
-        {
-            string word = wordSearchTextBox.Text;
-            word = word.ToLower();
-
-            wordListBox.SelectedItems.Clear();
-            for (int i = 0; i < wordListBox.Items.Count; i++)
-            {
-                if (wordListBox.Items[i].ToString().ToLower().Contains(word))
-                    wordListBox.SetSelected(i, true);
-            }
-        }
-
         // MISC TAB
         private void miscAddButton_Click(object sender, EventArgs e)
         {

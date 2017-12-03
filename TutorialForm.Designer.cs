@@ -66,8 +66,6 @@
             this.excelListBox = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.searchWordButton = new System.Windows.Forms.Button();
-            this.wordSearchTextBox = new System.Windows.Forms.TextBox();
             this.wordDeleteButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.wordAddButton = new System.Windows.Forms.Button();
@@ -487,8 +485,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.searchWordButton);
-            this.tabPage1.Controls.Add(this.wordSearchTextBox);
             this.tabPage1.Controls.Add(this.wordDeleteButton);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.wordAddButton);
@@ -502,23 +498,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Word";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // searchWordButton
-            // 
-            this.searchWordButton.Location = new System.Drawing.Point(179, 2);
-            this.searchWordButton.Name = "searchWordButton";
-            this.searchWordButton.Size = new System.Drawing.Size(75, 23);
-            this.searchWordButton.TabIndex = 10;
-            this.searchWordButton.Text = "Search";
-            this.searchWordButton.UseVisualStyleBackColor = true;
-            this.searchWordButton.Click += new System.EventHandler(this.searchWordButton_Click);
-            // 
-            // wordSearchTextBox
-            // 
-            this.wordSearchTextBox.Location = new System.Drawing.Point(77, 4);
-            this.wordSearchTextBox.Name = "wordSearchTextBox";
-            this.wordSearchTextBox.Size = new System.Drawing.Size(100, 20);
-            this.wordSearchTextBox.TabIndex = 9;
             // 
             // wordDeleteButton
             // 
@@ -984,8 +963,6 @@
         private System.Windows.Forms.Button powerpointDeleteButton;
         private System.Windows.Forms.Button excelDeleteButton;
         private System.Windows.Forms.Label userLabel;
-        private System.Windows.Forms.Button searchWordButton;
-        private System.Windows.Forms.TextBox wordSearchTextBox;
         private System.Windows.Forms.Button miscDeleteButton;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button miscAddButton;
