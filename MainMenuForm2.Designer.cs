@@ -64,7 +64,7 @@
             // timeLabel
             // 
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeLabel.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.timeLabel.Location = new System.Drawing.Point(354, 16);
             this.timeLabel.Name = "timeLabel";
@@ -75,12 +75,12 @@
             // quitButton
             // 
             this.quitButton.BackColor = System.Drawing.Color.Transparent;
-            this.quitButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.ForeColor = System.Drawing.Color.Black;
             this.quitButton.Location = new System.Drawing.Point(618, 2);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(63, 26);
-            this.quitButton.TabIndex = 14;
+            this.quitButton.TabIndex = 5;
             this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = false;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
@@ -95,7 +95,7 @@
             this.ticketButton.Name = "ticketButton";
             this.ticketButton.Padding = new System.Windows.Forms.Padding(10);
             this.ticketButton.Size = new System.Drawing.Size(85, 70);
-            this.ticketButton.TabIndex = 15;
+            this.ticketButton.TabIndex = 1;
             this.ticketButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ticketButton.UseVisualStyleBackColor = false;
             this.ticketButton.Click += new System.EventHandler(this.ticketButton_Click);
@@ -206,7 +206,7 @@
             this.tutorialsButton.Name = "tutorialsButton";
             this.tutorialsButton.Padding = new System.Windows.Forms.Padding(10);
             this.tutorialsButton.Size = new System.Drawing.Size(85, 70);
-            this.tutorialsButton.TabIndex = 30;
+            this.tutorialsButton.TabIndex = 4;
             this.tutorialsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tutorialsButton.UseVisualStyleBackColor = false;
             this.tutorialsButton.Click += new System.EventHandler(this.tutorialsButton_Click);
@@ -222,7 +222,7 @@
             this.suppliesButton.Name = "suppliesButton";
             this.suppliesButton.Padding = new System.Windows.Forms.Padding(10);
             this.suppliesButton.Size = new System.Drawing.Size(85, 70);
-            this.suppliesButton.TabIndex = 29;
+            this.suppliesButton.TabIndex = 2;
             this.suppliesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.suppliesButton.UseVisualStyleBackColor = false;
             this.suppliesButton.Click += new System.EventHandler(this.suppliesButton_Click);
@@ -237,7 +237,7 @@
             this.troubleshootingButton.Name = "troubleshootingButton";
             this.troubleshootingButton.Padding = new System.Windows.Forms.Padding(10);
             this.troubleshootingButton.Size = new System.Drawing.Size(85, 70);
-            this.troubleshootingButton.TabIndex = 28;
+            this.troubleshootingButton.TabIndex = 3;
             this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.troubleshootingButton.UseVisualStyleBackColor = false;
             this.troubleshootingButton.Click += new System.EventHandler(this.troubleshootingButton_Click);

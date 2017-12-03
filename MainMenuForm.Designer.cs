@@ -87,7 +87,7 @@
             this.tutorialsButton.Name = "tutorialsButton";
             this.tutorialsButton.Padding = new System.Windows.Forms.Padding(10);
             this.tutorialsButton.Size = new System.Drawing.Size(85, 70);
-            this.tutorialsButton.TabIndex = 9;
+            this.tutorialsButton.TabIndex = 7;
             this.tutorialsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tutorialsButton.UseVisualStyleBackColor = false;
             this.tutorialsButton.Click += new System.EventHandler(this.tutorialsButton_Click);
@@ -102,7 +102,7 @@
             this.ticketButton.Name = "ticketButton";
             this.ticketButton.Padding = new System.Windows.Forms.Padding(10);
             this.ticketButton.Size = new System.Drawing.Size(85, 70);
-            this.ticketButton.TabIndex = 8;
+            this.ticketButton.TabIndex = 4;
             this.ticketButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ticketButton.UseVisualStyleBackColor = false;
             this.ticketButton.Click += new System.EventHandler(this.ticketButton_Click);
@@ -117,7 +117,7 @@
             this.techAideButton.Name = "techAideButton";
             this.techAideButton.Padding = new System.Windows.Forms.Padding(10);
             this.techAideButton.Size = new System.Drawing.Size(85, 70);
-            this.techAideButton.TabIndex = 7;
+            this.techAideButton.TabIndex = 8;
             this.techAideButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.techAideButton.UseVisualStyleBackColor = false;
             this.techAideButton.Click += new System.EventHandler(this.techAideButton_Click);
@@ -133,7 +133,7 @@
             this.suppliesButton.Name = "suppliesButton";
             this.suppliesButton.Padding = new System.Windows.Forms.Padding(10);
             this.suppliesButton.Size = new System.Drawing.Size(85, 70);
-            this.suppliesButton.TabIndex = 6;
+            this.suppliesButton.TabIndex = 5;
             this.suppliesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.suppliesButton.UseVisualStyleBackColor = false;
             this.suppliesButton.Click += new System.EventHandler(this.suppliesButton_Click);
@@ -148,7 +148,7 @@
             this.troubleshootingButton.Name = "troubleshootingButton";
             this.troubleshootingButton.Padding = new System.Windows.Forms.Padding(10);
             this.troubleshootingButton.Size = new System.Drawing.Size(85, 70);
-            this.troubleshootingButton.TabIndex = 5;
+            this.troubleshootingButton.TabIndex = 6;
             this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.troubleshootingButton.UseVisualStyleBackColor = false;
             this.troubleshootingButton.Click += new System.EventHandler(this.troubleshootingButton_Click);
@@ -156,12 +156,12 @@
             // quitButton
             // 
             this.quitButton.BackColor = System.Drawing.Color.Transparent;
-            this.quitButton.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.ForeColor = System.Drawing.Color.Black;
             this.quitButton.Location = new System.Drawing.Point(618, 2);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(63, 26);
-            this.quitButton.TabIndex = 4;
+            this.quitButton.TabIndex = 9;
             this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = false;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
@@ -214,7 +214,7 @@
             // timeLabel
             // 
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.timeLabel.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.timeLabel.Location = new System.Drawing.Point(354, 16);
             this.timeLabel.Name = "timeLabel";

@@ -51,9 +51,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            // Open troubleshooting form
-            //TroubleshootForm troubleshoot = new TroubleshootForm(user);
-            //troubleshoot.ShowDialog();
+            // Opentroubleshooting form
+            TroubleshootForm troubleshoot = new TroubleshootForm();
+            troubleshoot.ShowDialog();
 
             this.Close();
         }

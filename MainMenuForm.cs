@@ -124,5 +124,11 @@ namespace Webber_Inventory_Search_2017_2018
 
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TechAidePasswordForm tech = new TechAidePasswordForm();
+            tech.ShowDialog();
+        }
     }
 }
