@@ -20,36 +20,56 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
-            // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            // Connect to database             
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Webber Inventory\V4\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            try
+            if (searchTextBox.Text != "")
             {
-                connection.Open();
+                CheckDigitClass checkDigit = new CheckDigitClass();
+                bool searchDigit = checkDigit.digitOnly(searchTextBox.Text);
 
-                int search = int.Parse(searchTextBox.Text);
+                if (searchDigit == true)
+                {
+                    try
+                    {
+                        connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "select * from Main_Inventory where Tag=" + search + "";
-                command.CommandText = query;
+                        int search = int.Parse(searchTextBox.Text);
 
-                // Data Table shows and hold data
-                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataGridView1.DataSource = dataTable;
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        string query = "select * from Main_Inventory where Tag=" + search + "";
+                        command.CommandText = query;
 
-                connection.Close();
+                        // Data Table shows and hold data
+                        OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        dataAdapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        string page = "Search";
+                        string button = "Search";
+                        string exception = ex.ToString();
+                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                        bugSplat.ShowDialog();
+
+                        this.Close();
+                    }
+                }
+                else
+                    MessageBox.Show("Please input numbers only.");
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to find, please try again.");
-            }
+            else
+                MessageBox.Show("Please input a tag number.");
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -57,227 +77,93 @@ namespace Webber_Inventory_Search_2017_2018
             searchTextBox.Text = "";
         }
 
-        private void updateLocationButton_Click(object sender, EventArgs e)
+        private void updateButton_Click(object sender, EventArgs e)
         {
-            if (verificationCheckBox.Checked)
+            string checkedButton = "";
+            string tag = updateTagTextBox.Text;
+            string date = DateTime.Now.ToString();
+            string query = "";
+
+            if (locationRadioButton.Checked)
+                checkedButton = "Location";
+            else
+                checkedButton = "Status";
+
+            if (checkedButton == "Location")
             {
-                // Open database and change location of item
-                connection.Open();
-
                 string location = updateLocationComboBox.Text;
-                string tag = updateTagTextBox.Text;
-                string date = DateTime.Now.ToString();
-
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "update Main_Inventory set Location='" + location + "',TimeUpdated='" + date + "' where Tag=" + tag + ""; // might need to get rid of one quote '
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-
-                connection.Close();
-
-                MessageBox.Show("Location was updated for item tag #" + tag + ".");
-
-                // Clear boxes
-                updateTagTextBox.Text = "";
-                updateLocationComboBox.Text = "";
+                query = "update Main_Inventory set Location='" + location + "',TimeUpdated='" + date + "' where Tag=" + tag + "";
             }
             else
             {
-                // Activates location verification questions
-                locationCheckLabel.Visible = true;
-                yesLocationButton.Visible = true;
-                noLocationButton.Visible = true;
-            }  
-        }
+                string status = updateStatusComboBox.Text;
+                query = "update Main_Inventory set Status='" + status + "',TimeUpdated='" + date + "' where Tag=" + tag + "";
+            }
 
-        private void yesLocationButton_Click(object sender, EventArgs e)
-        {
             // Open database and change location of item
             connection.Open();
 
-            int tag = int.Parse(updateTagTextBox.Text);
-            string location = updateLocationComboBox.Text;
-            string date = DateTime.Now.ToString();
-
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "update Main_Inventory set Location='" + location + "',TimeUpdated='" + date + "' where Tag=" + tag + "";
+            command.CommandText = query;
             command.ExecuteNonQuery();
 
             connection.Close();
 
-            MessageBox.Show("Location was updated for item tag #" + updateTagTextBox.Text + ".");
+            MessageBox.Show(checkedButton + " was updated for item tag #" + tag + ".");
 
             // Clear boxes
             updateTagTextBox.Text = "";
             updateLocationComboBox.Text = "";
-
-            // Deactivates location verification questions
-            locationCheckLabel.Visible = false;
-            yesLocationButton.Visible = false;
-            noLocationButton.Visible = false;
-        }
-
-        private void noLocationButton_Click(object sender, EventArgs e)
-        {
-            // Deactivates location verification questions
-            locationCheckLabel.Visible = false;
-            yesLocationButton.Visible = false;
-            noLocationButton.Visible = false;
-        }
-
-        private void updateStatusButton_Click(object sender, EventArgs e)
-        {
-            if (verificationCheckBox.Checked)
-            {
-                // Update the status of the item
-                connection.Open();
-
-                int tag2 = int.Parse(updateTag2TextBox.Text);
-                string status = updateStatusComboBox.Text;
-                string date = DateTime.Now.ToString();
-
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "update Main_Inventory set Status='" + status + "',TimeUpdated='" + date + "' where Tag=" + tag2 + "";
-                command.ExecuteNonQuery();
-
-                connection.Close();
-
-                MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
-
-                // Clear boxes
-                updateTag2TextBox.Text = "";
-                updateStatusComboBox.Text = "";
-            }
-            else
-            {
-                // Activates status verification questions
-                statusCheckLabel.Visible = true;
-                yesStatusButton.Visible = true;
-                noStatusButton.Visible = true;
-            }
-        }
-
-        private void yesStatusButton_Click(object sender, EventArgs e)
-        {
-            // Update the status of the item
-            connection.Open();
-
-            int tag2 = int.Parse(updateTag2TextBox.Text);
-            string status = updateStatusComboBox.Text;
-            string date = DateTime.Now.ToString();
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            command.CommandText = "update Main_Inventory set Status='" + status + "',TimeUpdated='" + date + "' where Tag=" + tag2 + "";
-            command.ExecuteNonQuery();
-            connection.Close();
-
-            MessageBox.Show("Status was updated for item tag #" + updateTag2TextBox.Text + ".");
-
-            updateTag2TextBox.Text = "";
             updateStatusComboBox.Text = "";
-
-            // Deactivates status verification questions
-            statusCheckLabel.Visible = false;
-            yesStatusButton.Visible = false;
-            noStatusButton.Visible = false;
-        }
-
-        private void noStatusButton_Click(object sender, EventArgs e)
-        {
-            // Deactivates status verification questions
-            statusCheckLabel.Visible = false;
-            yesStatusButton.Visible = false;
-            noStatusButton.Visible = false;
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            if (verificationCheckBox.Checked)
-            {
-                // Open database and delete all data for selected item
-                connection.Open();
-
-                int removeItem = int.Parse(removeTextBox.Text);
-
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "delete from Main_Inventory where Tag='" + removeItem + "'";
-                command.ExecuteNonQuery();
-
-                connection.Close();
-
-                MessageBox.Show("All data was deleted for item tag #" + removeTextBox.Text + ".");
-            }
+            if (removeTextBox.Text == "")
+                MessageBox.Show("Please input a tag number.");
             else
             {
-                // Hides all remove group box items
-                removeGroupBox.Visible = false;
-                removeTagLabel.Visible = false;
-                removeTextBox.Visible = false;
-                removeButton.Visible = false;
-                clearRemoveButton.Visible = false;
+                CheckDigitClass checkDigit = new CheckDigitClass();
+                bool removeDigit = checkDigit.digitOnly(removeTextBox.Text);
 
-                // Show all verify remove group box items
-                verifyRemoveGroupBox.Visible = true;
-                removeCheckLabel.Visible = true;
-                yesRemoveButton.Visible = true;
-                noRemoveButton.Visible = true;
+                if (removeDigit == true)
+                {
+                    try
+                    {
+                        // Open database and delete all data for selected item
+                        connection.Open();
+
+                        int removeItem = int.Parse(removeTextBox.Text);
+
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        command.CommandText = "delete from Main_Inventory where Tag=" + removeItem + "";
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
+
+                        MessageBox.Show("All data was deleted for item tag #" + removeTextBox.Text + ".");
+                    }
+                    catch (Exception ex)
+                    {
+                        string page = "Search";
+                        string button = "Remove";
+                        string exception = ex.ToString();
+                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                        bugSplat.ShowDialog();
+
+                        this.Close();
+                    }
+                }
+                else
+                    MessageBox.Show("Tag number must be numbers only.");
             }
         }
 
         private void clearRemoveButton_Click(object sender, EventArgs e)
         {
             removeTextBox.Text = "";
-        }
-
-        private void yesRemoveButton_Click(object sender, EventArgs e)
-        {
-            // Open database and delete all data for selected item
-            connection.Open();
-
-            int removeItem = int.Parse(removeTextBox.Text);
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            command.CommandText = "delete from Main_Inventory where Tag=" + removeItem + "";
-            command.ExecuteNonQuery();
-
-            connection.Close();
-
-            MessageBox.Show("All data was deleted for item tag #" + removeTextBox.Text + ".");
-
-            // Hide all verify remove group box items
-            verifyRemoveGroupBox.Visible = false;
-            removeCheckLabel.Visible = false;
-            yesRemoveButton.Visible = false;
-            noRemoveButton.Visible = false;
-
-            // Show all remove group box items
-            removeGroupBox.Visible = true;
-            removeTagLabel.Visible = true;
-            removeTextBox.Visible = true;
-            removeButton.Visible = true;
-            clearRemoveButton.Visible = true;
-        }
-
-        private void noRemoveButton_Click(object sender, EventArgs e)
-        {
-            // Hide all verify remove group box items
-            verifyRemoveGroupBox.Visible = false;
-            removeCheckLabel.Visible = false;
-            yesRemoveButton.Visible = false;
-            noRemoveButton.Visible = false;
-
-            // Show all remove group box items
-            removeGroupBox.Visible = true;
-            removeTagLabel.Visible = true;
-            removeTextBox.Visible = true;
-            removeButton.Visible = true;
-            clearRemoveButton.Visible = true;
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)
@@ -506,193 +392,44 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            connection.Open();
+            int number = categorySearchComboBox.SelectedIndex;
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            if (number >= 0 && number <= 44)
+            {
+                connection.Open();
 
-            if (categorySearchComboBox.Text == "Desktop")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Laptop")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Monitor")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Printer")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Smartboard")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Projector")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Tablet")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Accessories")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Webber")
-            {
-                command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Active")
-            {
-                command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Inactive")
-            {
-                command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Repair")
-            {
-                command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Surplus")
-            {
-                command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Unknown")
-            {
-                command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Office")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "District")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "MPR")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "A1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "A2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "A3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "A4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "B1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "B2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "B3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "B4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "C1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "C2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "C3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "C4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "D1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "D2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "D3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "D4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "E1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "E2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "E3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "E4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "F1")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "F2")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "F3")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "F4")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
-            }
-            else if (categorySearchComboBox.Text == "Other")
-            {
-                command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+
+                if (categorySearchComboBox.SelectedIndex >= 0 && categorySearchComboBox.SelectedIndex <= 8)
+                {
+                    command.CommandText = "select * from Main_Inventory where Type='" + categorySearchComboBox.Text + "'";
+                }
+                else if (categorySearchComboBox.SelectedIndex >= 9 && categorySearchComboBox.SelectedIndex <= 13)
+                {
+                    command.CommandText = "select * from Main_Inventory where Status='" + categorySearchComboBox.Text + "'";
+                }
+                else if (categorySearchComboBox.SelectedIndex >= 14 && categorySearchComboBox.SelectedIndex <= 44)
+                {
+                    command.CommandText = "select * from Main_Inventory where Location='" + categorySearchComboBox.Text + "'";
+                }
+                else
+                {
+                    MessageBox.Show("Select an option.");
+                    connection.Close();
+                    return;
+                }
+
+                // Data Table shows and hold data
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+
+                connection.Close();
             }
             else
-            {
-                MessageBox.Show("Select an option.");
-                connection.Close();
-                return;
-            }
-
-            // Data Table shows and hold data
-            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
-
-            connection.Close();     
+                MessageBox.Show("Please select a given option.");
         }
 
         Bitmap bmp;
@@ -717,9 +454,22 @@ namespace Webber_Inventory_Search_2017_2018
             printPreviewDialogSearch.ShowDialog();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void locationRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            //
+            update2GroupBox.Text = "Update Location";
+            newLabel.Text = "New Location";
+            updateStatusComboBox.Visible = false;
+            updateLocationComboBox.Visible = true;
+            updateButton.Text = "Update Location";
+        }
+
+        private void statusRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            update2GroupBox.Text = "Update Status";
+            newLabel.Text = "New Status";
+            updateLocationComboBox.Visible = false;
+            updateStatusComboBox.Visible = true;
+            updateButton.Text = "Update Status";
         }
     }
 }

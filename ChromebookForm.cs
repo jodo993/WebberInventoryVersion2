@@ -20,8 +20,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
-            // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            // Connect to database       
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Webber Inventory\V4\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
@@ -31,106 +32,113 @@ namespace Webber_Inventory_Search_2017_2018
             studentNameTextBox.Text = "";
             studentEditTextBox.Text = "";
             teacherNameTextBox.Text = "";
-            originalAddTextBox1.Text = "";
+            originalAddTextBox.Text = "";
             statusComboBox.Text = "";
-            loanAddTextBox1.Text = "";
+            loanAddTextBox.Text = "";
             status2ComboBox.Text = "";
             billAmountTextBox.Text = "";
             billDateTextBox.Text = "";
             textBox1.Text = "";
+            idTextBox.Text = "";
         }
+
         private void addButton_Click(object sender, EventArgs e)
         {
             try
             {
-                CheckDigitClass checkDigit = new CheckDigitClass();
-
-                if (loanAddTextBox.Text != "")
-                {
-                    bool loanDigit = checkDigit.digitOnly(loanAddTextBox.Text);
-                    if (loanDigit != true)
-                    {
-                        MessageBox.Show("Please enter numbers only for loan tag.");
-                        return;
-                    }
-                        
-                }
-                    
-
                 // Verify to see if all fields are entered
                 if (studentNameTextBox.Text != "" && studentEditTextBox.Text != "" && teacherNameTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
                 {
-                    bool originalDigit = checkDigit.digitOnly(originalAddTextBox.Text);
+                    CheckDigitClass checkDigit = new CheckDigitClass();
 
-                    if (originalDigit == true)
+                    // Check loan tag for digits only
+                    if (loanAddTextBox.Text != "")
                     {
-                        if (loanAddTextBox.Text != "")
+                        bool loanDigit = checkDigit.digitOnly(loanAddTextBox.Text);
+                        if (loanDigit != true)
                         {
-                                string fullName = "";
-                                int lunchID = 0;
-                                string teacherName = "";
-                                int originalTag = 0;
-                                string status = "";
-                                int loanTag = 0;
-                                string status2 = "";
-                                float billAmount = 0;
-                                string billDate = "";
-                                string notes = "";
+                            MessageBox.Show("Please enter numbers only for loan tag.");
+                            return;
+                        }
+                    }
 
-                                fullName = studentNameTextBox.Text;
-                                lunchID = int.Parse(studentEditTextBox.Text);
-                                teacherName = teacherNameTextBox.Text;
-                                originalTag = int.Parse(originalAddTextBox1.Text);
-                                status = statusComboBox.Text;
+                    // Check original tag for digits only
+                    bool originalDigit = checkDigit.digitOnly(originalAddTextBox.Text);
+                    bool lunchDigit = checkDigit.digitOnly(studentEditTextBox.Text);
 
-                                if (loanAddTextBox1.Text == "")
-                                    loanTag = 0;
-                                else
-                                    loanTag = int.Parse(loanAddTextBox1.Text);
+                    if (originalDigit == true && lunchDigit == true)
+                    {
+                        string fullName = "";
+                        int lunchID = 0;
+                        string teacherName = "";
+                        int originalTag = 0;
+                        string status = "";
+                        int loanTag = 0;
+                        string status2 = "";
+                        string billAmount = "";
+                        string billDate = "";
+                        string notes = "";
 
-                                if (status2ComboBox.Text == "")
-                                    status2 = "";
-                                else
-                                    status2 = status2ComboBox.Text;
+                        fullName = studentNameTextBox.Text;
+                        lunchID = int.Parse(studentEditTextBox.Text);
+                        teacherName = teacherNameTextBox.Text;
+                        originalTag = int.Parse(originalAddTextBox.Text);
+                        status = statusComboBox.Text;
 
-                                if (billAmountTextBox.Text == "")
-                                    billAmount = 0;
-                                else
-                                    billAmount = float.Parse(billAmountTextBox.Text);
+                        if (loanAddTextBox.Text == "")
+                            loanTag = 0;
+                        else
+                            loanTag = int.Parse(loanAddTextBox.Text);
 
-                                if (billDateTextBox.Text == "")
-                                    billDate = "";
-                                else
-                                    billDate = billDateTextBox.Text;
+                        if (status2ComboBox.Text == "")
+                            status2 = "";
+                        else
+                            status2 = status2ComboBox.Text;
 
-                                if (textBox1.Text == "")
-                                    notes = "";
-                                else
-                                    notes = textBox1.Text;
+                        if (billAmountTextBox.Text == "")
+                            billAmount = "";
+                        else
+                            billAmount = billAmountTextBox.Text;
 
-                                // Open connection to database
-                                connection.Open();
+                        if (billDateTextBox.Text == "")
+                            billDate = "";
+                        else
+                            billDate = billDateTextBox.Text;
 
-                                OleDbCommand command = new OleDbCommand();
-                                command.Connection = connection;
-                                command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "'," + billAmount + ",'" + billDate + "','" + notes + "')"; //,'" + note + "'
-                                command.ExecuteNonQuery();
-                                connection.Close();
+                        // Note textbox
+                        if (textBox1.Text == "")
+                            notes = "";
+                        else
+                            notes = textBox1.Text;
 
-                                MessageBox.Show("Chromebook was successfully added!");
+                        // Open connection to database
+                        connection.Open();
 
-                                clearAll();
-                            }
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "','" + billAmount + "','" + billDate + "','" + notes + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+
+                        MessageBox.Show("Chromebook was successfully added!");
+
+                        clearAll();
                     }
                     else
-                        MessageBox.Show("Please enter numbers only for original tag.");
+                        MessageBox.Show("Please enter numbers only for lunch ID and/or original tag.");
                 }    
                 else
                     MessageBox.Show("Please fill out all required fields."); 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Oops, something went wrong. Please exit and try again.");
+                string exception = ex.ToString();
+                string page = "Chromebook";
+                string button = "Add";
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -145,62 +153,92 @@ namespace Webber_Inventory_Search_2017_2018
             try
             {
                 // Verify to see if all fields are entered
-                if (studentEditTextBox.Text != "" && originalAddTextBox1.Text != "" && statusComboBox.Text != "")
+                if (studentEditTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
                 {
-                    int lunchID = int.Parse(studentEditTextBox.Text);
-                    int originalTag = int.Parse(originalAddTextBox1.Text);
-                    string status = statusComboBox.Text;
-                    int loanTag;
-                    string status2;
-                    float billAmount;
-                    string billDate;
-                    string notes;
+                    CheckDigitClass checkDigit = new CheckDigitClass();
 
-                    if (loanAddTextBox1.Text == "")
-                        loanTag = 0;
+                    // Check loan tag for digits only
+                    if (loanAddTextBox.Text != "")
+                    {
+                        bool loanDigit = checkDigit.digitOnly(loanAddTextBox.Text);
+                        if (loanDigit != true)
+                        {
+                            MessageBox.Show("Please enter numbers only for loan tag.");
+                            return;
+                        }
+                    }
+
+                    // Check lunch ID and original tag for digits only
+                    bool originalDigit = checkDigit.digitOnly(originalAddTextBox.Text);
+                    bool lunchDigit = checkDigit.digitOnly(studentEditTextBox.Text);
+
+                    if (originalDigit == true && lunchDigit == true)
+                    {
+                        int lunchID = int.Parse(studentEditTextBox.Text);
+                        int originalTag = int.Parse(originalAddTextBox.Text);
+                        string status = statusComboBox.Text;
+                        int loanTag;
+                        string status2;
+                        float billAmount;
+                        string billDate;
+                        string notes;
+
+                        if (loanAddTextBox.Text == "")
+                            loanTag = 0;
+                        else
+                            loanTag = int.Parse(loanAddTextBox.Text);
+
+                        if (status2ComboBox.Text == "")
+                            status2 = "";
+                        else
+                            status2 = status2ComboBox.Text;
+
+                        if (billAmountTextBox.Text == "")
+                            billAmount = 0;
+                        else
+                            billAmount = float.Parse(billAmountTextBox.Text);
+
+                        if (billDateTextBox.Text == "")
+                            billDate = "";
+                        else
+                            billDate = billDateTextBox.Text;
+
+                        // Note textbox
+                        if (textBox1.Text == "")
+                            notes = "";
+                        else
+                            notes = textBox1.Text;
+
+                        string date = DateTime.Now.ToString();
+
+                        // Open connection to database
+                        connection.Open();
+
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "',Notes='" + notes + "',LastUpdated='" + date + "' where LunchID= " + lunchID + "";
+
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
+
+                        MessageBox.Show("Chromebook was successfully updated.");
+                    }
                     else
-                        loanTag = int.Parse(loanAddTextBox1.Text);
-
-                    if (status2ComboBox.Text == "")
-                        status2 = "";
-                    else
-                        status2 = status2ComboBox.Text;
-
-                    if (billAmountTextBox.Text == "")
-                        billAmount = 0;
-                    else
-                        billAmount = float.Parse(billAmountTextBox.Text);
-
-                    if (billDateTextBox.Text == "")
-                        billDate = "";
-                    else
-                        billDate = billDateTextBox.Text;
-
-                    if (textBox1.Text == "")
-                        notes = "";
-                    else
-                        notes = textBox1.Text;
-
-                    string date = DateTime.Now.ToString();
-                    // Open connection to database
-                    connection.Open();
-
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "',Notes='" + notes + "',LastUpdated='" + date + "' where LunchID= " + lunchID + ""; //,Note='" + note + "'
-
-                    command.ExecuteNonQuery();
-                    
-                    connection.Close();
-
-                    MessageBox.Show("Chromebook was successfully updated.");
+                        MessageBox.Show("Original tag and/or lunch ID must be digits only.");
                 }
                 else
                     MessageBox.Show("Fill out all required fields.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required boxes." + ex);
+                string exception = ex.ToString();
+                string page = "Chromebook";
+                string button = "Add";
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -244,50 +282,107 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void searchChromebookButton_Click(object sender, EventArgs e)
         {
-            try
+            // Check to make sure something is entered
+            if (searchComboBox.Text == "")
+                MessageBox.Show("Please fill out the box.");
+            else
             {
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                if (IDradioButton.Checked)
+                // Check for radio button selection
+                int i = 0;
+                if (IDradioButton.Checked || tagRadioButton.Checked || statusRadioButton.Checked || billRadioButton.Checked)
                 {
-                    int lunchID = int.Parse(searchComboBox.Text);
-                    command.CommandText = "select * from Chromebook_Information where LunchID=" + lunchID + "";
-                }
-                else if (tagRadioButton.Checked)
-                {
-                    int originalTag = int.Parse(searchComboBox.Text);
-                    command.CommandText = "select * from Chromebook_Information where OriginalTag=" + originalTag + "";
-                }
-                else if (statusRadioButton.Checked)
-                {
-                    string status = searchComboBox.Text;
-                    command.CommandText = "select * from Chromebook_Information where Status='" + status + "'";
-                }
-                else if (billRadioButton.Checked)
-                {
-                    int bill = int.Parse(searchComboBox.Text);
-                    command.CommandText = "select * from Chromebook_Information where BillAmount=" + bill + "";
+                    i = 1;
+                    if (i == 1)
+                    {
+                        CheckDigitClass checkDigit = new CheckDigitClass();
+                        // String user enter
+                        string searchString = searchComboBox.Text;
+                        bool yesDigit = false;
+
+                        // Check input if id radio button is checked
+                        if (IDradioButton.Checked)
+                        {
+                            yesDigit = checkDigit.digitOnly(searchString);
+                            if (yesDigit == false)
+                            {
+                                MessageBox.Show("Must input numbers only.");
+                            }
+                            else
+                                i = 2;
+                        }
+                        // Check input if tag radio button is checked
+                        else if (tagRadioButton.Checked)
+                        {
+                            yesDigit = checkDigit.digitOnly(searchString);
+                            if (yesDigit == false)
+                            {
+                                MessageBox.Show("Must input numbers only.");
+                            }
+                            else
+                                i = 2;
+                        }
+                        else if (statusRadioButton.Checked || billRadioButton.Checked)
+                            i = 2;
+                        else
+                            MessageBox.Show("Please start over.");
+
+                        if (i == 2)
+                        {
+                            try
+                            {
+                                OleDbCommand command = new OleDbCommand();
+                                command.Connection = connection;
+                                if (IDradioButton.Checked)
+                                {
+                                    int lunchID = int.Parse(searchString);
+                                    command.CommandText = "select * from Chromebook_Information where LunchID=" + lunchID + "";
+                                }
+                                else if (tagRadioButton.Checked)
+                                {
+                                    int originalTag = int.Parse(searchString);
+                                    command.CommandText = "select * from Chromebook_Information where OriginalTag=" + originalTag + "";
+                                }
+                                else if (statusRadioButton.Checked)
+                                {
+                                    string status = searchString;
+                                    command.CommandText = "select * from Chromebook_Information where Status='" + status + "'";
+                                }
+                                else
+                                {
+                                    string bill = searchString;
+                                    command.CommandText = "select * from Chromebook_Information where BillAmount='" + bill + "'";
+                                }
+
+                                // Data Table shows and hold data
+                                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+                                DataTable dataTable = new DataTable();
+                                dataAdapter.Fill(dataTable);
+                                chromebookDataGridView.DataSource = dataTable;
+
+                                connection.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("E"+ ex);
+                                string page = "Chromebook";
+                                string button = "Search";
+                                string exception = ex.ToString();
+                                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                                bugSplat.ShowDialog();
+
+                                this.Close();
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Select a choice.");
-                    return;
-                }
-
-                // Data Table shows and hold data
-                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                chromebookDataGridView.DataSource = dataTable;
-
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error. Please log out and try again." + ex);
+                    MessageBox.Show("Please select an option to search.");
+                }   
             }
         }
 
+        // Display all chromebook data
         private void showAllChromeButton_Click(object sender, EventArgs e)
         {
             try
@@ -307,11 +402,16 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Oops, something went wrong. Please log out and try again.");
+                string page = "Chromebook";
+                string button = "Quick Fill";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
-            
         }
 
         // Main menu
@@ -330,6 +430,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // Quick fill button
         private void getInfoButton_Click(object sender, EventArgs e)
         {
             if (idTextBox.Text == "")
@@ -360,9 +461,9 @@ namespace Webber_Inventory_Search_2017_2018
                             studentNameTextBox.Text = reader["FullName"].ToString();
                             studentEditTextBox.Text = reader["LunchID"].ToString();
                             teacherNameTextBox.Text = reader["TeacherName"].ToString();
-                            originalAddTextBox1.Text = reader["OriginalTag"].ToString();
+                            originalAddTextBox.Text = reader["OriginalTag"].ToString();
                             statusComboBox.Text = reader["Status"].ToString();
-                            loanAddTextBox1.Text = reader["LoanTag"].ToString();
+                            loanAddTextBox.Text = reader["LoanTag"].ToString();
                             status2ComboBox.Text = reader["LoanStatus"].ToString();
                             billAmountTextBox.Text = reader["BillAmount"].ToString();
                             billDateTextBox.Text = reader["BillDate"].ToString();

@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChromebookForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.idTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.originalAddTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.loanAddTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.loanAddTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
+            this.originalAddTextBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@
             this.studentNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.deleteTextBox = new System.Windows.Forms.TextBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.chromebookDataGridView = new System.Windows.Forms.DataGridView();
@@ -86,10 +87,6 @@
             this.billRadioButton = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.deleteTextBox = new System.Windows.Forms.TextBox();
-            this.originalAddTextBox = new System.Windows.Forms.TextBox();
-            this.loanAddTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -139,30 +136,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chromebook Update Section";
             // 
-            // idTextBox1
+            // idTextBox
             // 
-            this.idTextBox1.Location = new System.Drawing.Point(645, 350);
-            this.idTextBox1.Mask = "999999000";
-            this.idTextBox1.Name = "idTextBox1";
-            this.idTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox1.TabIndex = 25;
-            this.idTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idTextBox.Location = new System.Drawing.Point(565, 45);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.idTextBox.TabIndex = 29;
             // 
-            // originalAddTextBox1
+            // loanAddTextBox
             // 
-            this.originalAddTextBox1.Location = new System.Drawing.Point(354, 322);
-            this.originalAddTextBox1.Mask = "999999000";
-            this.originalAddTextBox1.Name = "originalAddTextBox1";
-            this.originalAddTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.originalAddTextBox1.TabIndex = 28;
-            // 
-            // loanAddTextBox1
-            // 
-            this.loanAddTextBox1.Location = new System.Drawing.Point(504, 322);
-            this.loanAddTextBox1.Mask = "999999000";
-            this.loanAddTextBox1.Name = "loanAddTextBox1";
-            this.loanAddTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.loanAddTextBox1.TabIndex = 26;
+            this.loanAddTextBox.Location = new System.Drawing.Point(389, 120);
+            this.loanAddTextBox.Name = "loanAddTextBox";
+            this.loanAddTextBox.Size = new System.Drawing.Size(100, 22);
+            this.loanAddTextBox.TabIndex = 26;
             // 
             // textBox1
             // 
@@ -182,6 +168,13 @@
             this.label29.Size = new System.Drawing.Size(12, 13);
             this.label29.TabIndex = 33;
             this.label29.Text = "*";
+            // 
+            // originalAddTextBox
+            // 
+            this.originalAddTextBox.Location = new System.Drawing.Point(140, 116);
+            this.originalAddTextBox.Name = "originalAddTextBox";
+            this.originalAddTextBox.Size = new System.Drawing.Size(100, 22);
+            this.originalAddTextBox.TabIndex = 25;
             // 
             // label28
             // 
@@ -558,6 +551,13 @@
             this.label16.Text = "This will delete all data associated with this chromebook.";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // deleteTextBox
+            // 
+            this.deleteTextBox.Location = new System.Drawing.Point(21, 52);
+            this.deleteTextBox.Name = "deleteTextBox";
+            this.deleteTextBox.Size = new System.Drawing.Size(100, 22);
+            this.deleteTextBox.TabIndex = 25;
+            // 
             // deleteButton
             // 
             this.deleteButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -592,7 +592,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(772, 267);
+            this.exitButton.Location = new System.Drawing.Point(772, 270);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 22;
@@ -614,9 +614,9 @@
             // mainMenuButton
             // 
             this.mainMenuButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainMenuButton.Location = new System.Drawing.Point(690, 267);
+            this.mainMenuButton.Location = new System.Drawing.Point(673, 270);
             this.mainMenuButton.Name = "mainMenuButton";
-            this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
+            this.mainMenuButton.Size = new System.Drawing.Size(93, 23);
             this.mainMenuButton.TabIndex = 21;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
@@ -635,7 +635,7 @@
             // showAllChromeButton
             // 
             this.showAllChromeButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showAllChromeButton.Location = new System.Drawing.Point(571, 267);
+            this.showAllChromeButton.Location = new System.Drawing.Point(555, 270);
             this.showAllChromeButton.Name = "showAllChromeButton";
             this.showAllChromeButton.Size = new System.Drawing.Size(112, 23);
             this.showAllChromeButton.TabIndex = 20;
@@ -721,43 +721,12 @@
             this.label21.TabIndex = 24;
             this.label21.Text = "* = Required to add";
             // 
-            // deleteTextBox
-            // 
-            this.deleteTextBox.Location = new System.Drawing.Point(21, 52);
-            this.deleteTextBox.Name = "deleteTextBox";
-            this.deleteTextBox.Size = new System.Drawing.Size(100, 22);
-            this.deleteTextBox.TabIndex = 25;
-            // 
-            // originalAddTextBox
-            // 
-            this.originalAddTextBox.Location = new System.Drawing.Point(140, 116);
-            this.originalAddTextBox.Name = "originalAddTextBox";
-            this.originalAddTextBox.Size = new System.Drawing.Size(100, 22);
-            this.originalAddTextBox.TabIndex = 25;
-            // 
-            // loanAddTextBox
-            // 
-            this.loanAddTextBox.Location = new System.Drawing.Point(389, 120);
-            this.loanAddTextBox.Name = "loanAddTextBox";
-            this.loanAddTextBox.Size = new System.Drawing.Size(100, 22);
-            this.loanAddTextBox.TabIndex = 26;
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(565, 45);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(100, 22);
-            this.idTextBox.TabIndex = 29;
-            // 
             // ChromebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(868, 502);
-            this.Controls.Add(this.loanAddTextBox1);
-            this.Controls.Add(this.idTextBox1);
-            this.Controls.Add(this.originalAddTextBox1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.billRadioButton);
@@ -846,9 +815,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MaskedTextBox billDateTextBox;
-        private System.Windows.Forms.MaskedTextBox idTextBox1;
-        private System.Windows.Forms.MaskedTextBox originalAddTextBox1;
-        private System.Windows.Forms.MaskedTextBox loanAddTextBox1;
         private System.Windows.Forms.TextBox deleteTextBox;
         private System.Windows.Forms.TextBox originalAddTextBox;
         private System.Windows.Forms.TextBox loanAddTextBox;

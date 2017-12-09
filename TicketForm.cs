@@ -21,8 +21,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            // Connect to database                      
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Webber Inventory\V4\WebberMainDatabase.accdb;Persist Security Info=False;";
+            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
@@ -115,6 +116,7 @@ namespace Webber_Inventory_Search_2017_2018
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             if (userLabel.Text == "T")
             {
                 MainMenuForm2 mainMenu2 = new MainMenuForm2();
@@ -132,42 +134,70 @@ namespace Webber_Inventory_Search_2017_2018
         private void checkButton_Click(object sender, EventArgs e)
         {
             string ticketNumber = ticketNumberTextBox.Text;
-            ticketNumber = ticketNumber.Trim();
 
-            connection.Open();
-
-            // Which table to search for data
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Help_Ticket";
-            command.CommandText = query;
-
-            string[] idCheck = new string[1000];
-            int i = 0;
-            bool found = false;
-
-            // Read the data
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            if (ticketNumber == "")
             {
-                idCheck[i] = reader["ID"].ToString();
-                if (idCheck[i] == ticketNumber)
-                {
-                    string status = reader["Status"].ToString();
-                    string plannedFix = reader["PlannedFixDate"].ToString();
-                    found = true;
-                    if (plannedFix != "")
-                        statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is " + plannedFix + ".";
-                    else
-                        statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is not yet known.";
-                }
-                i++;
+                MessageBox.Show("Please enter your ticket number.");
             }
+            else
+            {
+                ticketNumber = ticketNumber.Trim();
+                CheckDigitClass checkDigit = new CheckDigitClass();
+                bool digit = checkDigit.digitOnly(ticketNumber);
 
-            if (found == false)
-                MessageBox.Show("Ticket number was not found.");
+                if (digit == true)
+                {
+                    try
+                    {
+                        connection.Open();
 
-            connection.Close();
+                        // Which table to search for data
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        string query = "select * from Help_Ticket";
+                        command.CommandText = query;
+
+                        string[] idCheck = new string[1000];
+                        int i = 0;
+                        bool found = false;
+
+                        // Read the data
+                        OleDbDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            idCheck[i] = reader["ID"].ToString();
+                            if (idCheck[i] == ticketNumber)
+                            {
+                                string status = reader["Status"].ToString();
+                                string plannedFix = reader["PlannedFixDate"].ToString();
+                                found = true;
+                                if (plannedFix != "")
+                                    statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is " + plannedFix + ".";
+                                else
+                                    statusLabel.Text = "Ticket #" + ticketNumber + " is currently " + status + ". Estimated day for ticket appointment is not yet known.";
+                            }
+                            i++;
+                        }
+
+                        if (found == false)
+                            MessageBox.Show("Ticket number was not found.");
+
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        string page = "Ticket";
+                        string button = "Check";
+                        string exception = ex.ToString();
+                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                        bugSplat.ShowDialog();
+
+                        this.Close();
+                    }
+                }
+                else
+                    MessageBox.Show("Ticket number must be digits only.");
+            }
         }
     }
 }

@@ -43,9 +43,10 @@
             // 
             // mainMenuButton
             // 
-            this.mainMenuButton.Location = new System.Drawing.Point(401, 344);
+            this.mainMenuButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuButton.Location = new System.Drawing.Point(396, 349);
             this.mainMenuButton.Name = "mainMenuButton";
-            this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
+            this.mainMenuButton.Size = new System.Drawing.Size(80, 23);
             this.mainMenuButton.TabIndex = 3;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
@@ -53,7 +54,8 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(482, 344);
+            this.exitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(482, 349);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 4;
@@ -64,48 +66,55 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(387, 61);
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(357, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(141, 19);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Possible Solution";
+            this.label1.Text = "Possible Solution(s)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(58, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.Size = new System.Drawing.Size(133, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Description of Problem";
             // 
             // problemTextBox
             // 
+            this.problemTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.problemTextBox.Location = new System.Drawing.Point(16, 61);
             this.problemTextBox.Name = "problemTextBox";
-            this.problemTextBox.Size = new System.Drawing.Size(204, 20);
+            this.problemTextBox.Size = new System.Drawing.Size(204, 22);
             this.problemTextBox.TabIndex = 7;
             // 
             // solutionListBox
             // 
+            this.solutionListBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.solutionListBox.FormattingEnabled = true;
+            this.solutionListBox.ItemHeight = 14;
             this.solutionListBox.Location = new System.Drawing.Point(16, 87);
             this.solutionListBox.Name = "solutionListBox";
-            this.solutionListBox.Size = new System.Drawing.Size(257, 251);
+            this.solutionListBox.Size = new System.Drawing.Size(257, 256);
             this.solutionListBox.TabIndex = 9;
             this.solutionListBox.SelectedIndexChanged += new System.EventHandler(this.solutionListBox_SelectedIndexChanged);
             // 
             // solutionLabel
             // 
             this.solutionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.solutionLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.solutionLabel.Location = new System.Drawing.Point(279, 87);
             this.solutionLabel.Name = "solutionLabel";
-            this.solutionLabel.Size = new System.Drawing.Size(278, 251);
+            this.solutionLabel.Size = new System.Drawing.Size(278, 256);
             this.solutionLabel.TabIndex = 10;
             // 
             // showAllButton
             // 
-            this.showAllButton.Location = new System.Drawing.Point(178, 344);
+            this.showAllButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showAllButton.Location = new System.Drawing.Point(178, 349);
             this.showAllButton.Name = "showAllButton";
             this.showAllButton.Size = new System.Drawing.Size(95, 23);
             this.showAllButton.TabIndex = 11;
@@ -115,6 +124,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(220, 59);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(53, 23);
@@ -126,9 +136,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Firebrick;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 13);
+            this.label3.Size = new System.Drawing.Size(280, 14);
             this.label3.TabIndex = 12;
             this.label3.Text = "* For best results, avoid punctuations and contractions. ";
             // 
@@ -136,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 387);
+            this.ClientSize = new System.Drawing.Size(576, 383);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.showAllButton);
             this.Controls.Add(this.solutionLabel);
