@@ -16,11 +16,14 @@ namespace Webber_Inventory_Search_2017_2018
     {
         // Use by this form only, global
         private OleDbConnection connection = new OleDbConnection();
+
+        // Link of item
         string link = "";
 
         public SuppliesInformationForm(string user)
         {
             InitializeComponent();
+            // Signify which mode user is
             userLabel.Text = user;
             // Connect to database                                                       
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
@@ -39,38 +42,48 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
 
-                string[] type = new string[1000];
+                List<string> typeList = new List<string>();
                 int i = 0;
 
+                // Add type to list
                 OleDbDataReader readerType = commandType.ExecuteReader();
                 while (readerType.Read())
                 {
-                    type[i] = readerType["Type"].ToString();
+                    typeList[i] = readerType["Type"].ToString();
                     i++;
                 }
 
                 // Checks for copy of same type and only display one
-                // Brute force algorithm, will slow as array gets bigger
-                int arrayLength = i;
-                for (int a = 0; a < arrayLength; a++)
+                // Brute force algorithm, will slow as list gets bigger
+                int listLength = i;
+                for (int a = 0; a < listLength; a++)
                 {
-                    typeComboBox.Items.Add(type[a]);
-                    for (int b = a + 1; b < arrayLength; b++)
+                    typeComboBox.Items.Add(typeList[a]);
+                    for (int b = a + 1; b < listLength; b++)
                     {
-                        if (type[b] == type[a])
-                            typeComboBox.Items.Remove(type[a]);
+                        if (typeList[b] == typeList[a])
+                            typeComboBox.Items.Remove(typeList[a]);
                     }
                 }
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again." + ex);
+                // Get bug info and send report
+                string page = "Supply";
+                string button = "Page Load";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
+        // See which type is selected and show brand relating to it
         private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Clear all comboboxes
             brandComboBox.Items.Clear();
             modelComboBox.Items.Clear();
             string item = typeComboBox.Text;
@@ -85,24 +98,24 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Type='" + item + "'";
                 commandBrand.CommandText = query;
 
-                string[] brand = new string[1000];
+                List<string> brandList = new List<string>();
                 int i = 0;
 
                 OleDbDataReader readerBrand = commandBrand.ExecuteReader();
                 while (readerBrand.Read())
                 {
-                    brand[i] = readerBrand["Brand"].ToString();
+                    brandList[i] = readerBrand["Brand"].ToString();
                     i++;
                 }
 
-                int arrayLength = i;
-                for (int a = 0; a < arrayLength; a++)
+                int listLength = i;
+                for (int a = 0; a < listLength; a++)
                 {
-                    brandComboBox.Items.Add(brand[a]);
-                    for (int b = a + 1; b < arrayLength; b++)
+                    brandComboBox.Items.Add(brandList[a]);
+                    for (int b = a + 1; b < listLength; b++)
                     {
-                        if (brand[b] == brand[a])
-                            brandComboBox.Items.Remove(brand[a]);
+                        if (brandList[b] == brandList[a])
+                            brandComboBox.Items.Remove(brandList[a]);
                     }
                 }
                 
@@ -110,7 +123,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again." + ex);
+                // Get bug info and send report
+                string page = "Supply";
+                string button = "Type";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -129,40 +149,42 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Brand='" + item + "'";
                 commandModel.CommandText = query;
 
-                string[] model = new string[1000];
+                List<string> modelList = new List<string>();
                 int i = 0;
 
+                // Add to list
                 OleDbDataReader readermodel = commandModel.ExecuteReader();
                 while (readermodel.Read())
                 {
-                    model[i] = readermodel["Model"].ToString();
+                    modelList[i] = readermodel["Model"].ToString();
                     i++;
                 }
 
                 // Checks for copy of same type and only display one
-                // Brute force algorithm, will slow as array gets bigger
-                int arrayLength = i;
-                for (int a = 0; a < arrayLength; a++)
+                // Brute force algorithm, will slow as list gets bigger
+                int listLength = i;
+                for (int a = 0; a < listLength; a++)
                 {
-                    modelComboBox.Items.Add(model[a]);
-                    for (int b = a + 1; b < arrayLength; b++)
+                    modelComboBox.Items.Add(modelList[a]);
+                    for (int b = a + 1; b < listLength; b++)
                     {
-                        if (model[b] == model[a])
-                            modelComboBox.Items.Remove(model[a]);
+                        if (modelList[b] == modelList[a])
+                            modelComboBox.Items.Remove(modelList[a]);
                     }
                 }
-
-                //OleDbDataReader readerModel = commandModel.ExecuteReader();
-                //while (readerModel.Read())
-                //{
-                //    modelComboBox.Items.Add(readerModel["Model"].ToString());
-                //}
 
                 connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again." + ex);
+                // Get bug info and send report
+                string page = "Supply";
+                string button = "Brand";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -170,6 +192,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             catComboBox.Items.Clear();
             string item = modelComboBox.Text;
+
             // Check for which brand is selected
             try
             {
@@ -190,7 +213,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again." + ex);
+                // Send bug report
+                string page = "Supply";
+                string button = "Model";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -220,10 +250,18 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please go back and try again." + ex);
+                // Send bug report
+                string page = "Supply";
+                string button = "Category";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
+        // Bring user back to main menu
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -242,6 +280,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // Exit program
         private void quitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -252,102 +291,65 @@ namespace Webber_Inventory_Search_2017_2018
         // Add tab of supply form
         private void addButton_Click(object sender, EventArgs e)
         {
-            try
+            if (typeTextBox.Text != "" && brandTextBox.Text != "" && modelTextBox.Text != "" && catTextBox.Text != "" && nameTextBox.Text != "" && linkTextBox.Text != "")
             {
-                string type = "";
-                string brand = "";
-                string model = "";
-                string cat = "";
-                string name = "";
-                string link = "";
-
-                // Checking and giving a value to the variables for data table
-                if (typeTextBox.Text == "")
-                    type = "";
-                else
-                    type = typeTextBox.Text;
-
-                if (brandTextBox.Text == "")
-                    brand = "";
-                else
-                    brand = brandTextBox.Text;
-
-                if (modelTextBox.Text == "")
-                    model = "";
-                else
-                    model = modelTextBox.Text;
-
-                if (catTextBox.Text == "")
-                    cat = "";
-                else
-                    cat = catTextBox.Text;
-
-                if (nameTextBox.Text == "")
-                    name = "";
-                else
-                    name = nameTextBox.Text;
-
-                if (linkTextBox.Text == "")
-                    link = "";
-                else
-                    link = linkTextBox.Text;
-
-                bool linkCheck = false;
-                if (link.StartsWith("www.") || link.StartsWith("https://"))
-                    linkCheck = true;
-                if (linkCheck)
+                try
                 {
-                    connection.Open();
+                    string type = typeTextBox.Text;
+                    string brand = brandTextBox.Text;
+                    string model = modelTextBox.Text;
+                    string cat = catTextBox.Text;
+                    string name = nameTextBox.Text;
+                    string link = linkTextBox.Text;
 
-                    OleDbCommand commandAdd = new OleDbCommand();
-                    commandAdd.Connection = connection;
-                    string query = "insert into Supply_Information (Type,Brand,Model,Category,Supply,Link) values('" + type + "','" + brand + "','" + model + "','" + cat + "','" + name + "','" + link + "')";
-                    commandAdd.CommandText = query;
-                    commandAdd.ExecuteNonQuery();
+                    // Uppercase all items
+                    type = type.ToUpper();
+                    brand = brand.ToUpper();
+                    model = model.ToUpper();
 
-                    MessageBox.Show("Information was successfully added.");
+                    bool linkCheck = false;
+                    if (link.StartsWith("www.") || link.StartsWith("https://"))
+                        linkCheck = true;
 
-                    connection.Close();
+                    if (linkCheck)
+                    {
+                        connection.Open();
 
-                    // Clear text boxes after successful add
-                    typeTextBox.Text = "";
-                    brandTextBox.Text = "";
-                    modelTextBox.Text = "";
-                    catTextBox.Text = "";
-                    nameTextBox.Text = "";
-                    linkTextBox.Text = "";
+                        OleDbCommand commandAdd = new OleDbCommand();
+                        commandAdd.Connection = connection;
+                        string query = "insert into Supply_Information (Type,Brand,Model,Category,Supply,Link) values('" + type + "','" + brand + "','" + model + "','" + cat + "','" + name + "','" + link + "')";
+                        commandAdd.CommandText = query;
+                        commandAdd.ExecuteNonQuery();
+
+                        connection.Close();
+
+                        MessageBox.Show("Information was successfully added.");
+
+                        // Clear text boxes after successful add
+                        typeTextBox.Text = "";
+                        brandTextBox.Text = "";
+                        modelTextBox.Text = "";
+                        catTextBox.Text = "";
+                        nameTextBox.Text = "";
+                        linkTextBox.Text = "";
+                    }
+                    else
+                        MessageBox.Show("Please include https:// or www. in your link.");
                 }
-                else
-                    MessageBox.Show("Please include https:// or www. in your link.");
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Uh Oh. Something went wrong, please try again." + ex);
-                MessageBox.Show("Uh Oh. Something went wrong, please try again.");
-            }
-        }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "Supply";
+                    string button = "Add";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
 
-        private void mainButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            if (userLabel.Text == "T")
-            {
-                MainMenuForm2 mainMenu2 = new MainMenuForm2();
-                mainMenu2.ShowDialog();
+                    this.Close();
+                }
             }
             else
-            {
-                MainMenuForm mainMenu = new MainMenuForm();
-                mainMenu.ShowDialog();
-            }
-
-            this.Close();
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
+                MessageBox.Show("Please fill out all fields.");   
         }
 
         // Open link in a new tab
@@ -359,9 +361,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hi" + ex);
+                string page = "Supply";
+                string button = "Link";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
-            
         }
     }
 }
