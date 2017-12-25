@@ -21,7 +21,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
-            // Connect to database                                                       
+            // Connect to database                  
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
@@ -123,6 +123,17 @@ namespace Webber_Inventory_Search_2017_2018
                 currentSolutionListBox.Items.Add(troubleshootReader["Issue"].ToString());
             }
 
+            // Get ID number of bug splat issues
+            OleDbCommand commandBugSplat = new OleDbCommand();
+            commandBugSplat.Connection = connection;
+            string queryBugSplat = "select * from Exception_Error_Report";
+            commandBugSplat.CommandText = queryBugSplat;
+
+            OleDbDataReader bugReader = commandBugSplat.ExecuteReader();
+            while (bugReader.Read())
+            {
+                bugNumberListBox.Items.Add(bugReader["ID"].ToString());
+            }
             connection.Close();
         }
 
@@ -368,39 +379,88 @@ namespace Webber_Inventory_Search_2017_2018
             string supply = supplyLabel.Text;
             string link = linkLabel.Text;
 
-            connection.Open();
+            // Check link for front requirements of www or https
+            bool linkCheck = false;
+            if (link.StartsWith("www.") || link.StartsWith("https://"))
+                linkCheck = true;
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "update Supply_Information set Type='" + type + "',Brand='" + brand + "',Model='" + model + "',Category='" + category + "',Supply='" + supply + "',Link='" + link + "' where ID=" + suppliesListBox.SelectedItem + "";
-            command.CommandText = query;
-            command.ExecuteNonQuery();
+            if (linkCheck)
+            {
+                try
+                {
+                    connection.Open();
 
-            connection.Close();
-            MessageBox.Show("Item updated.");
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    string query = "update Supply_Information set Type='" + type + "',Brand='" + brand + "',Model='" + model + "',Category='" + category + "',Supply='" + supply + "',Link='" + link + "' where ID=" + suppliesListBox.SelectedItem + "";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                    MessageBox.Show("Item updated.");
+                }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "TechAssist Supply";
+                    string button = "Update";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
+                }
+            }
+            else
+                MessageBox.Show("Please include https:// or www. in your link.");
+
+
         }
 
+        // Add a new problem and solution to troubleshoot data
         private void addTroubleButton_Click(object sender, EventArgs e)
         {
             string issue = problemTextBox.Text;
             string solution = solutionTextBox.Text;
+            string explanation = "";
 
+            if (explanationTextBox.Text == "")
+                explanation = "";
+            else
+                explanation = explanationTextBox.Text;
+
+            // Check to make sure at least problem and solutin is filled in
             if (issue != "" && solution != "")
             {
-                connection.Open();
+                try
+                {
+                    connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "insert into Troubleshoot_Data (Issue,Resolution) values('" + issue + "','" + solution + "')";
-                command.CommandText = query;
-                command.ExecuteNonQuery();
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    string query = "insert into Troubleshoot_Data (Issue,Explanation,Resolution) values('" + issue + "','" + explanation + "','" + solution + "')";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
 
-                connection.Close();
+                    connection.Close();
 
-                MessageBox.Show("Problem and solution was added successfully.");
-                currentSolutionListBox.Items.Add(issue);
-                problemTextBox.Text = "";
-                solutionTextBox.Text = "";
+                    MessageBox.Show("Problem and solution was added successfully.");
+                    currentSolutionListBox.Items.Add(issue);
+                    problemTextBox.Text = "";
+                    explanationTextBox.Text = "";
+                    solutionTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "TechAssist Troubleshoot";
+                    string button = "Add";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
+                }
             }
             else
             {
@@ -418,25 +478,42 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 int id = int.Parse(problemIDLabel.Text);
                 string issue = problemTextBox.Text;
+                string explanation = explanationTextBox.Text;
                 string solution = solutionTextBox.Text;
 
-                connection.Open();
+                try
+                {
+                    connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "update Troubleshoot_Data set Issue='" + issue + "',Resolution='" + solution + "' where ID=" + id + "";
-                command.CommandText = query;
-                command.ExecuteNonQuery();
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    string query = "update Troubleshoot_Data set Issue='" + issue + "',Resolution='" + solution + "' where ID=" + id + "";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
 
-                connection.Close();
+                    connection.Close();
 
-                MessageBox.Show("Problem and solution was updated successfully.");
-                problemIDLabel.Text = "";
-                problemTextBox.Text = "";
-                solutionTextBox.Text = "";
+                    MessageBox.Show("Problem and solution was updated successfully.");
+                    problemIDLabel.Text = "";
+                    problemTextBox.Text = "";
+                    explanationTextBox.Text = "";
+                    solutionTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "TechAssist Troubleshoot";
+                    string button = "Edit";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
+                }
             }
         }
 
+        // Delete all data about troubleshoot problem
         private void deleteTroubleButton_Click(object sender, EventArgs e)
         {
             if (problemIDLabel.Text == "")
@@ -446,42 +523,139 @@ namespace Webber_Inventory_Search_2017_2018
             else
             {
                 int id = int.Parse(problemIDLabel.Text);
+                try
+                {
+                    connection.Open();
 
+                    OleDbCommand command = new OleDbCommand();
+                    command.Connection = connection;
+                    string query = "delete from Troubleshoot_Data where ID =" + id + "";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+
+                    MessageBox.Show("Problem and solution was deleted successfully.");
+                    problemIDLabel.Text = "";
+                    problemTextBox.Text = "";
+                    solutionTextBox.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "TechAssist Troubleshoot";
+                    string button = "Delete";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
+                }
+            }
+        }
+
+        // Select id number of problem and display
+        private void currentSolutionListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "delete from Troubleshoot_Data where ID =" + id + "";
+                string query = "select * from Troubleshoot_Data where Issue='" + currentSolutionListBox.SelectedItem + "'";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    problemIDLabel.Text = reader["ID"].ToString();
+                    problemTextBox.Text = reader["Issue"].ToString();
+                    explanationTextBox.Text = reader["Explanation"].ToString();
+                    solutionTextBox.Text = reader["Resolution"].ToString();
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Send bug report
+                string page = "TechAssist Troubleshoot";
+                string button = "List Box";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
+        }
+
+        // Populate the bug information to be displayed
+        private void bugNumberListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Exception_Error_Report where Issue='" + bugNumberListBox.SelectedItem + "'";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    bugPageLabel.Text = reader["Page"].ToString();
+                    bugButtonLabel.Text = reader["Button"].ToString();
+                    bugErrorLinkLabel.Text = reader["Error"].ToString();
+                    bugPersonLabel.Text = reader["Person"].ToString();
+                    bugDescriptionLabel.Text = reader["PersonDescription"].ToString();
+                    bugStatusComboBox.Text = reader["Status"].ToString();
+                    bugFixTextBox.Text = reader["Fix"].ToString();
+                    bugFixDateMaskedTextBox.Text = reader["FixDate"].ToString();
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" hi" + ex);
+            }
+        }
+
+        // Display bug report on a new form to give a better view
+        private void bugErrorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            BugErrorDisplayForm newError = new BugErrorDisplayForm(bugErrorLinkLabel.Text);
+            newError.ShowDialog();
+        }
+
+        // Delete a bug report
+        private void deleteBugButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "delete from Exception_Error_Report where ID=" + bugNumberListBox.SelectedItem + "";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
 
                 connection.Close();
-
-                MessageBox.Show("Problem and solution was deleted successfully.");
-                problemIDLabel.Text = "";
-                problemTextBox.Text = "";
-                solutionTextBox.Text = "";
+                MessageBox.Show("Bug Report " + bugNumberListBox.SelectedItem + " was deleted.");
             }
-        }
-
-        private void currentSolutionListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Troubleshoot_Data where Issue='" + currentSolutionListBox.SelectedItem + "'";
-            command.CommandText = query;
-
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            catch (Exception ex)
             {
-                problemIDLabel.Text = reader["ID"].ToString();
-                problemTextBox.Text = reader["Issue"].ToString();
-                solutionTextBox.Text = reader["Resolution"].ToString();
+                // Create bug report
+                string page = "TechAssistBugReport";
+                string button = "Delete";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+                this.Close();
             }
-
-            connection.Close();
         }
     }
 }
