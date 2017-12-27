@@ -13,9 +13,6 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class AddInventoryForm : Form
     {
-        // Open connection to database
-        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\WebberInventory.mdf;Integrated Security=True;Connect Timeout=30");
-
         // Use by this form only, global
         private OleDbConnection connection = new OleDbConnection();
 
@@ -28,6 +25,7 @@ namespace Webber_Inventory_Search_2017_2018
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
+        // Send user back to admin main menu
         private void addMainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -38,6 +36,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // Terminate the program
         private void addExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,41 +49,60 @@ namespace Webber_Inventory_Search_2017_2018
                 // Check to see if any slots are blank
                 if (addTypeComboBox.Text != "" && addMakeTextBox.Text != "" && addModelTextBox.Text != "" && addTagTextBox.Text != "" && addLocationComboBox.Text != "" &&
                     addStatusComboBox.Text != "")
-                {
+                {             
                     // Check to see if type matches with one that is required
                     if (addTypeComboBox.Text == "Desktop" || addTypeComboBox.Text == "Laptop" || addTypeComboBox.Text == "Monitor" || addTypeComboBox.Text == "Printer" ||
                     addTypeComboBox.Text == "Smartboard" || addTypeComboBox.Text == "Projector" || addTypeComboBox.Text == "Tablet" || addTypeComboBox.Text == "Accessories"
                     || addTypeComboBox.Text == "Webber")
                     {
-                        // Hide wrong label
+                        // Hide type wrong label
                         typeWrongLabel.Visible = false;
+                        warningLabel.Visible = false;
 
                         if (addStatusComboBox.Text == "Active" || addStatusComboBox.Text == "Inactive" || addStatusComboBox.Text == "Repair" || addStatusComboBox.Text == "Surplus" ||
                             addStatusComboBox.Text == "Unknown")
                         {
-                            // Write the information into the database
-                            connection.Open();
+                            // Hide status wrong label
+                            statusWrongLabel.Visible = false;
+                            warning2Label.Visible = false;
 
-                            string type = addTypeComboBox.Text;
-                            string make = addMakeTextBox.Text;
-                            string model = addModelTextBox.Text;
-                            int tag = int.Parse(addTagTextBox.Text);
-                            string location = addLocationComboBox.Text;
-                            string status = addStatusComboBox.Text;
-                            string date = DateTime.Today.ToString();
+                            // Check tag for all digits
+                            CheckDigitClass checkDigit = new CheckDigitClass();
+                            bool digit = checkDigit.digitOnly(addTagTextBox.Text);
+                            if (digit == true)
+                            {
+                                // Write the information into the database
+                                connection.Open();
 
-                            OleDbCommand command = new OleDbCommand();
-                            command.Connection = connection;
-                            command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "','" + tag + "','" + location + "','" + status + "')";
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Item was successfully added!");
+                                string type = addTypeComboBox.Text;
+                                string make = addMakeTextBox.Text;
+                                string model = addModelTextBox.Text;
+                                int tag = int.Parse(addTagTextBox.Text);
+                                string location = addLocationComboBox.Text;
+                                string status = addStatusComboBox.Text;
+                                string date = DateTime.Today.ToString();
 
-                            connection.Close();
+                                OleDbCommand command = new OleDbCommand();
+                                command.Connection = connection;
+                                command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "','" + tag + "','" + location + "','" + status + "')";
+                                command.ExecuteNonQuery();     
 
-                            // Clear some fields
-                            addMakeTextBox.Text = "";
-                            addModelTextBox.Text = "";
-                            addTagTextBox.Text = "";
+                                connection.Close();
+                                MessageBox.Show("Item was successfully added!");
+
+                                // Clear some fields
+                                addMakeTextBox.Text = "";
+                                addModelTextBox.Text = "";
+                                addTagTextBox.Text = "";
+                                typeWrongLabel.Visible = false;
+                                statusWrongLabel.Visible = false;
+                                warningLabel.Visible = false;
+                                warning2Label.Visible = false;
+                            }
+                            else
+                            {
+                                MessageBox.Show("WSD tag needs to be digits only.");
+                            }
                         }
                         else
                         {
@@ -99,11 +117,18 @@ namespace Webber_Inventory_Search_2017_2018
                     }
                 }
                 else
-                    MessageBox.Show("Please fill in slots first.");
+                    MessageBox.Show("All fields are required.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please check for duplicates or errors." + ex);
+                // Send information to be recorded in bug report
+                string page = "Add";
+                string button = "Add";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page,button,exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -119,6 +144,9 @@ namespace Webber_Inventory_Search_2017_2018
 
             // Wrong input labels
             typeWrongLabel.Visible = false;
+            statusWrongLabel.Visible = false;
+            warningLabel.Visible = false;
+            warning2Label.Visible = false;
         }
     }
 }
