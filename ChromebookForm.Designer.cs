@@ -141,14 +141,14 @@
             this.idTextBox.Location = new System.Drawing.Point(565, 45);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 22);
-            this.idTextBox.TabIndex = 29;
+            this.idTextBox.TabIndex = 12;
             // 
             // loanAddTextBox
             // 
             this.loanAddTextBox.Location = new System.Drawing.Point(389, 120);
             this.loanAddTextBox.Name = "loanAddTextBox";
             this.loanAddTextBox.Size = new System.Drawing.Size(100, 22);
-            this.loanAddTextBox.TabIndex = 26;
+            this.loanAddTextBox.TabIndex = 5;
             // 
             // textBox1
             // 
@@ -156,7 +156,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(139, 69);
-            this.textBox1.TabIndex = 34;
+            this.textBox1.TabIndex = 7;
             // 
             // label29
             // 
@@ -174,7 +174,7 @@
             this.originalAddTextBox.Location = new System.Drawing.Point(140, 116);
             this.originalAddTextBox.Name = "originalAddTextBox";
             this.originalAddTextBox.Size = new System.Drawing.Size(100, 22);
-            this.originalAddTextBox.TabIndex = 25;
+            this.originalAddTextBox.TabIndex = 3;
             // 
             // label28
             // 
@@ -235,7 +235,7 @@
             this.getInfoButton.Location = new System.Drawing.Point(540, 71);
             this.getInfoButton.Name = "getInfoButton";
             this.getInfoButton.Size = new System.Drawing.Size(62, 24);
-            this.getInfoButton.TabIndex = 29;
+            this.getInfoButton.TabIndex = 13;
             this.getInfoButton.Text = "Quick Fill";
             this.getInfoButton.UseVisualStyleBackColor = true;
             this.getInfoButton.Click += new System.EventHandler(this.getInfoButton_Click);
@@ -325,7 +325,7 @@
             this.billDateTextBox.Mask = "00/00/0000";
             this.billDateTextBox.Name = "billDateTextBox";
             this.billDateTextBox.Size = new System.Drawing.Size(100, 22);
-            this.billDateTextBox.TabIndex = 25;
+            this.billDateTextBox.TabIndex = 9;
             this.billDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // label27
@@ -344,7 +344,7 @@
             this.billAmountTextBox.Location = new System.Drawing.Point(83, 25);
             this.billAmountTextBox.Name = "billAmountTextBox";
             this.billAmountTextBox.Size = new System.Drawing.Size(100, 22);
-            this.billAmountTextBox.TabIndex = 29;
+            this.billAmountTextBox.TabIndex = 8;
             // 
             // label22
             // 
@@ -384,7 +384,7 @@
             this.editButton.Location = new System.Drawing.Point(603, 71);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(62, 24);
-            this.editButton.TabIndex = 10;
+            this.editButton.TabIndex = 14;
             this.editButton.Text = "Update";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
@@ -430,7 +430,7 @@
             this.addButton.Location = new System.Drawing.Point(542, 16);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(60, 26);
-            this.addButton.TabIndex = 9;
+            this.addButton.TabIndex = 10;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -521,7 +521,7 @@
             // 
             // studentNameTextBox
             // 
-            this.studentNameTextBox.Location = new System.Drawing.Point(140, 35);
+            this.studentNameTextBox.Location = new System.Drawing.Point(140, 36);
             this.studentNameTextBox.Name = "studentNameTextBox";
             this.studentNameTextBox.Size = new System.Drawing.Size(100, 22);
             this.studentNameTextBox.TabIndex = 0;
@@ -556,7 +556,7 @@
             this.deleteTextBox.Location = new System.Drawing.Point(21, 52);
             this.deleteTextBox.Name = "deleteTextBox";
             this.deleteTextBox.Size = new System.Drawing.Size(100, 22);
-            this.deleteTextBox.TabIndex = 25;
+            this.deleteTextBox.TabIndex = 15;
             // 
             // deleteButton
             // 
@@ -564,7 +564,7 @@
             this.deleteButton.Location = new System.Drawing.Point(35, 78);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(74, 23);
-            this.deleteButton.TabIndex = 13;
+            this.deleteButton.TabIndex = 16;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -587,7 +587,7 @@
             this.chromebookDataGridView.Name = "chromebookDataGridView";
             this.chromebookDataGridView.ReadOnly = true;
             this.chromebookDataGridView.Size = new System.Drawing.Size(835, 188);
-            this.chromebookDataGridView.TabIndex = 3;
+            this.chromebookDataGridView.TabIndex = 26;
             // 
             // exitButton
             // 
@@ -595,7 +595,7 @@
             this.exitButton.Location = new System.Drawing.Point(772, 270);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 22;
+            this.exitButton.TabIndex = 25;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -606,7 +606,7 @@
             this.searchChromebookButton.Location = new System.Drawing.Point(268, 270);
             this.searchChromebookButton.Name = "searchChromebookButton";
             this.searchChromebookButton.Size = new System.Drawing.Size(70, 23);
-            this.searchChromebookButton.TabIndex = 19;
+            this.searchChromebookButton.TabIndex = 22;
             this.searchChromebookButton.Text = "Search";
             this.searchChromebookButton.UseVisualStyleBackColor = true;
             this.searchChromebookButton.Click += new System.EventHandler(this.searchChromebookButton_Click);
@@ -617,7 +617,7 @@
             this.mainMenuButton.Location = new System.Drawing.Point(673, 270);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(93, 23);
-            this.mainMenuButton.TabIndex = 21;
+            this.mainMenuButton.TabIndex = 24;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
@@ -638,7 +638,7 @@
             this.showAllChromeButton.Location = new System.Drawing.Point(555, 270);
             this.showAllChromeButton.Name = "showAllChromeButton";
             this.showAllChromeButton.Size = new System.Drawing.Size(112, 23);
-            this.showAllChromeButton.TabIndex = 20;
+            this.showAllChromeButton.TabIndex = 23;
             this.showAllChromeButton.Text = "Show All/Refresh";
             this.showAllChromeButton.UseVisualStyleBackColor = true;
             this.showAllChromeButton.Click += new System.EventHandler(this.showAllChromeButton_Click);
@@ -649,7 +649,7 @@
             this.searchComboBox.Location = new System.Drawing.Point(17, 272);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(245, 21);
-            this.searchComboBox.TabIndex = 18;
+            this.searchComboBox.TabIndex = 21;
             // 
             // IDradioButton
             // 
@@ -658,7 +658,7 @@
             this.IDradioButton.Location = new System.Drawing.Point(149, 249);
             this.IDradioButton.Name = "IDradioButton";
             this.IDradioButton.Size = new System.Drawing.Size(71, 18);
-            this.IDradioButton.TabIndex = 14;
+            this.IDradioButton.TabIndex = 17;
             this.IDradioButton.TabStop = true;
             this.IDradioButton.Text = "Lunch ID";
             this.IDradioButton.UseVisualStyleBackColor = true;
@@ -670,7 +670,7 @@
             this.tagRadioButton.Location = new System.Drawing.Point(224, 249);
             this.tagRadioButton.Name = "tagRadioButton";
             this.tagRadioButton.Size = new System.Drawing.Size(71, 18);
-            this.tagRadioButton.TabIndex = 15;
+            this.tagRadioButton.TabIndex = 18;
             this.tagRadioButton.TabStop = true;
             this.tagRadioButton.Text = "WSD Tag";
             this.tagRadioButton.UseVisualStyleBackColor = true;
@@ -682,7 +682,7 @@
             this.statusRadioButton.Location = new System.Drawing.Point(303, 249);
             this.statusRadioButton.Name = "statusRadioButton";
             this.statusRadioButton.Size = new System.Drawing.Size(59, 18);
-            this.statusRadioButton.TabIndex = 16;
+            this.statusRadioButton.TabIndex = 19;
             this.statusRadioButton.TabStop = true;
             this.statusRadioButton.Text = "Status";
             this.statusRadioButton.UseVisualStyleBackColor = true;
@@ -694,7 +694,7 @@
             this.billRadioButton.Location = new System.Drawing.Point(365, 248);
             this.billRadioButton.Name = "billRadioButton";
             this.billRadioButton.Size = new System.Drawing.Size(44, 18);
-            this.billRadioButton.TabIndex = 17;
+            this.billRadioButton.TabIndex = 20;
             this.billRadioButton.TabStop = true;
             this.billRadioButton.Text = "Bill";
             this.billRadioButton.UseVisualStyleBackColor = true;
@@ -742,11 +742,13 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.chromebookDataGridView);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ChromebookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chromebook Page";
+            this.Text = "Chromebook";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

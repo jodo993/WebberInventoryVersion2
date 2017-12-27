@@ -21,12 +21,11 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Webber Inventory\V4\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
-        // Clear all fields
+        // Function to clear all textboxes in the chromebook section
         private void clearAll()
         {
             studentNameTextBox.Text = "";
@@ -111,12 +110,15 @@ namespace Webber_Inventory_Search_2017_2018
                         else
                             notes = textBox1.Text;
 
+                        // Get current date and time of add
+                        string date = DateTime.Now.ToString();
+
                         // Open connection to database
                         connection.Open();
 
                         OleDbCommand command = new OleDbCommand();
                         command.Connection = connection;
-                        command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "','" + billAmount + "','" + billDate + "','" + notes + "')";
+                        command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes,LastUpdated) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "','" + billAmount + "','" + billDate + "','" + notes + "','" + date + "')";
                         command.ExecuteNonQuery();
                         connection.Close();
 
@@ -132,9 +134,10 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                string exception = ex.ToString();
+                // Gather and send information to the bug report
                 string page = "Chromebook";
                 string button = "Add";
+                string exception = ex.ToString();
                 BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
 
@@ -150,13 +153,30 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            // Make sure the id field is filled with numbers only
+            CheckDigitClass checkDigit = new CheckDigitClass();
+            if (idTextBox.Text == "")
+            {
+                MessageBox.Show("Must have an ID.");
+                return;
+            }
+            else
+            {
+                bool idNum = checkDigit.digitOnly(idTextBox.Text);
+                if (idNum == false)
+                {
+                    MessageBox.Show("ID must be a number.");
+                    return;
+                }
+            }
+
+            int id = int.Parse(idTextBox.Text);
+
             try
             {
                 // Verify to see if all fields are entered
                 if (studentEditTextBox.Text != "" && originalAddTextBox.Text != "" && statusComboBox.Text != "")
                 {
-                    CheckDigitClass checkDigit = new CheckDigitClass();
-
                     // Check loan tag for digits only
                     if (loanAddTextBox.Text != "")
                     {
@@ -216,8 +236,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                         OleDbCommand command = new OleDbCommand();
                         command.Connection = connection;
-                        command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "',Notes='" + notes + "',LastUpdated='" + date + "' where LunchID= " + lunchID + "";
-
+                        command.CommandText = "update Chromebook_Information set OriginalTag=" + originalTag + ",Status='" + status + "',LoanTag=" + loanTag + ",LoanStatus='" + status2 + "',BillAmount=" + billAmount + ",BillDate='" + billDate + "',Notes='" + notes + "',LastUpdated='" + date + "' where ID= " + id + "";
                         command.ExecuteNonQuery();
 
                         connection.Close();
@@ -232,9 +251,10 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                string exception = ex.ToString();
+                // Gather information to send to bug report
                 string page = "Chromebook";
-                string button = "Add";
+                string button = "Update";
+                string exception = ex.ToString();
                 BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
 
@@ -244,6 +264,7 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            // Check for entry
             if (deleteTextBox.Text == "")
             {
                 MessageBox.Show("Please enter a number.");
@@ -265,14 +286,22 @@ namespace Webber_Inventory_Search_2017_2018
                         command.Connection = connection;
                         command.CommandText = "delete from Chromebook_Information where ID=" + deleteItem + "";
                         command.ExecuteNonQuery();
+
                         connection.Close();
 
                         MessageBox.Show("All data was deleted for Chromebook #" + deleteTextBox.Text + ".");
                         deleteTextBox.Text = "";
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Oops, something went wrong. Please exit and try again.");
+                        // Gather information to send to bug report
+                        string page = "Chromebook";
+                        string button = "Delete";
+                        string exception = ex.ToString();
+                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                        bugSplat.ShowDialog();
+
+                        this.Close();
                     }
                 }
                 else
@@ -363,7 +392,7 @@ namespace Webber_Inventory_Search_2017_2018
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("E"+ ex);
+                                // Get and set information to bug report
                                 string page = "Chromebook";
                                 string button = "Search";
                                 string exception = ex.ToString();
@@ -404,8 +433,9 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
+                // Get information for bug report
                 string page = "Chromebook";
-                string button = "Quick Fill";
+                string button = "Show All";
                 string exception = ex.ToString();
                 BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
@@ -414,7 +444,7 @@ namespace Webber_Inventory_Search_2017_2018
             }
         }
 
-        // Main menu
+        // Open main menu form
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -425,6 +455,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // Close the program
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -456,6 +487,8 @@ namespace Webber_Inventory_Search_2017_2018
                         command.CommandText = query;
 
                         OleDbDataReader reader = command.ExecuteReader();
+
+                        // Fill textboxes with corresponding information
                         while (reader.Read())
                         {
                             studentNameTextBox.Text = reader["FullName"].ToString();
@@ -474,6 +507,7 @@ namespace Webber_Inventory_Search_2017_2018
                     }
                     catch (Exception ex)
                     {
+                        // Get information for bug report
                         string page = "Chromebook";
                         string button = "Quick Fill";
                         string exception = ex.ToString();
