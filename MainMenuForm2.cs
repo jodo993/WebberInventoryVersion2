@@ -16,20 +16,17 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
+            // Start the time
             mainMenuTimer.Start();
         }
 
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        // Signify that main menu form is in teacher mode
         string user = "T";
 
         private void ticketButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            // Open ticket form
+            // Open ticket form and close main menu
             TicketForm ticketForm = new TicketForm(user);
             ticketForm.ShowDialog();
 
@@ -40,7 +37,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            // Opens supplies form
+            // Opens supplies form and close main menu
             SuppliesInformationForm supplyForm = new SuppliesInformationForm(user);
             supplyForm.ShowDialog();
 
@@ -51,7 +48,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            // Opentroubleshooting form
+            // Opentroubleshooting form and close main menu
             TroubleshootForm troubleshoot = new TroubleshootForm();
             troubleshoot.ShowDialog();
 
@@ -62,7 +59,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            // Opens tutorials form
+            // Opens tutorials form and close main menu
             TutorialForm tutorialForm = new TutorialForm(user);
             tutorialForm.ShowDialog();
 
@@ -74,6 +71,12 @@ namespace Webber_Inventory_Search_2017_2018
             // Get current time
             DateTime currentTime = DateTime.Now;
             timeLabel.Text = currentTime.ToString();
+        }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            // Close the program
+            this.Close();
         }
     }
 }
