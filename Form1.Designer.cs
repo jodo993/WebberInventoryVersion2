@@ -91,7 +91,7 @@
             this.incorrectLoginLabel.Location = new System.Drawing.Point(392, 292);
             this.incorrectLoginLabel.Name = "incorrectLoginLabel";
             this.incorrectLoginLabel.Size = new System.Drawing.Size(204, 45);
-            this.incorrectLoginLabel.TabIndex = 3;
+            this.incorrectLoginLabel.TabIndex = 6;
             this.incorrectLoginLabel.Text = "Username and password does not match. Please try again.";
             this.incorrectLoginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.incorrectLoginLabel.Visible = false;
@@ -99,21 +99,21 @@
             // usernameTextBox
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameTextBox.Location = new System.Drawing.Point(436, 166);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(104, 18);
+            this.usernameTextBox.Size = new System.Drawing.Size(104, 20);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTextBox.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.Location = new System.Drawing.Point(436, 225);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
-            this.passwordTextBox.Size = new System.Drawing.Size(104, 18);
+            this.passwordTextBox.Size = new System.Drawing.Size(104, 20);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

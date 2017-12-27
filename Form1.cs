@@ -19,52 +19,44 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void signButton_Click(object sender, EventArgs e)
         {
-            try
+            // Username and password user entered
+            string enteredUsername = usernameTextBox.Text;
+            string enteredPassword = passwordTextBox.Text;
+
+            // Correct username and password for TEACHERS
+            string teacherUsername = "t";
+            string teacherPassword = "t";
+
+            // Correct username and password for ADMINS
+            string adminUsername = "a";
+            string adminPassword = "a";
+
+            if (enteredUsername == teacherUsername && enteredPassword == teacherPassword)
             {
-                // Username and password user entered
-                string enteredUsername = usernameTextBox.Text;
-                string enteredPassword = passwordTextBox.Text;
+                // Hide login form
+                this.Hide();
 
-                // Correct username and password for TEACHERS
-                string teacherUsername = "teach";
-                string teacherPassword = "web";
+                // Display main menu form if correct information is entered
+                MainMenuForm2 newMainMenuForm2 = new MainMenuForm2();
+                newMainMenuForm2.ShowDialog();
 
-                // Correct username and password for ADMINS
-                string adminUsername = "admin";
-                string adminPassword = "webber";
-
-                if (enteredUsername == teacherUsername && enteredPassword == teacherPassword)
-                {
-                    // Hide login form
-                    this.Hide();
-
-                    // Display main menu form if correct information is entered
-                    MainMenuForm2 newMainMenuForm2 = new MainMenuForm2();
-                    newMainMenuForm2.ShowDialog();
-
-                    // Close login form after
-                    this.Close();
-                }
-                else if (enteredUsername == adminUsername && enteredPassword == adminPassword)
-                {
-                    this.Hide();
-
-                    MainMenuForm newMainMenuForm = new MainMenuForm();
-                    newMainMenuForm.ShowDialog();
-
-                    this.Close();
-                }
-                else
-                {
-                    // Tell user login information is wrong
-                    incorrectLoginLabel.Visible = true;
-                }
+                // Close login form after
+                this.Close();
             }
-            catch (Exception ex)
+            else if (enteredUsername == adminUsername && enteredPassword == adminPassword)
             {
-                MessageBox.Show("Please exit and try again.");
+                this.Hide();
+
+                MainMenuForm newMainMenuForm = new MainMenuForm();
+                newMainMenuForm.ShowDialog();
+
+                this.Close();
             }
-            
+            else
+            {
+                // Tell user login information is wrong
+                incorrectLoginLabel.Visible = true;
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
