@@ -39,14 +39,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.descLabel = new System.Windows.Forms.Label();
+            this.buttonLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // closeButton
             // 
+            this.closeButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.Location = new System.Drawing.Point(297, 312);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 0;
+            this.closeButton.TabIndex = 2;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
@@ -54,14 +56,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(310, 13);
+            this.label2.Size = new System.Drawing.Size(355, 14);
             this.label2.TabIndex = 3;
             this.label2.Text = "An unexpected problem occurred and the program needs to exit.";
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(360, 52);
@@ -71,6 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(352, 13);
@@ -79,22 +84,25 @@
             // 
             // descriptionTextBox
             // 
+            this.descriptionTextBox.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionTextBox.Location = new System.Drawing.Point(15, 240);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(357, 66);
-            this.descriptionTextBox.TabIndex = 6;
+            this.descriptionTextBox.TabIndex = 1;
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.Location = new System.Drawing.Point(15, 201);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 7;
+            this.nameTextBox.Size = new System.Drawing.Size(100, 21);
+            this.nameTextBox.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 185);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
@@ -132,11 +140,20 @@
             this.descLabel.TabIndex = 10;
             this.descLabel.Visible = false;
             // 
+            // buttonLabel
+            // 
+            this.buttonLabel.Location = new System.Drawing.Point(26, 317);
+            this.buttonLabel.Name = "buttonLabel";
+            this.buttonLabel.Size = new System.Drawing.Size(42, 23);
+            this.buttonLabel.TabIndex = 11;
+            this.buttonLabel.Visible = false;
+            // 
             // BugSplatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 344);
+            this.Controls.Add(this.buttonLabel);
             this.Controls.Add(this.descLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label5);
@@ -147,8 +164,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BugSplatForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BugSplatForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,5 +186,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label descLabel;
+        private System.Windows.Forms.Label buttonLabel;
     }
 }
