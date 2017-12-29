@@ -42,13 +42,14 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
 
-                List<string> typeList = new List<string>();
+                //st<string> typeList = new List<string>();
+                string[] typeList = new String[1000];
                 int i = 0;
 
                 // Add type to list
                 OleDbDataReader readerType = commandType.ExecuteReader();
                 while (readerType.Read())
-                {
+                { 
                     typeList[i] = readerType["Type"].ToString();
                     i++;
                 }
@@ -86,6 +87,12 @@ namespace Webber_Inventory_Search_2017_2018
             // Clear all comboboxes
             brandComboBox.Items.Clear();
             modelComboBox.Items.Clear();
+            brandComboBox.Text = "";
+            modelComboBox.Text = "";
+            catComboBox.Text = "";
+            nameRTextBox.Text = "";
+            linkLabel1.Text = "";
+
             string item = typeComboBox.Text;
 
             // Check for which brand is selected
@@ -98,7 +105,8 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Supply_Information where Type='" + item + "'";
                 commandBrand.CommandText = query;
 
-                List<string> brandList = new List<string>();
+                //List<string> brandList = new List<string>();
+                string[] brandList = new String[1000];
                 int i = 0;
 
                 OleDbDataReader readerBrand = commandBrand.ExecuteReader();
@@ -138,7 +146,13 @@ namespace Webber_Inventory_Search_2017_2018
         {
             modelComboBox.Items.Clear();
             catComboBox.Items.Clear();
-            string item = brandComboBox.Text;
+            modelComboBox.Text = "";
+            catComboBox.Text = "";
+            nameRTextBox.Text = "";
+            linkLabel1.Text = "";
+
+            string brandItem = brandComboBox.Text;
+            string typeItem = typeComboBox.Text;
             // Check for which brand is selected
             try
             {
@@ -146,10 +160,11 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand commandModel = new OleDbCommand();
                 commandModel.Connection = connection;
-                string query = "select * from Supply_Information where Brand='" + item + "'";
+                string query = "select * from Supply_Information where Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandModel.CommandText = query;
 
-                List<string> modelList = new List<string>();
+                //List<string> modelList = new List<string>();
+                string[] modelList = new String[1000];
                 int i = 0;
 
                 // Add to list
@@ -191,7 +206,13 @@ namespace Webber_Inventory_Search_2017_2018
         private void modelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             catComboBox.Items.Clear();
-            string item = modelComboBox.Text;
+            catComboBox.Text = "";
+            nameRTextBox.Text = "";
+            linkLabel1.Text = "";
+
+            string modelItem = modelComboBox.Text;
+            string brandItem = brandComboBox.Text;
+            string typeItem = typeComboBox.Text;
 
             // Check for which brand is selected
             try
@@ -200,7 +221,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand commandCat = new OleDbCommand();
                 commandCat.Connection = connection;
-                string query = "select * from Supply_Information where Model='" + item + "'";
+                string query = "select * from Supply_Information where Model='" + modelItem + "' and Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandCat.CommandText = query;
 
                 OleDbDataReader readerCat = commandCat.ExecuteReader();
@@ -226,7 +247,11 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void catComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string item = catComboBox.Text;
+            string catItem = catComboBox.Text;
+            string modelItem = modelComboBox.Text;
+            string brandItem = brandComboBox.Text;
+            string typeItem = typeComboBox.Text;
+
             // Check for which brand is selected
             try
             {
@@ -234,7 +259,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand commandName = new OleDbCommand();
                 commandName.Connection = connection;
-                string query = "select * from Supply_Information where Category='" + item + "'";
+                string query = "select * from Supply_Information where Category='" + catItem + "' and Model='" + modelItem + "' and Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandName.CommandText = query;
 
                 OleDbDataReader readerName = commandName.ExecuteReader();
@@ -306,6 +331,7 @@ namespace Webber_Inventory_Search_2017_2018
                     type = type.ToUpper();
                     brand = brand.ToUpper();
                     model = model.ToUpper();
+                    cat = cat.ToUpper();
 
                     bool linkCheck = false;
                     if (link.StartsWith("www.") || link.StartsWith("https://"))

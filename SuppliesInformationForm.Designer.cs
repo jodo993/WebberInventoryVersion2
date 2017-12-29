@@ -107,7 +107,7 @@
             this.catComboBox.Location = new System.Drawing.Point(64, 147);
             this.catComboBox.Name = "catComboBox";
             this.catComboBox.Size = new System.Drawing.Size(160, 22);
-            this.catComboBox.TabIndex = 18;
+            this.catComboBox.TabIndex = 11;
             this.catComboBox.SelectedIndexChanged += new System.EventHandler(this.catComboBox_SelectedIndexChanged);
             // 
             // linkLabel1
@@ -116,7 +116,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(64, 209);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(320, 23);
-            this.linkLabel1.TabIndex = 17;
+            this.linkLabel1.TabIndex = 13;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // nameRTextBox
@@ -125,7 +125,7 @@
             this.nameRTextBox.Multiline = true;
             this.nameRTextBox.Name = "nameRTextBox";
             this.nameRTextBox.Size = new System.Drawing.Size(320, 20);
-            this.nameRTextBox.TabIndex = 15;
+            this.nameRTextBox.TabIndex = 12;
             // 
             // label8
             // 
@@ -143,7 +143,7 @@
             this.brandComboBox.Location = new System.Drawing.Point(65, 79);
             this.brandComboBox.Name = "brandComboBox";
             this.brandComboBox.Size = new System.Drawing.Size(160, 22);
-            this.brandComboBox.TabIndex = 3;
+            this.brandComboBox.TabIndex = 9;
             this.brandComboBox.SelectedIndexChanged += new System.EventHandler(this.brandComboBox_SelectedIndexChanged);
             // 
             // label7
@@ -182,7 +182,7 @@
             this.typeComboBox.Location = new System.Drawing.Point(65, 45);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(160, 22);
-            this.typeComboBox.TabIndex = 1;
+            this.typeComboBox.TabIndex = 8;
             this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
             // 
             // label2
@@ -211,14 +211,15 @@
             this.modelComboBox.Location = new System.Drawing.Point(64, 113);
             this.modelComboBox.Name = "modelComboBox";
             this.modelComboBox.Size = new System.Drawing.Size(160, 22);
-            this.modelComboBox.TabIndex = 5;
+            this.modelComboBox.TabIndex = 10;
             this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
             // 
             // mainMenuButton
             // 
-            this.mainMenuButton.Location = new System.Drawing.Point(363, 324);
+            this.mainMenuButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuButton.Location = new System.Drawing.Point(361, 324);
             this.mainMenuButton.Name = "mainMenuButton";
-            this.mainMenuButton.Size = new System.Drawing.Size(75, 23);
+            this.mainMenuButton.Size = new System.Drawing.Size(77, 23);
             this.mainMenuButton.TabIndex = 14;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
@@ -226,10 +227,11 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(444, 324);
+            this.quitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Location = new System.Drawing.Point(442, 324);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(75, 23);
-            this.quitButton.TabIndex = 13;
+            this.quitButton.Size = new System.Drawing.Size(77, 23);
+            this.quitButton.TabIndex = 15;
             this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
@@ -243,7 +245,7 @@
             this.addTabControl.Name = "addTabControl";
             this.addTabControl.SelectedIndex = 0;
             this.addTabControl.Size = new System.Drawing.Size(494, 289);
-            this.addTabControl.TabIndex = 13;
+            this.addTabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -274,7 +276,7 @@
             this.linkTextBox.Location = new System.Drawing.Point(10, 234);
             this.linkTextBox.Name = "linkTextBox";
             this.linkTextBox.Size = new System.Drawing.Size(461, 22);
-            this.linkTextBox.TabIndex = 16;
+            this.linkTextBox.TabIndex = 6;
             // 
             // label14
             // 
@@ -292,7 +294,7 @@
             this.catTextBox.Location = new System.Drawing.Point(126, 106);
             this.catTextBox.Name = "catTextBox";
             this.catTextBox.Size = new System.Drawing.Size(234, 22);
-            this.catTextBox.TabIndex = 14;
+            this.catTextBox.TabIndex = 4;
             // 
             // addButton
             // 
@@ -300,7 +302,7 @@
             this.addButton.Location = new System.Drawing.Point(379, 156);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(92, 23);
-            this.addButton.TabIndex = 10;
+            this.addButton.TabIndex = 7;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -331,7 +333,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(10, 182);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(461, 22);
-            this.nameTextBox.TabIndex = 6;
+            this.nameTextBox.TabIndex = 5;
             // 
             // modelTextBox
             // 
@@ -339,7 +341,7 @@
             this.modelTextBox.Location = new System.Drawing.Point(126, 75);
             this.modelTextBox.Name = "modelTextBox";
             this.modelTextBox.Size = new System.Drawing.Size(234, 22);
-            this.modelTextBox.TabIndex = 5;
+            this.modelTextBox.TabIndex = 3;
             // 
             // brandTextBox
             // 
@@ -347,7 +349,7 @@
             this.brandTextBox.Location = new System.Drawing.Point(126, 44);
             this.brandTextBox.Name = "brandTextBox";
             this.brandTextBox.Size = new System.Drawing.Size(234, 22);
-            this.brandTextBox.TabIndex = 4;
+            this.brandTextBox.TabIndex = 2;
             // 
             // typeTextBox
             // 
@@ -355,7 +357,7 @@
             this.typeTextBox.Location = new System.Drawing.Point(126, 13);
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.Size = new System.Drawing.Size(234, 22);
-            this.typeTextBox.TabIndex = 3;
+            this.typeTextBox.TabIndex = 1;
             // 
             // label11
             // 
@@ -414,8 +416,10 @@
             this.Controls.Add(this.addTabControl);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.mainMenuButton);
+            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SuppliesInformationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supply Information";
