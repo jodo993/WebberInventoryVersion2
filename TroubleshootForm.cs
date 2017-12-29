@@ -20,11 +20,12 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
-            // Connect to database                                                       
+            // Connect to database                        
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
             //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
         }
 
+        // Return to main menu
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,6 +36,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // Close program
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -66,6 +68,7 @@ namespace Webber_Inventory_Search_2017_2018
                     double totalNumberOfWords = 0.0;
                     double wordMatches = 0.0;
                     double percentMatched = 0.0;
+                    int solutionFound = 0;
 
                     // Create list for user search string
                     List<string> searchList = new List<string>();
@@ -120,13 +123,26 @@ namespace Webber_Inventory_Search_2017_2018
                         if ( percentMatched > 33.32)
                         {
                             solutionListBox.Items.Add(issue);
+                            solutionFound++;
                         }
                     }
+
+                    // If there are no matches
+                    if (solutionFound < 1)
+                        MessageBox.Show("No solution found.");
+
                     connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("this" + ex);
+                    // Get and send information to bug report
+                    string page = "Troubleshoot";
+                    string button = "Search";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
         }
@@ -135,39 +151,69 @@ namespace Webber_Inventory_Search_2017_2018
         {
             // Clear all previous items
             solutionListBox.Items.Clear();
-
-            // Show all issues in list box
-            connection.Open();
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Troubleshoot_Data"; 
-            command.CommandText = query;
-
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                solutionListBox.Items.Add(reader["Issue"].ToString());
-            }
+                // Show all issues in list box
+                connection.Open();
 
-            connection.Close();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Troubleshoot_Data";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    solutionListBox.Items.Add(reader["Issue"].ToString());
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Get and send information to bug report
+                string page = "Troubleshoot";
+                string button = "Show All";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
+            
         }
 
         private void solutionListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
-            command.CommandText = query;
-
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                solutionLabel.Text = reader["Resolution"].ToString();
+                // Return data of selected problem
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    explanationLabel.Text = reader["Explanation"].ToString();
+                    solutionLabel.Text = reader["Resolution"].ToString();
+                }
+                connection.Close();
             }
-            connection.Close();
+            catch (Exception ex)
+            {
+                // Get and send information to bug report
+                string page = "Troubleshoot";
+                string button = "Selected Index";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
         }
     }
 }
