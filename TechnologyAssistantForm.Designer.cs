@@ -67,6 +67,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.supplyID = new System.Windows.Forms.Label();
             this.linkLabel = new System.Windows.Forms.TextBox();
             this.updateSupplyButton = new System.Windows.Forms.Button();
             this.supplyLabel = new System.Windows.Forms.TextBox();
@@ -98,8 +99,8 @@
             this.addTroubleButton = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.bugIDLabel = new System.Windows.Forms.Label();
             this.bugFixTextBox = new System.Windows.Forms.TextBox();
-            this.bugFixDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.bugStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteBugButton = new System.Windows.Forms.Button();
             this.updateBugButton = new System.Windows.Forms.Button();
@@ -109,7 +110,6 @@
             this.bugButtonLabel = new System.Windows.Forms.Label();
             this.bugPageLabel = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -119,8 +119,7 @@
             this.bugNumberListBox = new System.Windows.Forms.ListBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.bugIDLabel = new System.Windows.Forms.Label();
-            this.supplyID = new System.Windows.Forms.Label();
+            this.troubleClearButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -532,6 +531,15 @@
             this.tabPage3.Text = "Supply Correction";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // supplyID
+            // 
+            this.supplyID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.supplyID.Location = new System.Drawing.Point(568, 12);
+            this.supplyID.Name = "supplyID";
+            this.supplyID.Size = new System.Drawing.Size(33, 23);
+            this.supplyID.TabIndex = 38;
+            this.supplyID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // linkLabel
             // 
             this.linkLabel.Location = new System.Drawing.Point(154, 229);
@@ -669,6 +677,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.troubleClearButton);
             this.tabPage4.Controls.Add(this.label36);
             this.tabPage4.Controls.Add(this.explanationTextBox);
             this.tabPage4.Controls.Add(this.label26);
@@ -816,7 +825,6 @@
             // 
             this.tabPage5.Controls.Add(this.bugIDLabel);
             this.tabPage5.Controls.Add(this.bugFixTextBox);
-            this.tabPage5.Controls.Add(this.bugFixDateMaskedTextBox);
             this.tabPage5.Controls.Add(this.bugStatusComboBox);
             this.tabPage5.Controls.Add(this.deleteBugButton);
             this.tabPage5.Controls.Add(this.updateBugButton);
@@ -826,7 +834,6 @@
             this.tabPage5.Controls.Add(this.bugButtonLabel);
             this.tabPage5.Controls.Add(this.bugPageLabel);
             this.tabPage5.Controls.Add(this.label35);
-            this.tabPage5.Controls.Add(this.label34);
             this.tabPage5.Controls.Add(this.label33);
             this.tabPage5.Controls.Add(this.label32);
             this.tabPage5.Controls.Add(this.label31);
@@ -843,23 +850,23 @@
             this.tabPage5.Text = "Bug Splat Report";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // bugIDLabel
+            // 
+            this.bugIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.bugIDLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugIDLabel.Location = new System.Drawing.Point(120, 13);
+            this.bugIDLabel.Name = "bugIDLabel";
+            this.bugIDLabel.Size = new System.Drawing.Size(28, 23);
+            this.bugIDLabel.TabIndex = 24;
+            this.bugIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // bugFixTextBox
             // 
             this.bugFixTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugFixTextBox.Location = new System.Drawing.Point(170, 228);
+            this.bugFixTextBox.Location = new System.Drawing.Point(170, 268);
             this.bugFixTextBox.Name = "bugFixTextBox";
             this.bugFixTextBox.Size = new System.Drawing.Size(282, 22);
             this.bugFixTextBox.TabIndex = 23;
-            // 
-            // bugFixDateMaskedTextBox
-            // 
-            this.bugFixDateMaskedTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugFixDateMaskedTextBox.Location = new System.Drawing.Point(170, 260);
-            this.bugFixDateMaskedTextBox.Mask = "00/00/0000";
-            this.bugFixDateMaskedTextBox.Name = "bugFixDateMaskedTextBox";
-            this.bugFixDateMaskedTextBox.Size = new System.Drawing.Size(141, 22);
-            this.bugFixDateMaskedTextBox.TabIndex = 22;
-            this.bugFixDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // bugStatusComboBox
             // 
@@ -868,8 +875,8 @@
             this.bugStatusComboBox.Items.AddRange(new object[] {
             "Open",
             "In Progress",
-            "Close"});
-            this.bugStatusComboBox.Location = new System.Drawing.Point(170, 196);
+            "Closed"});
+            this.bugStatusComboBox.Location = new System.Drawing.Point(170, 236);
             this.bugStatusComboBox.Name = "bugStatusComboBox";
             this.bugStatusComboBox.Size = new System.Drawing.Size(141, 22);
             this.bugStatusComboBox.TabIndex = 21;
@@ -914,9 +921,8 @@
             this.bugDescriptionLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bugDescriptionLabel.Location = new System.Drawing.Point(170, 163);
             this.bugDescriptionLabel.Name = "bugDescriptionLabel";
-            this.bugDescriptionLabel.Size = new System.Drawing.Size(282, 23);
+            this.bugDescriptionLabel.Size = new System.Drawing.Size(282, 70);
             this.bugDescriptionLabel.TabIndex = 14;
-            this.bugDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bugPersonLabel
             // 
@@ -952,27 +958,17 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(126, 231);
+            this.label35.Location = new System.Drawing.Point(126, 268);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(22, 14);
             this.label35.TabIndex = 9;
             this.label35.Text = "Fix";
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(97, 263);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(51, 14);
-            this.label34.TabIndex = 8;
-            this.label34.Text = "Fix Date";
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(107, 199);
+            this.label33.Location = new System.Drawing.Point(107, 236);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(41, 14);
             this.label33.TabIndex = 7;
@@ -1056,22 +1052,15 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
             // 
-            // bugIDLabel
+            // troubleClearButton
             // 
-            this.bugIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bugIDLabel.Location = new System.Drawing.Point(120, 13);
-            this.bugIDLabel.Name = "bugIDLabel";
-            this.bugIDLabel.Size = new System.Drawing.Size(28, 23);
-            this.bugIDLabel.TabIndex = 24;
-            // 
-            // supplyID
-            // 
-            this.supplyID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.supplyID.Location = new System.Drawing.Point(568, 12);
-            this.supplyID.Name = "supplyID";
-            this.supplyID.Size = new System.Drawing.Size(33, 23);
-            this.supplyID.TabIndex = 38;
-            this.supplyID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.troubleClearButton.Location = new System.Drawing.Point(438, 167);
+            this.troubleClearButton.Name = "troubleClearButton";
+            this.troubleClearButton.Size = new System.Drawing.Size(142, 23);
+            this.troubleClearButton.TabIndex = 13;
+            this.troubleClearButton.Text = "Clear";
+            this.troubleClearButton.UseVisualStyleBackColor = true;
+            this.troubleClearButton.Click += new System.EventHandler(this.troubleClearButton_Click);
             // 
             // TechnologyAssistantForm
             // 
@@ -1175,7 +1164,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox bugFixTextBox;
-        private System.Windows.Forms.MaskedTextBox bugFixDateMaskedTextBox;
         private System.Windows.Forms.ComboBox bugStatusComboBox;
         private System.Windows.Forms.Button deleteBugButton;
         private System.Windows.Forms.Button updateBugButton;
@@ -1185,7 +1173,6 @@
         private System.Windows.Forms.Label bugButtonLabel;
         private System.Windows.Forms.Label bugPageLabel;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -1198,5 +1185,6 @@
         private System.Windows.Forms.TextBox explanationTextBox;
         private System.Windows.Forms.Label bugIDLabel;
         private System.Windows.Forms.Label supplyID;
+        private System.Windows.Forms.Button troubleClearButton;
     }
 }

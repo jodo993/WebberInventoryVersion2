@@ -694,7 +694,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "select * from Exception_Error_Report where Issue='" + bugNumberListBox.SelectedItem + "'";
+                string query = "select * from Exception_Error_Report where ID=" + bugNumberListBox.SelectedItem + "";
                 command.CommandText = query;
 
                 OleDbDataReader bugReader = command.ExecuteReader();
@@ -708,10 +708,20 @@ namespace Webber_Inventory_Search_2017_2018
                     bugDescriptionLabel.Text = bugReader["Description"].ToString();
                     bugStatusComboBox.Text = bugReader["Status"].ToString();
                     bugFixTextBox.Text = bugReader["Fix"].ToString();
-                    bugFixDateMaskedTextBox.Text = bugReader["FixDate"].ToString();
                 }
 
                 connection.Close();
+
+                if (bugStatusComboBox.Text == "Closed")
+                {
+                    bugStatusComboBox.Enabled = false;
+                    bugFixTextBox.Enabled = false;
+                }
+                else
+                {
+                    bugStatusComboBox.Enabled = true;
+                    bugFixTextBox.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -736,6 +746,12 @@ namespace Webber_Inventory_Search_2017_2018
         // Delete a bug report
         private void deleteBugButton_Click(object sender, EventArgs e)
         {
+            if (bugIDLabel.Text == "")
+            {
+                MessageBox.Show("There is nothing to delete.");
+                return;
+            }
+
             try
             {
                 connection.Open();
@@ -748,6 +764,14 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
                 MessageBox.Show("Bug Report " + bugNumberListBox.SelectedItem + " was deleted.");
+                bugIDLabel.Text = "";
+                bugPageLabel.Text = "";
+                bugButtonLabel.Text = "";
+                bugErrorLinkLabel.Text = "";
+                bugPersonLabel.Text = "";
+                bugDescriptionLabel.Text = "";
+                bugStatusComboBox.Text = "";
+                bugFixTextBox.Text = "";
             }
             catch (Exception ex)
             {
@@ -763,7 +787,46 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void updateBugButton_Click(object sender, EventArgs e)
         {
+            if (bugIDLabel.Text == "")
+            {
+                MessageBox.Show("There is nothing to update.");
+                return;
+            }
+            try
+            {
+                string status = bugStatusComboBox.Text;
+                string fix = bugFixTextBox.Text;
+                connection.Open();
 
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "update Exception_Error_Report set Status='" + status + "',Fix='" + fix + "' where ID=" + bugNumberListBox.SelectedItem + "";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Report updated.");
+            }
+            catch (Exception ex)
+            {
+                // Create bug report
+                string page = "TechAssistBugReport";
+                string button = "Update";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+                this.Close();
+            }
+        }
+
+        // Clear all fields in troubleshoot tab
+        private void troubleClearButton_Click(object sender, EventArgs e)
+        {
+            currentSolutionListBox.SelectedIndex = -1;
+            problemIDLabel.Text = "";
+            explanationTextBox.Text = "";
+            problemTextBox.Text = "";
+            solutionTextBox.Text = "";
         }
     }
 }
