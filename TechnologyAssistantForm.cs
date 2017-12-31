@@ -79,62 +79,76 @@ namespace Webber_Inventory_Search_2017_2018
             programComboBox.Items.Add("Notes");
             programComboBox.Items.Add("Chromebook");
 
-            // Populate the list box of open tickets
-            connection.Open();
-
-            OleDbCommand commandID = new OleDbCommand();
-            commandID.Connection = connection;
-            string query = "select * from Help_Ticket";
-            commandID.CommandText = query;
-
-            string[] statusCheck = new string[1000];
-            int i = 0;
-
-            // Add only open tickets to listbox
-            OleDbDataReader reader = commandID.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                statusCheck[i] = reader["Status"].ToString();
-                if (statusCheck[i] == "Open")
-                    openTicketListBox.Items.Add(reader["ID"].ToString());
-                i++;
+                // Populate the list box of open tickets
+                connection.Open();
+
+                OleDbCommand commandID = new OleDbCommand();
+                commandID.Connection = connection;
+                string query = "select * from Help_Ticket";
+                commandID.CommandText = query;
+
+                string[] statusCheck = new string[1000];
+                int i = 0;
+
+                // Add only open tickets to listbox
+                OleDbDataReader reader = commandID.ExecuteReader();
+                while (reader.Read())
+                {
+                    statusCheck[i] = reader["Status"].ToString();
+                    if (statusCheck[i] == "Open")
+                        openTicketListBox.Items.Add(reader["ID"].ToString());
+                    i++;
+                }
+
+                OleDbCommand commandSupplies = new OleDbCommand();
+                commandSupplies.Connection = connection;
+                string querySupply = "select * from Supply_Information";
+                commandSupplies.CommandText = querySupply;
+
+                OleDbDataReader supplyReader = commandSupplies.ExecuteReader();
+                while (supplyReader.Read())
+                {
+                    suppliesListBox.Items.Add(supplyReader["ID"].ToString());
+                }
+
+                // Troubleshoot Populate Data
+                OleDbCommand commandTroubleshoot = new OleDbCommand();
+                commandTroubleshoot.Connection = connection;
+                string queryTroubleshoot = "select * from Troubleshoot_Data";
+                commandTroubleshoot.CommandText = queryTroubleshoot;
+
+                OleDbDataReader troubleshootReader = commandTroubleshoot.ExecuteReader();
+                while (troubleshootReader.Read())
+                {
+                    currentSolutionListBox.Items.Add(troubleshootReader["Issue"].ToString());
+                }
+
+                // Get ID number of bug splat issues
+                OleDbCommand commandBugSplat = new OleDbCommand();
+                commandBugSplat.Connection = connection;
+                string queryBugSplat = "select * from Exception_Error_Report";
+                commandBugSplat.CommandText = queryBugSplat;
+
+                OleDbDataReader bugReader = commandBugSplat.ExecuteReader();
+                while (bugReader.Read())
+                {
+                    bugNumberListBox.Items.Add(bugReader["ID"].ToString());
+                }
+                connection.Close();
             }
-
-            OleDbCommand commandSupplies = new OleDbCommand();
-            commandSupplies.Connection = connection;
-            string querySupply = "select * from Supply_Information";
-            commandSupplies.CommandText = querySupply;
-
-            OleDbDataReader supplyReader = commandSupplies.ExecuteReader();
-            while (supplyReader.Read())
+            catch (Exception ex)
             {
-                suppliesListBox.Items.Add(supplyReader["ID"].ToString());
+                // Send bug report
+                string page = "TechAssist Load";
+                string button = "Load";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
-
-            // Troubleshoot Populate Data
-            OleDbCommand commandTroubleshoot = new OleDbCommand();
-            commandTroubleshoot.Connection = connection;
-            string queryTroubleshoot = "select * from Troubleshoot_Data";
-            commandTroubleshoot.CommandText = queryTroubleshoot;
-
-            OleDbDataReader troubleshootReader = commandTroubleshoot.ExecuteReader();
-            while (troubleshootReader.Read())
-            {
-                currentSolutionListBox.Items.Add(troubleshootReader["Issue"].ToString());
-            }
-
-            // Get ID number of bug splat issues
-            OleDbCommand commandBugSplat = new OleDbCommand();
-            commandBugSplat.Connection = connection;
-            string queryBugSplat = "select * from Exception_Error_Report";
-            commandBugSplat.CommandText = queryBugSplat;
-
-            OleDbDataReader bugReader = commandBugSplat.ExecuteReader();
-            while (bugReader.Read())
-            {
-                bugNumberListBox.Items.Add(bugReader["ID"].ToString());
-            }
-            connection.Close();
         }
 
         private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -279,94 +293,173 @@ namespace Webber_Inventory_Search_2017_2018
         // List box 
         private void openTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-
-            OleDbCommand commandID = new OleDbCommand();
-            commandID.Connection = connection;
-            string query = "select * from Help_Ticket where ID=" + openTicketListBox.SelectedItem + "";
-            commandID.CommandText = query;
-
-            OleDbDataReader reader = commandID.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                idLabel.Text = reader["ID"].ToString();
-                dateCreatedLabel.Text = reader["DateCreated"].ToString();
-                staffLabel.Text = reader["Staff"].ToString();
-                roomLabel.Text = reader["Room"].ToString();
-                importanceLabel.Text = reader["Importance"].ToString();
-                categoryLabel.Text = reader["Category"].ToString();
-                timePreferredLabel.Text = reader["TimePreferred"].ToString();
-                descriptionLabel.Text = reader["Description"].ToString();
-                statusComboBox.Text = reader["Status"].ToString();
-                dateClosedLabel.Text = reader["DateClosed"].ToString();
-                fixDateTextBox.Text = reader["PlannedFixDate"].ToString();
-            }
+                connection.Open();
 
-            connection.Close();
+                OleDbCommand commandID = new OleDbCommand();
+                commandID.Connection = connection;
+                string query = "select * from Help_Ticket where ID=" + openTicketListBox.SelectedItem + "";
+                commandID.CommandText = query;
+
+                OleDbDataReader reader = commandID.ExecuteReader();
+                while (reader.Read())
+                {
+                    idLabel.Text = reader["ID"].ToString();
+                    dateCreatedLabel.Text = reader["DateCreated"].ToString();
+                    staffLabel.Text = reader["Staff"].ToString();
+                    roomLabel.Text = reader["Room"].ToString();
+                    importanceLabel.Text = reader["Importance"].ToString();
+                    categoryLabel.Text = reader["Category"].ToString();
+                    timePreferredLabel.Text = reader["TimePreferred"].ToString();
+                    descriptionLabel.Text = reader["Description"].ToString();
+                    statusComboBox.Text = reader["Status"].ToString();
+                    dateClosedLabel.Text = reader["DateClosed"].ToString();
+                    fixDateTextBox.Text = reader["PlannedFixDate"].ToString();
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Send bug report
+                string page = "TechAssist Ticket";
+                string button = "Index Changed";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            if (idLabel.Text == "")
+            {
+                MessageBox.Show("There is nothing to update.");
+                return;
+            }
+
             string status = statusComboBox.Text;
             string fixDate = fixDateTextBox.Text;
-            connection.Open();
 
-            string date = DateTime.Now.ToString();
-            OleDbCommand commandID = new OleDbCommand();
-            commandID.Connection = connection;
-            string query;
-            if (statusComboBox.Text == "Closed")
+            try
             {
-                query = "update Help_Ticket set Status='" + status + "',DateClosed='" + date + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
-            }
-            else
-            {
-                query = "update Help_Ticket set Status='" + status + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
-            }
-            commandID.CommandText = query;
-            commandID.ExecuteNonQuery();
+                connection.Open();
 
-            connection.Close();
-            MessageBox.Show("Updated.");
+                string date = DateTime.Now.ToString();
+                OleDbCommand commandID = new OleDbCommand();
+                commandID.Connection = connection;
+                string query;
+                if (statusComboBox.Text == "Closed")
+                {
+                    query = "update Help_Ticket set Status='" + status + "',DateClosed='" + date + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
+                }
+                else
+                {
+                    query = "update Help_Ticket set Status='" + status + "',PlannedFixDate='" + fixDate + "' where ID=" + openTicketListBox.SelectedItem + "";
+                }
+                commandID.CommandText = query;
+                commandID.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Updated.");
+            }
+            catch (Exception ex)
+            {
+                // Send bug report
+                string page = "TechAssist Ticket";
+                string button = "Update";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
         }
 
         private void deleteSupplyButton_Click(object sender, EventArgs e)
         {
-            connection.Open();
+            try
+            {
+                if (suppliesListBox.SelectedIndex < 0)
+                {
+                    MessageBox.Show("There is nothing to delete.");
+                    return;
+                }
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "delete from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
-            command.CommandText = query;
-            command.ExecuteNonQuery();
+                string item = supplyID.Text;
+                connection.Open();
 
-            connection.Close();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "delete from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
 
-            MessageBox.Show("Supply information deleted.");
-            suppliesListBox.Items.Remove(suppliesListBox.SelectedItem);
+                connection.Close();
+
+                MessageBox.Show("Supply information deleted.");
+                suppliesListBox.Items.Remove(item);
+                supplyID.Text = "";
+                typeLabel.Text = "";
+                brandLabel.Text = "";
+                modelLabel.Text = "";
+                catLabel.Text = "";
+                supplyLabel.Text = "";
+                linkLabel.Text = "";
+            }
+            catch (Exception ex)
+            {
+                // Send bug report
+                string page = "TechAssist Supply";
+                string button = "Delete";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
         }
 
         private void suppliesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
-            command.CommandText = query;
-
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                typeLabel.Text = reader["Type"].ToString();
-                brandLabel.Text = reader["Brand"].ToString();
-                modelLabel.Text = reader["Model"].ToString();
-                catLabel.Text = reader["Category"].ToString();
-                supplyLabel.Text = reader["Supply"].ToString();
-                linkLabel.Text = reader["Link"].ToString();
-            }
+                connection.Open();
 
-            connection.Close();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
+                command.CommandText = query;
+
+                if (suppliesListBox.SelectedIndex > -1)
+                {
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        supplyID.Text = reader["ID"].ToString();
+                        typeLabel.Text = reader["Type"].ToString();
+                        brandLabel.Text = reader["Brand"].ToString();
+                        modelLabel.Text = reader["Model"].ToString();
+                        catLabel.Text = reader["Category"].ToString();
+                        supplyLabel.Text = reader["Supply"].ToString();
+                        linkLabel.Text = reader["Link"].ToString();
+                    }
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                // Send bug report
+                string page = "TechAssist Supply";
+                string button = "Index Changed";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
         }
 
         // Update fields
@@ -413,8 +506,6 @@ namespace Webber_Inventory_Search_2017_2018
             }
             else
                 MessageBox.Show("Please include https:// or www. in your link.");
-
-
         }
 
         // Add a new problem and solution to troubleshoot data
@@ -468,6 +559,7 @@ namespace Webber_Inventory_Search_2017_2018
             }
         }
 
+        // Make changes to troubleshoot data
         private void editTroubleButton_Click(object sender, EventArgs e)
         {
             if (problemIDLabel.Text == "")
@@ -487,7 +579,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     OleDbCommand command = new OleDbCommand();
                     command.Connection = connection;
-                    string query = "update Troubleshoot_Data set Issue='" + issue + "',Resolution='" + solution + "' where ID=" + id + "";
+                    string query = "update Troubleshoot_Data set Issue='" + issue + "',Explanation='" + explanation + "',Resolution='" + solution + "' where ID=" + id + "";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
@@ -523,6 +615,7 @@ namespace Webber_Inventory_Search_2017_2018
             else
             {
                 int id = int.Parse(problemIDLabel.Text);
+                string removedItem = problemTextBox.Text;
                 try
                 {
                     connection.Open();
@@ -538,7 +631,9 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Problem and solution was deleted successfully.");
                     problemIDLabel.Text = "";
                     problemTextBox.Text = "";
+                    explanationTextBox.Text = "";
                     solutionTextBox.Text = "";
+                    currentSolutionListBox.Items.Remove(removedItem);
                 }
                 catch (Exception ex)
                 {
@@ -602,17 +697,18 @@ namespace Webber_Inventory_Search_2017_2018
                 string query = "select * from Exception_Error_Report where Issue='" + bugNumberListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                OleDbDataReader bugReader = command.ExecuteReader();
+                while (bugReader.Read())
                 {
-                    bugPageLabel.Text = reader["Page"].ToString();
-                    bugButtonLabel.Text = reader["Button"].ToString();
-                    bugErrorLinkLabel.Text = reader["Error"].ToString();
-                    bugPersonLabel.Text = reader["Person"].ToString();
-                    bugDescriptionLabel.Text = reader["PersonDescription"].ToString();
-                    bugStatusComboBox.Text = reader["Status"].ToString();
-                    bugFixTextBox.Text = reader["Fix"].ToString();
-                    bugFixDateMaskedTextBox.Text = reader["FixDate"].ToString();
+                    bugIDLabel.Text = bugReader["ID"].ToString();
+                    bugPageLabel.Text = bugReader["Page"].ToString();
+                    bugButtonLabel.Text = bugReader["Button"].ToString();
+                    bugErrorLinkLabel.Text = bugReader["Error"].ToString();
+                    bugPersonLabel.Text = bugReader["Person"].ToString();
+                    bugDescriptionLabel.Text = bugReader["Description"].ToString();
+                    bugStatusComboBox.Text = bugReader["Status"].ToString();
+                    bugFixTextBox.Text = bugReader["Fix"].ToString();
+                    bugFixDateMaskedTextBox.Text = bugReader["FixDate"].ToString();
                 }
 
                 connection.Close();
@@ -620,6 +716,13 @@ namespace Webber_Inventory_Search_2017_2018
             catch (Exception ex)
             {
                 MessageBox.Show(" hi" + ex);
+                // Create bug report
+                string page = "TechAssistBugReport";
+                string button = "Selected Index";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+                this.Close();
             }
         }
 
@@ -656,6 +759,11 @@ namespace Webber_Inventory_Search_2017_2018
                 bugSplat.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void updateBugButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

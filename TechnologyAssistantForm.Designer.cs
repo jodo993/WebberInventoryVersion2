@@ -119,6 +119,8 @@
             this.bugNumberListBox = new System.Windows.Forms.ListBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.bugIDLabel = new System.Windows.Forms.Label();
+            this.supplyID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -505,6 +507,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.supplyID);
             this.tabPage3.Controls.Add(this.linkLabel);
             this.tabPage3.Controls.Add(this.updateSupplyButton);
             this.tabPage3.Controls.Add(this.supplyLabel);
@@ -749,7 +752,7 @@
             this.deleteTroubleButton.Name = "deleteTroubleButton";
             this.deleteTroubleButton.Size = new System.Drawing.Size(142, 23);
             this.deleteTroubleButton.TabIndex = 6;
-            this.deleteTroubleButton.Text = "Delete Data";
+            this.deleteTroubleButton.Text = "Delete Selected";
             this.deleteTroubleButton.UseVisualStyleBackColor = true;
             this.deleteTroubleButton.Click += new System.EventHandler(this.deleteTroubleButton_Click);
             // 
@@ -759,7 +762,7 @@
             this.editTroubleButton.Name = "editTroubleButton";
             this.editTroubleButton.Size = new System.Drawing.Size(142, 23);
             this.editTroubleButton.TabIndex = 5;
-            this.editTroubleButton.Text = "Edit Data";
+            this.editTroubleButton.Text = "Update";
             this.editTroubleButton.UseVisualStyleBackColor = true;
             this.editTroubleButton.Click += new System.EventHandler(this.editTroubleButton_Click);
             // 
@@ -795,7 +798,7 @@
             this.addTroubleButton.Name = "addTroubleButton";
             this.addTroubleButton.Size = new System.Drawing.Size(142, 23);
             this.addTroubleButton.TabIndex = 0;
-            this.addTroubleButton.Text = "Add Data";
+            this.addTroubleButton.Text = "Add New";
             this.addTroubleButton.UseVisualStyleBackColor = true;
             this.addTroubleButton.Click += new System.EventHandler(this.addTroubleButton_Click);
             // 
@@ -811,6 +814,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.bugIDLabel);
             this.tabPage5.Controls.Add(this.bugFixTextBox);
             this.tabPage5.Controls.Add(this.bugFixDateMaskedTextBox);
             this.tabPage5.Controls.Add(this.bugStatusComboBox);
@@ -842,7 +846,7 @@
             // bugFixTextBox
             // 
             this.bugFixTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugFixTextBox.Location = new System.Drawing.Point(170, 229);
+            this.bugFixTextBox.Location = new System.Drawing.Point(170, 228);
             this.bugFixTextBox.Name = "bugFixTextBox";
             this.bugFixTextBox.Size = new System.Drawing.Size(282, 22);
             this.bugFixTextBox.TabIndex = 23;
@@ -850,7 +854,7 @@
             // bugFixDateMaskedTextBox
             // 
             this.bugFixDateMaskedTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugFixDateMaskedTextBox.Location = new System.Drawing.Point(170, 261);
+            this.bugFixDateMaskedTextBox.Location = new System.Drawing.Point(170, 260);
             this.bugFixDateMaskedTextBox.Mask = "00/00/0000";
             this.bugFixDateMaskedTextBox.Name = "bugFixDateMaskedTextBox";
             this.bugFixDateMaskedTextBox.Size = new System.Drawing.Size(141, 22);
@@ -865,7 +869,7 @@
             "Open",
             "In Progress",
             "Close"});
-            this.bugStatusComboBox.Location = new System.Drawing.Point(170, 197);
+            this.bugStatusComboBox.Location = new System.Drawing.Point(170, 196);
             this.bugStatusComboBox.Name = "bugStatusComboBox";
             this.bugStatusComboBox.Size = new System.Drawing.Size(141, 22);
             this.bugStatusComboBox.TabIndex = 21;
@@ -890,13 +894,14 @@
             this.updateBugButton.TabIndex = 19;
             this.updateBugButton.Text = "Update";
             this.updateBugButton.UseVisualStyleBackColor = true;
+            this.updateBugButton.Click += new System.EventHandler(this.updateBugButton_Click);
             // 
             // bugErrorLinkLabel
             // 
             this.bugErrorLinkLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.bugErrorLinkLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bugErrorLinkLabel.LinkColor = System.Drawing.Color.Gray;
-            this.bugErrorLinkLabel.Location = new System.Drawing.Point(170, 104);
+            this.bugErrorLinkLabel.Location = new System.Drawing.Point(170, 99);
             this.bugErrorLinkLabel.Name = "bugErrorLinkLabel";
             this.bugErrorLinkLabel.Size = new System.Drawing.Size(282, 23);
             this.bugErrorLinkLabel.TabIndex = 18;
@@ -1051,6 +1056,23 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Center";
             // 
+            // bugIDLabel
+            // 
+            this.bugIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.bugIDLabel.Location = new System.Drawing.Point(120, 13);
+            this.bugIDLabel.Name = "bugIDLabel";
+            this.bugIDLabel.Size = new System.Drawing.Size(28, 23);
+            this.bugIDLabel.TabIndex = 24;
+            // 
+            // supplyID
+            // 
+            this.supplyID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.supplyID.Location = new System.Drawing.Point(568, 12);
+            this.supplyID.Name = "supplyID";
+            this.supplyID.Size = new System.Drawing.Size(33, 23);
+            this.supplyID.TabIndex = 38;
+            this.supplyID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TechnologyAssistantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1174,5 +1196,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox explanationTextBox;
+        private System.Windows.Forms.Label bugIDLabel;
+        private System.Windows.Forms.Label supplyID;
     }
 }
