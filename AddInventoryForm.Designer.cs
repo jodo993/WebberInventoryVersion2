@@ -350,6 +350,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.addMainMenuButton);
             this.Controls.Add(this.addClearButton);
+            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

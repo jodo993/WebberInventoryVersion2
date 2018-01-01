@@ -54,7 +54,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Papyrus", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(31, 23);
+            this.label1.Location = new System.Drawing.Point(31, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 51);
             this.label1.TabIndex = 1;
@@ -66,9 +66,9 @@
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.timeLabel.Location = new System.Drawing.Point(318, 16);
+            this.timeLabel.Location = new System.Drawing.Point(318, 17);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(306, 71);
+            this.timeLabel.Size = new System.Drawing.Size(306, 76);
             this.timeLabel.TabIndex = 13;
             this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -79,7 +79,7 @@
             this.quitButton.ForeColor = System.Drawing.Color.Black;
             this.quitButton.Location = new System.Drawing.Point(618, 2);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(63, 26);
+            this.quitButton.Size = new System.Drawing.Size(63, 28);
             this.quitButton.TabIndex = 5;
             this.quitButton.Text = "Exit";
             this.quitButton.UseVisualStyleBackColor = false;
@@ -91,10 +91,10 @@
             this.ticketButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ticketButton.ForeColor = System.Drawing.SystemColors.Control;
             this.ticketButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.helpTicketIcon;
-            this.ticketButton.Location = new System.Drawing.Point(40, 135);
+            this.ticketButton.Location = new System.Drawing.Point(40, 145);
             this.ticketButton.Name = "ticketButton";
-            this.ticketButton.Padding = new System.Windows.Forms.Padding(10);
-            this.ticketButton.Size = new System.Drawing.Size(85, 70);
+            this.ticketButton.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.ticketButton.Size = new System.Drawing.Size(85, 75);
             this.ticketButton.TabIndex = 1;
             this.ticketButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ticketButton.UseVisualStyleBackColor = false;
@@ -105,9 +105,9 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Papyrus", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(131, 166);
+            this.label13.Location = new System.Drawing.Point(131, 179);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 39);
+            this.label13.Size = new System.Drawing.Size(155, 42);
             this.label13.TabIndex = 26;
             this.label13.Text = "Fill out form to request assistance.";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -118,7 +118,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(132, 135);
+            this.label5.Location = new System.Drawing.Point(132, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 21);
             this.label5.TabIndex = 25;
@@ -129,9 +129,9 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Papyrus", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.Control;
-            this.label16.Location = new System.Drawing.Point(451, 270);
+            this.label16.Location = new System.Drawing.Point(451, 291);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(169, 39);
+            this.label16.Size = new System.Drawing.Size(169, 42);
             this.label16.TabIndex = 36;
             this.label16.Text = "Learn or refresh on commonly used programs.";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,9 +141,9 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Papyrus", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.Control;
-            this.label15.Location = new System.Drawing.Point(451, 166);
+            this.label15.Location = new System.Drawing.Point(451, 179);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(169, 39);
+            this.label15.Size = new System.Drawing.Size(169, 42);
             this.label15.TabIndex = 35;
             this.label15.Text = "Look up possible solutions for technical issues.";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,9 +153,9 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Papyrus", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.Control;
-            this.label14.Location = new System.Drawing.Point(131, 270);
+            this.label14.Location = new System.Drawing.Point(131, 291);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(169, 39);
+            this.label14.Size = new System.Drawing.Size(169, 42);
             this.label14.TabIndex = 34;
             this.label14.Text = "Add supply information or check existing ones.";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -166,7 +166,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(451, 239);
+            this.label8.Location = new System.Drawing.Point(451, 257);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 33;
@@ -178,7 +178,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(450, 135);
+            this.label7.Location = new System.Drawing.Point(450, 145);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(142, 21);
             this.label7.TabIndex = 32;
@@ -190,7 +190,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(131, 239);
+            this.label6.Location = new System.Drawing.Point(131, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 21);
             this.label6.TabIndex = 31;
@@ -202,10 +202,10 @@
             this.tutorialsButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorialsButton.ForeColor = System.Drawing.SystemColors.Control;
             this.tutorialsButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.tutorialIcon;
-            this.tutorialsButton.Location = new System.Drawing.Point(360, 239);
+            this.tutorialsButton.Location = new System.Drawing.Point(360, 257);
             this.tutorialsButton.Name = "tutorialsButton";
-            this.tutorialsButton.Padding = new System.Windows.Forms.Padding(10);
-            this.tutorialsButton.Size = new System.Drawing.Size(85, 70);
+            this.tutorialsButton.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.tutorialsButton.Size = new System.Drawing.Size(85, 75);
             this.tutorialsButton.TabIndex = 4;
             this.tutorialsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tutorialsButton.UseVisualStyleBackColor = false;
@@ -218,10 +218,10 @@
             this.suppliesButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suppliesButton.ForeColor = System.Drawing.SystemColors.Control;
             this.suppliesButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.suppliesIcon;
-            this.suppliesButton.Location = new System.Drawing.Point(40, 239);
+            this.suppliesButton.Location = new System.Drawing.Point(40, 257);
             this.suppliesButton.Name = "suppliesButton";
-            this.suppliesButton.Padding = new System.Windows.Forms.Padding(10);
-            this.suppliesButton.Size = new System.Drawing.Size(85, 70);
+            this.suppliesButton.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.suppliesButton.Size = new System.Drawing.Size(85, 75);
             this.suppliesButton.TabIndex = 2;
             this.suppliesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.suppliesButton.UseVisualStyleBackColor = false;
@@ -233,10 +233,10 @@
             this.troubleshootingButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.troubleshootingButton.ForeColor = System.Drawing.SystemColors.Control;
             this.troubleshootingButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.troubleshootingIcon;
-            this.troubleshootingButton.Location = new System.Drawing.Point(360, 135);
+            this.troubleshootingButton.Location = new System.Drawing.Point(360, 145);
             this.troubleshootingButton.Name = "troubleshootingButton";
-            this.troubleshootingButton.Padding = new System.Windows.Forms.Padding(10);
-            this.troubleshootingButton.Size = new System.Drawing.Size(85, 70);
+            this.troubleshootingButton.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.troubleshootingButton.Size = new System.Drawing.Size(85, 75);
             this.troubleshootingButton.TabIndex = 3;
             this.troubleshootingButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.troubleshootingButton.UseVisualStyleBackColor = false;
@@ -248,10 +248,10 @@
             // 
             // MainMenuForm2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.chalkboardBackground;
-            this.ClientSize = new System.Drawing.Size(684, 390);
+            this.ClientSize = new System.Drawing.Size(684, 420);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -267,7 +267,7 @@
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

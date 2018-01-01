@@ -74,18 +74,18 @@
             this.searchGroupBox.Controls.Add(this.searchButton);
             this.searchGroupBox.Controls.Add(this.label1);
             this.searchGroupBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchGroupBox.Location = new System.Drawing.Point(21, 38);
+            this.searchGroupBox.Location = new System.Drawing.Point(21, 41);
             this.searchGroupBox.Name = "searchGroupBox";
-            this.searchGroupBox.Size = new System.Drawing.Size(240, 157);
+            this.searchGroupBox.Size = new System.Drawing.Size(240, 169);
             this.searchGroupBox.TabIndex = 0;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Search";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(120, 96);
+            this.clearButton.Location = new System.Drawing.Point(120, 103);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(51, 22);
+            this.clearButton.Size = new System.Drawing.Size(51, 24);
             this.clearButton.TabIndex = 2;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -93,16 +93,16 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(43, 68);
+            this.searchTextBox.Location = new System.Drawing.Point(43, 73);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(150, 22);
             this.searchTextBox.TabIndex = 0;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(63, 96);
+            this.searchButton.Location = new System.Drawing.Point(63, 103);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(51, 22);
+            this.searchButton.Size = new System.Drawing.Size(51, 24);
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(26, 31);
+            this.label1.Location = new System.Drawing.Point(26, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 23);
+            this.label1.Size = new System.Drawing.Size(186, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "WSD Tag #";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,9 +124,9 @@
             this.updateGroupBox.Controls.Add(this.locationRadioButton);
             this.updateGroupBox.Controls.Add(this.update2GroupBox);
             this.updateGroupBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateGroupBox.Location = new System.Drawing.Point(543, 38);
+            this.updateGroupBox.Location = new System.Drawing.Point(543, 41);
             this.updateGroupBox.Name = "updateGroupBox";
-            this.updateGroupBox.Size = new System.Drawing.Size(240, 205);
+            this.updateGroupBox.Size = new System.Drawing.Size(240, 221);
             this.updateGroupBox.TabIndex = 1;
             this.updateGroupBox.TabStop = false;
             this.updateGroupBox.Text = "Update";
@@ -134,9 +134,9 @@
             // statusRadioButton
             // 
             this.statusRadioButton.AutoSize = true;
-            this.statusRadioButton.Location = new System.Drawing.Point(122, 19);
+            this.statusRadioButton.Location = new System.Drawing.Point(122, 20);
             this.statusRadioButton.Name = "statusRadioButton";
-            this.statusRadioButton.Size = new System.Drawing.Size(59, 18);
+            this.statusRadioButton.Size = new System.Drawing.Size(59, 19);
             this.statusRadioButton.TabIndex = 7;
             this.statusRadioButton.Text = "Status";
             this.statusRadioButton.UseVisualStyleBackColor = true;
@@ -146,9 +146,9 @@
             // 
             this.locationRadioButton.AutoSize = true;
             this.locationRadioButton.Checked = true;
-            this.locationRadioButton.Location = new System.Drawing.Point(31, 19);
+            this.locationRadioButton.Location = new System.Drawing.Point(31, 20);
             this.locationRadioButton.Name = "locationRadioButton";
-            this.locationRadioButton.Size = new System.Drawing.Size(70, 18);
+            this.locationRadioButton.Size = new System.Drawing.Size(70, 19);
             this.locationRadioButton.TabIndex = 6;
             this.locationRadioButton.TabStop = true;
             this.locationRadioButton.Text = "Location";
@@ -163,25 +163,25 @@
             this.update2GroupBox.Controls.Add(this.updateStatusComboBox);
             this.update2GroupBox.Controls.Add(this.newLabel);
             this.update2GroupBox.Controls.Add(this.tagLabel);
-            this.update2GroupBox.Location = new System.Drawing.Point(22, 49);
+            this.update2GroupBox.Location = new System.Drawing.Point(22, 53);
             this.update2GroupBox.Name = "update2GroupBox";
-            this.update2GroupBox.Size = new System.Drawing.Size(203, 131);
+            this.update2GroupBox.Size = new System.Drawing.Size(203, 141);
             this.update2GroupBox.TabIndex = 0;
             this.update2GroupBox.TabStop = false;
             this.update2GroupBox.Text = "Update Location";
             // 
             // updateTagTextBox
             // 
-            this.updateTagTextBox.Location = new System.Drawing.Point(9, 43);
+            this.updateTagTextBox.Location = new System.Drawing.Point(9, 46);
             this.updateTagTextBox.Name = "updateTagTextBox";
             this.updateTagTextBox.Size = new System.Drawing.Size(87, 22);
             this.updateTagTextBox.TabIndex = 8;
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(9, 83);
+            this.updateButton.Location = new System.Drawing.Point(9, 89);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(185, 25);
+            this.updateButton.Size = new System.Drawing.Size(185, 27);
             this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update Location";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@
             "F3",
             "F4",
             "Other"});
-            this.updateLocationComboBox.Location = new System.Drawing.Point(102, 43);
+            this.updateLocationComboBox.Location = new System.Drawing.Point(102, 46);
             this.updateLocationComboBox.Name = "updateLocationComboBox";
             this.updateLocationComboBox.Size = new System.Drawing.Size(90, 22);
             this.updateLocationComboBox.TabIndex = 9;
@@ -236,7 +236,7 @@
             "Repair",
             "Surplus",
             "Unknown"});
-            this.updateStatusComboBox.Location = new System.Drawing.Point(102, 43);
+            this.updateStatusComboBox.Location = new System.Drawing.Point(102, 46);
             this.updateStatusComboBox.Name = "updateStatusComboBox";
             this.updateStatusComboBox.Size = new System.Drawing.Size(90, 22);
             this.updateStatusComboBox.TabIndex = 10;
@@ -244,7 +244,7 @@
             // newLabel
             // 
             this.newLabel.AutoSize = true;
-            this.newLabel.Location = new System.Drawing.Point(99, 27);
+            this.newLabel.Location = new System.Drawing.Point(99, 29);
             this.newLabel.Name = "newLabel";
             this.newLabel.Size = new System.Drawing.Size(79, 14);
             this.newLabel.TabIndex = 1;
@@ -253,7 +253,7 @@
             // tagLabel
             // 
             this.tagLabel.AutoSize = true;
-            this.tagLabel.Location = new System.Drawing.Point(6, 27);
+            this.tagLabel.Location = new System.Drawing.Point(6, 29);
             this.tagLabel.Name = "tagLabel";
             this.tagLabel.Size = new System.Drawing.Size(71, 14);
             this.tagLabel.TabIndex = 0;
@@ -266,16 +266,16 @@
             this.removeGroupBox.Controls.Add(this.removeButton);
             this.removeGroupBox.Controls.Add(this.removeTagLabel);
             this.removeGroupBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeGroupBox.Location = new System.Drawing.Point(284, 38);
+            this.removeGroupBox.Location = new System.Drawing.Point(284, 41);
             this.removeGroupBox.Name = "removeGroupBox";
-            this.removeGroupBox.Size = new System.Drawing.Size(240, 157);
+            this.removeGroupBox.Size = new System.Drawing.Size(240, 169);
             this.removeGroupBox.TabIndex = 1;
             this.removeGroupBox.TabStop = false;
             this.removeGroupBox.Text = "Remove";
             // 
             // removeTextBox
             // 
-            this.removeTextBox.Location = new System.Drawing.Point(49, 68);
+            this.removeTextBox.Location = new System.Drawing.Point(49, 73);
             this.removeTextBox.Name = "removeTextBox";
             this.removeTextBox.Size = new System.Drawing.Size(150, 22);
             this.removeTextBox.TabIndex = 3;
@@ -283,9 +283,9 @@
             // clearRemoveButton
             // 
             this.clearRemoveButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearRemoveButton.Location = new System.Drawing.Point(129, 96);
+            this.clearRemoveButton.Location = new System.Drawing.Point(129, 103);
             this.clearRemoveButton.Name = "clearRemoveButton";
-            this.clearRemoveButton.Size = new System.Drawing.Size(60, 23);
+            this.clearRemoveButton.Size = new System.Drawing.Size(60, 25);
             this.clearRemoveButton.TabIndex = 5;
             this.clearRemoveButton.Text = "Clear";
             this.clearRemoveButton.UseVisualStyleBackColor = true;
@@ -294,9 +294,9 @@
             // removeButton
             // 
             this.removeButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.Location = new System.Drawing.Point(63, 96);
+            this.removeButton.Location = new System.Drawing.Point(63, 103);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(60, 23);
+            this.removeButton.Size = new System.Drawing.Size(60, 25);
             this.removeButton.TabIndex = 4;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
@@ -305,9 +305,9 @@
             // removeTagLabel
             // 
             this.removeTagLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.removeTagLabel.Location = new System.Drawing.Point(26, 31);
+            this.removeTagLabel.Location = new System.Drawing.Point(26, 33);
             this.removeTagLabel.Name = "removeTagLabel";
-            this.removeTagLabel.Size = new System.Drawing.Size(187, 23);
+            this.removeTagLabel.Size = new System.Drawing.Size(187, 25);
             this.removeTagLabel.TabIndex = 6;
             this.removeTagLabel.Text = "WSD Tag Number";
             this.removeTagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,18 +317,18 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 265);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 270);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(762, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(762, 259);
             this.dataGridView1.TabIndex = 3;
             // 
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(706, 498);
+            this.exitButton.Location = new System.Drawing.Point(706, 536);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(75, 25);
             this.exitButton.TabIndex = 18;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -337,9 +337,9 @@
             // mainMenuButton
             // 
             this.mainMenuButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainMenuButton.Location = new System.Drawing.Point(619, 498);
+            this.mainMenuButton.Location = new System.Drawing.Point(619, 536);
             this.mainMenuButton.Name = "mainMenuButton";
-            this.mainMenuButton.Size = new System.Drawing.Size(85, 23);
+            this.mainMenuButton.Size = new System.Drawing.Size(85, 25);
             this.mainMenuButton.TabIndex = 17;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
@@ -348,9 +348,9 @@
             // showAllButton
             // 
             this.showAllButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showAllButton.Location = new System.Drawing.Point(446, 498);
+            this.showAllButton.Location = new System.Drawing.Point(446, 536);
             this.showAllButton.Name = "showAllButton";
-            this.showAllButton.Size = new System.Drawing.Size(95, 23);
+            this.showAllButton.Size = new System.Drawing.Size(95, 25);
             this.showAllButton.TabIndex = 15;
             this.showAllButton.Text = "Show All Data";
             this.showAllButton.UseVisualStyleBackColor = true;
@@ -359,9 +359,9 @@
             // refreshButton
             // 
             this.refreshButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(543, 498);
+            this.refreshButton.Location = new System.Drawing.Point(543, 536);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(74, 23);
+            this.refreshButton.Size = new System.Drawing.Size(74, 25);
             this.refreshButton.TabIndex = 16;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -371,7 +371,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 220);
+            this.label4.Location = new System.Drawing.Point(19, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 14);
             this.label4.TabIndex = 10;
@@ -427,7 +427,7 @@
             "F3",
             "F4",
             "Other"});
-            this.categorySearchComboBox.Location = new System.Drawing.Point(22, 237);
+            this.categorySearchComboBox.Location = new System.Drawing.Point(22, 240);
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(422, 22);
             this.categorySearchComboBox.TabIndex = 12;
@@ -438,9 +438,9 @@
             this.findButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.findButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(450, 236);
+            this.findButton.Location = new System.Drawing.Point(450, 239);
             this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(74, 23);
+            this.findButton.Size = new System.Drawing.Size(74, 25);
             this.findButton.TabIndex = 13;
             this.findButton.Text = "Search";
             this.findButton.UseVisualStyleBackColor = false;
@@ -464,9 +464,9 @@
             // printButton
             // 
             this.printButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printButton.Location = new System.Drawing.Point(369, 498);
+            this.printButton.Location = new System.Drawing.Point(369, 536);
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(75, 23);
+            this.printButton.Size = new System.Drawing.Size(75, 25);
             this.printButton.TabIndex = 14;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
@@ -474,10 +474,10 @@
             // 
             // SearchInventoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(810, 534);
+            this.ClientSize = new System.Drawing.Size(810, 575);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.categorySearchComboBox);
             this.Controls.Add(this.label4);
@@ -490,7 +490,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.updateGroupBox);
             this.Controls.Add(this.removeGroupBox);
-            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

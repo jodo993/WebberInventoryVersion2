@@ -192,6 +192,16 @@ namespace Webber_Inventory_Search_2017_2018
                     bool originalDigit = checkDigit.digitOnly(originalAddTextBox.Text);
                     bool lunchDigit = checkDigit.digitOnly(studentEditTextBox.Text);
 
+                    if (billAmountTextBox.Text != "")
+                    {
+                        bool billAmountCheck = checkDigit.digitOnly(billAmountTextBox.Text);
+                        if (billAmountCheck == false)
+                        {
+                            MessageBox.Show("Bill amount must be a number.");
+                            return;
+                        }
+                    }
+
                     if (originalDigit == true && lunchDigit == true)
                     {
                         int lunchID = int.Parse(studentEditTextBox.Text);

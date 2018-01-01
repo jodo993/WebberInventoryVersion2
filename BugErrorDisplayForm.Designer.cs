@@ -37,7 +37,8 @@
             // bugErrorLabel
             // 
             this.bugErrorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bugErrorLabel.Location = new System.Drawing.Point(22, 42);
+            this.bugErrorLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugErrorLabel.Location = new System.Drawing.Point(22, 44);
             this.bugErrorLabel.Name = "bugErrorLabel";
             this.bugErrorLabel.Size = new System.Drawing.Size(660, 488);
             this.bugErrorLabel.TabIndex = 0;
@@ -75,6 +76,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BugErrorDisplayForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bug Error Display";
             this.ResumeLayout(false);
             this.PerformLayout();

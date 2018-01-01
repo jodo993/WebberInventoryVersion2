@@ -45,7 +45,7 @@
             // closeButton
             // 
             this.closeButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(297, 312);
+            this.closeButton.Location = new System.Drawing.Point(297, 351);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 2;
@@ -66,9 +66,9 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 138);
+            this.label3.Location = new System.Drawing.Point(12, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(360, 52);
+            this.label3.Size = new System.Drawing.Size(360, 66);
             this.label3.TabIndex = 4;
             this.label3.Text = resources.GetString("label3.Text");
             // 
@@ -76,7 +76,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 224);
+            this.label4.Location = new System.Drawing.Point(12, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(352, 13);
             this.label4.TabIndex = 5;
@@ -85,7 +85,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(15, 240);
+            this.descriptionTextBox.Location = new System.Drawing.Point(15, 279);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(357, 66);
@@ -94,7 +94,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextBox.Location = new System.Drawing.Point(15, 201);
+            this.nameTextBox.Location = new System.Drawing.Point(15, 240);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 21);
             this.nameTextBox.TabIndex = 0;
@@ -103,7 +103,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 185);
+            this.label5.Location = new System.Drawing.Point(12, 224);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 8;
@@ -126,7 +126,7 @@
             // 
             // nameLabel
             // 
-            this.nameLabel.Location = new System.Drawing.Point(12, 317);
+            this.nameLabel.Location = new System.Drawing.Point(12, 356);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 23);
             this.nameLabel.TabIndex = 9;
@@ -134,7 +134,7 @@
             // 
             // descLabel
             // 
-            this.descLabel.Location = new System.Drawing.Point(53, 317);
+            this.descLabel.Location = new System.Drawing.Point(53, 356);
             this.descLabel.Name = "descLabel";
             this.descLabel.Size = new System.Drawing.Size(42, 23);
             this.descLabel.TabIndex = 10;
@@ -142,7 +142,7 @@
             // 
             // buttonLabel
             // 
-            this.buttonLabel.Location = new System.Drawing.Point(26, 317);
+            this.buttonLabel.Location = new System.Drawing.Point(26, 356);
             this.buttonLabel.Name = "buttonLabel";
             this.buttonLabel.Size = new System.Drawing.Size(42, 23);
             this.buttonLabel.TabIndex = 11;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 344);
+            this.ClientSize = new System.Drawing.Size(384, 380);
             this.Controls.Add(this.buttonLabel);
             this.Controls.Add(this.descLabel);
             this.Controls.Add(this.nameLabel);

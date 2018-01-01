@@ -318,6 +318,17 @@ namespace Webber_Inventory_Search_2017_2018
                     fixDateTextBox.Text = reader["PlannedFixDate"].ToString();
                 }
                 connection.Close();
+
+                if (statusComboBox.Text == "Closed")
+                {
+                    statusComboBox.Enabled = false;
+                    fixDateTextBox.Enabled = false;
+                }
+                else
+                {
+                    statusComboBox.Enabled = true;
+                    fixDateTextBox.Enabled = true;
+                }
             }
             catch (Exception ex)
             {

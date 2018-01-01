@@ -38,6 +38,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string button = buttonLabel.Text;
                 string bugInformation = descLabel.Text;
                 string status = "Open";
+                string fix = "";
 
                 // If user entered input transfer here
                 if (nameTextBox.Text != "")
@@ -53,7 +54,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "insert into Exception_Error_Report (Page,Button,Error,Person,PersonDescription,Status,Fix,FixDate) values('" + page + "','" + button + "','" + bugInformation + "','" + name + "','" + description + "','" + status + "', '" + "" + "', '" + "" + "')";
+                command.CommandText = "insert into Exception_Error_Report (Page,Button,Error,Person,Description,Status,Fix) values('" + page + "','" + button + "','" + bugInformation + "','" + name + "','" + description + "','" + status + "','" + fix + "')";
                 command.ExecuteNonQuery();
 
                 connection.Close();
