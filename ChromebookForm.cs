@@ -97,8 +97,16 @@ namespace Webber_Inventory_Search_2017_2018
                         if (billAmountTextBox.Text == "")
                             billAmount = "";
                         else
+                        {
                             billAmount = billAmountTextBox.Text;
-
+                            bool billDigit = checkDigit.digitOnly(billAmount);
+                            if (billDigit == false)
+                            {
+                                MessageBox.Show("Bill must be a number.");
+                                return;
+                            }
+                        }
+                            
                         if (billDateTextBox.Text == "")
                             billDate = "";
                         else

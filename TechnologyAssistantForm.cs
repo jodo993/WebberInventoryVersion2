@@ -92,14 +92,21 @@ namespace Webber_Inventory_Search_2017_2018
                 string[] statusCheck = new string[1000];
                 int i = 0;
 
-                // Add only open tickets to listbox
+                //// Add only open tickets to listbox
+                //OleDbDataReader reader = commandID.ExecuteReader();
+                //while (reader.Read())
+                //{
+                //    statusCheck[i] = reader["Status"].ToString();
+                //    if (statusCheck[i] == "Open")
+                //        openTicketListBox.Items.Add(reader["ID"].ToString());
+                //    i++;
+                //}
+
+                // Add all tickets to listbox
                 OleDbDataReader reader = commandID.ExecuteReader();
-                while (reader.Read())
+                while(reader.Read())
                 {
-                    statusCheck[i] = reader["Status"].ToString();
-                    if (statusCheck[i] == "Open")
-                        openTicketListBox.Items.Add(reader["ID"].ToString());
-                    i++;
+                    openTicketListBox.Items.Add(reader["ID"].ToString());
                 }
 
                 OleDbCommand commandSupplies = new OleDbCommand();

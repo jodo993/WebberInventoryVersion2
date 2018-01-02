@@ -14,7 +14,7 @@ namespace Webber_Inventory_Search_2017_2018
             foreach (char c in str)
             {
                 if (c < '0' || c > '9')
-                    return false;
+                        return false;
             }
             return true;
         }
