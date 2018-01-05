@@ -24,14 +24,14 @@ namespace Webber_Inventory_Search_2017_2018
         }
 
         // Check to see if applicant is already registered
-        private bool CheckApplicantRecord(string first, string last)
+        private bool CheckApplicantRecord(string full)
         {
             bool newApplicant = true;
 
             // Applicant full name
-            string newFullName = first + last;
-            string recordFullName;
+            string recordFullName = "";
 
+            // Hold first and last name
             string[] firstNameArray = new string[2500];
             string[] lastNameArray = new string[2500];
             int i = 0;
@@ -44,13 +44,14 @@ namespace Webber_Inventory_Search_2017_2018
                 command.Connection = connection;
                 command.CommandText = "select * from Master_Key_Login";
 
+                // Get both names and add them together, return false if same
                 OleDbDataReader nameReader = command.ExecuteReader();
                 while (nameReader.Read())
                 {
-                    firstNameArray[i] = nameReader["PrivateKey"].ToString();
-                    lastNameArray[i] = nameReader["PrivateKey"].ToString();
+                    firstNameArray[i] = nameReader["FirstName"].ToString();
+                    lastNameArray[i] = nameReader["LastName"].ToString();
                     recordFullName = firstNameArray[i] + lastNameArray[i];
-                    if (recordFullName == newFullName)
+                    if (recordFullName == full)
                     {
                         connection.Close();
                         return false;
@@ -75,7 +76,7 @@ namespace Webber_Inventory_Search_2017_2018
 
             // Create random private key number
             Random randomKey = new Random();
-            privateKey = randomKey.Next(1,11);
+            privateKey = randomKey.Next(1000,9999);
 
             // Convert key to string
             string privateKeyString = privateKey.ToString();
@@ -134,10 +135,15 @@ namespace Webber_Inventory_Search_2017_2018
                         lastName = lastNameTextBox.Text.ToUpper();
                         gradeLevel = gradeLevelComboBox.Text.ToUpper();
 
+                        string fullName = firstName + lastName;
+
                         // Check for duplicate names
-                        bool newAccount = CheckApplicantRecord(firstName,lastName);
-                        while (newAccount == false)
-                            newAccount = CheckApplicantRecord(firstName, lastName);
+                        bool newAccount = CheckApplicantRecord(fullName);
+                        if (newAccount == false)
+                        {
+                            MessageBox.Show("This name is already registered. Please check with the admininstrator for help or enter a new name.");
+                            return;
+                        }
 
                         // Create and check private key
                         int privateKeyNum = CreateKey();
@@ -176,6 +182,11 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 MessageBox.Show("Please fill in all the fields.");
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

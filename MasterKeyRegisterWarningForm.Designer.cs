@@ -52,6 +52,7 @@
             this.backButton.Text = "Back";
             this.backButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // createButton
             // 
