@@ -38,7 +38,6 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.gradeLevelComboBox = new System.Windows.Forms.ComboBox();
-            this.userLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -140,7 +139,6 @@
             this.gradeLevelComboBox.FormattingEnabled = true;
             this.gradeLevelComboBox.Items.AddRange(new object[] {
             "Pre-School",
-            "Transitional Kindergarten",
             "Kindergarten",
             "First",
             "Second",
@@ -154,21 +152,11 @@
             this.gradeLevelComboBox.Size = new System.Drawing.Size(197, 27);
             this.gradeLevelComboBox.TabIndex = 9;
             // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Location = new System.Drawing.Point(281, 283);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(27, 13);
-            this.userLabel.TabIndex = 10;
-            this.userLabel.Text = "user";
-            // 
             // MasterKeyRegisterWarningForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 309);
-            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.gradeLevelComboBox);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
@@ -198,6 +186,5 @@
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.ComboBox gradeLevelComboBox;
-        private System.Windows.Forms.Label userLabel;
     }
 }
