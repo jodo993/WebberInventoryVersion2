@@ -26,7 +26,7 @@ namespace Webber_Inventory_Search_2017_2018
         // Check to see if applicant is already registered
         private bool CheckApplicantRecord(string full)
         {
-            bool newApplicant = true;
+            //bool newApplicant = true;
 
             // Applicant full name
             string recordFullName = "";
@@ -186,7 +186,7 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void backButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
