@@ -62,7 +62,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("checkappl" + ex);
+                // Send bug report
+                string page = "Master Key Register";
+                string button = "CheckApplicantRecord";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
             connection.Close();
             return true;
@@ -111,7 +118,14 @@ namespace Webber_Inventory_Search_2017_2018
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Bug" + ex);
+                    // Send bug report
+                    string page = "Master Key Register";
+                    string button = "CreateKey";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
             connection.Close();
@@ -167,7 +181,14 @@ namespace Webber_Inventory_Search_2017_2018
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Yo" + ex);
+                            // Send bug report
+                            string page = "Master Key Register";
+                            string button = "Create";
+                            string exception = ex.ToString();
+                            BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                            bugSplat.ShowDialog();
+
+                            this.Close();
                         }
                     }
                     else

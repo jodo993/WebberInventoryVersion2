@@ -86,7 +86,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("checkappl" + ex);
+                // Send bug report
+                string page = "Master Key";
+                string button = "CheckUsername";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
             connection.Close();
             return false;
@@ -121,7 +128,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bug" + ex);
+                // Send bug report
+                string page = "Master Key";
+                string button = "CheckPrivateKey";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
             connection.Close();
             return false;
@@ -161,7 +175,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bug" + ex);
+                // Send bug report
+                string page = "Master Key";
+                string button = "ConfirmUser";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
             connection.Close();
             return false;
@@ -169,7 +190,7 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string userName = nameTextBox.Text.ToUpper();
+            string userName = nameTextBox.Text.ToUpper().Trim();
             string privateKey = privateKeyTextBox.Text.ToUpper();
 
             if (userName == "" || privateKey == "")
@@ -199,12 +220,19 @@ namespace Webber_Inventory_Search_2017_2018
                     bool registeredUser = ConfirmUser(userName, privateKey);
                     if (registeredUser == false)
                     {
-                        MessageBox.Show("you out!");
+                        MessageBox.Show("Name and key does not match. Please try again.");
                         return;
                     }
                     else
-                    
-                        MessageBox.Show("you in!");
+                    {
+                        this.Hide();
+
+                        string user = userLabel.Text;
+                        MasterKeyPasswordPage passwordPage = new MasterKeyPasswordPage(user, userName, privateKey);
+                        passwordPage.ShowDialog();
+
+                        this.Close();
+                    }
                 }
             }
         }

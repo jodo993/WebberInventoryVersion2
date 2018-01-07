@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterKeyForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.privateKeyTextBox = new System.Windows.Forms.TextBox();
@@ -83,7 +84,7 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.BackColor = System.Drawing.Color.Firebrick;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
@@ -157,8 +158,9 @@
             this.userLabel.AutoSize = true;
             this.userLabel.Location = new System.Drawing.Point(570, 306);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(0, 13);
+            this.userLabel.Size = new System.Drawing.Size(27, 13);
             this.userLabel.TabIndex = 9;
+            this.userLabel.Text = "user";
             this.userLabel.Visible = false;
             // 
             // MasterKeyForm
@@ -173,6 +175,7 @@
             this.Controls.Add(this.registerLinkLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MasterKeyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

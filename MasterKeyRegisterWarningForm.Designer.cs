@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterKeyRegisterWarningForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -150,27 +151,23 @@
             // backButton
             // 
             this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.backwardIcon;
             this.backButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.backButton.Location = new System.Drawing.Point(12, 266);
+            this.backButton.Location = new System.Drawing.Point(12, 267);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 30);
             this.backButton.TabIndex = 5;
             this.backButton.Text = "Back";
-            this.backButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // createButton
             // 
-            this.createButton.Image = global::Webber_Inventory_Search_2017_2018.Properties.Resources.forwardIcon;
             this.createButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.createButton.Location = new System.Drawing.Point(497, 266);
+            this.createButton.Location = new System.Drawing.Point(271, 240);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 30);
             this.createButton.TabIndex = 4;
             this.createButton.Text = "Create";
-            this.createButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
@@ -191,6 +188,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.createButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MasterKeyRegisterWarningForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

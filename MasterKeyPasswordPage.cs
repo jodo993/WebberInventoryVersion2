@@ -62,7 +62,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hi" + ex);
+                // Send bug report
+                string page = "Master Key Password";
+                string button = "Load";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -89,7 +96,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hi" + ex);
+                // Send bug report
+                string page = "Master Key Password";
+                string button = "PasswordListBox";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
 
@@ -118,7 +132,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hi" + ex);
+                // Send bug report
+                string page = "Master Key Password";
+                string button = "ProgramListBox";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
             }
         }
         
@@ -160,7 +181,14 @@ namespace Webber_Inventory_Search_2017_2018
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("hi" + ex);
+                    // Send bug report
+                    string page = "Master Key Password";
+                    string button = "Add";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
         }
@@ -168,19 +196,24 @@ namespace Webber_Inventory_Search_2017_2018
         // Update data for current programs
         private void updateButton_Click(object sender, EventArgs e)
         {
-            int ID = int.Parse(idLabel.Text);
-            int key = int.Parse(keyLabel.Text);
-            string program = programTextBox.Text;
-            string username = newUsernameTextBox.Text;
-            string password = newPasswordTextBox.Text;
-
-            if (program == "" || username == "" || password == "")
+            if (programTextBox.Text == "" || newUsernameTextBox.Text == "" || newPasswordTextBox.Text == "")
             {
                 MessageBox.Show("All 3 fields must be filled out to update.");
                 return;
             }
+            else if (idLabel.Text == "")
+            {
+                MessageBox.Show("Must select a program to update.");
+                return;
+            }
             else
             {
+                int ID = int.Parse(idLabel.Text);
+                int key = int.Parse(keyLabel.Text);
+                string program = programTextBox.Text;
+                string username = newUsernameTextBox.Text;
+                string password = newPasswordTextBox.Text;
+
                 try
                 {
                     connection.Open();
@@ -202,7 +235,14 @@ namespace Webber_Inventory_Search_2017_2018
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("hi" + ex);
+                    // Send bug report
+                    string page = "Master Key Password";
+                    string button = "Update";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
         }
@@ -210,21 +250,25 @@ namespace Webber_Inventory_Search_2017_2018
         // Delete information for program for user
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            // Variables to hold required information
-            int ID = int.Parse(idLabel.Text);
-            int key = int.Parse(keyLabel.Text);
-            string program = programTextBox.Text;
-            string username = newUsernameTextBox.Text;
-            string password = newPasswordTextBox.Text;
-
             // Check to see if boxes are blank
-            if (program == "" || username == "" || password == "")
+            if (programTextBox.Text == "" || newUsernameTextBox.Text == "" || newPasswordTextBox.Text == "")
             {
                 MessageBox.Show("All 3 fields must be filled out to delete.");
                 return;
             }
+            else if (idLabel.Text == "")
+            {
+                MessageBox.Show("Must select a program to delete.");
+                return;
+            }
             else
             {
+                // Variables to hold required information
+                int ID = int.Parse(idLabel.Text);
+                int key = int.Parse(keyLabel.Text);
+                string program = programTextBox.Text;
+                string username = newUsernameTextBox.Text;
+                string password = newPasswordTextBox.Text;
                 // Open and remove information from database
                 try
                 {
@@ -240,6 +284,7 @@ namespace Webber_Inventory_Search_2017_2018
                     // Confirm add and display in listbox
                     MessageBox.Show("Information for \"" + program + "\" was deleted.");
                     updateProgramListBox.Items.Remove(program);
+                    passwordListBox.Items.Remove(program);
 
                     // Clear textboxes
                     programTextBox.Text = "";
@@ -248,7 +293,14 @@ namespace Webber_Inventory_Search_2017_2018
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("hi" + ex);
+                    // Send bug report
+                    string page = "Master Key Password";
+                    string button = "Delete";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
         }
