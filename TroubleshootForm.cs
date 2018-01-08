@@ -180,13 +180,25 @@ namespace Webber_Inventory_Search_2017_2018
 
                 this.Close();
             }
-            
         }
 
         private void solutionListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Reset rating options
+            radioRateOne.Enabled = true;
+            radioRateTwo.Enabled = true;
+            radioRateThree.Enabled = true;
+            radioRateFour.Enabled = true;
+            radioRateFive.Enabled = true;
+            rateButton.Enabled = true;
+
             try
             {
+                // Rating variables for solutions
+                double totalRatingPoints = 0.0;
+                double totalRatingVotes = 0.0;
+                double averageRating = 0.0;
+
                 // Return data of selected problem
                 connection.Open();
 
@@ -200,8 +212,100 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     explanationLabel.Text = reader["Explanation"].ToString();
                     solutionLabel.Text = reader["Resolution"].ToString();
+                    totalRatingPoints = double.Parse(reader["TotalRatingPoints"].ToString());
+                    totalRatingVotes = double.Parse(reader["TotalRatingVotes"].ToString());
                 }
                 connection.Close();
+
+                // Get rating and show to user
+                averageRating = totalRatingPoints / totalRatingVotes;
+                averageRating = Math.Round(averageRating, 1);
+
+                if (averageRating >= 4)
+                    averageRatingLabel.BackColor = System.Drawing.Color.Green;
+                else if (averageRating >= 3)
+                    averageRatingLabel.BackColor = System.Drawing.Color.YellowGreen;
+                else if (averageRating >= 2)
+                    averageRatingLabel.BackColor = System.Drawing.Color.Gold;
+                else if (averageRating >= 1)
+                    averageRatingLabel.BackColor = System.Drawing.Color.DarkOrange;
+                else if (averageRating >= 0)
+                    averageRatingLabel.BackColor = System.Drawing.Color.Red;
+                else
+                    averageRatingLabel.BackColor = System.Drawing.Color.Transparent;
+
+                totalRatingVotesLabel.Text = totalRatingVotes.ToString();
+                averageRatingLabel.Text = averageRating.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Get and send information to bug report
+                string page = "Troubleshoot";
+                string button = "Selected Index";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
+
+                this.Close();
+            }
+        }
+
+        // Update the database with the ratings
+        private void rateButton_Click(object sender, EventArgs e)
+        {
+            double ratingNumber = 0.0;
+            double totalRatingPoints = 0.0;
+            double totalRatingVotes = 0.0;
+
+            if (radioRateOne.Checked)
+                ratingNumber = 1.0;
+            else if (radioRateTwo.Checked)
+                ratingNumber = 2.0;
+            else if (radioRateThree.Checked)
+                ratingNumber = 3.0;
+            else if (radioRateFour.Checked)
+                ratingNumber = 4.0;
+            else if (radioRateFive.Checked)
+                ratingNumber = 5.0;
+            else
+                MessageBox.Show("Please select a rating.");
+
+            try
+            {
+                connection.Open();
+
+                // Get points and votes
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
+                command.CommandText = query;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    totalRatingPoints = double.Parse(reader["TotalRatingPoints"].ToString());
+                    totalRatingVotes = double.Parse(reader["TotalRatingVotes"].ToString());
+                }
+
+                totalRatingPoints = totalRatingPoints + ratingNumber;
+                totalRatingVotes++;
+
+                // Update the new points and votes
+
+                OleDbCommand commandUpdate = new OleDbCommand();
+                commandUpdate.Connection = connection;
+                commandUpdate.CommandText = "update Troubleshoot_Data set TotalRatingPoints=" + totalRatingPoints + ",TotalRatingVotes=" + totalRatingVotes + " where Issue='" + solutionListBox.SelectedItem + "'";
+                commandUpdate.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Thank you for rating.");
+
+                radioRateOne.Enabled = false;
+                radioRateTwo.Enabled = false;
+                radioRateThree.Enabled = false;
+                radioRateFour.Enabled = false;
+                radioRateFive.Enabled = false;
+                rateButton.Enabled = false;
             }
             catch (Exception ex)
             {
