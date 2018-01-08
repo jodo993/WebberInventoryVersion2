@@ -24,56 +24,56 @@ namespace Webber_Inventory_Search_2017_2018
         }
 
         // Check to see if applicant is already registered
-        private bool CheckApplicantRecord(string full)
-        {
-            //bool newApplicant = true;
+        //private bool CheckApplicantRecord(string full)
+        //{
+        //    //bool newApplicant = true;
 
-            // Applicant full name
-            string recordFullName = "";
+        //    // Applicant full name
+        //    string recordFullName = "";
 
-            // Hold first and last name
-            string[] firstNameArray = new string[2500];
-            string[] lastNameArray = new string[2500];
-            int i = 0;
+        //    // Hold first and last name
+        //    string[] firstNameArray = new string[2500];
+        //    string[] lastNameArray = new string[2500];
+        //    int i = 0;
 
-            try
-            {
-                connection.Open();
+        //    try
+        //    {
+        //        connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "select * from Master_Key_Login";
+        //        OleDbCommand command = new OleDbCommand();
+        //        command.Connection = connection;
+        //        command.CommandText = "select * from Master_Key_Login";
 
-                // Get both names and add them together, return false if same
-                OleDbDataReader nameReader = command.ExecuteReader();
-                while (nameReader.Read())
-                {
-                    firstNameArray[i] = nameReader["FirstName"].ToString();
-                    lastNameArray[i] = nameReader["LastName"].ToString();
-                    recordFullName = firstNameArray[i] + lastNameArray[i];
-                    if (recordFullName == full)
-                    {
-                        connection.Close();
-                        return false;
-                    }
-                }
-                connection.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                // Send bug report
-                string page = "Master Key Register";
-                string button = "CheckApplicantRecord";
-                string exception = ex.ToString();
-                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                bugSplat.ShowDialog();
+        //        // Get both names and add them together, return false if same
+        //        OleDbDataReader nameReader = command.ExecuteReader();
+        //        while (nameReader.Read())
+        //        {
+        //            firstNameArray[i] = nameReader["FirstName"].ToString();
+        //            lastNameArray[i] = nameReader["LastName"].ToString();
+        //            recordFullName = firstNameArray[i] + lastNameArray[i];
+        //            if (recordFullName == full)
+        //            {
+        //                connection.Close();
+        //                return false;
+        //            }
+        //        }
+        //        connection.Close();
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Send bug report
+        //        string page = "Master Key Register";
+        //        string button = "CheckApplicantRecord";
+        //        string exception = ex.ToString();
+        //        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+        //        bugSplat.ShowDialog();
 
-                this.Close();
-            }
-            connection.Close();
-            return true;
-        }
+        //        this.Close();
+        //    }
+        //    connection.Close();
+        //    return true;
+        //}
 
         // Create a key and check to see if it exist or not
         private int CreateKey()
@@ -152,12 +152,12 @@ namespace Webber_Inventory_Search_2017_2018
                         string fullName = firstName + lastName;
 
                         // Check for duplicate names
-                        bool newAccount = CheckApplicantRecord(fullName);
-                        if (newAccount == false)
-                        {
-                            MessageBox.Show("This name is already registered. Please check with the admininstrator for help or enter a new name.");
-                            return;
-                        }
+                        //bool newAccount = CheckApplicantRecord(fullName);
+                        //if (newAccount == false)
+                        //{
+                        //    MessageBox.Show("This name is already registered. Please check with the admininstrator for help or enter a new name.");
+                        //    return;
+                        //}
 
                         // Create and check private key
                         int privateKeyNum = CreateKey();

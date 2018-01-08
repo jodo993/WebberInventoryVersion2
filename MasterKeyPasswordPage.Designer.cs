@@ -371,7 +371,6 @@
             this.label2.Size = new System.Drawing.Size(172, 125);
             this.label2.TabIndex = 7;
             this.label2.Text = resources.GetString("label2.Text");
-            this.label2.Visible = false;
             // 
             // label11
             // 
@@ -406,7 +405,6 @@
             this.label13.TabIndex = 13;
             this.label13.Text = "Only username and password will be updated. Programs cannot be updated, only adde" +
     "d or deleted.";
-            this.label13.Visible = false;
             // 
             // MasterKeyPasswordPage
             // 

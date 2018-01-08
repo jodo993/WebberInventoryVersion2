@@ -84,7 +84,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                                 OleDbCommand command = new OleDbCommand();
                                 command.Connection = connection;
-                                command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "','" + tag + "','" + location + "','" + status + "')";
+                                command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "'," + tag + ",'" + location + "','" + status + "')";
                                 command.ExecuteNonQuery();     
 
                                 connection.Close();

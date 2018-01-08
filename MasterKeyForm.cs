@@ -199,40 +199,54 @@ namespace Webber_Inventory_Search_2017_2018
             }
             else
             {
-                CheckDigitClass checkKey = new CheckDigitClass();
-                bool privateKeyIsDigit = checkKey.digitOnly(privateKey);
-                if (!privateKeyIsDigit)
+                try
                 {
-                    MessageBox.Show("Your private key must be a four digit number.");
-                    return;
-                }
-
-                bool correctName = CheckUsername(userName);
-                bool correctKey = CheckPrivateKey(privateKey);
-
-                if (correctName != true && correctKey != true)
-                {
-                    MessageBox.Show("Full name or key does not exist. Please try again.");
-                    return;
-                }
-                else
-                {
-                    bool registeredUser = ConfirmUser(userName, privateKey);
-                    if (registeredUser == false)
+                    CheckDigitClass checkKey = new CheckDigitClass();
+                    bool privateKeyIsDigit = checkKey.digitOnly(privateKey);
+                    if (!privateKeyIsDigit)
                     {
-                        MessageBox.Show("Name and key does not match. Please try again.");
+                        MessageBox.Show("Your private key must be a four digit number.");
+                        return;
+                    }
+
+                    bool correctName = CheckUsername(userName);
+                    bool correctKey = CheckPrivateKey(privateKey);
+
+                    if (correctName != true && correctKey != true)
+                    {
+                        MessageBox.Show("Full name or key does not exist. Please try again.");
                         return;
                     }
                     else
                     {
-                        this.Hide();
+                        bool registeredUser = ConfirmUser(userName, privateKey);
+                        if (registeredUser == false)
+                        {
+                            MessageBox.Show("Name and key does not match. Please try again.");
+                            return;
+                        }
+                        else
+                        {
+                            this.Hide();
 
-                        string user = userLabel.Text;
-                        MasterKeyPasswordPage passwordPage = new MasterKeyPasswordPage(user, userName, privateKey);
-                        passwordPage.ShowDialog();
+                            string user = userLabel.Text;
+                            MasterKeyPasswordPage passwordPage = new MasterKeyPasswordPage(user, userName, privateKey);
+                            passwordPage.ShowDialog();
 
-                        this.Close();
+                            this.Close();
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    // Send bug report
+                    string page = "Master Key";
+                    string button = "Login";
+                    string exception = ex.ToString();
+                    BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                    bugSplat.ShowDialog();
+
+                    this.Close();
                 }
             }
         }

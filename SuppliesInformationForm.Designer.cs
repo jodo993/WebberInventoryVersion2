@@ -62,6 +62,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.catComboBox);
             this.groupBox1.Controls.Add(this.linkLabel1);
@@ -407,6 +409,16 @@
             this.userLabel.Size = new System.Drawing.Size(25, 27);
             this.userLabel.TabIndex = 22;
             // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(328, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 50);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Use the drag down to find your item.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SuppliesInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -468,5 +480,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox catTextBox;
         private System.Windows.Forms.TextBox linkTextBox;
+        private System.Windows.Forms.Label label4;
     }
 }
