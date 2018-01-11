@@ -16,13 +16,12 @@ namespace Webber_Inventory_Search_2017_2018
         // Use by this form only, global
         private OleDbConnection connection = new OleDbConnection();
 
-        public TroubleshootForm()
+        public TroubleshootForm(string user)
         {
             InitializeComponent();
-
-            // Connect to database                        
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            userLabel.Text = user;
+            // Connect to database  
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Return to main menu
@@ -30,8 +29,16 @@ namespace Webber_Inventory_Search_2017_2018
         {
             this.Hide();
 
-            MainMenuForm mainMenu = new MainMenuForm();
-            mainMenu.ShowDialog();
+            if (userLabel.Text == "T")
+            {
+                MainMenuForm2 mainMenu2 = new MainMenuForm2();
+                mainMenu2.ShowDialog();
+            }
+            else
+            {
+                MainMenuForm mainMenu = new MainMenuForm();
+                mainMenu.ShowDialog();
+            }
 
             this.Close();
         }
@@ -127,11 +134,11 @@ namespace Webber_Inventory_Search_2017_2018
                         }
                     }
 
+                    connection.Close();
+
                     // If there are no matches
                     if (solutionFound < 1)
                         MessageBox.Show("No solution found.");
-
-                    connection.Close();
                 }
                 catch (Exception ex)
                 {

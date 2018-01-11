@@ -135,7 +135,7 @@
             this.programComboBox.Location = new System.Drawing.Point(44, 57);
             this.programComboBox.Name = "programComboBox";
             this.programComboBox.Size = new System.Drawing.Size(209, 22);
-            this.programComboBox.TabIndex = 5;
+            this.programComboBox.TabIndex = 6;
             this.programComboBox.SelectedIndexChanged += new System.EventHandler(this.programComboBox_SelectedIndexChanged);
             // 
             // issueComboBox
@@ -144,7 +144,7 @@
             this.issueComboBox.Location = new System.Drawing.Point(44, 144);
             this.issueComboBox.Name = "issueComboBox";
             this.issueComboBox.Size = new System.Drawing.Size(209, 22);
-            this.issueComboBox.TabIndex = 6;
+            this.issueComboBox.TabIndex = 7;
             this.issueComboBox.SelectedIndexChanged += new System.EventHandler(this.issueComboBox_SelectedIndexChanged);
             // 
             // label1
@@ -162,7 +162,7 @@
             this.mainMenuButton.Location = new System.Drawing.Point(497, 27);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(77, 25);
-            this.mainMenuButton.TabIndex = 8;
+            this.mainMenuButton.TabIndex = 1;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
@@ -173,7 +173,7 @@
             this.exitButton.Location = new System.Drawing.Point(580, 27);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(61, 25);
-            this.exitButton.TabIndex = 9;
+            this.exitButton.TabIndex = 2;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -211,6 +211,7 @@
             this.openTicketListBox.Location = new System.Drawing.Point(22, 39);
             this.openTicketListBox.Name = "openTicketListBox";
             this.openTicketListBox.Size = new System.Drawing.Size(120, 242);
+            this.openTicketListBox.Sorted = true;
             this.openTicketListBox.TabIndex = 15;
             this.openTicketListBox.SelectedIndexChanged += new System.EventHandler(this.openTicketListBox_SelectedIndexChanged);
             // 
@@ -261,7 +262,7 @@
             this.fixDateTextBox.Mask = "00/00/0000 90:00";
             this.fixDateTextBox.Name = "fixDateTextBox";
             this.fixDateTextBox.Size = new System.Drawing.Size(100, 22);
-            this.fixDateTextBox.TabIndex = 18;
+            this.fixDateTextBox.TabIndex = 4;
             this.fixDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // updateButton
@@ -269,7 +270,7 @@
             this.updateButton.Location = new System.Drawing.Point(299, 208);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 25);
-            this.updateButton.TabIndex = 32;
+            this.updateButton.TabIndex = 5;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
@@ -293,7 +294,7 @@
             this.statusComboBox.Location = new System.Drawing.Point(274, 114);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(100, 22);
-            this.statusComboBox.TabIndex = 30;
+            this.statusComboBox.TabIndex = 3;
             // 
             // label7
             // 
@@ -548,7 +549,7 @@
             this.linkLabel.Location = new System.Drawing.Point(154, 247);
             this.linkLabel.Name = "linkLabel";
             this.linkLabel.Size = new System.Drawing.Size(447, 22);
-            this.linkLabel.TabIndex = 37;
+            this.linkLabel.TabIndex = 14;
             // 
             // updateSupplyButton
             // 
@@ -565,21 +566,21 @@
             this.supplyLabel.Location = new System.Drawing.Point(154, 207);
             this.supplyLabel.Name = "supplyLabel";
             this.supplyLabel.Size = new System.Drawing.Size(447, 22);
-            this.supplyLabel.TabIndex = 36;
+            this.supplyLabel.TabIndex = 13;
             // 
             // typeLabel
             // 
             this.typeLabel.Location = new System.Drawing.Point(154, 47);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(447, 22);
-            this.typeLabel.TabIndex = 16;
+            this.typeLabel.TabIndex = 9;
             // 
             // catLabel
             // 
             this.catLabel.Location = new System.Drawing.Point(154, 167);
             this.catLabel.Name = "catLabel";
             this.catLabel.Size = new System.Drawing.Size(447, 22);
-            this.catLabel.TabIndex = 35;
+            this.catLabel.TabIndex = 12;
             // 
             // label22
             // 
@@ -595,7 +596,7 @@
             this.modelLabel.Location = new System.Drawing.Point(154, 127);
             this.modelLabel.Name = "modelLabel";
             this.modelLabel.Size = new System.Drawing.Size(447, 22);
-            this.modelLabel.TabIndex = 34;
+            this.modelLabel.TabIndex = 11;
             // 
             // label21
             // 
@@ -611,7 +612,7 @@
             this.brandLabel.Location = new System.Drawing.Point(154, 87);
             this.brandLabel.Name = "brandLabel";
             this.brandLabel.Size = new System.Drawing.Size(447, 22);
-            this.brandLabel.TabIndex = 33;
+            this.brandLabel.TabIndex = 10;
             // 
             // label20
             // 
@@ -655,7 +656,7 @@
             this.deleteSupplyButton.Location = new System.Drawing.Point(526, 281);
             this.deleteSupplyButton.Name = "deleteSupplyButton";
             this.deleteSupplyButton.Size = new System.Drawing.Size(75, 25);
-            this.deleteSupplyButton.TabIndex = 2;
+            this.deleteSupplyButton.TabIndex = 16;
             this.deleteSupplyButton.Text = "Delete";
             this.deleteSupplyButton.UseVisualStyleBackColor = true;
             this.deleteSupplyButton.Click += new System.EventHandler(this.deleteSupplyButton_Click);
@@ -676,7 +677,7 @@
             this.suppliesListBox.Location = new System.Drawing.Point(23, 39);
             this.suppliesListBox.Name = "suppliesListBox";
             this.suppliesListBox.Size = new System.Drawing.Size(53, 228);
-            this.suppliesListBox.TabIndex = 0;
+            this.suppliesListBox.TabIndex = 8;
             this.suppliesListBox.SelectedIndexChanged += new System.EventHandler(this.suppliesListBox_SelectedIndexChanged);
             // 
             // tabPage4
@@ -708,7 +709,7 @@
             this.troubleClearButton.Location = new System.Drawing.Point(438, 180);
             this.troubleClearButton.Name = "troubleClearButton";
             this.troubleClearButton.Size = new System.Drawing.Size(142, 25);
-            this.troubleClearButton.TabIndex = 13;
+            this.troubleClearButton.TabIndex = 22;
             this.troubleClearButton.Text = "Clear";
             this.troubleClearButton.UseVisualStyleBackColor = true;
             this.troubleClearButton.Click += new System.EventHandler(this.troubleClearButton_Click);
@@ -729,7 +730,7 @@
             this.explanationTextBox.Multiline = true;
             this.explanationTextBox.Name = "explanationTextBox";
             this.explanationTextBox.Size = new System.Drawing.Size(196, 64);
-            this.explanationTextBox.TabIndex = 11;
+            this.explanationTextBox.TabIndex = 18;
             // 
             // label26
             // 
@@ -767,7 +768,7 @@
             this.currentSolutionListBox.Location = new System.Drawing.Point(6, 34);
             this.currentSolutionListBox.Name = "currentSolutionListBox";
             this.currentSolutionListBox.Size = new System.Drawing.Size(180, 284);
-            this.currentSolutionListBox.TabIndex = 7;
+            this.currentSolutionListBox.TabIndex = 17;
             this.currentSolutionListBox.SelectedIndexChanged += new System.EventHandler(this.currentSolutionListBox_SelectedIndexChanged);
             // 
             // deleteTroubleButton
@@ -775,7 +776,7 @@
             this.deleteTroubleButton.Location = new System.Drawing.Point(438, 278);
             this.deleteTroubleButton.Name = "deleteTroubleButton";
             this.deleteTroubleButton.Size = new System.Drawing.Size(142, 25);
-            this.deleteTroubleButton.TabIndex = 6;
+            this.deleteTroubleButton.TabIndex = 24;
             this.deleteTroubleButton.Text = "Delete Selected";
             this.deleteTroubleButton.UseVisualStyleBackColor = true;
             this.deleteTroubleButton.Click += new System.EventHandler(this.deleteTroubleButton_Click);
@@ -785,7 +786,7 @@
             this.editTroubleButton.Location = new System.Drawing.Point(438, 244);
             this.editTroubleButton.Name = "editTroubleButton";
             this.editTroubleButton.Size = new System.Drawing.Size(142, 25);
-            this.editTroubleButton.TabIndex = 5;
+            this.editTroubleButton.TabIndex = 23;
             this.editTroubleButton.Text = "Update";
             this.editTroubleButton.UseVisualStyleBackColor = true;
             this.editTroubleButton.Click += new System.EventHandler(this.editTroubleButton_Click);
@@ -796,7 +797,7 @@
             this.solutionTextBox.Multiline = true;
             this.solutionTextBox.Name = "solutionTextBox";
             this.solutionTextBox.Size = new System.Drawing.Size(196, 166);
-            this.solutionTextBox.TabIndex = 4;
+            this.solutionTextBox.TabIndex = 20;
             // 
             // label23
             // 
@@ -814,14 +815,14 @@
             this.problemTextBox.Multiline = true;
             this.problemTextBox.Name = "problemTextBox";
             this.problemTextBox.Size = new System.Drawing.Size(196, 64);
-            this.problemTextBox.TabIndex = 3;
+            this.problemTextBox.TabIndex = 19;
             // 
             // addTroubleButton
             // 
             this.addTroubleButton.Location = new System.Drawing.Point(438, 211);
             this.addTroubleButton.Name = "addTroubleButton";
             this.addTroubleButton.Size = new System.Drawing.Size(142, 25);
-            this.addTroubleButton.TabIndex = 0;
+            this.addTroubleButton.TabIndex = 21;
             this.addTroubleButton.Text = "Add New";
             this.addTroubleButton.UseVisualStyleBackColor = true;
             this.addTroubleButton.Click += new System.EventHandler(this.addTroubleButton_Click);
@@ -881,7 +882,7 @@
             this.bugFixTextBox.Location = new System.Drawing.Point(170, 289);
             this.bugFixTextBox.Name = "bugFixTextBox";
             this.bugFixTextBox.Size = new System.Drawing.Size(282, 22);
-            this.bugFixTextBox.TabIndex = 23;
+            this.bugFixTextBox.TabIndex = 28;
             // 
             // bugStatusComboBox
             // 
@@ -894,7 +895,7 @@
             this.bugStatusComboBox.Location = new System.Drawing.Point(170, 254);
             this.bugStatusComboBox.Name = "bugStatusComboBox";
             this.bugStatusComboBox.Size = new System.Drawing.Size(141, 22);
-            this.bugStatusComboBox.TabIndex = 21;
+            this.bugStatusComboBox.TabIndex = 27;
             // 
             // deleteBugButton
             // 
@@ -902,7 +903,7 @@
             this.deleteBugButton.Location = new System.Drawing.Point(526, 51);
             this.deleteBugButton.Name = "deleteBugButton";
             this.deleteBugButton.Size = new System.Drawing.Size(75, 29);
-            this.deleteBugButton.TabIndex = 20;
+            this.deleteBugButton.TabIndex = 30;
             this.deleteBugButton.Text = "Delete";
             this.deleteBugButton.UseVisualStyleBackColor = true;
             this.deleteBugButton.Click += new System.EventHandler(this.deleteBugButton_Click);
@@ -913,7 +914,7 @@
             this.updateBugButton.Location = new System.Drawing.Point(526, 15);
             this.updateBugButton.Name = "updateBugButton";
             this.updateBugButton.Size = new System.Drawing.Size(75, 29);
-            this.updateBugButton.TabIndex = 19;
+            this.updateBugButton.TabIndex = 29;
             this.updateBugButton.Text = "Update";
             this.updateBugButton.UseVisualStyleBackColor = true;
             this.updateBugButton.Click += new System.EventHandler(this.updateBugButton_Click);
@@ -926,7 +927,7 @@
             this.bugErrorLinkLabel.Location = new System.Drawing.Point(170, 107);
             this.bugErrorLinkLabel.Name = "bugErrorLinkLabel";
             this.bugErrorLinkLabel.Size = new System.Drawing.Size(282, 25);
-            this.bugErrorLinkLabel.TabIndex = 18;
+            this.bugErrorLinkLabel.TabIndex = 26;
             this.bugErrorLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bugErrorLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bugErrorLinkLabel_LinkClicked);
             // 
@@ -1046,7 +1047,7 @@
             this.bugNumberListBox.Location = new System.Drawing.Point(19, 42);
             this.bugNumberListBox.Name = "bugNumberListBox";
             this.bugNumberListBox.Size = new System.Drawing.Size(59, 270);
-            this.bugNumberListBox.TabIndex = 1;
+            this.bugNumberListBox.TabIndex = 25;
             this.bugNumberListBox.SelectedIndexChanged += new System.EventHandler(this.bugNumberListBox_SelectedIndexChanged);
             // 
             // label27

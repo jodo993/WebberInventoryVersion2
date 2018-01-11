@@ -21,9 +21,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database                      
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            // Connect to database    
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -164,10 +163,10 @@ namespace Webber_Inventory_Search_2017_2018
                             i++;
                         }
 
+                        connection.Close();
+
                         if (found == false)
                             MessageBox.Show("Ticket number was not found.");
-
-                        connection.Close();
                     }
                     catch (Exception ex)
                     {

@@ -20,9 +20,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database                         
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            // Connect to database    
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Go back to main menu depending on whether user logged in as teacher or admin
@@ -50,6 +49,39 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        private void CheckAddCheckState()
+        {
+            if (hideAddCheckBox.Checked == true)
+            {
+                groupBox1.Visible = false;
+                groupBox2.Visible = false;
+                groupBox3.Visible = false;
+                groupBox4.Visible = false;
+                groupBox5.Visible = false;
+                groupBox6.Visible = false;
+                wordAddButton.Visible = false;
+                excelAddButton.Visible = false;
+                powerpointAddButton.Visible = false;
+                outlookAddButton.Visible = false;
+                googleAddButton.Visible = false;
+                miscAddButton.Visible = false;
+            }
+            else
+            {
+                groupBox1.Visible = true;
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+                groupBox4.Visible = true;
+                groupBox5.Visible = true;
+                groupBox6.Visible = true;
+                wordAddButton.Visible = true;
+                excelAddButton.Visible = true;
+                powerpointAddButton.Visible = true;
+                outlookAddButton.Visible = true;
+                googleAddButton.Visible = true;
+                miscAddButton.Visible = true;
+            }
+        }
         // Populate the how to textbox for each tab
         private void TutorialForm_Load(object sender, EventArgs e)
         {
@@ -141,6 +173,8 @@ namespace Webber_Inventory_Search_2017_2018
                     googleDeleteButton.Visible = true;
                     miscDeleteButton.Visible = true;
                 }
+
+                CheckAddCheckState();
             }
             catch (Exception ex)
             {
@@ -447,10 +481,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     wordListBox.Items.Remove(wordListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -484,10 +517,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     excelListBox.Items.Remove(excelListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -520,10 +552,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     powerpointListBox.Items.Remove(powerpointListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -556,10 +587,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     outlookListBox.Items.Remove(outlookListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -592,10 +622,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     googleListBox.Items.Remove(googleListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -628,10 +657,9 @@ namespace Webber_Inventory_Search_2017_2018
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
-                    MessageBox.Show("Topic and instruction deleted.");
-
                     connection.Close();
 
+                    MessageBox.Show("Topic and instruction deleted.");
                     miscListBox.Items.Remove(miscListBox.SelectedItem);
                     stepByStepLabel.Text = "";
                 }
@@ -648,6 +676,11 @@ namespace Webber_Inventory_Search_2017_2018
 
                 this.Close();
             }
+        }
+
+        private void hideAddCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckAddCheckState();
         }
     }
 }

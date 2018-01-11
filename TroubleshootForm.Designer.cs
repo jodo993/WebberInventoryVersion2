@@ -51,6 +51,7 @@
             this.averageRatingLabel = new System.Windows.Forms.Label();
             this.totalRatingVotesLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mainMenuButton
@@ -188,6 +189,7 @@
             // radioRateFive
             // 
             this.radioRateFive.AutoSize = true;
+            this.radioRateFive.ForeColor = System.Drawing.Color.Green;
             this.radioRateFive.Location = new System.Drawing.Point(594, 40);
             this.radioRateFive.Name = "radioRateFive";
             this.radioRateFive.Size = new System.Drawing.Size(31, 18);
@@ -199,6 +201,7 @@
             // radioRateFour
             // 
             this.radioRateFour.AutoSize = true;
+            this.radioRateFour.ForeColor = System.Drawing.Color.Lime;
             this.radioRateFour.Location = new System.Drawing.Point(560, 40);
             this.radioRateFour.Name = "radioRateFour";
             this.radioRateFour.Size = new System.Drawing.Size(31, 18);
@@ -210,6 +213,7 @@
             // radioRateThree
             // 
             this.radioRateThree.AutoSize = true;
+            this.radioRateThree.ForeColor = System.Drawing.Color.Gold;
             this.radioRateThree.Location = new System.Drawing.Point(526, 40);
             this.radioRateThree.Name = "radioRateThree";
             this.radioRateThree.Size = new System.Drawing.Size(31, 18);
@@ -221,6 +225,7 @@
             // radioRateTwo
             // 
             this.radioRateTwo.AutoSize = true;
+            this.radioRateTwo.ForeColor = System.Drawing.Color.DarkOrange;
             this.radioRateTwo.Location = new System.Drawing.Point(492, 40);
             this.radioRateTwo.Name = "radioRateTwo";
             this.radioRateTwo.Size = new System.Drawing.Size(31, 18);
@@ -232,6 +237,7 @@
             // radioRateOne
             // 
             this.radioRateOne.AutoSize = true;
+            this.radioRateOne.ForeColor = System.Drawing.Color.Red;
             this.radioRateOne.Location = new System.Drawing.Point(458, 40);
             this.radioRateOne.Name = "radioRateOne";
             this.radioRateOne.Size = new System.Drawing.Size(31, 18);
@@ -262,7 +268,7 @@
             // 
             // totalRatingVotesLabel
             // 
-            this.totalRatingVotesLabel.Location = new System.Drawing.Point(605, 156);
+            this.totalRatingVotesLabel.Location = new System.Drawing.Point(605, 155);
             this.totalRatingVotesLabel.Name = "totalRatingVotesLabel";
             this.totalRatingVotesLabel.Size = new System.Drawing.Size(25, 24);
             this.totalRatingVotesLabel.TabIndex = 31;
@@ -277,11 +283,21 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Average Rating:";
             // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Location = new System.Drawing.Point(384, 527);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(0, 14);
+            this.userLabel.TabIndex = 33;
+            this.userLabel.Visible = false;
+            // 
             // TroubleshootForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 554);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.averageRatingLabel);
             this.Controls.Add(this.totalRatingVotesLabel);
@@ -340,5 +356,6 @@
         private System.Windows.Forms.Label averageRatingLabel;
         private System.Windows.Forms.Label totalRatingVotesLabel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label userLabel;
     }
 }

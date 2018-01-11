@@ -22,8 +22,7 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                  
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Categories and their issues
@@ -90,7 +89,7 @@ namespace Webber_Inventory_Search_2017_2018
                 commandID.CommandText = query;
 
                 string[] statusCheck = new string[1000];
-                int i = 0;
+                //int i = 0;
 
                 //// Add only open tickets to listbox
                 //OleDbDataReader reader = commandID.ExecuteReader();
