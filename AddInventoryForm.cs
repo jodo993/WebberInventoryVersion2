@@ -21,8 +21,7 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
 
             // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Send user back to admin main menu
@@ -91,13 +90,27 @@ namespace Webber_Inventory_Search_2017_2018
                                 MessageBox.Show("Item was successfully added!");
 
                                 // Clear some fields
-                                addMakeTextBox.Text = "";
-                                addModelTextBox.Text = "";
-                                addTagTextBox.Text = "";
-                                typeWrongLabel.Visible = false;
-                                statusWrongLabel.Visible = false;
-                                warningLabel.Visible = false;
-                                warning2Label.Visible = false;
+                                if (saveCheckBox.Checked)
+                                {
+                                    addTagTextBox.Text = "";
+                                    typeWrongLabel.Visible = false;
+                                    statusWrongLabel.Visible = false;
+                                    warningLabel.Visible = false;
+                                    warning2Label.Visible = false;
+                                }
+                                else
+                                {
+                                    addTypeComboBox.Text = "";
+                                    addMakeTextBox.Text = "";
+                                    addModelTextBox.Text = "";
+                                    addTagTextBox.Text = "";
+                                    addLocationComboBox.Text = "";
+                                    addStatusComboBox.Text = "";
+                                    typeWrongLabel.Visible = false;
+                                    statusWrongLabel.Visible = false;
+                                    warningLabel.Visible = false;
+                                    warning2Label.Visible = false;
+                                }   
                             }
                             else
                             {

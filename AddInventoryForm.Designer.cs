@@ -52,6 +52,7 @@
             this.warningLabel = new System.Windows.Forms.Label();
             this.addStatusComboBox = new System.Windows.Forms.ComboBox();
             this.addTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.saveCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -338,12 +339,23 @@
             this.addTypeComboBox.Size = new System.Drawing.Size(100, 26);
             this.addTypeComboBox.TabIndex = 1;
             // 
+            // saveCheckBox
+            // 
+            this.saveCheckBox.AutoSize = true;
+            this.saveCheckBox.Location = new System.Drawing.Point(303, 42);
+            this.saveCheckBox.Name = "saveCheckBox";
+            this.saveCheckBox.Size = new System.Drawing.Size(121, 17);
+            this.saveCheckBox.TabIndex = 43;
+            this.saveCheckBox.Text = "Save fields after Add";
+            this.saveCheckBox.UseVisualStyleBackColor = true;
+            // 
             // AddInventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(444, 356);
+            this.Controls.Add(this.saveCheckBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addExitButton);
@@ -389,5 +401,6 @@
         private System.Windows.Forms.Label warning2Label;
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.TextBox addTagTextBox;
+        private System.Windows.Forms.CheckBox saveCheckBox;
     }
 }
