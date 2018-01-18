@@ -345,7 +345,7 @@
             this.saveCheckBox.Location = new System.Drawing.Point(303, 42);
             this.saveCheckBox.Name = "saveCheckBox";
             this.saveCheckBox.Size = new System.Drawing.Size(121, 17);
-            this.saveCheckBox.TabIndex = 43;
+            this.saveCheckBox.TabIndex = 11;
             this.saveCheckBox.Text = "Save fields after Add";
             this.saveCheckBox.UseVisualStyleBackColor = true;
             // 

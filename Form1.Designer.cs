@@ -39,10 +39,12 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.adminButton = new System.Windows.Forms.Button();
+            this.teacherButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -66,7 +68,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(433, 145);
+            this.label2.Location = new System.Drawing.Point(287, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 1;
@@ -78,7 +80,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(433, 204);
+            this.label3.Location = new System.Drawing.Point(287, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 2;
@@ -101,7 +103,7 @@
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(436, 166);
+            this.usernameTextBox.Location = new System.Drawing.Point(290, 30);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(104, 20);
             this.usernameTextBox.TabIndex = 1;
@@ -111,7 +113,7 @@
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(436, 225);
+            this.passwordTextBox.Location = new System.Drawing.Point(290, 89);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(104, 20);
@@ -123,7 +125,7 @@
             this.signButton.BackColor = System.Drawing.Color.Transparent;
             this.signButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signButton.ForeColor = System.Drawing.Color.Black;
-            this.signButton.Location = new System.Drawing.Point(424, 260);
+            this.signButton.Location = new System.Drawing.Point(278, 124);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
             this.signButton.TabIndex = 3;
@@ -136,7 +138,7 @@
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
             this.clearButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.Black;
-            this.clearButton.Location = new System.Drawing.Point(492, 260);
+            this.clearButton.Location = new System.Drawing.Point(346, 124);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
             this.clearButton.TabIndex = 4;
@@ -169,6 +171,45 @@
             this.label4.Text = "Elementary";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label5.Font = new System.Drawing.Font("Papyrus", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(242, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 11);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "- Malcolm X";
+            // 
+            // adminButton
+            // 
+            this.adminButton.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.adminIcon;
+            this.adminButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.adminButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adminButton.Location = new System.Drawing.Point(414, 202);
+            this.adminButton.Name = "adminButton";
+            this.adminButton.Size = new System.Drawing.Size(150, 50);
+            this.adminButton.TabIndex = 19;
+            this.adminButton.Text = "   Admin";
+            this.adminButton.UseVisualStyleBackColor = true;
+            // 
+            // teacherButton
+            // 
+            this.teacherButton.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.teacherIcon1;
+            this.teacherButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.teacherButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherButton.ForeColor = System.Drawing.Color.Black;
+            this.teacherButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.teacherButton.Location = new System.Drawing.Point(414, 136);
+            this.teacherButton.Name = "teacherButton";
+            this.teacherButton.Size = new System.Drawing.Size(150, 50);
+            this.teacherButton.TabIndex = 18;
+            this.teacherButton.Text = "   Teacher";
+            this.teacherButton.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.webLoginIcon;
@@ -199,18 +240,6 @@
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Font = new System.Drawing.Font("Papyrus", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(242, 182);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 11);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "- Malcolm X";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +247,8 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(650, 400);
+            this.Controls.Add(this.adminButton);
+            this.Controls.Add(this.teacherButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox5);
@@ -235,6 +266,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webber Technology Login";
@@ -262,6 +294,8 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button teacherButton;
+        private System.Windows.Forms.Button adminButton;
     }
 }
 

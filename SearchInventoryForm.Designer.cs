@@ -97,6 +97,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(150, 22);
             this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // searchButton
             // 
@@ -136,7 +137,7 @@
             this.statusRadioButton.AutoSize = true;
             this.statusRadioButton.Location = new System.Drawing.Point(122, 20);
             this.statusRadioButton.Name = "statusRadioButton";
-            this.statusRadioButton.Size = new System.Drawing.Size(59, 19);
+            this.statusRadioButton.Size = new System.Drawing.Size(59, 18);
             this.statusRadioButton.TabIndex = 7;
             this.statusRadioButton.Text = "Status";
             this.statusRadioButton.UseVisualStyleBackColor = true;
@@ -148,7 +149,7 @@
             this.locationRadioButton.Checked = true;
             this.locationRadioButton.Location = new System.Drawing.Point(31, 20);
             this.locationRadioButton.Name = "locationRadioButton";
-            this.locationRadioButton.Size = new System.Drawing.Size(70, 19);
+            this.locationRadioButton.Size = new System.Drawing.Size(70, 18);
             this.locationRadioButton.TabIndex = 6;
             this.locationRadioButton.TabStop = true;
             this.locationRadioButton.Text = "Location";
@@ -176,6 +177,7 @@
             this.updateTagTextBox.Name = "updateTagTextBox";
             this.updateTagTextBox.Size = new System.Drawing.Size(87, 22);
             this.updateTagTextBox.TabIndex = 8;
+            this.updateTagTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // updateButton
             // 
@@ -279,6 +281,7 @@
             this.removeTextBox.Name = "removeTextBox";
             this.removeTextBox.Size = new System.Drawing.Size(150, 22);
             this.removeTextBox.TabIndex = 3;
+            this.removeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // clearRemoveButton
             // 

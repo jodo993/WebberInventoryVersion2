@@ -24,12 +24,12 @@ namespace Webber_Inventory_Search_2017_2018
             string enteredPassword = passwordTextBox.Text;
 
             // Correct username and password for TEACHERS
-            string teacherUsername = "t";
-            string teacherPassword = "t";
+            string teacherUsername = "teach";
+            string teacherPassword = "web";
 
             // Correct username and password for ADMINS
-            string adminUsername = "a";
-            string adminPassword = "a";
+            string adminUsername = "admin";
+            string adminPassword = "webber";
 
             if (enteredUsername == teacherUsername && enteredPassword == teacherPassword)
             {

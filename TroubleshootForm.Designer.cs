@@ -57,7 +57,7 @@
             // mainMenuButton
             // 
             this.mainMenuButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainMenuButton.Location = new System.Drawing.Point(518, 516);
+            this.mainMenuButton.Location = new System.Drawing.Point(588, 515);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(80, 25);
             this.mainMenuButton.TabIndex = 5;
@@ -68,7 +68,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(608, 516);
+            this.exitButton.Location = new System.Drawing.Point(678, 515);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 25);
             this.exitButton.TabIndex = 6;
@@ -80,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(285, 160);
+            this.label1.Location = new System.Drawing.Point(355, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 19);
             this.label1.TabIndex = 5;
@@ -101,7 +101,7 @@
             this.problemTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.problemTextBox.Location = new System.Drawing.Point(22, 66);
             this.problemTextBox.Name = "problemTextBox";
-            this.problemTextBox.Size = new System.Drawing.Size(204, 22);
+            this.problemTextBox.Size = new System.Drawing.Size(257, 22);
             this.problemTextBox.TabIndex = 1;
             // 
             // solutionListBox
@@ -111,7 +111,7 @@
             this.solutionListBox.ItemHeight = 14;
             this.solutionListBox.Location = new System.Drawing.Point(22, 94);
             this.solutionListBox.Name = "solutionListBox";
-            this.solutionListBox.Size = new System.Drawing.Size(257, 410);
+            this.solutionListBox.Size = new System.Drawing.Size(327, 410);
             this.solutionListBox.TabIndex = 3;
             this.solutionListBox.SelectedIndexChanged += new System.EventHandler(this.solutionListBox_SelectedIndexChanged);
             // 
@@ -119,7 +119,7 @@
             // 
             this.solutionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.solutionLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solutionLabel.Location = new System.Drawing.Point(285, 184);
+            this.solutionLabel.Location = new System.Drawing.Point(355, 183);
             this.solutionLabel.Name = "solutionLabel";
             this.solutionLabel.Size = new System.Drawing.Size(398, 321);
             this.solutionLabel.TabIndex = 10;
@@ -127,7 +127,7 @@
             // showAllButton
             // 
             this.showAllButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showAllButton.Location = new System.Drawing.Point(184, 516);
+            this.showAllButton.Location = new System.Drawing.Point(254, 515);
             this.showAllButton.Name = "showAllButton";
             this.showAllButton.Size = new System.Drawing.Size(95, 25);
             this.showAllButton.TabIndex = 4;
@@ -138,9 +138,9 @@
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(226, 65);
+            this.searchButton.Location = new System.Drawing.Point(285, 64);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(53, 25);
+            this.searchButton.Size = new System.Drawing.Size(64, 24);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@
             // explanationLabel
             // 
             this.explanationLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.explanationLabel.Location = new System.Drawing.Point(285, 65);
+            this.explanationLabel.Location = new System.Drawing.Point(355, 64);
             this.explanationLabel.Name = "explanationLabel";
             this.explanationLabel.Size = new System.Drawing.Size(398, 86);
             this.explanationLabel.TabIndex = 13;
@@ -170,7 +170,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(285, 42);
+            this.label4.Location = new System.Drawing.Point(355, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 19);
             this.label4.TabIndex = 14;
@@ -178,7 +178,7 @@
             // 
             // rateButton
             // 
-            this.rateButton.Location = new System.Drawing.Point(628, 37);
+            this.rateButton.Location = new System.Drawing.Point(698, 36);
             this.rateButton.Name = "rateButton";
             this.rateButton.Size = new System.Drawing.Size(55, 24);
             this.rateButton.TabIndex = 15;
@@ -190,7 +190,7 @@
             // 
             this.radioRateFive.AutoSize = true;
             this.radioRateFive.ForeColor = System.Drawing.Color.Green;
-            this.radioRateFive.Location = new System.Drawing.Point(594, 40);
+            this.radioRateFive.Location = new System.Drawing.Point(664, 39);
             this.radioRateFive.Name = "radioRateFive";
             this.radioRateFive.Size = new System.Drawing.Size(31, 18);
             this.radioRateFive.TabIndex = 28;
@@ -202,7 +202,7 @@
             // 
             this.radioRateFour.AutoSize = true;
             this.radioRateFour.ForeColor = System.Drawing.Color.Lime;
-            this.radioRateFour.Location = new System.Drawing.Point(560, 40);
+            this.radioRateFour.Location = new System.Drawing.Point(630, 39);
             this.radioRateFour.Name = "radioRateFour";
             this.radioRateFour.Size = new System.Drawing.Size(31, 18);
             this.radioRateFour.TabIndex = 27;
@@ -214,7 +214,7 @@
             // 
             this.radioRateThree.AutoSize = true;
             this.radioRateThree.ForeColor = System.Drawing.Color.Gold;
-            this.radioRateThree.Location = new System.Drawing.Point(526, 40);
+            this.radioRateThree.Location = new System.Drawing.Point(596, 39);
             this.radioRateThree.Name = "radioRateThree";
             this.radioRateThree.Size = new System.Drawing.Size(31, 18);
             this.radioRateThree.TabIndex = 26;
@@ -226,7 +226,7 @@
             // 
             this.radioRateTwo.AutoSize = true;
             this.radioRateTwo.ForeColor = System.Drawing.Color.DarkOrange;
-            this.radioRateTwo.Location = new System.Drawing.Point(492, 40);
+            this.radioRateTwo.Location = new System.Drawing.Point(562, 39);
             this.radioRateTwo.Name = "radioRateTwo";
             this.radioRateTwo.Size = new System.Drawing.Size(31, 18);
             this.radioRateTwo.TabIndex = 25;
@@ -238,7 +238,7 @@
             // 
             this.radioRateOne.AutoSize = true;
             this.radioRateOne.ForeColor = System.Drawing.Color.Red;
-            this.radioRateOne.Location = new System.Drawing.Point(458, 40);
+            this.radioRateOne.Location = new System.Drawing.Point(528, 39);
             this.radioRateOne.Name = "radioRateOne";
             this.radioRateOne.Size = new System.Drawing.Size(31, 18);
             this.radioRateOne.TabIndex = 24;
@@ -249,7 +249,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(628, 160);
+            this.label5.Location = new System.Drawing.Point(698, 159);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 14);
             this.label5.TabIndex = 29;
@@ -260,7 +260,7 @@
             this.averageRatingLabel.BackColor = System.Drawing.SystemColors.Control;
             this.averageRatingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.averageRatingLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.averageRatingLabel.Location = new System.Drawing.Point(533, 156);
+            this.averageRatingLabel.Location = new System.Drawing.Point(603, 155);
             this.averageRatingLabel.Name = "averageRatingLabel";
             this.averageRatingLabel.Size = new System.Drawing.Size(24, 23);
             this.averageRatingLabel.TabIndex = 32;
@@ -268,7 +268,7 @@
             // 
             // totalRatingVotesLabel
             // 
-            this.totalRatingVotesLabel.Location = new System.Drawing.Point(605, 155);
+            this.totalRatingVotesLabel.Location = new System.Drawing.Point(675, 154);
             this.totalRatingVotesLabel.Name = "totalRatingVotesLabel";
             this.totalRatingVotesLabel.Size = new System.Drawing.Size(25, 24);
             this.totalRatingVotesLabel.TabIndex = 31;
@@ -277,7 +277,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(437, 160);
+            this.label6.Location = new System.Drawing.Point(507, 159);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 14);
             this.label6.TabIndex = 30;
@@ -296,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 554);
+            this.ClientSize = new System.Drawing.Size(779, 554);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.averageRatingLabel);
