@@ -123,6 +123,7 @@
             this.bugNumberListBox = new System.Windows.Forms.ListBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -685,6 +686,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.label37);
             this.tabPage4.Controls.Add(this.keyWordsTextBox);
             this.tabPage4.Controls.Add(this.label34);
@@ -725,7 +727,7 @@
             this.keyWordsTextBox.Multiline = true;
             this.keyWordsTextBox.Name = "keyWordsTextBox";
             this.keyWordsTextBox.Size = new System.Drawing.Size(196, 90);
-            this.keyWordsTextBox.TabIndex = 26;
+            this.keyWordsTextBox.TabIndex = 21;
             // 
             // label34
             // 
@@ -742,7 +744,7 @@
             this.troubleClearButton.Location = new System.Drawing.Point(460, 293);
             this.troubleClearButton.Name = "troubleClearButton";
             this.troubleClearButton.Size = new System.Drawing.Size(73, 25);
-            this.troubleClearButton.TabIndex = 22;
+            this.troubleClearButton.TabIndex = 24;
             this.troubleClearButton.Text = "Clear";
             this.troubleClearButton.UseVisualStyleBackColor = true;
             this.troubleClearButton.Click += new System.EventHandler(this.troubleClearButton_Click);
@@ -763,7 +765,7 @@
             this.explanationTextBox.Multiline = true;
             this.explanationTextBox.Name = "explanationTextBox";
             this.explanationTextBox.Size = new System.Drawing.Size(196, 64);
-            this.explanationTextBox.TabIndex = 18;
+            this.explanationTextBox.TabIndex = 20;
             // 
             // label26
             // 
@@ -809,7 +811,7 @@
             this.deleteTroubleButton.Location = new System.Drawing.Point(539, 293);
             this.deleteTroubleButton.Name = "deleteTroubleButton";
             this.deleteTroubleButton.Size = new System.Drawing.Size(73, 25);
-            this.deleteTroubleButton.TabIndex = 24;
+            this.deleteTroubleButton.TabIndex = 25;
             this.deleteTroubleButton.Text = "Delete";
             this.deleteTroubleButton.UseVisualStyleBackColor = true;
             this.deleteTroubleButton.Click += new System.EventHandler(this.deleteTroubleButton_Click);
@@ -830,7 +832,7 @@
             this.solutionTextBox.Multiline = true;
             this.solutionTextBox.Name = "solutionTextBox";
             this.solutionTextBox.Size = new System.Drawing.Size(177, 166);
-            this.solutionTextBox.TabIndex = 20;
+            this.solutionTextBox.TabIndex = 19;
             // 
             // label23
             // 
@@ -848,14 +850,14 @@
             this.problemTextBox.Multiline = true;
             this.problemTextBox.Name = "problemTextBox";
             this.problemTextBox.Size = new System.Drawing.Size(177, 64);
-            this.problemTextBox.TabIndex = 19;
+            this.problemTextBox.TabIndex = 18;
             // 
             // addTroubleButton
             // 
             this.addTroubleButton.Location = new System.Drawing.Point(460, 262);
             this.addTroubleButton.Name = "addTroubleButton";
             this.addTroubleButton.Size = new System.Drawing.Size(73, 25);
-            this.addTroubleButton.TabIndex = 21;
+            this.addTroubleButton.TabIndex = 22;
             this.addTroubleButton.Text = "Add New";
             this.addTroubleButton.UseVisualStyleBackColor = true;
             this.addTroubleButton.Click += new System.EventHandler(this.addTroubleButton_Click);
@@ -1102,6 +1104,15 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Page";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(460, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Sort Listbox ABC Order";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // TechnologyAssistantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -1230,5 +1241,6 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox keyWordsTextBox;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button button1;
     }
 }

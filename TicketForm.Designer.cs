@@ -186,8 +186,8 @@
             "Software Issue",
             "Chromebook",
             "Network",
-            "Other",
-            ""});
+            "Informational",
+            "Other"});
             this.categoryComboBox.Location = new System.Drawing.Point(98, 135);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(121, 22);

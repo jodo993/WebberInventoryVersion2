@@ -137,9 +137,13 @@ namespace Webber_Inventory_Search_2017_2018
             string firstName = "";
             string lastName = "";
             string gradeLevel = "";
+            string securityQuestion = "";
+            string securityAnswer = "";
 
-            if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && gradeLevelComboBox.Text != "")
+            if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && gradeLevelComboBox.Text != "" && securityQuestionComboBox.Text != "" && securityAnswerTextBox.Text != "")
+            {
                 if (firstNameTextBox.Text.All(Char.IsLetter) && lastNameTextBox.Text.All(Char.IsLetter))
+                {
                     if (gradeLevelComboBox.Text == "Pre-School" || gradeLevelComboBox.Text == "Kindergarten" || gradeLevelComboBox.Text == "First" ||
                         gradeLevelComboBox.Text == "Second" || gradeLevelComboBox.Text == "Third" || gradeLevelComboBox.Text == "Fourth" ||
                         gradeLevelComboBox.Text == "Fifth" || gradeLevelComboBox.Text == "Sixth" || gradeLevelComboBox.Text == "Administration")
@@ -148,8 +152,11 @@ namespace Webber_Inventory_Search_2017_2018
                         firstName = firstNameTextBox.Text.ToUpper();
                         lastName = lastNameTextBox.Text.ToUpper();
                         gradeLevel = gradeLevelComboBox.Text.ToUpper();
+                        securityQuestion = securityQuestionComboBox.Text.ToUpper();
+                        securityAnswer = securityAnswerTextBox.Text.ToUpper();
 
                         string fullName = firstName + lastName;
+                        fullName = fullName.TrimStart().TrimEnd();
 
                         // Check for duplicate names
                         //bool newAccount = CheckApplicantRecord(fullName);
@@ -163,7 +170,7 @@ namespace Webber_Inventory_Search_2017_2018
                         int privateKeyNum = CreateKey();
                         while (privateKeyNum == 100)
                             privateKeyNum = CreateKey();
-                        
+
                         // Add new record in database
                         try
                         {
@@ -195,10 +202,12 @@ namespace Webber_Inventory_Search_2017_2018
                     {
                         MessageBox.Show("Please select a given grade level.");
                     }
+                } 
                 else
                 {
                     MessageBox.Show("Entries must contain only letters.");
                 }
+            }   
             else
             {
                 MessageBox.Show("Please fill in all the fields.");

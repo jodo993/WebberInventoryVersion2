@@ -40,6 +40,7 @@
             this.backButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.userLabel = new System.Windows.Forms.Label();
+            this.forgotPinLinkLabel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             this.registerLinkLabel.AutoSize = true;
             this.registerLinkLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerLinkLabel.LinkColor = System.Drawing.Color.Red;
-            this.registerLinkLabel.Location = new System.Drawing.Point(213, 321);
+            this.registerLinkLabel.Location = new System.Drawing.Point(213, 306);
             this.registerLinkLabel.Name = "registerLinkLabel";
             this.registerLinkLabel.Size = new System.Drawing.Size(186, 15);
             this.registerLinkLabel.TabIndex = 4;
@@ -163,12 +164,26 @@
             this.userLabel.Text = "user";
             this.userLabel.Visible = false;
             // 
+            // forgotPinLinkLabel
+            // 
+            this.forgotPinLinkLabel.AutoSize = true;
+            this.forgotPinLinkLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgotPinLinkLabel.LinkColor = System.Drawing.Color.Red;
+            this.forgotPinLinkLabel.Location = new System.Drawing.Point(275, 325);
+            this.forgotPinLinkLabel.Name = "forgotPinLinkLabel";
+            this.forgotPinLinkLabel.Size = new System.Drawing.Size(70, 15);
+            this.forgotPinLinkLabel.TabIndex = 10;
+            this.forgotPinLinkLabel.TabStop = true;
+            this.forgotPinLinkLabel.Text = "Forgot PIN?";
+            this.forgotPinLinkLabel.VisitedLinkColor = System.Drawing.Color.LightBlue;
+            // 
             // MasterKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(617, 357);
+            this.Controls.Add(this.forgotPinLinkLabel);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.backButton);
@@ -200,5 +215,6 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.LinkLabel forgotPinLinkLabel;
     }
 }

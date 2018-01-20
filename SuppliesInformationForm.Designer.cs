@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliesInformationForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.catComboBox = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -62,7 +63,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.saveDataCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -92,6 +96,16 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fill out the boxes below to find supply information.";
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(328, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 50);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Use the drag down to find your item.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
@@ -251,6 +265,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.saveDataCheckBox);
             this.tabPage1.Controls.Add(this.linkTextBox);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.catTextBox);
@@ -409,15 +427,45 @@
             this.userLabel.Size = new System.Drawing.Size(25, 27);
             this.userLabel.TabIndex = 22;
             // 
-            // label4
+            // saveDataCheckBox
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(328, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 50);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Use the drag down to find your item.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.saveDataCheckBox.AutoSize = true;
+            this.saveDataCheckBox.Location = new System.Drawing.Point(379, 144);
+            this.saveDataCheckBox.Name = "saveDataCheckBox";
+            this.saveDataCheckBox.Size = new System.Drawing.Size(104, 18);
+            this.saveDataCheckBox.TabIndex = 16;
+            this.saveDataCheckBox.Text = "Save Marked *";
+            this.saveDataCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(366, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 14);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(366, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 14);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(366, 84);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 14);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "*";
             // 
             // SuppliesInformationForm
             // 
@@ -481,5 +529,9 @@
         private System.Windows.Forms.TextBox catTextBox;
         private System.Windows.Forms.TextBox linkTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox saveDataCheckBox;
     }
 }

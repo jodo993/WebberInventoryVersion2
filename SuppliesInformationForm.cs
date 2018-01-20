@@ -350,13 +350,22 @@ namespace Webber_Inventory_Search_2017_2018
 
                         MessageBox.Show("Information was successfully added.");
 
-                        // Clear text boxes after successful add
-                        typeTextBox.Text = "";
-                        brandTextBox.Text = "";
-                        modelTextBox.Text = "";
-                        catTextBox.Text = "";
-                        nameTextBox.Text = "";
-                        linkTextBox.Text = "";
+                        if (saveDataCheckBox.Checked)
+                        {
+                            catTextBox.Text = "";
+                            nameTextBox.Text = "";
+                            linkTextBox.Text = "";
+                        }
+                        else
+                        {
+                            // Clear text boxes after successful add
+                            typeTextBox.Text = "";
+                            brandTextBox.Text = "";
+                            modelTextBox.Text = "";
+                            catTextBox.Text = "";
+                            nameTextBox.Text = "";
+                            linkTextBox.Text = "";
+                        }
                     }
                     else
                         MessageBox.Show("Please include https:// or www. in your link.");

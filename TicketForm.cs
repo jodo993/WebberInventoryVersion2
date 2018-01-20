@@ -33,7 +33,7 @@ namespace Webber_Inventory_Search_2017_2018
                         || importanceComboBox.Text == "High - Urgent fix(es) required")
                         if (categoryComboBox.Text != "" && categoryComboBox.Text == "Instructional Assistance" || categoryComboBox.Text == "Hardware Issue" ||
                             categoryComboBox.Text == "Software Issue" || categoryComboBox.Text == "Chromebook" || categoryComboBox.Text == "Network" ||
-                            categoryComboBox.Text == "Other")
+                            categoryComboBox.Text == "Informational" || categoryComboBox.Text == "Other")
                             if (timeComboBox.Text != "" && timeComboBox.Text == "Before School" || timeComboBox.Text == "8-9AM" || timeComboBox.Text == "9-10AM" ||
                                 timeComboBox.Text == "10-11AM" || timeComboBox.Text == "11-12PM" || timeComboBox.Text == "1-2PM" || timeComboBox.Text == "After School")
                                 if (descriptionTextBox.Text != "")
