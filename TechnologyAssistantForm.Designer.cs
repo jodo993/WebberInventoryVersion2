@@ -85,6 +85,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.suppliesListBox = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label37 = new System.Windows.Forms.Label();
+            this.keyWordsTextBox = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.troubleClearButton = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.explanationTextBox = new System.Windows.Forms.TextBox();
@@ -682,6 +685,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label37);
+            this.tabPage4.Controls.Add(this.keyWordsTextBox);
+            this.tabPage4.Controls.Add(this.label34);
             this.tabPage4.Controls.Add(this.troubleClearButton);
             this.tabPage4.Controls.Add(this.label36);
             this.tabPage4.Controls.Add(this.explanationTextBox);
@@ -704,11 +710,38 @@
             this.tabPage4.Text = "Troubleshoot Controls";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(405, 245);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(185, 14);
+            this.label37.TabIndex = 27;
+            this.label37.Text = "ex. word word word (no commas)";
+            // 
+            // keyWordsTextBox
+            // 
+            this.keyWordsTextBox.Location = new System.Drawing.Point(405, 153);
+            this.keyWordsTextBox.Multiline = true;
+            this.keyWordsTextBox.Name = "keyWordsTextBox";
+            this.keyWordsTextBox.Size = new System.Drawing.Size(196, 90);
+            this.keyWordsTextBox.TabIndex = 26;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(405, 134);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(83, 16);
+            this.label34.TabIndex = 25;
+            this.label34.Text = "Key Words";
+            // 
             // troubleClearButton
             // 
-            this.troubleClearButton.Location = new System.Drawing.Point(438, 180);
+            this.troubleClearButton.Location = new System.Drawing.Point(460, 293);
             this.troubleClearButton.Name = "troubleClearButton";
-            this.troubleClearButton.Size = new System.Drawing.Size(142, 25);
+            this.troubleClearButton.Size = new System.Drawing.Size(73, 25);
             this.troubleClearButton.TabIndex = 22;
             this.troubleClearButton.Text = "Clear";
             this.troubleClearButton.UseVisualStyleBackColor = true;
@@ -718,7 +751,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(200, 46);
+            this.label36.Location = new System.Drawing.Point(402, 48);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(89, 16);
             this.label36.TabIndex = 12;
@@ -726,7 +759,7 @@
             // 
             // explanationTextBox
             // 
-            this.explanationTextBox.Location = new System.Drawing.Point(203, 67);
+            this.explanationTextBox.Location = new System.Drawing.Point(405, 67);
             this.explanationTextBox.Multiline = true;
             this.explanationTextBox.Name = "explanationTextBox";
             this.explanationTextBox.Size = new System.Drawing.Size(196, 64);
@@ -736,7 +769,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(219, 8);
+            this.label26.Location = new System.Drawing.Point(217, 8);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(20, 13);
             this.label26.TabIndex = 10;
@@ -745,7 +778,7 @@
             // problemIDLabel
             // 
             this.problemIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.problemIDLabel.Location = new System.Drawing.Point(203, 22);
+            this.problemIDLabel.Location = new System.Drawing.Point(220, 23);
             this.problemIDLabel.Name = "problemIDLabel";
             this.problemIDLabel.Size = new System.Drawing.Size(50, 25);
             this.problemIDLabel.TabIndex = 9;
@@ -767,25 +800,25 @@
             this.currentSolutionListBox.ItemHeight = 14;
             this.currentSolutionListBox.Location = new System.Drawing.Point(6, 34);
             this.currentSolutionListBox.Name = "currentSolutionListBox";
-            this.currentSolutionListBox.Size = new System.Drawing.Size(180, 284);
+            this.currentSolutionListBox.Size = new System.Drawing.Size(205, 284);
             this.currentSolutionListBox.TabIndex = 17;
             this.currentSolutionListBox.SelectedIndexChanged += new System.EventHandler(this.currentSolutionListBox_SelectedIndexChanged);
             // 
             // deleteTroubleButton
             // 
-            this.deleteTroubleButton.Location = new System.Drawing.Point(438, 278);
+            this.deleteTroubleButton.Location = new System.Drawing.Point(539, 293);
             this.deleteTroubleButton.Name = "deleteTroubleButton";
-            this.deleteTroubleButton.Size = new System.Drawing.Size(142, 25);
+            this.deleteTroubleButton.Size = new System.Drawing.Size(73, 25);
             this.deleteTroubleButton.TabIndex = 24;
-            this.deleteTroubleButton.Text = "Delete Selected";
+            this.deleteTroubleButton.Text = "Delete";
             this.deleteTroubleButton.UseVisualStyleBackColor = true;
             this.deleteTroubleButton.Click += new System.EventHandler(this.deleteTroubleButton_Click);
             // 
             // editTroubleButton
             // 
-            this.editTroubleButton.Location = new System.Drawing.Point(438, 244);
+            this.editTroubleButton.Location = new System.Drawing.Point(539, 262);
             this.editTroubleButton.Name = "editTroubleButton";
-            this.editTroubleButton.Size = new System.Drawing.Size(142, 25);
+            this.editTroubleButton.Size = new System.Drawing.Size(73, 25);
             this.editTroubleButton.TabIndex = 23;
             this.editTroubleButton.Text = "Update";
             this.editTroubleButton.UseVisualStyleBackColor = true;
@@ -793,17 +826,17 @@
             // 
             // solutionTextBox
             // 
-            this.solutionTextBox.Location = new System.Drawing.Point(203, 153);
+            this.solutionTextBox.Location = new System.Drawing.Point(222, 153);
             this.solutionTextBox.Multiline = true;
             this.solutionTextBox.Name = "solutionTextBox";
-            this.solutionTextBox.Size = new System.Drawing.Size(196, 166);
+            this.solutionTextBox.Size = new System.Drawing.Size(177, 166);
             this.solutionTextBox.TabIndex = 20;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(413, 46);
+            this.label23.Location = new System.Drawing.Point(217, 48);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(66, 16);
             this.label23.TabIndex = 1;
@@ -811,17 +844,17 @@
             // 
             // problemTextBox
             // 
-            this.problemTextBox.Location = new System.Drawing.Point(416, 67);
+            this.problemTextBox.Location = new System.Drawing.Point(222, 67);
             this.problemTextBox.Multiline = true;
             this.problemTextBox.Name = "problemTextBox";
-            this.problemTextBox.Size = new System.Drawing.Size(196, 64);
+            this.problemTextBox.Size = new System.Drawing.Size(177, 64);
             this.problemTextBox.TabIndex = 19;
             // 
             // addTroubleButton
             // 
-            this.addTroubleButton.Location = new System.Drawing.Point(438, 211);
+            this.addTroubleButton.Location = new System.Drawing.Point(460, 262);
             this.addTroubleButton.Name = "addTroubleButton";
-            this.addTroubleButton.Size = new System.Drawing.Size(142, 25);
+            this.addTroubleButton.Size = new System.Drawing.Size(73, 25);
             this.addTroubleButton.TabIndex = 21;
             this.addTroubleButton.Text = "Add New";
             this.addTroubleButton.UseVisualStyleBackColor = true;
@@ -831,7 +864,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(202, 132);
+            this.label24.Location = new System.Drawing.Point(219, 134);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 16);
             this.label24.TabIndex = 2;
@@ -1194,5 +1227,8 @@
         private System.Windows.Forms.Label bugIDLabel;
         private System.Windows.Forms.Label supplyID;
         private System.Windows.Forms.Button troubleClearButton;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox keyWordsTextBox;
+        private System.Windows.Forms.Label label34;
     }
 }

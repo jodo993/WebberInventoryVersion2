@@ -134,11 +134,11 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            string firstName;
-            string lastName;
-            string gradeLevel;
+            string firstName = "";
+            string lastName = "";
+            string gradeLevel = "";
 
-            if (firstNameTextBox.Text != "" || lastNameTextBox.Text != "" || gradeLevelComboBox.Text != "")
+            if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && gradeLevelComboBox.Text != "")
                 if (firstNameTextBox.Text.All(Char.IsLetter) && lastNameTextBox.Text.All(Char.IsLetter))
                     if (gradeLevelComboBox.Text == "Pre-School" || gradeLevelComboBox.Text == "Kindergarten" || gradeLevelComboBox.Text == "First" ||
                         gradeLevelComboBox.Text == "Second" || gradeLevelComboBox.Text == "Third" || gradeLevelComboBox.Text == "Fourth" ||

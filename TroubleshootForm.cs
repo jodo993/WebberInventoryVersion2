@@ -57,6 +57,7 @@ namespace Webber_Inventory_Search_2017_2018
             }
             else
             {
+                loadingPictureBox.Visible = true;
                 solutionListBox.Items.Clear();
                 string search = problemTextBox.Text.ToUpper();
                 
@@ -89,6 +90,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     // Create list for database issue string
                     List<string> issueList = new List<string>();
+                    List<string> keyList = new List<string>();
 
                     OleDbDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -101,13 +103,19 @@ namespace Webber_Inventory_Search_2017_2018
                         issueList.Clear();
                         
                         // Get issue string from database
-                        string issue = (reader["Issue"].ToString().ToUpper());      
+                        string issue = (reader["Issue"].ToString().ToUpper());
+                        string keys = (reader["KeyWords"].ToString().ToUpper());     
 
                         // Split the words in issue string and count how many total
                         foreach (string word in issue.Split())
                         {
                             issueList.Add(word);
                             numberOfWordInIssue++;
+                        }
+
+                        foreach (string word in keys.Split())
+                        {
+                            keyList.Add(word);
                         }
 
                         // Get total number of words
@@ -124,6 +132,14 @@ namespace Webber_Inventory_Search_2017_2018
                                 wordMatches = wordMatches + 0;
                         }
 
+                        for (int i = 0; i < numberOfWordInSearch; i++)
+                        {
+                            if (keyList.Contains(searchList[i]))
+                                wordMatches++;
+                            else
+                                wordMatches = wordMatches + 0;
+                        }
+                            
                         // Get total number of word matches, find percent of the match
                         wordMatches = wordMatches * 2;
                         percentMatched = Math.Round(((wordMatches / totalNumberOfWords) * 100), 2);
@@ -135,6 +151,8 @@ namespace Webber_Inventory_Search_2017_2018
                     }
 
                     connection.Close();
+
+                    loadingPictureBox.Visible = false;
 
                     // If there are no matches
                     if (solutionFound < 1)
@@ -175,6 +193,8 @@ namespace Webber_Inventory_Search_2017_2018
                 }
 
                 connection.Close();
+
+                solutionListBox.Sorted = true;
             }
             catch (Exception ex)
             {

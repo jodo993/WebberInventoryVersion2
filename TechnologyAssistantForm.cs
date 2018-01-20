@@ -530,6 +530,7 @@ namespace Webber_Inventory_Search_2017_2018
         {
             string issue = problemTextBox.Text;
             string solution = solutionTextBox.Text;
+            string keyWords = keyWordsTextBox.Text;
             string explanation = "";
 
             if (explanationTextBox.Text == "")
@@ -546,7 +547,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     OleDbCommand command = new OleDbCommand();
                     command.Connection = connection;
-                    string query = "insert into Troubleshoot_Data (Issue,Explanation,Resolution) values('" + issue + "','" + explanation + "','" + solution + "')";
+                    string query = "insert into Troubleshoot_Data (Issue,KeyWords,Explanation,Resolution) values('" + issue + "','" + keyWords + "','" + explanation + "','" + solution + "')";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
@@ -555,6 +556,7 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Problem and solution was added successfully.");
                     currentSolutionListBox.Items.Add(issue);
                     problemTextBox.Text = "";
+                    keyWordsTextBox.Text = "";
                     explanationTextBox.Text = "";
                     solutionTextBox.Text = "";
                 }
@@ -589,6 +591,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string issue = problemTextBox.Text;
                 string explanation = explanationTextBox.Text;
                 string solution = solutionTextBox.Text;
+                string keyWords = keyWordsTextBox.Text;
 
                 try
                 {
@@ -596,7 +599,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     OleDbCommand command = new OleDbCommand();
                     command.Connection = connection;
-                    string query = "update Troubleshoot_Data set Issue='" + issue + "',Explanation='" + explanation + "',Resolution='" + solution + "' where ID=" + id + "";
+                    string query = "update Troubleshoot_Data set Issue='" + issue + "',KeyWOrds='" + keyWords + "',Explanation='" + explanation + "',Resolution='" + solution + "' where ID=" + id + "";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
 
@@ -607,6 +610,7 @@ namespace Webber_Inventory_Search_2017_2018
                     problemTextBox.Text = "";
                     explanationTextBox.Text = "";
                     solutionTextBox.Text = "";
+                    keyWordsTextBox.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -650,6 +654,7 @@ namespace Webber_Inventory_Search_2017_2018
                     problemTextBox.Text = "";
                     explanationTextBox.Text = "";
                     solutionTextBox.Text = "";
+                    keyWordsTextBox.Text = "";
                     currentSolutionListBox.Items.Remove(removedItem);
                 }
                 catch (Exception ex)
@@ -683,6 +688,7 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     problemIDLabel.Text = reader["ID"].ToString();
                     problemTextBox.Text = reader["Issue"].ToString();
+                    keyWordsTextBox.Text = reader["KeyWords"].ToString();
                     explanationTextBox.Text = reader["Explanation"].ToString();
                     solutionTextBox.Text = reader["Resolution"].ToString();
                 }
@@ -844,6 +850,7 @@ namespace Webber_Inventory_Search_2017_2018
             explanationTextBox.Text = "";
             problemTextBox.Text = "";
             solutionTextBox.Text = "";
+            keyWordsTextBox.Text = "";
         }
     }
 }

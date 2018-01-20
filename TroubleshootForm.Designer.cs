@@ -101,7 +101,7 @@
             this.problemTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.problemTextBox.Location = new System.Drawing.Point(22, 66);
             this.problemTextBox.Name = "problemTextBox";
-            this.problemTextBox.Size = new System.Drawing.Size(257, 22);
+            this.problemTextBox.Size = new System.Drawing.Size(226, 22);
             this.problemTextBox.TabIndex = 1;
             // 
             // solutionListBox
@@ -138,7 +138,7 @@
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(285, 64);
+            this.searchButton.Location = new System.Drawing.Point(254, 64);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(64, 24);
             this.searchButton.TabIndex = 2;
