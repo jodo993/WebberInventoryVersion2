@@ -57,7 +57,6 @@ namespace Webber_Inventory_Search_2017_2018
             }
             else
             {
-                loadingPictureBox.Visible = true;
                 solutionListBox.Items.Clear();
                 string search = problemTextBox.Text.ToUpper();
                 
@@ -143,7 +142,7 @@ namespace Webber_Inventory_Search_2017_2018
                         // Get total number of word matches, find percent of the match
                         wordMatches = wordMatches * 2;
                         percentMatched = Math.Round(((wordMatches / totalNumberOfWords) * 100), 2);
-                        if ( percentMatched > 33.32)
+                        if ( percentMatched > 33.32 )
                         {
                             solutionListBox.Items.Add(issue);
                             solutionFound++;
@@ -151,8 +150,6 @@ namespace Webber_Inventory_Search_2017_2018
                     }
 
                     connection.Close();
-
-                    loadingPictureBox.Visible = false;
 
                     // If there are no matches
                     if (solutionFound < 1)
@@ -344,6 +341,14 @@ namespace Webber_Inventory_Search_2017_2018
                 bugSplat.ShowDialog();
 
                 this.Close();
+            }
+        }
+
+        private void problemTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchButton.PerformClick();
             }
         }
     }

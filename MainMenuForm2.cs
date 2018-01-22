@@ -49,7 +49,7 @@ namespace Webber_Inventory_Search_2017_2018
             this.Hide();
 
             // Opentroubleshooting form and close main menu
-            TroubleshootForm troubleshoot = new TroubleshootForm();
+            TroubleshootForm troubleshoot = new TroubleshootForm(user);
             troubleshoot.ShowDialog();
 
             this.Close();
@@ -76,6 +76,17 @@ namespace Webber_Inventory_Search_2017_2018
         private void quitButton_Click(object sender, EventArgs e)
         {
             // Close the program
+            this.Close();
+        }
+
+        private void masterKeyButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            // Opens master key form
+            MasterKeyForm masterKeyForm = new MasterKeyForm(user);
+            masterKeyForm.ShowDialog();
+
             this.Close();
         }
     }

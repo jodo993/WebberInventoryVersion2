@@ -45,6 +45,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.teacherPasswordTextbox = new System.Windows.Forms.TextBox();
+            this.adminPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.passLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -68,11 +72,12 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(287, 9);
+            this.label2.Location = new System.Drawing.Point(524, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Username";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -80,11 +85,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(287, 68);
+            this.label3.Location = new System.Drawing.Point(524, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
+            this.label3.Visible = false;
             // 
             // incorrectLoginLabel
             // 
@@ -95,7 +101,7 @@
             this.incorrectLoginLabel.Name = "incorrectLoginLabel";
             this.incorrectLoginLabel.Size = new System.Drawing.Size(204, 45);
             this.incorrectLoginLabel.TabIndex = 6;
-            this.incorrectLoginLabel.Text = "Username and password does not match. Please try again.";
+            this.incorrectLoginLabel.Text = "Password is incorrect. Please try again.";
             this.incorrectLoginLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.incorrectLoginLabel.Visible = false;
             // 
@@ -103,34 +109,37 @@
             // 
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(290, 30);
+            this.usernameTextBox.Location = new System.Drawing.Point(527, 32);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(104, 20);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usernameTextBox.Visible = false;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(290, 89);
+            this.passwordTextBox.Location = new System.Drawing.Point(527, 32);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(104, 20);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordTextBox.Visible = false;
             // 
             // signButton
             // 
             this.signButton.BackColor = System.Drawing.Color.Transparent;
             this.signButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signButton.ForeColor = System.Drawing.Color.Black;
-            this.signButton.Location = new System.Drawing.Point(278, 124);
+            this.signButton.Location = new System.Drawing.Point(421, 241);
             this.signButton.Name = "signButton";
             this.signButton.Size = new System.Drawing.Size(62, 23);
-            this.signButton.TabIndex = 3;
+            this.signButton.TabIndex = 5;
             this.signButton.Text = "Sign In";
             this.signButton.UseVisualStyleBackColor = false;
+            this.signButton.Visible = false;
             this.signButton.Click += new System.EventHandler(this.signButton_Click);
             // 
             // clearButton
@@ -138,12 +147,13 @@
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
             this.clearButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.Black;
-            this.clearButton.Location = new System.Drawing.Point(346, 124);
+            this.clearButton.Location = new System.Drawing.Point(493, 241);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(62, 23);
-            this.clearButton.TabIndex = 4;
+            this.clearButton.TabIndex = 6;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Visible = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // exitButton
@@ -154,7 +164,7 @@
             this.exitButton.Location = new System.Drawing.Point(576, 365);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(62, 23);
-            this.exitButton.TabIndex = 5;
+            this.exitButton.TabIndex = 20;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -189,12 +199,13 @@
             this.adminButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.adminButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.adminButton.Location = new System.Drawing.Point(414, 202);
+            this.adminButton.Location = new System.Drawing.Point(414, 194);
             this.adminButton.Name = "adminButton";
             this.adminButton.Size = new System.Drawing.Size(150, 50);
-            this.adminButton.TabIndex = 19;
+            this.adminButton.TabIndex = 2;
             this.adminButton.Text = "   Admin";
             this.adminButton.UseVisualStyleBackColor = true;
+            this.adminButton.Click += new System.EventHandler(this.adminButton_Click);
             // 
             // teacherButton
             // 
@@ -206,9 +217,10 @@
             this.teacherButton.Location = new System.Drawing.Point(414, 136);
             this.teacherButton.Name = "teacherButton";
             this.teacherButton.Size = new System.Drawing.Size(150, 50);
-            this.teacherButton.TabIndex = 18;
+            this.teacherButton.TabIndex = 1;
             this.teacherButton.Text = "   Teacher";
             this.teacherButton.UseVisualStyleBackColor = true;
+            this.teacherButton.Click += new System.EventHandler(this.teacherButton_Click);
             // 
             // pictureBox1
             // 
@@ -240,6 +252,54 @@
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
             // 
+            // teacherPasswordTextbox
+            // 
+            this.teacherPasswordTextbox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherPasswordTextbox.Location = new System.Drawing.Point(440, 182);
+            this.teacherPasswordTextbox.Name = "teacherPasswordTextbox";
+            this.teacherPasswordTextbox.PasswordChar = '•';
+            this.teacherPasswordTextbox.Size = new System.Drawing.Size(100, 22);
+            this.teacherPasswordTextbox.TabIndex = 3;
+            this.teacherPasswordTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.teacherPasswordTextbox.Visible = false;
+            this.teacherPasswordTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teacherPasswordTextbox_KeyDown);
+            // 
+            // adminPasswordTextBox
+            // 
+            this.adminPasswordTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminPasswordTextBox.Location = new System.Drawing.Point(440, 182);
+            this.adminPasswordTextBox.Name = "adminPasswordTextBox";
+            this.adminPasswordTextBox.PasswordChar = '•';
+            this.adminPasswordTextBox.Size = new System.Drawing.Size(100, 22);
+            this.adminPasswordTextBox.TabIndex = 4;
+            this.adminPasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adminPasswordTextBox.Visible = false;
+            this.adminPasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.adminPasswordTextBox_KeyDown);
+            // 
+            // passLabel
+            // 
+            this.passLabel.AutoSize = true;
+            this.passLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passLabel.ForeColor = System.Drawing.Color.White;
+            this.passLabel.Location = new System.Drawing.Point(461, 155);
+            this.passLabel.Name = "passLabel";
+            this.passLabel.Size = new System.Drawing.Size(59, 15);
+            this.passLabel.TabIndex = 22;
+            this.passLabel.Text = "Password";
+            this.passLabel.Visible = false;
+            // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(508, 365);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(62, 23);
+            this.backButton.TabIndex = 7;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Visible = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +307,10 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(650, 400);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.passLabel);
+            this.Controls.Add(this.adminPasswordTextBox);
+            this.Controls.Add(this.teacherPasswordTextbox);
             this.Controls.Add(this.adminButton);
             this.Controls.Add(this.teacherButton);
             this.Controls.Add(this.label5);
@@ -296,6 +360,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button teacherButton;
         private System.Windows.Forms.Button adminButton;
+        private System.Windows.Forms.TextBox teacherPasswordTextbox;
+        private System.Windows.Forms.TextBox adminPasswordTextBox;
+        private System.Windows.Forms.Label passLabel;
+        private System.Windows.Forms.Button backButton;
     }
 }
 

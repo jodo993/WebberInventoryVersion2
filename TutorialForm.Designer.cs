@@ -102,6 +102,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
             this.hideAddCheckBox = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.videoAvailableLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.videoUnavailableLabel = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -873,11 +876,43 @@
             this.hideAddCheckBox.UseVisualStyleBackColor = true;
             this.hideAddCheckBox.CheckedChanged += new System.EventHandler(this.hideAddCheckBox_CheckedChanged);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(13, 394);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(220, 14);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "* When adding, avoid all punctuations.";
+            // 
+            // videoAvailableLinkLabel
+            // 
+            this.videoAvailableLinkLabel.AutoSize = true;
+            this.videoAvailableLinkLabel.LinkColor = System.Drawing.Color.Red;
+            this.videoAvailableLinkLabel.Location = new System.Drawing.Point(597, 37);
+            this.videoAvailableLinkLabel.Name = "videoAvailableLinkLabel";
+            this.videoAvailableLinkLabel.Size = new System.Drawing.Size(158, 14);
+            this.videoAvailableLinkLabel.TabIndex = 25;
+            this.videoAvailableLinkLabel.TabStop = true;
+            this.videoAvailableLinkLabel.Text = "Video Available, Click Here!";
+            // 
+            // videoUnavailableLabel
+            // 
+            this.videoUnavailableLabel.AutoSize = true;
+            this.videoUnavailableLabel.Location = new System.Drawing.Point(643, 37);
+            this.videoUnavailableLabel.Name = "videoUnavailableLabel";
+            this.videoUnavailableLabel.Size = new System.Drawing.Size(112, 14);
+            this.videoUnavailableLabel.TabIndex = 26;
+            this.videoUnavailableLabel.Text = "Video Unavailable.";
+            // 
             // TutorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 428);
+            this.Controls.Add(this.videoUnavailableLabel);
+            this.Controls.Add(this.videoAvailableLinkLabel);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.hideAddCheckBox);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.label6);
@@ -1004,5 +1039,8 @@
         private System.Windows.Forms.ListBox miscListBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.CheckBox hideAddCheckBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.LinkLabel videoAvailableLinkLabel;
+        private System.Windows.Forms.Label videoUnavailableLabel;
     }
 }

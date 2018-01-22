@@ -163,6 +163,14 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
 
+                // Sort listbox
+                wordListBox.Sorted = true;
+                excelListBox.Sorted = true;
+                powerpointListBox.Sorted = true;
+                outlookListBox.Sorted = true;
+                googleListBox.Sorted = true;
+                miscListBox.Sorted = true;
+
                 // If user is admin show delete button
                 if (userLabel.Text == "A")
                 {
