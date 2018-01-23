@@ -45,6 +45,7 @@
             this.securityQuestionComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.securityAnswerTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(174, 208);
+            this.label5.Location = new System.Drawing.Point(174, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(265, 55);
             this.label5.TabIndex = 6;
@@ -146,7 +147,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.attentionIcon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(136, 220);
+            this.pictureBox1.Location = new System.Drawing.Point(136, 231);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.TabIndex = 11;
@@ -167,7 +168,7 @@
             // createButton
             // 
             this.createButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.createButton.Location = new System.Drawing.Point(270, 264);
+            this.createButton.Location = new System.Drawing.Point(270, 275);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 30);
             this.createButton.TabIndex = 4;
@@ -190,15 +191,16 @@
             this.securityQuestionComboBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.securityQuestionComboBox.FormattingEnabled = true;
             this.securityQuestionComboBox.Items.AddRange(new object[] {
-            "Pre-School",
-            "Kindergarten",
-            "First",
-            "Second",
-            "Third",
-            "Fourth",
-            "Fifth",
-            "Sixth",
-            "Administration"});
+            "Where did you go to college?",
+            "What is your favorite movie?",
+            "What is your favorite sport?",
+            "How many pets do you have?",
+            "Where would you like to travel?",
+            "What is your dream car?",
+            "What do you like to do in your free time?",
+            "Who inspire you?",
+            "How fast was your fastest mile time?",
+            "What is your favorite security question?"});
             this.securityQuestionComboBox.Location = new System.Drawing.Point(222, 148);
             this.securityQuestionComboBox.Name = "securityQuestionComboBox";
             this.securityQuestionComboBox.Size = new System.Drawing.Size(197, 23);
@@ -208,7 +210,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(163, 180);
+            this.label8.Location = new System.Drawing.Point(163, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 15);
             this.label8.TabIndex = 14;
@@ -217,10 +219,20 @@
             // securityAnswerTextBox
             // 
             this.securityAnswerTextBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.securityAnswerTextBox.Location = new System.Drawing.Point(222, 177);
+            this.securityAnswerTextBox.Location = new System.Drawing.Point(222, 184);
             this.securityAnswerTextBox.Name = "securityAnswerTextBox";
             this.securityAnswerTextBox.Size = new System.Drawing.Size(197, 23);
             this.securityAnswerTextBox.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(245, 170);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(145, 11);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Choose a selection or make your own!";
             // 
             // MasterKeyRegisterWarningForm
             // 
@@ -243,6 +255,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.createButton);
+            this.Controls.Add(this.label9);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MasterKeyRegisterWarningForm";
@@ -272,5 +285,6 @@
         private System.Windows.Forms.ComboBox securityQuestionComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox securityAnswerTextBox;
+        private System.Windows.Forms.Label label9;
     }
 }

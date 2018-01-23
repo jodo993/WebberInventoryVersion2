@@ -178,7 +178,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                             OleDbCommand command = new OleDbCommand();
                             command.Connection = connection;
-                            command.CommandText = "insert into Master_Key_Login (FirstName,LastName,Grade,PrivateKey) values ('" + firstName + "','" + lastName + "','" + gradeLevel + "'," + privateKeyNum + ")";
+                            command.CommandText = "insert into Master_Key_Login (FirstName,LastName,Grade,PrivateKey,SecurityQuestion,SecurityAnswer) values ('" + firstName + "','" + lastName + "','" + gradeLevel + "'," + privateKeyNum + ",'" + securityQuestion + "','" + securityAnswer + "')";
                             command.ExecuteNonQuery();
 
                             connection.Close();
