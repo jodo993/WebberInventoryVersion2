@@ -49,7 +49,7 @@
             this.goButton.Location = new System.Drawing.Point(333, 24);
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(75, 22);
-            this.goButton.TabIndex = 0;
+            this.goButton.TabIndex = 2;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Click += new System.EventHandler(this.goButton_Click);
@@ -60,7 +60,7 @@
             this.label1.Location = new System.Drawing.Point(39, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 9;
             this.label1.Text = "What is your first name?";
             // 
             // checkButton
@@ -68,7 +68,7 @@
             this.checkButton.Location = new System.Drawing.Point(333, 222);
             this.checkButton.Name = "checkButton";
             this.checkButton.Size = new System.Drawing.Size(75, 22);
-            this.checkButton.TabIndex = 2;
+            this.checkButton.TabIndex = 5;
             this.checkButton.Text = "Check";
             this.checkButton.UseVisualStyleBackColor = true;
             this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
@@ -78,7 +78,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(162, 26);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(165, 20);
-            this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -95,14 +95,14 @@
             this.securityQuestionLabel.Location = new System.Drawing.Point(42, 173);
             this.securityQuestionLabel.Name = "securityQuestionLabel";
             this.securityQuestionLabel.Size = new System.Drawing.Size(366, 23);
-            this.securityQuestionLabel.TabIndex = 5;
+            this.securityQuestionLabel.TabIndex = 6;
             // 
             // answerTextBox
             // 
             this.answerTextBox.Location = new System.Drawing.Point(42, 223);
             this.answerTextBox.Name = "answerTextBox";
             this.answerTextBox.Size = new System.Drawing.Size(285, 20);
-            this.answerTextBox.TabIndex = 6;
+            this.answerTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -119,7 +119,7 @@
             this.nameListBox.Location = new System.Drawing.Point(42, 68);
             this.nameListBox.Name = "nameListBox";
             this.nameListBox.Size = new System.Drawing.Size(366, 82);
-            this.nameListBox.TabIndex = 8;
+            this.nameListBox.TabIndex = 3;
             this.nameListBox.SelectedIndexChanged += new System.EventHandler(this.nameListBox_SelectedIndexChanged);
             // 
             // label5
@@ -128,7 +128,7 @@
             this.label5.Location = new System.Drawing.Point(39, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 8;
             this.label5.Text = "Select Last Name -";
             // 
             // label6

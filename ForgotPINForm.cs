@@ -48,7 +48,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     connection.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("An error has occurred and this function cannot be performed. Please try again later.");
                 }
@@ -75,7 +75,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("An error has occurred and this function cannot be performed. Please try again later.");
             }
@@ -121,7 +121,7 @@ namespace Webber_Inventory_Search_2017_2018
 
                     connection.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("An error has occurred and this function cannot be performed. Please try again later.");
                 }

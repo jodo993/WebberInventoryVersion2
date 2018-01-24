@@ -19,6 +19,12 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void teacherButton_Click(object sender, EventArgs e)
         {
+            webberLabel.ForeColor = Color.FromArgb(0, 0, 64);
+            elementaryLabel.ForeColor = Color.FromArgb(0, 0, 64);
+            teacherPictureBox.Visible = true;
+            pictureBox2.Visible = true;
+            pictureBox1.Visible = false;
+
             teacherButton.Visible = false;
             adminButton.Visible = false;
             teacherPasswordTextbox.Visible = true;
@@ -126,6 +132,13 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            webberLabel.ForeColor = Color.FromArgb(100, 0, 0);
+            elementaryLabel.ForeColor = Color.FromArgb(100, 0, 0);
+            adminPictureBox.Visible = true;
+            teacherPictureBox.Visible = false;
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = false;
+            
             passLabel.Visible = false;
             teacherPasswordTextbox.Visible = false;
             adminPasswordTextBox.Visible = false;

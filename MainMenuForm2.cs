@@ -75,7 +75,12 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void quitButton_Click(object sender, EventArgs e)
         {
-            // Close the program
+            // Back to login screen
+            this.Hide();
+
+            Form1 formOne = new Form1();
+            formOne.ShowDialog();
+
             this.Close();
         }
 
@@ -88,6 +93,66 @@ namespace Webber_Inventory_Search_2017_2018
             masterKeyForm.ShowDialog();
 
             this.Close();
+        }
+
+        private void ticketButton_MouseHover(object sender, EventArgs e)
+        {
+            ticketLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void ticketButton_MouseLeave(object sender, EventArgs e)
+        {
+            ticketLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
+        }
+
+        private void suppliesButton_MouseHover(object sender, EventArgs e)
+        {
+            supplyLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void suppliesButton_MouseLeave(object sender, EventArgs e)
+        {
+            supplyLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
+        }
+
+        private void masterKeyButton_MouseHover(object sender, EventArgs e)
+        {
+            masterLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void masterKeyButton_MouseLeave(object sender, EventArgs e)
+        {
+            masterLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
+        }
+
+        private void troubleshootingButton_MouseHover(object sender, EventArgs e)
+        {
+            troubleshootLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void troubleshootingButton_MouseLeave(object sender, EventArgs e)
+        {
+            troubleshootLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
+        }
+
+        private void tutorialsButton_MouseHover(object sender, EventArgs e)
+        {
+            tutorialLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void tutorialsButton_MouseLeave(object sender, EventArgs e)
+        {
+            tutorialLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
+        }
+
+        private void quitButton_MouseHover(object sender, EventArgs e)
+        {
+            exitLabel.Font = new Font("Calibri", 12, FontStyle.Bold);
+        }
+
+        private void quitButton_MouseLeave(object sender, EventArgs e)
+        {
+            exitLabel.Font = new Font("Calibri", 11, FontStyle.Bold);
         }
     }
 }

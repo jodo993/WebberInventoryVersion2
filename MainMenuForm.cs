@@ -120,7 +120,12 @@ namespace Webber_Inventory_Search_2017_2018
 
         private void quitButton_Click(object sender, EventArgs e)
         {
-            // Close program
+            // Back to login screen
+            this.Hide();
+
+            Form1 formOne = new Form1();
+            formOne.ShowDialog();
+
             this.Close();
         }
 
@@ -133,6 +138,106 @@ namespace Webber_Inventory_Search_2017_2018
             masterKeyForm.ShowDialog();
 
             this.Close();
+        }
+
+        private void chromebookButton_MouseHover(object sender, EventArgs e)
+        {
+            chromebookLabel.ForeColor = Color.Red;
+        }
+
+        private void chromebookButton_MouseLeave(object sender, EventArgs e)
+        {
+            chromebookLabel.ForeColor = Color.Black;
+        }
+
+        private void addButton_MouseHover(object sender, EventArgs e)
+        {
+            addLabel.ForeColor = Color.PaleVioletRed;
+        }
+
+        private void addButton_MouseLeave(object sender, EventArgs e)
+        {
+            addLabel.ForeColor = Color.Black;
+        }
+
+        private void searchButton_MouseHover(object sender, EventArgs e)
+        {
+            searchLabel.ForeColor = Color.ForestGreen;
+        }
+
+        private void searchButton_MouseLeave(object sender, EventArgs e)
+        {
+            searchLabel.ForeColor = Color.Black;
+        }
+
+        private void suppliesButton_MouseHover(object sender, EventArgs e)
+        {
+            supplyLabel.ForeColor = Color.MediumPurple;
+        }
+
+        private void suppliesButton_MouseLeave(object sender, EventArgs e)
+        {
+            supplyLabel.ForeColor = Color.Black;
+        }
+
+        private void masterKeyButton_MouseHover(object sender, EventArgs e)
+        {
+            masterLabel.ForeColor = Color.DimGray;
+        }
+
+        private void masterKeyButton_MouseLeave(object sender, EventArgs e)
+        {
+            masterLabel.ForeColor = Color.Black;
+        }
+
+        private void ticketButton_MouseHover(object sender, EventArgs e)
+        {
+            ticketLabel.ForeColor = Color.FromArgb(128,64,0);
+        }
+
+        private void ticketButton_MouseLeave(object sender, EventArgs e)
+        {
+            ticketLabel.ForeColor = Color.Black;
+        }
+
+        private void troubleshootingButton_MouseHover(object sender, EventArgs e)
+        {
+            troubleshootLabel.ForeColor = Color.Chocolate;
+        }
+
+        private void troubleshootingButton_MouseLeave(object sender, EventArgs e)
+        {
+            troubleshootLabel.ForeColor = Color.Black;
+        }
+
+        private void tutorialsButton_MouseHover(object sender, EventArgs e)
+        {
+            tutorialLabel.ForeColor = Color.DarkGoldenrod;
+        }
+
+        private void tutorialsButton_MouseLeave(object sender, EventArgs e)
+        {
+            tutorialLabel.ForeColor = Color.Black;
+        }
+
+        private void techAideButton_MouseHover(object sender, EventArgs e)
+        {
+            techLabel.ForeColor = Color.SteelBlue;
+        }
+
+        private void techAideButton_MouseLeave(object sender, EventArgs e)
+        {
+            techLabel.ForeColor = Color.Black;
+        }
+
+        private void quitButton_MouseHover(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.DarkGray;
+        }
+
+        private void quitButton_MouseLeave(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.Black;
         }
     }
 }

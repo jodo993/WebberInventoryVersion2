@@ -97,7 +97,11 @@
             this.googleDeleteButton = new System.Windows.Forms.Button();
             this.googleAddButton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.googleVideoComboBox = new System.Windows.Forms.ComboBox();
+            this.googleLinkTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.googleInstructionTextBox = new System.Windows.Forms.TextBox();
             this.googleTopicTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -105,15 +109,15 @@
             this.googleListBox = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.miscLinkTextBox = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.miscVideoComboBox = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
             this.miscDeleteButton = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.miscAddButton = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.miscLinkTextBox = new System.Windows.Forms.TextBox();
+            this.miscVideoComboBox = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.miscInstructionTextBox = new System.Windows.Forms.TextBox();
             this.miscTopicTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -125,10 +129,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.videoAvailableLinkLabel = new System.Windows.Forms.LinkLabel();
             this.videoUnavailableLabel = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.googleVideoComboBox = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.googleLinkTextBox = new System.Windows.Forms.TextBox();
             this.videoLinkLabel = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -157,7 +157,7 @@
             this.mainMenuButton.Location = new System.Drawing.Point(596, 455);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(80, 25);
-            this.mainMenuButton.TabIndex = 6;
+            this.mainMenuButton.TabIndex = 10;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
@@ -167,7 +167,7 @@
             this.exitButton.Location = new System.Drawing.Point(682, 455);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 25);
-            this.exitButton.TabIndex = 7;
+            this.exitButton.TabIndex = 11;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -212,7 +212,7 @@
             this.outlookAddButton.Location = new System.Drawing.Point(285, 363);
             this.outlookAddButton.Name = "outlookAddButton";
             this.outlookAddButton.Size = new System.Drawing.Size(75, 25);
-            this.outlookAddButton.TabIndex = 5;
+            this.outlookAddButton.TabIndex = 8;
             this.outlookAddButton.Text = "Add";
             this.outlookAddButton.UseVisualStyleBackColor = true;
             this.outlookAddButton.Click += new System.EventHandler(this.outlookAddButton_Click);
@@ -239,7 +239,7 @@
             this.outlookLinkTextBox.Location = new System.Drawing.Point(9, 189);
             this.outlookLinkTextBox.Name = "outlookLinkTextBox";
             this.outlookLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.outlookLinkTextBox.TabIndex = 17;
+            this.outlookLinkTextBox.TabIndex = 7;
             // 
             // outlookVideoComboBox
             // 
@@ -250,7 +250,7 @@
             this.outlookVideoComboBox.Location = new System.Drawing.Point(265, 161);
             this.outlookVideoComboBox.Name = "outlookVideoComboBox";
             this.outlookVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.outlookVideoComboBox.TabIndex = 15;
+            this.outlookVideoComboBox.TabIndex = 6;
             this.outlookVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.outlookVideoComboBox_SelectedIndexChanged);
             // 
             // label28
@@ -286,14 +286,14 @@
             this.outlookInstructionTextBox.Multiline = true;
             this.outlookInstructionTextBox.Name = "outlookInstructionTextBox";
             this.outlookInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.outlookInstructionTextBox.TabIndex = 2;
+            this.outlookInstructionTextBox.TabIndex = 5;
             // 
             // outlookTopicTextBox
             // 
             this.outlookTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.outlookTopicTextBox.Name = "outlookTopicTextBox";
             this.outlookTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.outlookTopicTextBox.TabIndex = 1;
+            this.outlookTopicTextBox.TabIndex = 4;
             // 
             // label14
             // 
@@ -321,7 +321,7 @@
             this.outlookListBox.Location = new System.Drawing.Point(9, 30);
             this.outlookListBox.Name = "outlookListBox";
             this.outlookListBox.Size = new System.Drawing.Size(351, 116);
-            this.outlookListBox.TabIndex = 3;
+            this.outlookListBox.TabIndex = 1;
             this.outlookListBox.SelectedIndexChanged += new System.EventHandler(this.outlookListBox_SelectedIndexChanged);
             // 
             // label7
@@ -366,7 +366,7 @@
             this.powerpointAddButton.Location = new System.Drawing.Point(285, 363);
             this.powerpointAddButton.Name = "powerpointAddButton";
             this.powerpointAddButton.Size = new System.Drawing.Size(75, 25);
-            this.powerpointAddButton.TabIndex = 5;
+            this.powerpointAddButton.TabIndex = 8;
             this.powerpointAddButton.Text = "Add";
             this.powerpointAddButton.UseVisualStyleBackColor = true;
             this.powerpointAddButton.Click += new System.EventHandler(this.powerpointAddButton_Click);
@@ -393,7 +393,7 @@
             this.powerpointLinkTextBox.Location = new System.Drawing.Point(9, 189);
             this.powerpointLinkTextBox.Name = "powerpointLinkTextBox";
             this.powerpointLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.powerpointLinkTextBox.TabIndex = 17;
+            this.powerpointLinkTextBox.TabIndex = 7;
             // 
             // powerpointVideoComboBox
             // 
@@ -404,7 +404,7 @@
             this.powerpointVideoComboBox.Location = new System.Drawing.Point(265, 161);
             this.powerpointVideoComboBox.Name = "powerpointVideoComboBox";
             this.powerpointVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.powerpointVideoComboBox.TabIndex = 15;
+            this.powerpointVideoComboBox.TabIndex = 6;
             this.powerpointVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.powerpointVideoComboBox_SelectedIndexChanged);
             // 
             // label11
@@ -440,14 +440,14 @@
             this.powerpointInstructionTextBox.Multiline = true;
             this.powerpointInstructionTextBox.Name = "powerpointInstructionTextBox";
             this.powerpointInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.powerpointInstructionTextBox.TabIndex = 2;
+            this.powerpointInstructionTextBox.TabIndex = 5;
             // 
             // powerpointTopicTextBox
             // 
             this.powerpointTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.powerpointTopicTextBox.Name = "powerpointTopicTextBox";
             this.powerpointTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.powerpointTopicTextBox.TabIndex = 1;
+            this.powerpointTopicTextBox.TabIndex = 4;
             // 
             // label12
             // 
@@ -475,7 +475,7 @@
             this.powerpointListBox.Location = new System.Drawing.Point(9, 30);
             this.powerpointListBox.Name = "powerpointListBox";
             this.powerpointListBox.Size = new System.Drawing.Size(351, 116);
-            this.powerpointListBox.TabIndex = 3;
+            this.powerpointListBox.TabIndex = 1;
             this.powerpointListBox.SelectedIndexChanged += new System.EventHandler(this.powerpointListBox_SelectedIndexChanged);
             // 
             // label1
@@ -520,7 +520,7 @@
             this.excelAddButton.Location = new System.Drawing.Point(285, 363);
             this.excelAddButton.Name = "excelAddButton";
             this.excelAddButton.Size = new System.Drawing.Size(75, 25);
-            this.excelAddButton.TabIndex = 4;
+            this.excelAddButton.TabIndex = 8;
             this.excelAddButton.Text = "Add";
             this.excelAddButton.UseVisualStyleBackColor = true;
             this.excelAddButton.Click += new System.EventHandler(this.excelAddButton_Click);
@@ -547,7 +547,7 @@
             this.excelLinkTextBox.Location = new System.Drawing.Point(9, 189);
             this.excelLinkTextBox.Name = "excelLinkTextBox";
             this.excelLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.excelLinkTextBox.TabIndex = 17;
+            this.excelLinkTextBox.TabIndex = 7;
             // 
             // excelVideoComboBox
             // 
@@ -558,7 +558,7 @@
             this.excelVideoComboBox.Location = new System.Drawing.Point(265, 161);
             this.excelVideoComboBox.Name = "excelVideoComboBox";
             this.excelVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.excelVideoComboBox.TabIndex = 15;
+            this.excelVideoComboBox.TabIndex = 6;
             this.excelVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.excelVideoComboBox_SelectedIndexChanged);
             // 
             // label9
@@ -594,14 +594,14 @@
             this.excelInstructionTextBox.Multiline = true;
             this.excelInstructionTextBox.Name = "excelInstructionTextBox";
             this.excelInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.excelInstructionTextBox.TabIndex = 3;
+            this.excelInstructionTextBox.TabIndex = 5;
             // 
             // excelTopicTextBox
             // 
             this.excelTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.excelTopicTextBox.Name = "excelTopicTextBox";
             this.excelTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.excelTopicTextBox.TabIndex = 2;
+            this.excelTopicTextBox.TabIndex = 4;
             // 
             // label10
             // 
@@ -684,7 +684,7 @@
             this.wordAddButton.Location = new System.Drawing.Point(285, 363);
             this.wordAddButton.Name = "wordAddButton";
             this.wordAddButton.Size = new System.Drawing.Size(75, 25);
-            this.wordAddButton.TabIndex = 5;
+            this.wordAddButton.TabIndex = 8;
             this.wordAddButton.Text = "Add";
             this.wordAddButton.UseVisualStyleBackColor = true;
             this.wordAddButton.Click += new System.EventHandler(this.wordAddButton_Click);
@@ -711,7 +711,7 @@
             this.wordLinkTextBox.Location = new System.Drawing.Point(9, 189);
             this.wordLinkTextBox.Name = "wordLinkTextBox";
             this.wordLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.wordLinkTextBox.TabIndex = 13;
+            this.wordLinkTextBox.TabIndex = 7;
             // 
             // label22
             // 
@@ -731,7 +731,7 @@
             this.wordVideoComboBox.Location = new System.Drawing.Point(265, 161);
             this.wordVideoComboBox.Name = "wordVideoComboBox";
             this.wordVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.wordVideoComboBox.TabIndex = 11;
+            this.wordVideoComboBox.TabIndex = 6;
             this.wordVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.wordVideoComboBox_SelectedIndexChanged);
             // 
             // label21
@@ -758,14 +758,14 @@
             this.wordInstructionTextBox.Multiline = true;
             this.wordInstructionTextBox.Name = "wordInstructionTextBox";
             this.wordInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.wordInstructionTextBox.TabIndex = 2;
+            this.wordInstructionTextBox.TabIndex = 5;
             // 
             // wordTopicTextBox
             // 
             this.wordTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.wordTopicTextBox.Name = "wordTopicTextBox";
             this.wordTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.wordTopicTextBox.TabIndex = 1;
+            this.wordTopicTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -783,7 +783,7 @@
             this.wordListBox.Location = new System.Drawing.Point(9, 30);
             this.wordListBox.Name = "wordListBox";
             this.wordListBox.Size = new System.Drawing.Size(351, 116);
-            this.wordListBox.TabIndex = 3;
+            this.wordListBox.TabIndex = 1;
             this.wordListBox.SelectedIndexChanged += new System.EventHandler(this.wordListBox_SelectedIndexChanged);
             // 
             // label2
@@ -842,7 +842,7 @@
             this.googleAddButton.Location = new System.Drawing.Point(285, 363);
             this.googleAddButton.Name = "googleAddButton";
             this.googleAddButton.Size = new System.Drawing.Size(75, 25);
-            this.googleAddButton.TabIndex = 5;
+            this.googleAddButton.TabIndex = 8;
             this.googleAddButton.Text = "Add";
             this.googleAddButton.UseVisualStyleBackColor = true;
             this.googleAddButton.Click += new System.EventHandler(this.googleAddButton_Click);
@@ -864,6 +864,34 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Add New";
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 164);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(64, 14);
+            this.label29.TabIndex = 16;
+            this.label29.Text = "Video Link";
+            // 
+            // googleVideoComboBox
+            // 
+            this.googleVideoComboBox.FormattingEnabled = true;
+            this.googleVideoComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.googleVideoComboBox.Location = new System.Drawing.Point(265, 161);
+            this.googleVideoComboBox.Name = "googleVideoComboBox";
+            this.googleVideoComboBox.Size = new System.Drawing.Size(80, 22);
+            this.googleVideoComboBox.TabIndex = 6;
+            this.googleVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.googleVideoComboBox_SelectedIndexChanged);
+            // 
+            // googleLinkTextBox
+            // 
+            this.googleLinkTextBox.Location = new System.Drawing.Point(9, 189);
+            this.googleLinkTextBox.Name = "googleLinkTextBox";
+            this.googleLinkTextBox.Size = new System.Drawing.Size(336, 22);
+            this.googleLinkTextBox.TabIndex = 7;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -873,20 +901,29 @@
             this.label15.TabIndex = 3;
             this.label15.Text = "Instructions:";
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(159, 164);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(100, 14);
+            this.label30.TabIndex = 14;
+            this.label30.Text = "Video Available?";
+            // 
             // googleInstructionTextBox
             // 
             this.googleInstructionTextBox.Location = new System.Drawing.Point(9, 76);
             this.googleInstructionTextBox.Multiline = true;
             this.googleInstructionTextBox.Name = "googleInstructionTextBox";
             this.googleInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.googleInstructionTextBox.TabIndex = 2;
+            this.googleInstructionTextBox.TabIndex = 5;
             // 
             // googleTopicTextBox
             // 
             this.googleTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.googleTopicTextBox.Name = "googleTopicTextBox";
             this.googleTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.googleTopicTextBox.TabIndex = 1;
+            this.googleTopicTextBox.TabIndex = 4;
             // 
             // label16
             // 
@@ -914,7 +951,7 @@
             this.googleListBox.Location = new System.Drawing.Point(9, 30);
             this.googleListBox.Name = "googleListBox";
             this.googleListBox.Size = new System.Drawing.Size(351, 116);
-            this.googleListBox.TabIndex = 3;
+            this.googleListBox.TabIndex = 1;
             this.googleListBox.SelectedIndexChanged += new System.EventHandler(this.googleListBox_SelectedIndexChanged);
             // 
             // label8
@@ -943,43 +980,6 @@
             this.tabPage6.Text = "Misc.";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // miscLinkTextBox
-            // 
-            this.miscLinkTextBox.Location = new System.Drawing.Point(9, 189);
-            this.miscLinkTextBox.Name = "miscLinkTextBox";
-            this.miscLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.miscLinkTextBox.TabIndex = 17;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(6, 164);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(64, 14);
-            this.label31.TabIndex = 16;
-            this.label31.Text = "Video Link";
-            // 
-            // miscVideoComboBox
-            // 
-            this.miscVideoComboBox.FormattingEnabled = true;
-            this.miscVideoComboBox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.miscVideoComboBox.Location = new System.Drawing.Point(265, 161);
-            this.miscVideoComboBox.Name = "miscVideoComboBox";
-            this.miscVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.miscVideoComboBox.TabIndex = 15;
-            this.miscVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.miscVideoComboBox_SelectedIndexChanged);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(159, 164);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(100, 14);
-            this.label32.TabIndex = 14;
-            this.label32.Text = "Video Available?";
-            // 
             // miscDeleteButton
             // 
             this.miscDeleteButton.Location = new System.Drawing.Point(254, 3);
@@ -1006,7 +1006,7 @@
             this.miscAddButton.Location = new System.Drawing.Point(285, 363);
             this.miscAddButton.Name = "miscAddButton";
             this.miscAddButton.Size = new System.Drawing.Size(75, 25);
-            this.miscAddButton.TabIndex = 11;
+            this.miscAddButton.TabIndex = 8;
             this.miscAddButton.Text = "Add";
             this.miscAddButton.UseVisualStyleBackColor = true;
             this.miscAddButton.Click += new System.EventHandler(this.miscAddButton_Click);
@@ -1028,6 +1028,25 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Add New";
             // 
+            // miscLinkTextBox
+            // 
+            this.miscLinkTextBox.Location = new System.Drawing.Point(9, 189);
+            this.miscLinkTextBox.Name = "miscLinkTextBox";
+            this.miscLinkTextBox.Size = new System.Drawing.Size(336, 22);
+            this.miscLinkTextBox.TabIndex = 7;
+            // 
+            // miscVideoComboBox
+            // 
+            this.miscVideoComboBox.FormattingEnabled = true;
+            this.miscVideoComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.miscVideoComboBox.Location = new System.Drawing.Point(265, 161);
+            this.miscVideoComboBox.Name = "miscVideoComboBox";
+            this.miscVideoComboBox.Size = new System.Drawing.Size(80, 22);
+            this.miscVideoComboBox.TabIndex = 6;
+            this.miscVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.miscVideoComboBox_SelectedIndexChanged);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -1037,20 +1056,38 @@
             this.label17.TabIndex = 3;
             this.label17.Text = "Instructions:";
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(6, 164);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(64, 14);
+            this.label31.TabIndex = 16;
+            this.label31.Text = "Video Link";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(159, 164);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(100, 14);
+            this.label32.TabIndex = 14;
+            this.label32.Text = "Video Available?";
+            // 
             // miscInstructionTextBox
             // 
             this.miscInstructionTextBox.Location = new System.Drawing.Point(9, 76);
             this.miscInstructionTextBox.Multiline = true;
             this.miscInstructionTextBox.Name = "miscInstructionTextBox";
             this.miscInstructionTextBox.Size = new System.Drawing.Size(336, 77);
-            this.miscInstructionTextBox.TabIndex = 2;
+            this.miscInstructionTextBox.TabIndex = 5;
             // 
             // miscTopicTextBox
             // 
             this.miscTopicTextBox.Location = new System.Drawing.Point(9, 34);
             this.miscTopicTextBox.Name = "miscTopicTextBox";
             this.miscTopicTextBox.Size = new System.Drawing.Size(336, 22);
-            this.miscTopicTextBox.TabIndex = 1;
+            this.miscTopicTextBox.TabIndex = 4;
             // 
             // label18
             // 
@@ -1068,7 +1105,7 @@
             this.miscListBox.Location = new System.Drawing.Point(9, 30);
             this.miscListBox.Name = "miscListBox";
             this.miscListBox.Size = new System.Drawing.Size(351, 116);
-            this.miscListBox.TabIndex = 9;
+            this.miscListBox.TabIndex = 1;
             this.miscListBox.SelectedIndexChanged += new System.EventHandler(this.miscListBox_SelectedIndexChanged);
             // 
             // label19
@@ -1105,7 +1142,7 @@
             this.hideAddCheckBox.Location = new System.Drawing.Point(244, 455);
             this.hideAddCheckBox.Name = "hideAddCheckBox";
             this.hideAddCheckBox.Size = new System.Drawing.Size(142, 18);
-            this.hideAddCheckBox.TabIndex = 23;
+            this.hideAddCheckBox.TabIndex = 3;
             this.hideAddCheckBox.Text = "Hide Add New Option";
             this.hideAddCheckBox.UseVisualStyleBackColor = true;
             this.hideAddCheckBox.CheckedChanged += new System.EventHandler(this.hideAddCheckBox_CheckedChanged);
@@ -1126,7 +1163,7 @@
             this.videoAvailableLinkLabel.Location = new System.Drawing.Point(597, 37);
             this.videoAvailableLinkLabel.Name = "videoAvailableLinkLabel";
             this.videoAvailableLinkLabel.Size = new System.Drawing.Size(158, 14);
-            this.videoAvailableLinkLabel.TabIndex = 25;
+            this.videoAvailableLinkLabel.TabIndex = 2;
             this.videoAvailableLinkLabel.TabStop = true;
             this.videoAvailableLinkLabel.Text = "Video Available, Click Here!";
             this.videoAvailableLinkLabel.Visible = false;
@@ -1141,43 +1178,6 @@
             this.videoUnavailableLabel.TabIndex = 26;
             this.videoUnavailableLabel.Text = "Video Unavailable.";
             this.videoUnavailableLabel.Visible = false;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(159, 164);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(100, 14);
-            this.label30.TabIndex = 14;
-            this.label30.Text = "Video Available?";
-            // 
-            // googleVideoComboBox
-            // 
-            this.googleVideoComboBox.FormattingEnabled = true;
-            this.googleVideoComboBox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.googleVideoComboBox.Location = new System.Drawing.Point(265, 161);
-            this.googleVideoComboBox.Name = "googleVideoComboBox";
-            this.googleVideoComboBox.Size = new System.Drawing.Size(80, 22);
-            this.googleVideoComboBox.TabIndex = 15;
-            this.googleVideoComboBox.SelectedIndexChanged += new System.EventHandler(this.googleVideoComboBox_SelectedIndexChanged);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 164);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(64, 14);
-            this.label29.TabIndex = 16;
-            this.label29.Text = "Video Link";
-            // 
-            // googleLinkTextBox
-            // 
-            this.googleLinkTextBox.Location = new System.Drawing.Point(9, 189);
-            this.googleLinkTextBox.Name = "googleLinkTextBox";
-            this.googleLinkTextBox.Size = new System.Drawing.Size(336, 22);
-            this.googleLinkTextBox.TabIndex = 17;
             // 
             // videoLinkLabel
             // 
