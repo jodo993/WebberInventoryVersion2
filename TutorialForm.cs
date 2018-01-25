@@ -43,6 +43,14 @@ namespace Webber_Inventory_Search_2017_2018
             this.Close();
         }
 
+        // -------------------------------------------------------------------------------------------------------------------
+
+        // WORD TAB IS NOW THE ENTIRE MICROSOFT OFFICE SUITE, SAME GOES FOR THE DATABASE
+        // EXCEL TAB IS NOW FOR CHROMEBOOK, SAME GOES FOR THE DATABASE
+        // POWERPOINT TAB IS NOW EDUCATIONAL SOFTWARE, SAME GOES FOR THE DATABASE
+
+        // -------------------------------------------------------------------------------------------------------------------
+
         // Close the program
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -186,13 +194,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
+                MessageBox.Show("The connection with the database could not be established. Some features may not be working correctly. Please try again later or contact your administrator if the problem persists.");
                 string page = "Tutorial";
                 string button = "Page Load";
                 string exception = ex.ToString();
                 BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
 
-                this.Close();
+                //this.Close();
             }
         }
 
@@ -231,6 +240,28 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void WordAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Word (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " was successfully added.");
+            wordListBox.Items.Add(topic);
+
+            // Clear boxes
+            wordTopicTextBox.Text = "";
+            wordInstructionTextBox.Text = "";
+            wordVideoComboBox.Text = "";
+            wordLinkTextBox.Text = "";
+        }
+
+        // WORD IS NOW THE COMPLETE MICROSOFT OFFICE SUITE. SAME GOES FOR THE DATABASE!!!!!
         private void wordAddButton_Click(object sender, EventArgs e)
         {
             string topic = wordTopicTextBox.Text;
@@ -242,30 +273,20 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Word (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " was successfully added.");
-                        wordListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        wordTopicTextBox.Text = "";
-                        wordInstructionTextBox.Text = "";
+                        WordAdd(topic, instructions, hasVideo, link);
                     }
                     else
                     {
                         MessageBox.Show("Link must start with www or https.");
                     }
+                }
+                else if (hasVideo == "No")
+                {
+                    WordAdd(topic, instructions, hasVideo, link);
                 }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
@@ -305,6 +326,27 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void ExcelAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Excel (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " was successfully added.");
+            excelListBox.Items.Add(topic);
+
+            // Clear boxes
+            excelTopicTextBox.Text = "";
+            excelInstructionTextBox.Text = "";
+            excelVideoComboBox.Text = "";
+            excelLinkTextBox.Text = "";
+        }
+
         private void excelAddButton_Click(object sender, EventArgs e)
         {
             string topic = excelTopicTextBox.Text;
@@ -316,28 +358,18 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Excel (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " was successfully added.");
-                        excelListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        excelTopicTextBox.Text = "";
-                        excelInstructionTextBox.Text = "";
+                        ExcelAdd(topic, instructions, hasVideo, link);
                     }
                     else
                         MessageBox.Show("Link must start with www. or https.");
+                }
+                else if (hasVideo == "No")
+                {
+                    ExcelAdd(topic, instructions, hasVideo, link);
                 }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
@@ -377,6 +409,27 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void PowerpointAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Powerpoint (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " was successfully added.");
+            powerpointListBox.Items.Add(topic);
+
+            // Clear boxes
+            powerpointTopicTextBox.Text = "";
+            powerpointInstructionTextBox.Text = "";
+            powerpointVideoComboBox.Text = "";
+            powerpointLinkTextBox.Text = "";
+        }
+
         private void powerpointAddButton_Click(object sender, EventArgs e)
         {
             string topic = powerpointTopicTextBox.Text;
@@ -388,28 +441,18 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Powerpoint (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " was successfully added.");
-                        powerpointListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        powerpointTopicTextBox.Text = "";
-                        powerpointInstructionTextBox.Text = "";
+                        PowerpointAdd(topic, instructions, hasVideo, link);
                     }
                     else
                         MessageBox.Show("Link must start with www. or https.");
+                }
+                else if (hasVideo == "No")
+                {
+                    PowerpointAdd(topic, instructions, hasVideo, link);
                 }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
@@ -449,6 +492,27 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void OutlookAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Outlook (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " was successfully added.");
+            outlookListBox.Items.Add(topic);
+
+            // Clear boxes
+            outlookTopicTextBox.Text = "";
+            outlookInstructionTextBox.Text = "";
+            outlookVideoComboBox.Text = "";
+            outlookLinkTextBox.Text = "";
+        }
+
         private void outlookAddButton_Click(object sender, EventArgs e)
         {
             string topic = outlookTopicTextBox.Text;
@@ -460,30 +524,20 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Outlook (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " was successfully added.");
-                        outlookListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        outlookTopicTextBox.Text = "";
-                        outlookInstructionTextBox.Text = "";
+                        OutlookAdd(topic, instructions, hasVideo, link);
                     }
                     else
                     {
                         MessageBox.Show("Link must start with www. or https.");
                     }
+                }
+                else if (hasVideo == "No")
+                {
+                    OutlookAdd(topic, instructions, hasVideo, link);
                 }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
@@ -523,6 +577,27 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void GoogleAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Google (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " was successfully added.");
+            googleListBox.Items.Add(topic);
+
+            // Clear boxes
+            googleTopicTextBox.Text = "";
+            googleInstructionTextBox.Text = "";
+            googleVideoComboBox.Text = "";
+            googleLinkTextBox.Text = "";
+        }
+        
         private void googleAddButton_Click(object sender, EventArgs e)
         {
             string topic = googleTopicTextBox.Text;
@@ -534,34 +609,23 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Google (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " was successfully added.");
-                        googleListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        googleTopicTextBox.Text = "";
-                        googleInstructionTextBox.Text = "";
+                        GoogleAdd(topic, instructions, hasVideo, link);
                     }
                     else
                     {
                         MessageBox.Show("Link must start with www. or https.");
                     }
                 }
+                else if (hasVideo == "No")
+                {
+                    GoogleAdd(topic, instructions, hasVideo, link);
+                }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
-
             }
         }
 
@@ -598,6 +662,27 @@ namespace Webber_Inventory_Search_2017_2018
             connection.Close();
         }
 
+        private void MiscAdd(string topic, string instructions, string hasVideo, string link)
+        {
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand();
+            command.Connection = connection;
+            string query = "insert into Tutorial_Misc (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+            MessageBox.Show("Tutorial " + topic + " successfully added.");
+            miscListBox.Items.Add(topic);
+
+            // Clear boxes
+            miscTopicTextBox.Text = "";
+            miscInstructionTextBox.Text = "";
+            miscVideoComboBox.Text = "";
+            miscLinkTextBox.Text = "";
+        }
+
         private void miscAddButton_Click(object sender, EventArgs e)
         {
             string topic = miscTopicTextBox.Text;
@@ -609,30 +694,20 @@ namespace Webber_Inventory_Search_2017_2018
                 MessageBox.Show("Please enter a topic, instructions, and video available.");
             else
             {
-                if (hasVideo == "Yes" || hasVideo == "No")
+                if (hasVideo == "Yes")
                 {
                     if (link.StartsWith("www.") || link.StartsWith("https://"))
                     {
-                        connection.Open();
-
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        string query = "insert into Tutorial_Misc (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-
-                        connection.Close();
-                        MessageBox.Show("Tutorial " + topic + " successfully added.");
-                        miscListBox.Items.Add(topic);
-
-                        // Clear boxes
-                        miscTopicTextBox.Text = "";
-                        miscInstructionTextBox.Text = "";
+                        MiscAdd(topic, instructions, hasVideo, link);
                     }
                     else
                     {
                         MessageBox.Show("Link must start with www. or https.");
                     }
+                }
+                else if (hasVideo == "No")
+                {
+                    MiscAdd(topic, instructions, hasVideo, link);
                 }
                 else
                     MessageBox.Show("Video Available can only be Yes or No.");
@@ -659,6 +734,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     wordListBox.Items.Remove(wordListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -695,6 +772,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     excelListBox.Items.Remove(excelListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -730,6 +809,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     powerpointListBox.Items.Remove(powerpointListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -765,6 +846,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     outlookListBox.Items.Remove(outlookListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -800,6 +883,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     googleListBox.Items.Remove(googleListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -835,6 +920,8 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("Topic and instruction deleted.");
                     miscListBox.Items.Remove(miscListBox.SelectedItem);
                     stepByStepLabel.Text = "";
+                    videoAvailableLinkLabel.Visible = false;
+                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");

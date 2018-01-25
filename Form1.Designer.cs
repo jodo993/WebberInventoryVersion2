@@ -135,6 +135,7 @@
             // signButton
             // 
             this.signButton.BackColor = System.Drawing.Color.Transparent;
+            this.signButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signButton.ForeColor = System.Drawing.Color.Black;
             this.signButton.Location = new System.Drawing.Point(421, 241);
@@ -149,6 +150,7 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.Color.Transparent;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.Black;
             this.clearButton.Location = new System.Drawing.Point(493, 241);
@@ -163,6 +165,7 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
             this.exitButton.Location = new System.Drawing.Point(576, 365);
@@ -235,6 +238,7 @@
             // 
             // backButton
             // 
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.Location = new System.Drawing.Point(508, 365);
             this.backButton.Name = "backButton";

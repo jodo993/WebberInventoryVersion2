@@ -110,7 +110,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.miscDeleteButton = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.miscAddButton = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.miscLinkTextBox = new System.Windows.Forms.TextBox();
@@ -121,6 +120,7 @@
             this.miscInstructionTextBox = new System.Windows.Forms.TextBox();
             this.miscTopicTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.miscListBox = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -130,6 +130,7 @@
             this.videoAvailableLinkLabel = new System.Windows.Forms.LinkLabel();
             this.videoUnavailableLabel = new System.Windows.Forms.Label();
             this.videoLinkLabel = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -147,8 +148,8 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuButton
@@ -347,7 +348,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(366, 394);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "PowerPoint";
+            this.tabPage3.Text = "Ed. Software";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // powerpointDeleteButton
@@ -460,7 +461,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftPowerpoint;
+            this.pictureBox3.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.softwareIcon;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(335, 3);
             this.pictureBox3.Name = "pictureBox3";
@@ -501,7 +502,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(366, 394);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Excel";
+            this.tabPage2.Text = "Chromebook";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // excelDeleteButton
@@ -614,7 +615,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftExcel;
+            this.pictureBox2.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.chromebookIcon2;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(335, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -655,7 +656,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(366, 394);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Word";
+            this.tabPage1.Text = "Office";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // wordDeleteButton
@@ -671,7 +672,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftWord;
+            this.pictureBox1.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.microsoftOfficeIcon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(335, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -823,7 +824,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(366, 394);
             this.tabPage4.TabIndex = 5;
-            this.tabPage4.Text = "Google Docs";
+            this.tabPage4.Text = "Google";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // googleDeleteButton
@@ -967,9 +968,9 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.miscDeleteButton);
-            this.tabPage6.Controls.Add(this.pictureBox6);
             this.tabPage6.Controls.Add(this.miscAddButton);
             this.tabPage6.Controls.Add(this.groupBox6);
+            this.tabPage6.Controls.Add(this.pictureBox6);
             this.tabPage6.Controls.Add(this.miscListBox);
             this.tabPage6.Controls.Add(this.label19);
             this.tabPage6.Location = new System.Drawing.Point(4, 23);
@@ -990,16 +991,6 @@
             this.miscDeleteButton.UseVisualStyleBackColor = true;
             this.miscDeleteButton.Visible = false;
             this.miscDeleteButton.Click += new System.EventHandler(this.miscDeleteButton_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.miscIcon;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(335, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(25, 27);
-            this.pictureBox6.TabIndex = 12;
-            this.pictureBox6.TabStop = false;
             // 
             // miscAddButton
             // 
@@ -1098,6 +1089,16 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Topic:";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::Webber_Inventory_Search_2017_2018.Properties.Resources.miscIcon;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(335, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(25, 27);
+            this.pictureBox6.TabIndex = 12;
+            this.pictureBox6.TabStop = false;
+            // 
             // miscListBox
             // 
             this.miscListBox.FormattingEnabled = true;
@@ -1162,10 +1163,10 @@
             this.videoAvailableLinkLabel.LinkColor = System.Drawing.Color.Red;
             this.videoAvailableLinkLabel.Location = new System.Drawing.Point(597, 37);
             this.videoAvailableLinkLabel.Name = "videoAvailableLinkLabel";
-            this.videoAvailableLinkLabel.Size = new System.Drawing.Size(158, 14);
+            this.videoAvailableLinkLabel.Size = new System.Drawing.Size(167, 14);
             this.videoAvailableLinkLabel.TabIndex = 2;
             this.videoAvailableLinkLabel.TabStop = true;
-            this.videoAvailableLinkLabel.Text = "Video Available, Click Here!";
+            this.videoAvailableLinkLabel.Text = "Video Available, Click Here! *";
             this.videoAvailableLinkLabel.Visible = false;
             this.videoAvailableLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.videoAvailableLinkLabel_LinkClicked);
             // 
@@ -1189,11 +1190,22 @@
             this.videoLinkLabel.Text = "link";
             this.videoLinkLabel.Visible = false;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Calibri", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(644, 9);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(113, 11);
+            this.label33.TabIndex = 28;
+            this.label33.Text = "* May be picture instructions";
+            // 
             // TutorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 491);
+            this.Controls.Add(this.label33);
             this.Controls.Add(this.videoLinkLabel);
             this.Controls.Add(this.videoUnavailableLabel);
             this.Controls.Add(this.videoAvailableLinkLabel);
@@ -1241,9 +1253,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1352,5 +1364,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox googleLinkTextBox;
         private System.Windows.Forms.Label videoLinkLabel;
+        private System.Windows.Forms.Label label33;
     }
 }
