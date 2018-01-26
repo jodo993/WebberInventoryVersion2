@@ -239,6 +239,7 @@ namespace Webber_Inventory_Search_2017_2018
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show("Login is disabled due to an unknown error. Please try again later or contact your administrator if the problem persists.");
                     // Send bug report
                     string page = "Master Key";
                     string button = "Login";
@@ -246,9 +247,16 @@ namespace Webber_Inventory_Search_2017_2018
                     BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                     bugSplat.ShowDialog();
 
-                    this.Close();
+                    //this.Close();
                 }
             }
+        }
+
+        // Show PIN form
+        private void forgotPinLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPINForm forgotPin = new ForgotPINForm();
+            forgotPin.ShowDialog();
         }
     }
 }

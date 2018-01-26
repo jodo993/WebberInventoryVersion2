@@ -100,6 +100,7 @@ namespace Webber_Inventory_Search_2017_2018
                         wordMatches = 0.0;
                         percentMatched = 0.0;
                         issueList.Clear();
+                        keyList.Clear();
                         
                         // Get issue string from database
                         string issue = (reader["Issue"].ToString().ToUpper());

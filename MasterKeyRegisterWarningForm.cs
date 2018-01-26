@@ -188,6 +188,7 @@ namespace Webber_Inventory_Search_2017_2018
                         }
                         catch (Exception ex)
                         {
+                            MessageBox.Show("Account could not be created due to an unexpected error. The program will now exit. Please try again later or contact your administrator if the problem persists.");
                             // Send bug report
                             string page = "Master Key Register";
                             string button = "Create";

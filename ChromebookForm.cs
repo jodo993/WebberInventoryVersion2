@@ -20,9 +20,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             InitializeComponent();
 
-            // Connect to database       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\josep\Desktop\WebberMainDatabase.accdb;Persist Security Info=False;";
-            //connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase_be.accdb;Persist Security Info=False;";
+            // Connect to database
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Function to clear all textboxes in the chromebook section
@@ -128,6 +127,7 @@ namespace Webber_Inventory_Search_2017_2018
                         command.Connection = connection;
                         command.CommandText = "insert into Chromebook_Information (FullName,LunchID,TeacherName,OriginalTag,Status,LoanTag,LoanStatus,BillAmount,BillDate,Notes,LastUpdated) values('" + fullName + "'," + lunchID + ",'" + teacherName + "'," + originalTag + ",'" + status + "'," + loanTag + ",'" + status2 + "','" + billAmount + "','" + billDate + "','" + notes + "','" + date + "')";
                         command.ExecuteNonQuery();
+
                         connection.Close();
 
                         MessageBox.Show("Chromebook was successfully added!");

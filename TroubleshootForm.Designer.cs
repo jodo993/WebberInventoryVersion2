@@ -60,7 +60,7 @@
             this.mainMenuButton.Location = new System.Drawing.Point(588, 515);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(80, 25);
-            this.mainMenuButton.TabIndex = 5;
+            this.mainMenuButton.TabIndex = 6;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
@@ -71,7 +71,7 @@
             this.exitButton.Location = new System.Drawing.Point(678, 515);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 25);
-            this.exitButton.TabIndex = 6;
+            this.exitButton.TabIndex = 7;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -182,7 +182,7 @@
             this.rateButton.Location = new System.Drawing.Point(698, 36);
             this.rateButton.Name = "rateButton";
             this.rateButton.Size = new System.Drawing.Size(55, 24);
-            this.rateButton.TabIndex = 15;
+            this.rateButton.TabIndex = 5;
             this.rateButton.Text = "Rate";
             this.rateButton.UseVisualStyleBackColor = true;
             this.rateButton.Click += new System.EventHandler(this.rateButton_Click);

@@ -69,6 +69,7 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
+                MessageBox.Show("The connection with the database could not be established. The program will now exit. Please try again later or contact your administrator if the problem persists.");
                 // Get bug info and send report
                 string page = "Supply";
                 string button = "Page Load";

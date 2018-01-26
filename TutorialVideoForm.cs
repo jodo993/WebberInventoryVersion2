@@ -22,5 +22,10 @@ namespace Webber_Inventory_Search_2017_2018
         {
             webBrowser1.Navigate(linkLabel.Text);
         }
+
+        private void TutorialVideoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            webBrowser1.Dispose();
+        }
     }
 }

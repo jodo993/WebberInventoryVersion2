@@ -290,6 +290,8 @@ namespace Webber_Inventory_Search_2017_2018
                     programTextBox.Text = "";
                     newUsernameTextBox.Text = "";
                     newPasswordTextBox.Text = "";
+                    usernameTextBox.Text = "";
+                    passwordTextBox.Text = "";
                 }
                 catch (Exception ex)
                 {

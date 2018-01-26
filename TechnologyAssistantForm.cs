@@ -852,5 +852,10 @@ namespace Webber_Inventory_Search_2017_2018
             solutionTextBox.Text = "";
             keyWordsTextBox.Text = "";
         }
+
+        private void sortTSListBoxButton_Click(object sender, EventArgs e)
+        {
+            currentSolutionListBox.Sorted = true;
+        }
     }
 }

@@ -69,7 +69,7 @@
             this.privateKeyTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.privateKeyTextBox.Location = new System.Drawing.Point(185, 114);
             this.privateKeyTextBox.Name = "privateKeyTextBox";
-            this.privateKeyTextBox.PasswordChar = '*';
+            this.privateKeyTextBox.PasswordChar = '•';
             this.privateKeyTextBox.Size = new System.Drawing.Size(112, 27);
             this.privateKeyTextBox.TabIndex = 2;
             this.privateKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -176,6 +176,7 @@
             this.forgotPinLinkLabel.TabStop = true;
             this.forgotPinLinkLabel.Text = "Forgot PIN?";
             this.forgotPinLinkLabel.VisitedLinkColor = System.Drawing.Color.LightBlue;
+            this.forgotPinLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPinLinkLabel_LinkClicked);
             // 
             // MasterKeyForm
             // 
