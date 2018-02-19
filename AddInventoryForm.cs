@@ -7,21 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class AddInventoryForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Webber Technology Support SQL Database Version\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public AddInventoryForm()
         {
             InitializeComponent();
+        }
 
-            // Connect to database                                                       
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
+        private void ClearLabels()
+        {
+            addTagTextBox.Text = "";
+            typeWrongLabel.Visible = false;
+            statusWrongLabel.Visible = false;
+            warningLabel.Visible = false;
+            warning2Label.Visible = false;
+        }
+
+        private void ClearTextBoxes()
+        {
+            addTypeComboBox.Text = "";
+            addMakeTextBox.Text = "";
+            addModelTextBox.Text = "";
+            addLocationComboBox.Text = "";
+            addStatusComboBox.Text = "";
         }
 
         // Send user back to admin main menu
@@ -50,16 +64,16 @@ namespace Webber_Inventory_Search_2017_2018
                     addStatusComboBox.Text != "")
                 {             
                     // Check to see if type matches with one that is required
-                    if (addTypeComboBox.Text == "Desktop" || addTypeComboBox.Text == "Laptop" || addTypeComboBox.Text == "Monitor" || addTypeComboBox.Text == "Printer" ||
-                    addTypeComboBox.Text == "Smartboard" || addTypeComboBox.Text == "Projector" || addTypeComboBox.Text == "Tablet" || addTypeComboBox.Text == "Accessories"
-                    || addTypeComboBox.Text == "Webber")
+                    if (addTypeComboBox.Text == "DESKTOP" || addTypeComboBox.Text == "LAPTOP" || addTypeComboBox.Text == "MONITOR" || addTypeComboBox.Text == "PRINTER" ||
+                    addTypeComboBox.Text == "SMARTBOARD" || addTypeComboBox.Text == "PROJECTOR" || addTypeComboBox.Text == "TABLET" || addTypeComboBox.Text == "ACCESSORIES"
+                    || addTypeComboBox.Text == "WEBBER")
                     {
                         // Hide type wrong label
                         typeWrongLabel.Visible = false;
                         warningLabel.Visible = false;
 
-                        if (addStatusComboBox.Text == "Active" || addStatusComboBox.Text == "Inactive" || addStatusComboBox.Text == "Repair" || addStatusComboBox.Text == "Surplus" ||
-                            addStatusComboBox.Text == "Unknown")
+                        if (addStatusComboBox.Text == "ACTIVE" || addStatusComboBox.Text == "INACTIVE" || addStatusComboBox.Text == "REPAIR" || addStatusComboBox.Text == "SURPLUS" ||
+                            addStatusComboBox.Text == "UNKNOWN")
                         {
                             // Hide status wrong label
                             statusWrongLabel.Visible = false;
@@ -73,17 +87,17 @@ namespace Webber_Inventory_Search_2017_2018
                                 // Write the information into the database
                                 connection.Open();
 
-                                string type = addTypeComboBox.Text;
-                                string make = addMakeTextBox.Text;
-                                string model = addModelTextBox.Text;
+                                string type = addTypeComboBox.Text.ToUpper();
+                                string make = addMakeTextBox.Text.ToUpper();
+                                string model = addModelTextBox.Text.ToUpper();
                                 int tag = int.Parse(addTagTextBox.Text);
-                                string location = addLocationComboBox.Text;
-                                string status = addStatusComboBox.Text;
-                                string date = DateTime.Today.ToString();
+                                string location = addLocationComboBox.Text.ToUpper();
+                                string status = addStatusComboBox.Text.ToUpper();
+                                string date = DateTime.Now.ToString();
 
-                                OleDbCommand command = new OleDbCommand();
-                                command.Connection = connection;
-                                command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status) values('" + type + "','" + make + "','" + model + "'," + tag + ",'" + location + "','" + status + "')";
+                                SqlCommand command = connection.CreateCommand();
+                                command.CommandType = CommandType.Text;
+                                command.CommandText = "insert into Main_Inventory (Type,Make,Model,Tag,Location,Status,TimeUpdated) values('" + type + "','" + make + "','" + model + "'," + tag + ",'" + location + "','" + status + "','" + date + "')";
                                 command.ExecuteNonQuery();     
 
                                 connection.Close();
@@ -92,24 +106,12 @@ namespace Webber_Inventory_Search_2017_2018
                                 // Clear some fields
                                 if (saveCheckBox.Checked)
                                 {
-                                    addTagTextBox.Text = "";
-                                    typeWrongLabel.Visible = false;
-                                    statusWrongLabel.Visible = false;
-                                    warningLabel.Visible = false;
-                                    warning2Label.Visible = false;
+                                    ClearLabels();
                                 }
                                 else
                                 {
-                                    addTypeComboBox.Text = "";
-                                    addMakeTextBox.Text = "";
-                                    addModelTextBox.Text = "";
-                                    addTagTextBox.Text = "";
-                                    addLocationComboBox.Text = "";
-                                    addStatusComboBox.Text = "";
-                                    typeWrongLabel.Visible = false;
-                                    statusWrongLabel.Visible = false;
-                                    warningLabel.Visible = false;
-                                    warning2Label.Visible = false;
+                                    ClearLabels();
+                                    ClearTextBoxes();
                                 }   
                             }
                             else
@@ -138,7 +140,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string page = "Add";
                 string button = "Add";
                 string exception = ex.ToString();
-                BugSplatForm bugSplat = new BugSplatForm(page,button,exception);
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
 
                 this.Close();
@@ -148,18 +150,16 @@ namespace Webber_Inventory_Search_2017_2018
         private void addClearButton_Click(object sender, EventArgs e)
         {
             // Clear all fields
-            addTypeComboBox.Text = "";
-            addMakeTextBox.Text = "";
-            addModelTextBox.Text = "";
-            addTagTextBox.Text = "";
-            addLocationComboBox.Text = "";
-            addStatusComboBox.Text = "";
+            ClearLabels();
+            ClearTextBoxes();
+        }
 
-            // Wrong input labels
-            typeWrongLabel.Visible = false;
-            statusWrongLabel.Visible = false;
-            warningLabel.Visible = false;
-            warning2Label.Visible = false;
+        private void addStatusComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addButton.PerformClick();
+            }
         }
     }
 }

@@ -98,6 +98,7 @@
             this.searchTextBox.Size = new System.Drawing.Size(150, 22);
             this.searchTextBox.TabIndex = 0;
             this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
             // 
             // searchButton
             // 
@@ -193,10 +194,10 @@
             // 
             this.updateLocationComboBox.FormattingEnabled = true;
             this.updateLocationComboBox.Items.AddRange(new object[] {
-            "Office",
-            "District",
+            "OFFICE",
+            "DISTRICT",
             "MPR",
-            "Library",
+            "LIBRARY",
             "K1",
             "K2",
             "A1",
@@ -223,7 +224,7 @@
             "F2",
             "F3",
             "F4",
-            "Other"});
+            "OTHER"});
             this.updateLocationComboBox.Location = new System.Drawing.Point(102, 46);
             this.updateLocationComboBox.Name = "updateLocationComboBox";
             this.updateLocationComboBox.Size = new System.Drawing.Size(90, 22);
@@ -233,11 +234,11 @@
             // 
             this.updateStatusComboBox.FormattingEnabled = true;
             this.updateStatusComboBox.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "Repair",
-            "Surplus",
-            "Unknown"});
+            "ACTIVE",
+            "INACTIVE",
+            "REPAIR",
+            "SURPLUS",
+            "UNKNOWN"});
             this.updateStatusComboBox.Location = new System.Drawing.Point(102, 46);
             this.updateStatusComboBox.Name = "updateStatusComboBox";
             this.updateStatusComboBox.Size = new System.Drawing.Size(90, 22);
@@ -282,6 +283,7 @@
             this.removeTextBox.Size = new System.Drawing.Size(150, 22);
             this.removeTextBox.TabIndex = 3;
             this.removeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.removeTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.removeTextBox_KeyDown);
             // 
             // clearRemoveButton
             // 
@@ -434,6 +436,7 @@
             this.categorySearchComboBox.Name = "categorySearchComboBox";
             this.categorySearchComboBox.Size = new System.Drawing.Size(422, 22);
             this.categorySearchComboBox.TabIndex = 12;
+            this.categorySearchComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.categorySearchComboBox_KeyDown);
             // 
             // findButton
             // 

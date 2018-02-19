@@ -490,6 +490,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 22);
             this.idTextBox.TabIndex = 12;
+            this.idTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idTextBox_KeyDown);
             // 
             // getInfoButton
             // 
@@ -556,6 +557,7 @@
             this.deleteTextBox.Name = "deleteTextBox";
             this.deleteTextBox.Size = new System.Drawing.Size(100, 22);
             this.deleteTextBox.TabIndex = 15;
+            this.deleteTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.deleteTextBox_KeyDown);
             // 
             // deleteButton
             // 
@@ -649,6 +651,7 @@
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(245, 22);
             this.searchComboBox.TabIndex = 21;
+            this.searchComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchComboBox_KeyDown);
             // 
             // IDradioButton
             // 

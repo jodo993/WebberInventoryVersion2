@@ -193,10 +193,10 @@
             // 
             this.addLocationComboBox.FormattingEnabled = true;
             this.addLocationComboBox.Items.AddRange(new object[] {
-            "Office",
-            "District",
+            "OFFICE",
+            "DISTRICT",
             "MPR",
-            "Library",
+            "LIBRARY",
             "K1",
             "K2",
             "A1",
@@ -223,7 +223,7 @@
             "F2",
             "F3",
             "F4",
-            "Other"});
+            "OTHER"});
             this.addLocationComboBox.Location = new System.Drawing.Point(268, 141);
             this.addLocationComboBox.Name = "addLocationComboBox";
             this.addLocationComboBox.Size = new System.Drawing.Size(100, 26);
@@ -311,29 +311,30 @@
             // 
             this.addStatusComboBox.FormattingEnabled = true;
             this.addStatusComboBox.Items.AddRange(new object[] {
-            "Active",
-            "Inactive",
-            "Repair",
-            "Surplus",
-            "Unknown"});
+            "ACTIVE",
+            "INACTIVE",
+            "REPAIR",
+            "SURPLUS",
+            "UNKNOWN"});
             this.addStatusComboBox.Location = new System.Drawing.Point(268, 195);
             this.addStatusComboBox.Name = "addStatusComboBox";
             this.addStatusComboBox.Size = new System.Drawing.Size(100, 26);
             this.addStatusComboBox.TabIndex = 6;
+            this.addStatusComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addStatusComboBox_KeyDown);
             // 
             // addTypeComboBox
             // 
             this.addTypeComboBox.FormattingEnabled = true;
             this.addTypeComboBox.Items.AddRange(new object[] {
-            "Desktop",
-            "Laptop",
-            "Monitor",
-            "Printer",
-            "Smartboard",
-            "Projector",
-            "Tablet",
-            "Accessories",
-            "Webber"});
+            "DESKTOP",
+            "LAPTOP",
+            "MONITOR",
+            "PRINTER",
+            "SMARTBOARD",
+            "PROJECTOR",
+            "TABLET",
+            "ACCESSORIES",
+            "WEBBER"});
             this.addTypeComboBox.Location = new System.Drawing.Point(69, 80);
             this.addTypeComboBox.Name = "addTypeComboBox";
             this.addTypeComboBox.Size = new System.Drawing.Size(100, 26);
