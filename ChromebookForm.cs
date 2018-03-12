@@ -13,7 +13,7 @@ namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ChromebookForm : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Webber Technology Support SQL Database Version\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public ChromebookForm()
         {
@@ -160,15 +160,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ehi" + ex);
                 // Gather and send information to the bug report
-                //string page = "Chromebook";
-                //string button = "Add";
-                //string exception = ex.ToString();
-                //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                //bugSplat.ShowDialog();
+                string page = "Chromebook";
+                string button = "Add";
+                string exception = ex.ToString();
+                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                bugSplat.ShowDialog();
 
-                //this.Close();
+                this.Close();
             }
         }
 
@@ -512,15 +511,14 @@ namespace Webber_Inventory_Search_2017_2018
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("h" + ex);
                         // Get information for bug report
-                        //string page = "Chromebook";
-                        //string button = "Quick Fill";
-                        //string exception = ex.ToString();
-                        //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                        //bugSplat.ShowDialog();
+                        string page = "Chromebook";
+                        string button = "Quick Fill";
+                        string exception = ex.ToString();
+                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                        bugSplat.ShowDialog();
 
-                        //this.Close();
+                        this.Close();
                     }
                 }
                 else

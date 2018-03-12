@@ -79,6 +79,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(165, 20);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameTextBox_KeyDown);
             // 
             // label2
             // 
@@ -103,6 +104,7 @@
             this.answerTextBox.Name = "answerTextBox";
             this.answerTextBox.Size = new System.Drawing.Size(285, 20);
             this.answerTextBox.TabIndex = 4;
+            this.answerTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.answerTextBox_KeyDown);
             // 
             // label4
             // 

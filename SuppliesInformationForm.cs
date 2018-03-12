@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 using System.Diagnostics;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class SuppliesInformationForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         // Link of item
         string link = "";
@@ -25,8 +24,6 @@ namespace Webber_Inventory_Search_2017_2018
             InitializeComponent();
             // Signify which mode user is
             userLabel.Text = user;
-            // Connect to database 
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void SuppliesInformationForm_Load(object sender, EventArgs e)
@@ -36,8 +33,8 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandType = new OleDbCommand();
-                commandType.Connection = connection;
+                SqlCommand commandType = connection.CreateCommand();
+                commandType.CommandType = CommandType.Text;
                 string query = "select Type from Supply_Information";
                 commandType.CommandText = query;
 
@@ -46,7 +43,7 @@ namespace Webber_Inventory_Search_2017_2018
                 int i = 0;
 
                 // Add type to list
-                OleDbDataReader readerType = commandType.ExecuteReader();
+                SqlDataReader readerType = commandType.ExecuteReader();
                 while (readerType.Read())
                 { 
                     typeList[i] = readerType["Type"].ToString();
@@ -100,8 +97,8 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandBrand = new OleDbCommand();
-                commandBrand.Connection = connection;
+                SqlCommand commandBrand = connection.CreateCommand();
+                commandBrand.CommandType = CommandType.Text;
                 string query = "select * from Supply_Information where Type='" + item + "'";
                 commandBrand.CommandText = query;
 
@@ -109,7 +106,7 @@ namespace Webber_Inventory_Search_2017_2018
                 string[] brandList = new String[1000];
                 int i = 0;
 
-                OleDbDataReader readerBrand = commandBrand.ExecuteReader();
+                SqlDataReader readerBrand = commandBrand.ExecuteReader();
                 while (readerBrand.Read())
                 {
                     brandList[i] = readerBrand["Brand"].ToString();
@@ -158,8 +155,8 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandModel = new OleDbCommand();
-                commandModel.Connection = connection;
+                SqlCommand commandModel = connection.CreateCommand();
+                commandModel.CommandType = CommandType.Text;
                 string query = "select * from Supply_Information where Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandModel.CommandText = query;
 
@@ -168,7 +165,7 @@ namespace Webber_Inventory_Search_2017_2018
                 int i = 0;
 
                 // Add to list
-                OleDbDataReader readermodel = commandModel.ExecuteReader();
+                SqlDataReader readermodel = commandModel.ExecuteReader();
                 while (readermodel.Read())
                 {
                     modelList[i] = readermodel["Model"].ToString();
@@ -219,12 +216,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandCat = new OleDbCommand();
-                commandCat.Connection = connection;
+                SqlCommand commandCat = connection.CreateCommand();
+                commandCat.CommandType = CommandType.Text;
                 string query = "select * from Supply_Information where Model='" + modelItem + "' and Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandCat.CommandText = query;
 
-                OleDbDataReader readerCat = commandCat.ExecuteReader();
+                SqlDataReader readerCat = commandCat.ExecuteReader();
                 while (readerCat.Read())
                 {
                     catComboBox.Items.Add(readerCat["Category"].ToString());
@@ -257,12 +254,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandName = new OleDbCommand();
-                commandName.Connection = connection;
+                SqlCommand commandName = connection.CreateCommand();
+                commandName.CommandType = CommandType.Text;
                 string query = "select * from Supply_Information where Category='" + catItem + "' and Model='" + modelItem + "' and Brand='" + brandItem + "' and Type='" + typeItem + "'";
                 commandName.CommandText = query;
 
-                OleDbDataReader readerName = commandName.ExecuteReader();
+                SqlDataReader readerName = commandName.ExecuteReader();
                 while (readerName.Read())
                 {
                     nameRTextBox.Text = readerName["Supply"].ToString();
@@ -341,8 +338,8 @@ namespace Webber_Inventory_Search_2017_2018
                     {
                         connection.Open();
 
-                        OleDbCommand commandAdd = new OleDbCommand();
-                        commandAdd.Connection = connection;
+                        SqlCommand commandAdd = connection.CreateCommand();
+                        commandAdd.CommandType = CommandType.Text;
                         string query = "insert into Supply_Information (Type,Brand,Model,Category,Supply,Link) values('" + type + "','" + brand + "','" + model + "','" + cat + "','" + name + "','" + link + "')";
                         commandAdd.CommandText = query;
                         commandAdd.ExecuteNonQuery();
@@ -403,6 +400,14 @@ namespace Webber_Inventory_Search_2017_2018
                 bugSplat.ShowDialog();
 
                 this.Close();
+            }
+        }
+
+        private void linkTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addButton.PerformClick();
             }
         }
     }

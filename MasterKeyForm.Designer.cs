@@ -73,6 +73,7 @@
             this.privateKeyTextBox.Size = new System.Drawing.Size(112, 27);
             this.privateKeyTextBox.TabIndex = 2;
             this.privateKeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.privateKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.privateKeyTextBox_KeyDown);
             // 
             // nameTextBox
             // 
@@ -191,6 +192,7 @@
             this.Controls.Add(this.registerLinkLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MasterKeyForm";

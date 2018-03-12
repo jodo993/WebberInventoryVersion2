@@ -7,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class MasterKeyForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public MasterKeyForm(string user)
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connection to database
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -64,12 +61,13 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "select * from Master_Key_Login";
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                string query = "select * from Master_Key_Login";
+                command.CommandText = query;
 
                 // Get both names and add them together, return false if same
-                OleDbDataReader nameReader = command.ExecuteReader();
+                SqlDataReader nameReader = command.ExecuteReader();
                 while (nameReader.Read())
                 {
                     firstNameArray[i] = nameReader["FirstName"].ToString();
@@ -109,11 +107,11 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 command.CommandText = "select * from Master_Key_Login";
 
-                OleDbDataReader keyReader = command.ExecuteReader();
+                SqlDataReader keyReader = command.ExecuteReader();
                 while (keyReader.Read())
                 {
                     allKeys[i] = keyReader["PrivateKey"].ToString();
@@ -154,11 +152,11 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 command.CommandText = "select FirstName,LastName from Master_Key_Login where PrivateKey=" + keyPin + "";
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     firstName[i] = reader["FirstName"].ToString();
@@ -257,6 +255,14 @@ namespace Webber_Inventory_Search_2017_2018
         {
             ForgotPINForm forgotPin = new ForgotPINForm();
             forgotPin.ShowDialog();
+        }
+
+        private void privateKeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton.PerformClick();
+            }
         }
     }
 }

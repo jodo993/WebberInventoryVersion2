@@ -48,6 +48,10 @@
             this.quitButton = new System.Windows.Forms.Button();
             this.addTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.saveDataCheckBox = new System.Windows.Forms.CheckBox();
             this.linkTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.catTextBox = new System.Windows.Forms.TextBox();
@@ -63,10 +67,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
-            this.saveDataCheckBox = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.addTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -122,7 +122,7 @@
             this.catComboBox.FormattingEnabled = true;
             this.catComboBox.Location = new System.Drawing.Point(64, 158);
             this.catComboBox.Name = "catComboBox";
-            this.catComboBox.Size = new System.Drawing.Size(160, 22);
+            this.catComboBox.Size = new System.Drawing.Size(244, 22);
             this.catComboBox.TabIndex = 11;
             this.catComboBox.SelectedIndexChanged += new System.EventHandler(this.catComboBox_SelectedIndexChanged);
             // 
@@ -131,7 +131,7 @@
             this.linkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.linkLabel1.Location = new System.Drawing.Point(64, 225);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(320, 25);
+            this.linkLabel1.Size = new System.Drawing.Size(357, 25);
             this.linkLabel1.TabIndex = 13;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -140,7 +140,7 @@
             this.nameRTextBox.Location = new System.Drawing.Point(64, 195);
             this.nameRTextBox.Multiline = true;
             this.nameRTextBox.Name = "nameRTextBox";
-            this.nameRTextBox.Size = new System.Drawing.Size(320, 21);
+            this.nameRTextBox.Size = new System.Drawing.Size(357, 21);
             this.nameRTextBox.TabIndex = 12;
             // 
             // label8
@@ -158,7 +158,7 @@
             this.brandComboBox.FormattingEnabled = true;
             this.brandComboBox.Location = new System.Drawing.Point(65, 85);
             this.brandComboBox.Name = "brandComboBox";
-            this.brandComboBox.Size = new System.Drawing.Size(160, 22);
+            this.brandComboBox.Size = new System.Drawing.Size(244, 22);
             this.brandComboBox.TabIndex = 9;
             this.brandComboBox.SelectedIndexChanged += new System.EventHandler(this.brandComboBox_SelectedIndexChanged);
             // 
@@ -197,7 +197,7 @@
             this.typeComboBox.FormattingEnabled = true;
             this.typeComboBox.Location = new System.Drawing.Point(65, 48);
             this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(160, 22);
+            this.typeComboBox.Size = new System.Drawing.Size(244, 22);
             this.typeComboBox.TabIndex = 8;
             this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
             // 
@@ -226,7 +226,7 @@
             this.modelComboBox.FormattingEnabled = true;
             this.modelComboBox.Location = new System.Drawing.Point(64, 122);
             this.modelComboBox.Name = "modelComboBox";
-            this.modelComboBox.Size = new System.Drawing.Size(160, 22);
+            this.modelComboBox.Size = new System.Drawing.Size(244, 22);
             this.modelComboBox.TabIndex = 10;
             this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
             // 
@@ -290,6 +290,46 @@
             this.tabPage1.Text = "Add Supply";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(366, 84);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 14);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(366, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 14);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(366, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 14);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "*";
+            // 
+            // saveDataCheckBox
+            // 
+            this.saveDataCheckBox.AutoSize = true;
+            this.saveDataCheckBox.Location = new System.Drawing.Point(379, 144);
+            this.saveDataCheckBox.Name = "saveDataCheckBox";
+            this.saveDataCheckBox.Size = new System.Drawing.Size(104, 18);
+            this.saveDataCheckBox.TabIndex = 16;
+            this.saveDataCheckBox.Text = "Save Marked *";
+            this.saveDataCheckBox.UseVisualStyleBackColor = true;
+            // 
             // linkTextBox
             // 
             this.linkTextBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -297,6 +337,7 @@
             this.linkTextBox.Name = "linkTextBox";
             this.linkTextBox.Size = new System.Drawing.Size(461, 22);
             this.linkTextBox.TabIndex = 6;
+            this.linkTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.linkTextBox_KeyDown);
             // 
             // label14
             // 
@@ -426,46 +467,6 @@
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(25, 27);
             this.userLabel.TabIndex = 22;
-            // 
-            // saveDataCheckBox
-            // 
-            this.saveDataCheckBox.AutoSize = true;
-            this.saveDataCheckBox.Location = new System.Drawing.Point(379, 144);
-            this.saveDataCheckBox.Name = "saveDataCheckBox";
-            this.saveDataCheckBox.Size = new System.Drawing.Size(104, 18);
-            this.saveDataCheckBox.TabIndex = 16;
-            this.saveDataCheckBox.Text = "Save Marked *";
-            this.saveDataCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(366, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 14);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "*";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(366, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 14);
-            this.label16.TabIndex = 18;
-            this.label16.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(366, 84);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 14);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "*";
             // 
             // SuppliesInformationForm
             // 

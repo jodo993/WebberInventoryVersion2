@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class MasterKeyPasswordPage : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public MasterKeyPasswordPage(string user, string name, string key)
         {
@@ -22,9 +21,6 @@ namespace Webber_Inventory_Search_2017_2018
             userLabel.Text = user;
             nameLabel.Text = name;
             keyLabel.Text = key;
-
-            // Connect to database
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Return to login page
@@ -47,11 +43,11 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 command.CommandText = "select Programs from Master_Key_Passwords where PrivateKey=" + key + "";
 
-                OleDbDataReader programReader = command.ExecuteReader();
+                SqlDataReader programReader = command.ExecuteReader();
                 while (programReader.Read())
                 {
                     passwordListBox.Items.Add(programReader["Programs"].ToString());
@@ -80,12 +76,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Master_Key_Passwords where Programs='" + passwordListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     usernameTextBox.Text = reader["Username"].ToString();
@@ -114,12 +110,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Master_Key_Passwords where Programs='" + updateProgramListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     idLabel.Text = reader["ID"].ToString();
@@ -142,7 +138,7 @@ namespace Webber_Inventory_Search_2017_2018
                 this.Close();
             }
         }
-        
+
         // Add new program data set to the database
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -162,9 +158,10 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "insert into Master_Key_Passwords (PrivateKey,Programs,Username,Passwords) values(" + key + ",'" + program + "','" + username + "','" + password + "')";
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
+                    string query = "insert into Master_Key_Passwords (PrivateKey,Programs,Username,Passwords) values(" + key + ",'" + program + "','" + username + "','" + password + "')";
+                    command.CommandText = query;
                     command.ExecuteNonQuery();
 
                     connection.Close();
@@ -218,9 +215,10 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "update Master_Key_Passwords set Username='" + username + "',Passwords='" + password + "' where Programs='" + program + "' AND PrivateKey=" + key + " AND ID=" + ID + "";
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
+                    string query = "update Master_Key_Passwords set Username='" + username + "',Passwords='" + password + "' where Programs='" + program + "' AND PrivateKey=" + key + " AND ID=" + ID + "";
+                    command.CommandText = query;
                     command.ExecuteNonQuery();
 
                     connection.Close();
@@ -274,9 +272,10 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "delete from Master_Key_Passwords where Programs='" + program + "' AND PrivateKey=" + key + " AND ID=" + ID + "";
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
+                    string query = "delete from Master_Key_Passwords where Programs='" + program + "' AND PrivateKey=" + key + " AND ID=" + ID + "";
+                    command.CommandText = query;
                     command.ExecuteNonQuery();
 
                     connection.Close();

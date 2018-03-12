@@ -140,7 +140,6 @@
             this.programComboBox.Name = "programComboBox";
             this.programComboBox.Size = new System.Drawing.Size(209, 22);
             this.programComboBox.TabIndex = 6;
-            this.programComboBox.SelectedIndexChanged += new System.EventHandler(this.programComboBox_SelectedIndexChanged);
             // 
             // issueComboBox
             // 
@@ -149,7 +148,6 @@
             this.issueComboBox.Name = "issueComboBox";
             this.issueComboBox.Size = new System.Drawing.Size(209, 22);
             this.issueComboBox.TabIndex = 7;
-            this.issueComboBox.SelectedIndexChanged += new System.EventHandler(this.issueComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -265,8 +263,9 @@
             this.fixDateTextBox.Location = new System.Drawing.Point(273, 177);
             this.fixDateTextBox.Mask = "00/00/0000 90:00";
             this.fixDateTextBox.Name = "fixDateTextBox";
-            this.fixDateTextBox.Size = new System.Drawing.Size(100, 22);
+            this.fixDateTextBox.Size = new System.Drawing.Size(150, 22);
             this.fixDateTextBox.TabIndex = 4;
+            this.fixDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fixDateTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // updateButton
@@ -284,7 +283,7 @@
             this.dateClosedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dateClosedLabel.Location = new System.Drawing.Point(274, 145);
             this.dateClosedLabel.Name = "dateClosedLabel";
-            this.dateClosedLabel.Size = new System.Drawing.Size(100, 21);
+            this.dateClosedLabel.Size = new System.Drawing.Size(149, 21);
             this.dateClosedLabel.TabIndex = 31;
             this.dateClosedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -297,7 +296,7 @@
             "Closed"});
             this.statusComboBox.Location = new System.Drawing.Point(274, 114);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(100, 22);
+            this.statusComboBox.Size = new System.Drawing.Size(149, 22);
             this.statusComboBox.TabIndex = 3;
             // 
             // label7
@@ -454,9 +453,9 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(205, 25);
+            this.label14.Location = new System.Drawing.Point(190, 25);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 22);
+            this.label14.Size = new System.Drawing.Size(77, 22);
             this.label14.TabIndex = 7;
             this.label14.Text = "Description:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1125,6 +1124,7 @@
             this.Controls.Add(this.exitButton);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TechnologyAssistantForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Technology Assistant";

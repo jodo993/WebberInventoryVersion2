@@ -61,6 +61,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // exitButton
             // 
+            this.exitButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(684, 358);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
@@ -215,10 +217,11 @@
             // 
             // idLabel
             // 
-            this.idLabel.Location = new System.Drawing.Point(494, 55);
+            this.idLabel.Location = new System.Drawing.Point(494, 46);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(35, 13);
+            this.idLabel.Size = new System.Drawing.Size(35, 25);
             this.idLabel.TabIndex = 15;
+            this.idLabel.Visible = false;
             // 
             // groupBox1
             // 
@@ -358,7 +361,7 @@
             this.userLabel.AutoSize = true;
             this.userLabel.Location = new System.Drawing.Point(723, 340);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(27, 13);
+            this.userLabel.Size = new System.Drawing.Size(28, 13);
             this.userLabel.TabIndex = 6;
             this.userLabel.Text = "user";
             // 
@@ -406,11 +409,23 @@
             this.label13.Text = "Only username and password will be updated. Programs cannot be updated, only adde" +
     "d or deleted.";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(684, 293);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 44);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Delete My Account";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
             // MasterKeyPasswordPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 397);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -421,6 +436,8 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MasterKeyPasswordPage";
@@ -473,5 +490,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button1;
     }
 }

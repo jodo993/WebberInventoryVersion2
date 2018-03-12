@@ -557,6 +557,7 @@
             this.deleteTextBox.Name = "deleteTextBox";
             this.deleteTextBox.Size = new System.Drawing.Size(100, 22);
             this.deleteTextBox.TabIndex = 15;
+            this.deleteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.deleteTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.deleteTextBox_KeyDown);
             // 
             // deleteButton

@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class Form1 : Form
     {
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+
         public Form1()
         {
             InitializeComponent();
@@ -237,9 +240,31 @@ namespace Webber_Inventory_Search_2017_2018
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        async Task PutTaskDelay()
+        {
+            await Task.Delay(5000);
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
         {
             InstallUpdateSyncWithInfo();
+
+            await PutTaskDelay();
+
+            try
+            {
+                connection.Open();
+                connection.Close();
+                label1.Text = "Connected";
+            }
+            catch (Exception)
+            {
+                //string page = "Login";
+                //string button = "Load";
+                //string exception = ex.ToString();
+                //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                label1.Text = "Not Connected";
+            }
         }
     }
 }

@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class BugSplatForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public BugSplatForm(string pg,string btn,string ex)
         {
@@ -22,9 +21,6 @@ namespace Webber_Inventory_Search_2017_2018
             nameLabel.Text = pg;
             buttonLabel.Text = btn;
             descLabel.Text = ex;
-
-            // Connect to database   
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -51,8 +47,8 @@ namespace Webber_Inventory_Search_2017_2018
 
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 command.CommandText = "insert into Exception_Error_Report (Page,Button,Error,Person,Description,Status,Fix) values('" + page + "','" + button + "','" + bugInformation + "','" + name + "','" + description + "','" + status + "','" + fix + "')";
                 command.ExecuteNonQuery();
 

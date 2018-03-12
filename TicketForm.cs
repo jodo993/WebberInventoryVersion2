@@ -7,22 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 using System.Diagnostics;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class TicketForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public TicketForm(string user)
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database    
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -51,8 +48,8 @@ namespace Webber_Inventory_Search_2017_2018
 
                                         connection.Open();
 
-                                        OleDbCommand command = new OleDbCommand();
-                                        command.Connection = connection;
+                                        SqlCommand command = connection.CreateCommand();
+                                        command.CommandType = CommandType.Text;
                                         command.CommandText = "insert into Help_Ticket (Staff,Room,Importance,Category,TimePreferred,Description,Status) values('" + staff + "','" + room + "','" + importance + "','" + category + "','" + time + "','" + description + "','" + status + "')";
                                         command.ExecuteNonQuery();
 
@@ -65,7 +62,7 @@ namespace Webber_Inventory_Search_2017_2018
                                         command.CommandText = query;
 
                                         // Read the data
-                                        OleDbDataReader reader = command.ExecuteReader();
+                                        SqlDataReader reader = command.ExecuteReader();
                                         while (reader.Read())
                                         {
                                             idList[i] = reader["ID"].ToString();
@@ -78,14 +75,15 @@ namespace Webber_Inventory_Search_2017_2018
                                     }
                                     catch (Exception ex)
                                     {
+                                        MessageBox.Show("hi" + ex);
                                         // Get and send information to bug report
-                                        string page = "Ticket";
-                                        string button = "Submit";
-                                        string exception = ex.ToString();
-                                        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                                        bugSplat.ShowDialog();
+                                        //string page = "Ticket";
+                                        //string button = "Submit";
+                                        //string exception = ex.ToString();
+                                        //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                                        //bugSplat.ShowDialog();
 
-                                        this.Close();
+                                        //this.Close();
                                     }
                                 }
                                 else
@@ -135,8 +133,8 @@ namespace Webber_Inventory_Search_2017_2018
                         connection.Open();
 
                         // Which table to search for data
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
+                        SqlCommand command = connection.CreateCommand();
+                        command.CommandType = CommandType.Text;
                         string query = "select * from Help_Ticket";
                         command.CommandText = query;
 
@@ -146,7 +144,7 @@ namespace Webber_Inventory_Search_2017_2018
                         bool found = false;
 
                         // Read the data
-                        OleDbDataReader reader = command.ExecuteReader();
+                        SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
                             idCheck[i] = reader["ID"].ToString();
@@ -208,6 +206,14 @@ namespace Webber_Inventory_Search_2017_2018
             }
 
             this.Close();
+        }
+
+        private void ticketNumberTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                checkButton.PerformClick();
+            }
         }
     }
 }

@@ -7,24 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class ForgotPINForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public ForgotPINForm()
         {
             InitializeComponent();
-            // Connection to database
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         private void goButton_Click(object sender, EventArgs e)
         {
+            nameListBox.Items.Clear();
             string name = nameTextBox.Text.ToUpper();
             if (name != "")
             {
@@ -32,11 +30,12 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "select LastName from Master_Key_Login where FirstName='" + name + "'";
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
+                    string query = "select LastName from Master_Key_Login where FirstName='" + name + "'";
+                    command.CommandText = query;
 
-                    OleDbDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         nameListBox.Items.Add(reader["LastName"].ToString());
@@ -63,11 +62,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                command.CommandText = "select SecurityQuestion from Master_Key_Login where LastName='" + nameListBox.SelectedItem + "'";
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                string query = "select SecurityQuestion from Master_Key_Login where LastName='" + nameListBox.SelectedItem + "' AND FirstName='" + nameTextBox.Text + "'";
+                command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     securityQuestionLabel.Text = reader["SecurityQuestion"].ToString();
@@ -99,11 +99,12 @@ namespace Webber_Inventory_Search_2017_2018
 
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    command.CommandText = "select PrivateKey,SecurityAnswer from Master_Key_Login where LastName='" + nameListBox.SelectedItem + "' AND SecurityQuestion='" + securityQuestionLabel.Text + "'";
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
+                    string query = "select PrivateKey,SecurityAnswer from Master_Key_Login where LastName='" + nameListBox.SelectedItem + "' AND SecurityQuestion='" + securityQuestionLabel.Text + "'";
+                    command.CommandText = query;
 
-                    OleDbDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         questionAnswer = reader["SecurityAnswer"].ToString();
@@ -126,6 +127,18 @@ namespace Webber_Inventory_Search_2017_2018
                     MessageBox.Show("An error has occurred and this function cannot be performed. Please try again later.");
                 }
             }
+        }
+
+        private void answerTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                checkButton.PerformClick();
+        }
+
+        private void nameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                goButton.PerformClick();
         }
     }
 }

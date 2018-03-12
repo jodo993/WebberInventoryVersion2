@@ -1161,7 +1161,7 @@
             // 
             this.videoAvailableLinkLabel.AutoSize = true;
             this.videoAvailableLinkLabel.LinkColor = System.Drawing.Color.Red;
-            this.videoAvailableLinkLabel.Location = new System.Drawing.Point(597, 37);
+            this.videoAvailableLinkLabel.Location = new System.Drawing.Point(590, 37);
             this.videoAvailableLinkLabel.Name = "videoAvailableLinkLabel";
             this.videoAvailableLinkLabel.Size = new System.Drawing.Size(167, 14);
             this.videoAvailableLinkLabel.TabIndex = 2;

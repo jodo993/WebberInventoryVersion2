@@ -313,6 +313,7 @@
             this.ticketNumberTextBox.Size = new System.Drawing.Size(100, 22);
             this.ticketNumberTextBox.TabIndex = 9;
             this.ticketNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ticketNumberTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ticketNumberTextBox_KeyDown);
             // 
             // statusLabel
             // 

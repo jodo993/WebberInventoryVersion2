@@ -7,73 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class MasterKeyRegisterWarningForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public MasterKeyRegisterWarningForm()
         {
             InitializeComponent();
-            // Connection to database
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
-
-        // Check to see if applicant is already registered
-        //private bool CheckApplicantRecord(string full)
-        //{
-        //    //bool newApplicant = true;
-
-        //    // Applicant full name
-        //    string recordFullName = "";
-
-        //    // Hold first and last name
-        //    string[] firstNameArray = new string[2500];
-        //    string[] lastNameArray = new string[2500];
-        //    int i = 0;
-
-        //    try
-        //    {
-        //        connection.Open();
-
-        //        OleDbCommand command = new OleDbCommand();
-        //        command.Connection = connection;
-        //        command.CommandText = "select * from Master_Key_Login";
-
-        //        // Get both names and add them together, return false if same
-        //        OleDbDataReader nameReader = command.ExecuteReader();
-        //        while (nameReader.Read())
-        //        {
-        //            firstNameArray[i] = nameReader["FirstName"].ToString();
-        //            lastNameArray[i] = nameReader["LastName"].ToString();
-        //            recordFullName = firstNameArray[i] + lastNameArray[i];
-        //            if (recordFullName == full)
-        //            {
-        //                connection.Close();
-        //                return false;
-        //            }
-        //        }
-        //        connection.Close();
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Send bug report
-        //        string page = "Master Key Register";
-        //        string button = "CheckApplicantRecord";
-        //        string exception = ex.ToString();
-        //        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-        //        bugSplat.ShowDialog();
-
-        //        this.Close();
-        //    }
-        //    connection.Close();
-        //    return true;
-        //}
 
         // Create a key and check to see if it exist or not
         private int CreateKey()
@@ -83,7 +28,7 @@ namespace Webber_Inventory_Search_2017_2018
 
             // Create random private key number
             Random randomKey = new Random();
-            privateKey = randomKey.Next(1000,9999);
+            privateKey = randomKey.Next(1000, 9999);
 
             // Convert key to string
             string privateKeyString = privateKey.ToString();
@@ -99,11 +44,11 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     command.CommandText = "select * from Master_Key_Login";
 
-                    OleDbDataReader keyReader = command.ExecuteReader();
+                    SqlDataReader keyReader = command.ExecuteReader();
                     while (keyReader.Read())
                     {
                         allKeys[i] = keyReader["PrivateKey"].ToString();
@@ -111,7 +56,7 @@ namespace Webber_Inventory_Search_2017_2018
                         {
                             connection.Close();
                             return 100;
-                        }  
+                        }
                     }
                     connection.Close();
                     return int.Parse(privateKeyString);
@@ -176,8 +121,8 @@ namespace Webber_Inventory_Search_2017_2018
                         {
                             connection.Open();
 
-                            OleDbCommand command = new OleDbCommand();
-                            command.Connection = connection;
+                            SqlCommand command = connection.CreateCommand();
+                            command.CommandType = CommandType.Text;
                             command.CommandText = "insert into Master_Key_Login (FirstName,LastName,Grade,PrivateKey,SecurityQuestion,SecurityAnswer) values ('" + firstName + "','" + lastName + "','" + gradeLevel + "'," + privateKeyNum + ",'" + securityQuestion + "','" + securityAnswer + "')";
                             command.ExecuteNonQuery();
 
@@ -185,6 +130,12 @@ namespace Webber_Inventory_Search_2017_2018
 
                             MessageBox.Show("Registration Complete! Click OK to see your key.");
                             MessageBox.Show("Private Key: " + privateKeyNum);
+
+                            firstNameTextBox.Clear();
+                            lastNameTextBox.Clear();
+                            gradeLevelComboBox.Text = "";
+                            securityQuestionComboBox.Text = "";
+                            securityAnswerTextBox.Clear();
                         }
                         catch (Exception ex)
                         {
@@ -203,12 +154,12 @@ namespace Webber_Inventory_Search_2017_2018
                     {
                         MessageBox.Show("Please select a given grade level.");
                     }
-                } 
+                }
                 else
                 {
                     MessageBox.Show("Entries must contain only letters.");
                 }
-            }   
+            }
             else
             {
                 MessageBox.Show("Please fill in all the fields.");
@@ -221,3 +172,55 @@ namespace Webber_Inventory_Search_2017_2018
         }
     }
 }
+
+// Check to see if applicant is already registered
+//private bool CheckApplicantRecord(string full)
+//{
+//    //bool newApplicant = true;
+
+//    // Applicant full name
+//    string recordFullName = "";
+
+//    // Hold first and last name
+//    string[] firstNameArray = new string[2500];
+//    string[] lastNameArray = new string[2500];
+//    int i = 0;
+
+//    try
+//    {
+//        connection.Open();
+
+//        OleDbCommand command = new OleDbCommand();
+//        command.Connection = connection;
+//        command.CommandText = "select * from Master_Key_Login";
+
+//        // Get both names and add them together, return false if same
+//        OleDbDataReader nameReader = command.ExecuteReader();
+//        while (nameReader.Read())
+//        {
+//            firstNameArray[i] = nameReader["FirstName"].ToString();
+//            lastNameArray[i] = nameReader["LastName"].ToString();
+//            recordFullName = firstNameArray[i] + lastNameArray[i];
+//            if (recordFullName == full)
+//            {
+//                connection.Close();
+//                return false;
+//            }
+//        }
+//        connection.Close();
+//        return true;
+//    }
+//    catch (Exception ex)
+//    {
+//        // Send bug report
+//        string page = "Master Key Register";
+//        string button = "CheckApplicantRecord";
+//        string exception = ex.ToString();
+//        BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+//        bugSplat.ShowDialog();
+
+//        this.Close();
+//    }
+//    connection.Close();
+//    return true;
+//}

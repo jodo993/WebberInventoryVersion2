@@ -7,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class TroubleshootForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public TroubleshootForm(string user)
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database  
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Return to main menu
@@ -64,8 +61,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     string query = "select * from Troubleshoot_Data";
                     command.CommandText = query;
 
@@ -91,7 +88,7 @@ namespace Webber_Inventory_Search_2017_2018
                     List<string> issueList = new List<string>();
                     List<string> keyList = new List<string>();
 
-                    OleDbDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         // Reset variables and issue list
@@ -179,12 +176,12 @@ namespace Webber_Inventory_Search_2017_2018
                 // Show all issues in list box
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Troubleshoot_Data";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     solutionListBox.Items.Add(reader["Issue"].ToString());
@@ -227,12 +224,12 @@ namespace Webber_Inventory_Search_2017_2018
                 // Return data of selected problem
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     explanationLabel.Text = reader["Explanation"].ToString();
@@ -240,6 +237,7 @@ namespace Webber_Inventory_Search_2017_2018
                     totalRatingPoints = double.Parse(reader["TotalRatingPoints"].ToString());
                     totalRatingVotes = double.Parse(reader["TotalRatingVotes"].ToString());
                 }
+                reader.Close();
                 connection.Close();
 
                 // Get rating and show to user
@@ -264,14 +262,15 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
+                MessageBox.Show("e" + ex);
                 // Get and send information to bug report
-                string page = "Troubleshoot";
-                string button = "Selected Index";
-                string exception = ex.ToString();
-                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                bugSplat.ShowDialog();
+                //string page = "Troubleshoot";
+                //string button = "Selected Index";
+                //string exception = ex.ToString();
+                //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                //bugSplat.ShowDialog();
 
-                this.Close();
+                //this.Close();
             }
         }
 
@@ -300,25 +299,25 @@ namespace Webber_Inventory_Search_2017_2018
                 connection.Open();
 
                 // Get points and votes
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Troubleshoot_Data where Issue='" + solutionListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     totalRatingPoints = double.Parse(reader["TotalRatingPoints"].ToString());
                     totalRatingVotes = double.Parse(reader["TotalRatingVotes"].ToString());
                 }
-
+                reader.Close();
                 totalRatingPoints = totalRatingPoints + ratingNumber;
                 totalRatingVotes++;
 
                 // Update the new points and votes
 
-                OleDbCommand commandUpdate = new OleDbCommand();
-                commandUpdate.Connection = connection;
+                SqlCommand commandUpdate = connection.CreateCommand();
+                commandUpdate.CommandType = CommandType.Text;
                 commandUpdate.CommandText = "update Troubleshoot_Data set TotalRatingPoints=" + totalRatingPoints + ",TotalRatingVotes=" + totalRatingVotes + " where Issue='" + solutionListBox.SelectedItem + "'";
                 commandUpdate.ExecuteNonQuery();
 
@@ -334,14 +333,15 @@ namespace Webber_Inventory_Search_2017_2018
             }
             catch (Exception ex)
             {
+                MessageBox.Show("e" + ex);
                 // Get and send information to bug report
-                string page = "Troubleshoot";
-                string button = "Selected Index";
-                string exception = ex.ToString();
-                BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
-                bugSplat.ShowDialog();
+                //string page = "Troubleshoot";
+                //string button = "Selected Index";
+                //string exception = ex.ToString();
+                //BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
+                //bugSplat.ShowDialog();
 
-                this.Close();
+                //this.Close();
             }
         }
 

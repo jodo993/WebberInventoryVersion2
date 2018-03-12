@@ -7,21 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class TutorialForm : Form
     {
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public TutorialForm(string user)
         {
             InitializeComponent();
             userLabel.Text = user;
-            // Connect to database    
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
         }
 
         // Go back to main menu depending on whether user logged in as teacher or admin
@@ -42,14 +39,6 @@ namespace Webber_Inventory_Search_2017_2018
 
             this.Close();
         }
-
-        // -------------------------------------------------------------------------------------------------------------------
-
-        // WORD TAB IS NOW THE ENTIRE MICROSOFT OFFICE SUITE, SAME GOES FOR THE DATABASE
-        // EXCEL TAB IS NOW FOR CHROMEBOOK, SAME GOES FOR THE DATABASE
-        // POWERPOINT TAB IS NOW EDUCATIONAL SOFTWARE, SAME GOES FOR THE DATABASE
-
-        // -------------------------------------------------------------------------------------------------------------------
 
         // Close the program
         private void exitButton_Click(object sender, EventArgs e)
@@ -90,86 +79,54 @@ namespace Webber_Inventory_Search_2017_2018
                 miscAddButton.Visible = true;
             }
         }
+
+        private void SelectSQLData(string query1, string subject1)
+        {
+            connection.Open();
+
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = query1;
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (subject1 == "office")
+                    wordListBox.Items.Add(reader["Topic"].ToString());
+                else if (subject1 == "chromebook")
+                    excelListBox.Items.Add(reader["Topic"].ToString());
+                else if (subject1 == "edSoftware")
+                    powerpointListBox.Items.Add(reader["Topic"].ToString());
+                else if (subject1 == "outlook")
+                    outlookListBox.Items.Add(reader["Topic"].ToString());
+                else if (subject1 == "google")
+                    googleListBox.Items.Add(reader["Topic"].ToString());
+                else
+                    miscListBox.Items.Add(reader["Topic"].ToString());
+            }
+
+            connection.Close();
+        }
+
         // Populate the how to textbox for each tab
         private void TutorialForm_Load(object sender, EventArgs e)
         {
             try
             {
-                connection.Open();
+                string[] query = { "select Topic from Tutorial_Office",
+                                   "select Topic from Tutorial_Chromebook",
+                                   "select Topic from Tutorial_EdSoftware",
+                                   "select Topic from Tutorial_Outlook",
+                                   "select Topic from Tutorial_Google",
+                                   "select Topic from Tutorial_Misc"};
 
-                // Create command for each tab
-                OleDbCommand commandWord = new OleDbCommand();
-                commandWord.Connection = connection;
+                string[] subject = { "office", "chromebook", "edSoftware",
+                                     "outlook", "google", "misc",};
 
-                OleDbCommand commandExcel = new OleDbCommand();
-                commandExcel.Connection = connection;
-
-                OleDbCommand commandPP = new OleDbCommand();
-                commandPP.Connection = connection;
-
-                OleDbCommand commandOutlook = new OleDbCommand();
-                commandOutlook.Connection = connection;
-
-                OleDbCommand commandGoogle = new OleDbCommand();
-                commandGoogle.Connection = connection;
-
-                OleDbCommand commandMisc = new OleDbCommand();
-                commandMisc.Connection = connection;
-
-                // What does command do
-                string wordQuery = "select Topic from Tutorial_Word";
-                string excelQuery = "select Topic from Tutorial_Excel";
-                string powerpointQuery = "select Topic from Tutorial_Powerpoint";
-                string outlookQuery = "select Topic from Tutorial_Outlook";
-                string googleQuery = "select Topic from Tutorial_Google";
-                string miscQuery = "select Topic from Tutorial_Misc";
-
-                commandWord.CommandText = wordQuery;
-                commandExcel.CommandText = excelQuery;
-                commandPP.CommandText = powerpointQuery;
-                commandOutlook.CommandText = outlookQuery;
-                commandGoogle.CommandText = googleQuery;
-                commandMisc.CommandText = miscQuery;
-
-                // Read the topic column of each table and put them in corresponding list boxes
-                OleDbDataReader readerWord = commandWord.ExecuteReader();
-                OleDbDataReader readerExcel = commandExcel.ExecuteReader();
-                OleDbDataReader readerPP = commandPP.ExecuteReader();
-                OleDbDataReader readerOutlook = commandOutlook.ExecuteReader();
-                OleDbDataReader readerGoogle = commandGoogle.ExecuteReader();
-                OleDbDataReader readerMisc = commandMisc.ExecuteReader();
-
-                while (readerWord.Read())
+                for (int i = 0; i < 6; i++)
                 {
-                    wordListBox.Items.Add(readerWord["Topic"].ToString());
+                    SelectSQLData(query[i], subject[i]);
                 }
-
-                while (readerExcel.Read())
-                {
-                    excelListBox.Items.Add(readerExcel["Topic"].ToString());
-                }
-
-                while (readerPP.Read())
-                {
-                    powerpointListBox.Items.Add(readerPP["Topic"].ToString());
-                }
-
-                while (readerOutlook.Read())
-                {
-                    outlookListBox.Items.Add(readerOutlook["Topic"].ToString());
-                }
-
-                while (readerGoogle.Read())
-                {
-                    googleListBox.Items.Add(readerGoogle["Topic"].ToString());
-                }
-
-                while (readerMisc.Read())
-                {
-                    miscListBox.Items.Add(readerMisc["Topic"].ToString());
-                }
-
-                connection.Close();
 
                 // Sort listbox
                 wordListBox.Sorted = true;
@@ -201,7 +158,7 @@ namespace Webber_Inventory_Search_2017_2018
                 BugSplatForm bugSplat = new BugSplatForm(page, button, exception);
                 bugSplat.ShowDialog();
 
-                //this.Close();
+                this.Close();
             }
         }
 
@@ -214,12 +171,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Tutorial_Word where Topic='" + wordListBox.SelectedItem + "'";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "select * from Tutorial_Office where Topic='" + wordListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -233,8 +190,8 @@ namespace Webber_Inventory_Search_2017_2018
                 else
                 {
                     videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = true;  
-                }    
+                    videoUnavailableLabel.Visible = true;
+                }
             }
 
             connection.Close();
@@ -244,9 +201,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "insert into Tutorial_Word (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "insert into Tutorial_Office (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
 
@@ -300,12 +257,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Tutorial_Excel where Topic='" + excelListBox.SelectedItem + "'";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "select * from Tutorial_Chromebook where Topic='" + excelListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -330,9 +287,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "insert into Tutorial_Excel (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "insert into Tutorial_Chromebook (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
 
@@ -383,12 +340,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "select * from Tutorial_Powerpoint where Topic='" + powerpointListBox.SelectedItem + "'";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "select * from Tutorial_EdSoftware where Topic='" + powerpointListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -413,9 +370,9 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
-            string query = "insert into Tutorial_Powerpoint (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            string query = "insert into Tutorial_EdSoftware (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
 
@@ -466,12 +423,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "select * from Tutorial_Outlook where Topic='" + outlookListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -496,8 +453,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "insert into Tutorial_Outlook (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
@@ -551,12 +508,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "select * from Tutorial_Google where Topic='" + googleListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -581,8 +538,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "insert into Tutorial_Google (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
@@ -597,7 +554,7 @@ namespace Webber_Inventory_Search_2017_2018
             googleVideoComboBox.Text = "";
             googleLinkTextBox.Text = "";
         }
-        
+
         private void googleAddButton_Click(object sender, EventArgs e)
         {
             string topic = googleTopicTextBox.Text;
@@ -636,12 +593,12 @@ namespace Webber_Inventory_Search_2017_2018
 
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "select * from Tutorial_Misc where Topic='" + miscListBox.SelectedItem + "'";
             command.CommandText = query;
 
-            OleDbDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 stepByStepLabel.Text = reader["Instructions"].ToString();
@@ -666,8 +623,8 @@ namespace Webber_Inventory_Search_2017_2018
         {
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand();
-            command.Connection = connection;
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
             string query = "insert into Tutorial_Misc (Topic,Instructions,HasVideo,VideoLink) values('" + topic + "','" + instructions + "','" + hasVideo + "','" + link + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
@@ -715,33 +672,38 @@ namespace Webber_Inventory_Search_2017_2018
         }
 
         // DELETE ENTRIES
+        private void deleteTutorial(string query)
+        {
+            connection.Open();
+
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+
+            MessageBox.Show("Topic and instruction deleted.");
+            stepByStepLabel.Text = "";
+            videoAvailableLinkLabel.Visible = false;
+            videoUnavailableLabel.Visible = false;
+        }
+
         private void wordDeleteButton_Click(object sender, EventArgs e)
         {
             try
             {
                 if (wordListBox.SelectedIndex > -1)
                 {
-                    connection.Open();
+                    string query = "delete from Tutorial_Office where Topic='" + wordListBox.SelectedItem + "'";
+                    deleteTutorial(query);
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    string query = "delete from Tutorial_Word where Topic='" + wordListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
-
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
-                    wordListBox.Items.Remove(wordListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
+                    wordListBox.Items.Remove(wordListBox.SelectedItem);              
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
-                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string page = "Tutorial";
                 string button = "Delete - Word";
@@ -759,21 +721,10 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 if (excelListBox.SelectedIndex > -1)
                 {
-                    connection.Open();
+                    string query = "delete from Tutorial_Chromebook where Topic='" + excelListBox.SelectedItem + "'";
+                    deleteTutorial(query);
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    string query = "delete from Tutorial_Excel where Topic='" + excelListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
-
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
                     excelListBox.Items.Remove(excelListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -796,21 +747,10 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 if (powerpointListBox.SelectedIndex > -1)
                 {
-                    connection.Open();
+                    string query = "delete from Tutorial_EdSoftware where Topic='" + powerpointListBox.SelectedItem + "'";
+                    deleteTutorial(query);
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
-                    string query = "delete from Tutorial_Powerpoint where Topic='" + powerpointListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
-
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
                     powerpointListBox.Items.Remove(powerpointListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -833,21 +773,10 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 if (outlookListBox.SelectedIndex > -1)
                 {
-                    connection.Open();
-
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
                     string query = "delete from Tutorial_Outlook where Topic='" + outlookListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
+                    deleteTutorial(query);
 
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
                     outlookListBox.Items.Remove(outlookListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -869,22 +798,11 @@ namespace Webber_Inventory_Search_2017_2018
             try
             {
                 if (googleListBox.SelectedIndex > -1)
-                {
-                    connection.Open();
-
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                {                    
                     string query = "delete from Tutorial_Google where Topic='" + googleListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
+                    deleteTutorial(query);
 
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
-                    googleListBox.Items.Remove(googleListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
+                    googleListBox.Items.Remove(googleListBox.SelectedItem);                   
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");
@@ -906,22 +824,11 @@ namespace Webber_Inventory_Search_2017_2018
             try
             {
                 if (miscListBox.SelectedIndex > -1)
-                {
-                    connection.Open();
-
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                {                   
                     string query = "delete from Tutorial_Misc where Topic='" + miscListBox.SelectedItem + "'";
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
+                    deleteTutorial(query);
 
-                    connection.Close();
-
-                    MessageBox.Show("Topic and instruction deleted.");
                     miscListBox.Items.Remove(miscListBox.SelectedItem);
-                    stepByStepLabel.Text = "";
-                    videoAvailableLinkLabel.Visible = false;
-                    videoUnavailableLabel.Visible = false;
                 }
                 else
                     MessageBox.Show("Please select an option to delete.");

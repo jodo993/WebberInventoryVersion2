@@ -7,142 +7,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Webber_Inventory_Search_2017_2018
 {
     public partial class TechnologyAssistantForm : Form
     {
-
-        // Use by this form only, global
-        private OleDbConnection connection = new OleDbConnection();
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Webber Database\WebberMainDatabase.mdf;Integrated Security=True;Connect Timeout=30");
 
         public TechnologyAssistantForm()
         {
-            InitializeComponent();
-
-            // Connect to database                  
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=T:\Webber Database\WebberMainDatabase.accdb;Jet OLEDB:Database Password=p4aB63mCK7;";
+            InitializeComponent();              
         }
 
-        // Categories and their issues
-        public void StMath()
+        // Populate the tech assist form
+        private void selectSqlData(string query, string table)
         {
-            issueComboBox.Items.Clear();
+            connection.Open();
 
-            issueComboBox.Items.Add("Add Students");
-            issueComboBox.Items.Add("Transfer Students");
-            issueComboBox.Items.Add("Retrain Student Password");
-            issueComboBox.Items.Add("ST Math not at the right school");
-        }
+            SqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = query;
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (table == "Help")
+                    openTicketListBox.Items.Add(reader["ID"].ToString());
+                else if (table == "Supply")
+                    suppliesListBox.Items.Add(reader["ID"].ToString());
+                else if (table == "Troubleshoot")
+                    currentSolutionListBox.Items.Add(reader["Issue"].ToString());
+                else if (table == "Bug")
+                    bugNumberListBox.Items.Add(reader["ID"].ToString());
+            }
+            reader.Close();
 
-        public void Lexia()
-        {
-            issueComboBox.Items.Clear();
-
-            issueComboBox.Items.Add("Manage Class");
-            issueComboBox.Items.Add("Print Roster/Login Card");
-        }
-
-        public void AR()
-        {
-            issueComboBox.Items.Clear();
-
-            issueComboBox.Items.Add("Can't Login");
-            issueComboBox.Items.Add("Create New Account");
-            issueComboBox.Items.Add("Clear Locked User");
-        }
-
-        public void Notes()
-        {
-            issueComboBox.Items.Clear();
-
-            issueComboBox.Items.Add("District Limitations");
-            issueComboBox.Items.Add("Haiku or PowerSchool Learning");
-            issueComboBox.Items.Add("Account to Have");
-        }
-
-        public void Chromebook()
-        {
-            issueComboBox.Items.Clear();
-
-            issueComboBox.Items.Add("Reset Password for Students");
+            connection.Close();
         }
 
         private void TechnologyAssistantForm_Load(object sender, EventArgs e)
         {
-            // Add these selection upon load
-            programComboBox.Items.Add("ST Math");
-            programComboBox.Items.Add("Lexia");
-            programComboBox.Items.Add("Renaissance");
-            programComboBox.Items.Add("Notes");
-            programComboBox.Items.Add("Chromebook");
-
             try
             {
-                // Populate the list box of open tickets
-                connection.Open();
-
-                OleDbCommand commandID = new OleDbCommand();
-                commandID.Connection = connection;
-                string query = "select * from Help_Ticket";
-                commandID.CommandText = query;
-
-                string[] statusCheck = new string[1000];
-                //int i = 0;
-
-                //// Add only open tickets to listbox
-                //OleDbDataReader reader = commandID.ExecuteReader();
-                //while (reader.Read())
-                //{
-                //    statusCheck[i] = reader["Status"].ToString();
-                //    if (statusCheck[i] == "Open")
-                //        openTicketListBox.Items.Add(reader["ID"].ToString());
-                //    i++;
-                //}
-
-                // Add all tickets to listbox
-                OleDbDataReader reader = commandID.ExecuteReader();
-                while(reader.Read())
+                string[] query = { "select * from Help_Ticket",
+                                   "select * from Supply_Information",
+                                   "select * from Troubleshoot_Data",
+                                   "select * from Exception_Error_Report" };
+                string[] table = { "Help", "Supply", "Troubleshoot", "Bug" };
+                
+                for (int i = 0; i < query.Length; i++)
                 {
-                    openTicketListBox.Items.Add(reader["ID"].ToString());
+                    selectSqlData(query[i], table[i]);
                 }
-
-                OleDbCommand commandSupplies = new OleDbCommand();
-                commandSupplies.Connection = connection;
-                string querySupply = "select * from Supply_Information";
-                commandSupplies.CommandText = querySupply;
-
-                OleDbDataReader supplyReader = commandSupplies.ExecuteReader();
-                while (supplyReader.Read())
-                {
-                    suppliesListBox.Items.Add(supplyReader["ID"].ToString());
-                }
-
-                // Troubleshoot Populate Data
-                OleDbCommand commandTroubleshoot = new OleDbCommand();
-                commandTroubleshoot.Connection = connection;
-                string queryTroubleshoot = "select * from Troubleshoot_Data";
-                commandTroubleshoot.CommandText = queryTroubleshoot;
-
-                OleDbDataReader troubleshootReader = commandTroubleshoot.ExecuteReader();
-                while (troubleshootReader.Read())
-                {
-                    currentSolutionListBox.Items.Add(troubleshootReader["Issue"].ToString());
-                }
-
-                // Get ID number of bug splat issues
-                OleDbCommand commandBugSplat = new OleDbCommand();
-                commandBugSplat.Connection = connection;
-                string queryBugSplat = "select * from Exception_Error_Report";
-                commandBugSplat.CommandText = queryBugSplat;
-
-                OleDbDataReader bugReader = commandBugSplat.ExecuteReader();
-                while (bugReader.Read())
-                {
-                    bugNumberListBox.Items.Add(bugReader["ID"].ToString());
-                }
-                connection.Close();
             }
             catch (Exception ex)
             {
@@ -155,128 +71,6 @@ namespace Webber_Inventory_Search_2017_2018
 
                 this.Close();
             }
-        }
-
-        private void programComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Check which category is selected
-            if (programComboBox.SelectedIndex == 0)
-            {
-                StMath();
-            }
-            else if (programComboBox.SelectedIndex == 1)
-            {
-                Lexia();
-            }
-            else if (programComboBox.SelectedIndex == 2)
-            {
-                AR();
-            }
-            else if (programComboBox.SelectedIndex == 3)
-            {
-                Notes();
-            }
-            else if (programComboBox.SelectedIndex == 4)
-            {
-                Chromebook();
-            }
-            else
-            {
-                MessageBox.Show("Try again.");
-            }
-        }
-
-        private void issueComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Check to see which issue is clicked then show solution
-            string instruction = "";
-            // ST Math
-            if (programComboBox.SelectedIndex == 0)
-            {
-                if (issueComboBox.SelectedIndex == 0)
-                {
-                    instruction = "1) Click Green Person w/ Plus sign at lower right. @2) Enter first & last name and select grade and teacher. @3) Sign on to teacher's account to link. @4) Use open enrollment to link students faster. @5) One time only, do not close until done.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 1)
-                {
-                    instruction = "1) Log in to teacher's account or yours. @2) Find teacher and class. @3) Find student in roster. @4) Click transfer. Select correct transfer path. Click transfer."; ;
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 2)
-                {
-                    instruction = "1) Double click on bottom right (About an inch from the right). @2) Popup will prompt for login. Enter teacher's login. @3) Find and click student's name on the roster list. Click retrain password. Click ok.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-
-                }
-                else if (issueComboBox.SelectedIndex == 3)
-                {
-                    instruction = "1) Make sure URL is https://web.stmath.com/entrance/go/web75g";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-            }
-            // Lexia
-            else if (programComboBox.SelectedIndex == 1)
-            {
-                if (issueComboBox.SelectedIndex == 0)
-                {
-                    instruction = "1) Login and click on tree graph like icon. @2) Click edit class. @3) Modify students or staff as needed then save.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 1)
-                {
-                    instruction = "1) Login and click tree graph icon. @2) Select class. @3) Click print roster or print login cards.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-            }
-            // Renaissance
-            else if (programComboBox.SelectedIndex == 2)
-            {
-                if (issueComboBox.SelectedIndex == 0)
-                {
-                    instruction = "1) Make sure username and password are correct and students are in students, teachers in teacher. @2) Make sure WSD-78JW is seen as Renaissance Place ID on the middle right. @3) URL is https://hosted101.renlearn.com/273741/default.aspx";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 1)
-                {
-                    instruction = "1) Click Users. @2) Click add personnel or add students. @3) Fill out information and click save and add.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 2)
-                {
-                    instruction = "1) Click Users. @2) Click clear lock (personnel or students).";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-            }
-            // Notes
-            else if (programComboBox.SelectedIndex == 3)
-            {
-                if (issueComboBox.SelectedIndex == 0)
-                {
-                    instruction = "1) Installation of projector and lamp changes are done by district tech. @2) RICOH printer in lounge is handled by ricoh guy.";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-                else if (issueComboBox.SelectedIndex == 1)
-                {
-                    instructionLabel.Text = "Haiku will have instructions on many other things such as how to's, procedures, trainings, surplus, etc.";
-                }
-                else if (issueComboBox.SelectedIndex == 2)
-                {
-                    instruction = "1) ST Math - Contact Huy Pham @2) Lexia - Principal can create account @3) Renaissance/AR - VeNae or Principal @4) Haiku - Lauren/Ed Tech Coach @5) Aeries - Sue";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-            }
-            // Chromebook
-            else if (programComboBox.SelectedIndex == 4)
-            {
-                if (issueComboBox.SelectedIndex == 0)
-                {
-                    instruction = "1) Go to the admin console in Google @2) Click users or type in lunch number/name in search @3) Verify student is correct, then click the lock icon on the top right @4) Change password then click reset";
-                    instructionLabel.Text = instruction.Replace("@", "" + System.Environment.NewLine);
-                }
-            }
-            else
-                instructionLabel.Text = "Pick a valid selection.";
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)
@@ -303,12 +97,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand commandID = new OleDbCommand();
-                commandID.Connection = connection;
+                SqlCommand commandID = connection.CreateCommand();
+                commandID.CommandType = CommandType.Text;
                 string query = "select * from Help_Ticket where ID=" + openTicketListBox.SelectedItem + "";
                 commandID.CommandText = query;
 
-                OleDbDataReader reader = commandID.ExecuteReader();
+                SqlDataReader reader = commandID.ExecuteReader();
                 while (reader.Read())
                 {
                     idLabel.Text = reader["ID"].ToString();
@@ -365,8 +159,8 @@ namespace Webber_Inventory_Search_2017_2018
                 connection.Open();
 
                 string date = DateTime.Now.ToString();
-                OleDbCommand commandID = new OleDbCommand();
-                commandID.Connection = connection;
+                SqlCommand commandID = connection.CreateCommand();
+                commandID.CommandType = CommandType.Text;
                 string query;
                 if (statusComboBox.Text == "Closed")
                 {
@@ -408,8 +202,8 @@ namespace Webber_Inventory_Search_2017_2018
                 string item = supplyID.Text;
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "delete from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
@@ -445,14 +239,14 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Supply_Information where ID=" + suppliesListBox.SelectedItem + "";
                 command.CommandText = query;
 
                 if (suppliesListBox.SelectedIndex > -1)
                 {
-                    OleDbDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         supplyID.Text = reader["ID"].ToString();
@@ -500,8 +294,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     string query = "update Supply_Information set Type='" + type + "',Brand='" + brand + "',Model='" + model + "',Category='" + category + "',Supply='" + supply + "',Link='" + link + "' where ID=" + suppliesListBox.SelectedItem + "";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
@@ -545,8 +339,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     string query = "insert into Troubleshoot_Data (Issue,KeyWords,Explanation,Resolution) values('" + issue + "','" + keyWords + "','" + explanation + "','" + solution + "')";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
@@ -597,8 +391,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     string query = "update Troubleshoot_Data set Issue='" + issue + "',KeyWOrds='" + keyWords + "',Explanation='" + explanation + "',Resolution='" + solution + "' where ID=" + id + "";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
@@ -641,8 +435,8 @@ namespace Webber_Inventory_Search_2017_2018
                 {
                     connection.Open();
 
-                    OleDbCommand command = new OleDbCommand();
-                    command.Connection = connection;
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandType = CommandType.Text;
                     string query = "delete from Troubleshoot_Data where ID =" + id + "";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
@@ -678,12 +472,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Troubleshoot_Data where Issue='" + currentSolutionListBox.SelectedItem + "'";
                 command.CommandText = query;
 
-                OleDbDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     problemIDLabel.Text = reader["ID"].ToString();
@@ -715,12 +509,12 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "select * from Exception_Error_Report where ID=" + bugNumberListBox.SelectedItem + "";
                 command.CommandText = query;
 
-                OleDbDataReader bugReader = command.ExecuteReader();
+                SqlDataReader bugReader = command.ExecuteReader();
                 while (bugReader.Read())
                 {
                     bugIDLabel.Text = bugReader["ID"].ToString();
@@ -779,8 +573,8 @@ namespace Webber_Inventory_Search_2017_2018
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "delete from Exception_Error_Report where ID=" + bugNumberListBox.SelectedItem + "";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
@@ -821,8 +615,8 @@ namespace Webber_Inventory_Search_2017_2018
                 string fix = bugFixTextBox.Text;
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandType = CommandType.Text;
                 string query = "update Exception_Error_Report set Status='" + status + "',Fix='" + fix + "' where ID=" + bugNumberListBox.SelectedItem + "";
                 command.CommandText = query;
                 command.ExecuteNonQuery();
@@ -859,3 +653,15 @@ namespace Webber_Inventory_Search_2017_2018
         }
     }
 }
+
+//// Add only open tickets to listbox
+//OleDbDataReader reader = commandID.ExecuteReader();
+//while (reader.Read())
+//{
+//    statusCheck[i] = reader["Status"].ToString();
+//    if (statusCheck[i] == "Open")
+//        openTicketListBox.Items.Add(reader["ID"].ToString());
+//    i++;
+//}
+
+// Add all tickets to listbox

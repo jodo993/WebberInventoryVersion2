@@ -154,10 +154,10 @@
             this.label3.ForeColor = System.Drawing.Color.Firebrick;
             this.label3.Location = new System.Drawing.Point(18, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(257, 28);
+            this.label3.Size = new System.Drawing.Size(437, 28);
             this.label3.TabIndex = 12;
-            this.label3.Text = "* For best results, avoid punctuations.\r\n   More accurate (wont) | Less accurate " +
-    "(won\'t)\r\n";
+            this.label3.Text = "* For best results, avoid punctuations and use contractions whenever possible.\r\n " +
+    "  More accurate (wont) | Less accurate (won\'t)\r\n";
             // 
             // explanationLabel
             // 
