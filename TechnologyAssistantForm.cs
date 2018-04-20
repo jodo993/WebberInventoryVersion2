@@ -488,6 +488,8 @@ namespace Webber_Inventory_Search_2017_2018
                 }
 
                 connection.Close();
+
+                addTroubleButton.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -645,6 +647,8 @@ namespace Webber_Inventory_Search_2017_2018
             problemTextBox.Text = "";
             solutionTextBox.Text = "";
             keyWordsTextBox.Text = "";
+
+            addTroubleButton.Enabled = true;
         }
 
         private void sortTSListBoxButton_Click(object sender, EventArgs e)

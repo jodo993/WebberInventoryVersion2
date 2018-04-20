@@ -124,6 +124,8 @@
             this.bugNumberListBox = new System.Windows.Forms.ListBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.ticketSolutionTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -212,7 +214,7 @@
             this.openTicketListBox.ItemHeight = 14;
             this.openTicketListBox.Location = new System.Drawing.Point(22, 39);
             this.openTicketListBox.Name = "openTicketListBox";
-            this.openTicketListBox.Size = new System.Drawing.Size(120, 242);
+            this.openTicketListBox.Size = new System.Drawing.Size(120, 284);
             this.openTicketListBox.Sorted = true;
             this.openTicketListBox.TabIndex = 15;
             this.openTicketListBox.SelectedIndexChanged += new System.EventHandler(this.openTicketListBox_SelectedIndexChanged);
@@ -228,6 +230,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ticketSolutionTextBox);
+            this.groupBox1.Controls.Add(this.label38);
             this.groupBox1.Controls.Add(this.fixDateTextBox);
             this.groupBox1.Controls.Add(this.updateButton);
             this.groupBox1.Controls.Add(this.dateClosedLabel);
@@ -253,14 +257,14 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Location = new System.Drawing.Point(148, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(446, 256);
+            this.groupBox1.Size = new System.Drawing.Size(491, 292);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Ticket Data";
             // 
             // fixDateTextBox
             // 
-            this.fixDateTextBox.Location = new System.Drawing.Point(273, 177);
+            this.fixDateTextBox.Location = new System.Drawing.Point(320, 177);
             this.fixDateTextBox.Mask = "00/00/0000 90:00";
             this.fixDateTextBox.Name = "fixDateTextBox";
             this.fixDateTextBox.Size = new System.Drawing.Size(150, 22);
@@ -270,7 +274,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(299, 208);
+            this.updateButton.Location = new System.Drawing.Point(395, 207);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 25);
             this.updateButton.TabIndex = 5;
@@ -281,7 +285,7 @@
             // dateClosedLabel
             // 
             this.dateClosedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dateClosedLabel.Location = new System.Drawing.Point(274, 145);
+            this.dateClosedLabel.Location = new System.Drawing.Point(321, 145);
             this.dateClosedLabel.Name = "dateClosedLabel";
             this.dateClosedLabel.Size = new System.Drawing.Size(149, 21);
             this.dateClosedLabel.TabIndex = 31;
@@ -294,7 +298,7 @@
             "Open",
             "In Progress",
             "Closed"});
-            this.statusComboBox.Location = new System.Drawing.Point(274, 114);
+            this.statusComboBox.Location = new System.Drawing.Point(321, 114);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(149, 22);
             this.statusComboBox.TabIndex = 3;
@@ -319,7 +323,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(190, 174);
+            this.label5.Location = new System.Drawing.Point(237, 174);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 37);
             this.label5.TabIndex = 27;
@@ -338,7 +342,7 @@
             // descriptionLabel
             // 
             this.descriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.descriptionLabel.Location = new System.Drawing.Point(273, 25);
+            this.descriptionLabel.Location = new System.Drawing.Point(320, 25);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(150, 82);
             this.descriptionLabel.TabIndex = 29;
@@ -354,7 +358,7 @@
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(190, 145);
+            this.label16.Location = new System.Drawing.Point(237, 145);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 22);
             this.label16.TabIndex = 20;
@@ -366,7 +370,7 @@
             this.timePreferredLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.timePreferredLabel.Location = new System.Drawing.Point(84, 209);
             this.timePreferredLabel.Name = "timePreferredLabel";
-            this.timePreferredLabel.Size = new System.Drawing.Size(100, 21);
+            this.timePreferredLabel.Size = new System.Drawing.Size(147, 21);
             this.timePreferredLabel.TabIndex = 28;
             this.timePreferredLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -384,7 +388,7 @@
             this.categoryLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.categoryLabel.Location = new System.Drawing.Point(84, 176);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(100, 21);
+            this.categoryLabel.Size = new System.Drawing.Size(147, 21);
             this.categoryLabel.TabIndex = 27;
             this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -393,7 +397,7 @@
             this.staffLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.staffLabel.Location = new System.Drawing.Point(84, 85);
             this.staffLabel.Name = "staffLabel";
-            this.staffLabel.Size = new System.Drawing.Size(100, 21);
+            this.staffLabel.Size = new System.Drawing.Size(147, 21);
             this.staffLabel.TabIndex = 23;
             this.staffLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -402,7 +406,7 @@
             this.importanceLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.importanceLabel.Location = new System.Drawing.Point(84, 145);
             this.importanceLabel.Name = "importanceLabel";
-            this.importanceLabel.Size = new System.Drawing.Size(100, 21);
+            this.importanceLabel.Size = new System.Drawing.Size(147, 21);
             this.importanceLabel.TabIndex = 25;
             this.importanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -411,7 +415,7 @@
             this.dateCreatedLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dateCreatedLabel.Location = new System.Drawing.Point(84, 55);
             this.dateCreatedLabel.Name = "dateCreatedLabel";
-            this.dateCreatedLabel.Size = new System.Drawing.Size(100, 21);
+            this.dateCreatedLabel.Size = new System.Drawing.Size(147, 21);
             this.dateCreatedLabel.TabIndex = 22;
             this.dateCreatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -420,7 +424,7 @@
             this.roomLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.roomLabel.Location = new System.Drawing.Point(84, 115);
             this.roomLabel.Name = "roomLabel";
-            this.roomLabel.Size = new System.Drawing.Size(100, 21);
+            this.roomLabel.Size = new System.Drawing.Size(147, 21);
             this.roomLabel.TabIndex = 24;
             this.roomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -429,7 +433,7 @@
             this.idLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.idLabel.Location = new System.Drawing.Point(84, 25);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(100, 21);
+            this.idLabel.Size = new System.Drawing.Size(147, 21);
             this.idLabel.TabIndex = 21;
             this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -453,7 +457,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(190, 25);
+            this.label14.Location = new System.Drawing.Point(237, 25);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 22);
             this.label14.TabIndex = 7;
@@ -462,7 +466,7 @@
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(223, 115);
+            this.label15.Location = new System.Drawing.Point(270, 115);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(45, 22);
             this.label15.TabIndex = 19;
@@ -479,7 +483,7 @@
             this.tabControl1.Location = new System.Drawing.Point(19, 54);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(626, 353);
+            this.tabControl1.Size = new System.Drawing.Size(653, 369);
             this.tabControl1.TabIndex = 31;
             // 
             // tabPage1
@@ -490,7 +494,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(618, 326);
+            this.tabPage1.Size = new System.Drawing.Size(645, 342);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Check Tickets";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -750,9 +754,9 @@
             // 
             // troubleClearButton
             // 
-            this.troubleClearButton.Location = new System.Drawing.Point(460, 293);
+            this.troubleClearButton.Location = new System.Drawing.Point(446, 284);
             this.troubleClearButton.Name = "troubleClearButton";
-            this.troubleClearButton.Size = new System.Drawing.Size(73, 25);
+            this.troubleClearButton.Size = new System.Drawing.Size(80, 36);
             this.troubleClearButton.TabIndex = 24;
             this.troubleClearButton.Text = "Clear";
             this.troubleClearButton.UseVisualStyleBackColor = true;
@@ -817,9 +821,9 @@
             // 
             // deleteTroubleButton
             // 
-            this.deleteTroubleButton.Location = new System.Drawing.Point(539, 293);
+            this.deleteTroubleButton.Location = new System.Drawing.Point(532, 284);
             this.deleteTroubleButton.Name = "deleteTroubleButton";
-            this.deleteTroubleButton.Size = new System.Drawing.Size(73, 25);
+            this.deleteTroubleButton.Size = new System.Drawing.Size(77, 36);
             this.deleteTroubleButton.TabIndex = 25;
             this.deleteTroubleButton.Text = "Delete";
             this.deleteTroubleButton.UseVisualStyleBackColor = true;
@@ -827,9 +831,9 @@
             // 
             // editTroubleButton
             // 
-            this.editTroubleButton.Location = new System.Drawing.Point(539, 262);
+            this.editTroubleButton.Location = new System.Drawing.Point(532, 243);
             this.editTroubleButton.Name = "editTroubleButton";
-            this.editTroubleButton.Size = new System.Drawing.Size(73, 25);
+            this.editTroubleButton.Size = new System.Drawing.Size(77, 35);
             this.editTroubleButton.TabIndex = 23;
             this.editTroubleButton.Text = "Update";
             this.editTroubleButton.UseVisualStyleBackColor = true;
@@ -863,9 +867,9 @@
             // 
             // addTroubleButton
             // 
-            this.addTroubleButton.Location = new System.Drawing.Point(460, 262);
+            this.addTroubleButton.Location = new System.Drawing.Point(446, 243);
             this.addTroubleButton.Name = "addTroubleButton";
-            this.addTroubleButton.Size = new System.Drawing.Size(73, 25);
+            this.addTroubleButton.Size = new System.Drawing.Size(80, 35);
             this.addTroubleButton.TabIndex = 22;
             this.addTroubleButton.Text = "Add New";
             this.addTroubleButton.UseVisualStyleBackColor = true;
@@ -1113,11 +1117,28 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Technology Control Page";
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(26, 243);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(52, 14);
+            this.label38.TabIndex = 32;
+            this.label38.Text = "Solution";
+            // 
+            // ticketSolutionTextBox
+            // 
+            this.ticketSolutionTextBox.Location = new System.Drawing.Point(84, 240);
+            this.ticketSolutionTextBox.Multiline = true;
+            this.ticketSolutionTextBox.Name = "ticketSolutionTextBox";
+            this.ticketSolutionTextBox.Size = new System.Drawing.Size(386, 46);
+            this.ticketSolutionTextBox.TabIndex = 33;
+            // 
             // TechnologyAssistantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 423);
+            this.ClientSize = new System.Drawing.Size(684, 435);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.tabControl1);
@@ -1243,5 +1264,7 @@
         private System.Windows.Forms.TextBox keyWordsTextBox;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button sortTSListBoxButton;
+        private System.Windows.Forms.TextBox ticketSolutionTextBox;
+        private System.Windows.Forms.Label label38;
     }
 }

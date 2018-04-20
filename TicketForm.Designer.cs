@@ -187,6 +187,7 @@
             "Chromebook",
             "Network",
             "Informational",
+            "Item Request",
             "Other"});
             this.categoryComboBox.Location = new System.Drawing.Point(98, 135);
             this.categoryComboBox.Name = "categoryComboBox";
